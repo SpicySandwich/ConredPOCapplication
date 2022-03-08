@@ -9,3 +9,10 @@ m
 -src/main/java/com/product/Entity/Product.java,e\7\e716c046757c50d70fc2c4dda03f95299355d425
 k
 ;src/main/java/com/product/Controller/ProductController.java,0\c\0cd8c4af50b68ac2a0a882a5d3c3f4e0e0e445fc
+:
+
+Dockerfile,6\6\6651ddff6eb82c840ced7c1dddee15c6e1913dd4
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+C
+docker-compose.yaml,e\f\ef8def03dc8f162799089e9b5f4321201c8810d5

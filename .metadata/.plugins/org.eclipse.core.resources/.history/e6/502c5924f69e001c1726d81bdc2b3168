@@ -1,0 +1,7 @@
+version: "3"
+services:
+  product-service:
+     image: product-service
+     build: .
+     port: 
+       - 8091:8091
