@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  mysqldb:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_ROOT_DATABASE=dbpoc
+      - MYSQL_ROOT_USER=root
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - 3306:3306
+
+  ProductMicroservice:
+    image: productmicroservice:latest
+    ports:
+      - 8091:8091
+    restart: always
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - mysqldb

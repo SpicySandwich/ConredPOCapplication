@@ -1,21 +1,24 @@
-version: "3.7"
+version: "3.8"
 services:
-  api_service:
-    build: .
-    restart: always
-    ports:
-      - 8091:8091
-    depends_on:
-      - mysqldb
-    links:
-      - mysqldb:dbpoc
   mysqldb:
-    image: "mysql:8.0"
-    restart: always
+    image: mysql:latest
+    environment:
+      DB_CONNECTION: mysqldb
+      DB_HOST: 127.0.0.1
+      DB_PORT: 3306
+      DB_DATABASE: mysqldb
+      DB_USERNAME: root
     ports:
       - 3307:3306
-    environment:
-      MYSQL_DATABASE: mysqldbpoc
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
-      MYSQL_ROOT_PASSWORD: root
+
+  ProductMicroservice:
+    image: productmicroservice:latest
+    ports:
+      - 8091:8091
+
+    restart: unless-stopped
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - mysqldb

@@ -1,4 +1,6 @@
 FROM openjdk:8
-VOLUME  /product-app
-ADD target/ProductMicroservice.jar app.jar
-ENTRYPOINT ["java","-jar","app.jar"]
+WORKDIR '/app'
+ADD target/ProductMicroservice.jar ProductMicroservice.jar
+EXPOSE 8091
+COPY . .
+ENTRYPOINT ["java", "-jar", "ProductMicroservice.jar"]
