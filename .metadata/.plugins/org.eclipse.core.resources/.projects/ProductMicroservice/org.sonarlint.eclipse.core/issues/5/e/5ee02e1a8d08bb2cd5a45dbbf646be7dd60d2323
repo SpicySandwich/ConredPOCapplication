@@ -1,0 +1,9 @@
+
+g	java:S125#"<This block of commented-out lines of code should be removed.(œÇ÷ÑH±RMAJORZ
+CODE_SMELL
+Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(™ãþèýÿÿÿÿH³RMINORZ
+CODE_SMELL
+q
+java:S1128
+">Remove this unused import 'com.product.Repository.ReviewRepo'.(¼Â™ã8ä©µ ö/H´RMINORZ
+CODE_SMELL

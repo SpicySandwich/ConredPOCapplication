@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @EnableMongoRepositories
 public class LoggerMicroserviceApplication {
 	
+	//awd
 	
 	public static void main(String[] args) {
 		SpringApplication.run(LoggerMicroserviceApplication.class, args);

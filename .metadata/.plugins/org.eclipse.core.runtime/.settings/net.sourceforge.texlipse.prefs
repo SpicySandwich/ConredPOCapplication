@@ -1,0 +1,16 @@
+cmd.TexColor=192,192,192
+com.TexColor=0,255,255
+crl.TexColor=255,128,0
+def.BibColor=192,192,192
+def.TexColor=192,192,192
+eclipse.preferences.version=1
+equ.TexColor=255,0,255
+key.BibColor=255,255,0
+num.TexColor=255,0,255
+overriddenByCSS=,spe.TexColor,cmd.TexColor,equ.TexColor,com.TexColor,num.TexColor,str.BibColor,key.BibColor,typ.BibColor,sqr.TexColor,def.TexColor,verb.TexColor,def.BibColor,crl.TexColor,slc.BibColor,
+slc.BibColor=0,255,255
+spe.TexColor=128,128,255
+sqr.TexColor=255,128,0
+str.BibColor=255,0,255
+typ.BibColor=0,255,0
+verb.TexColor=255,128,0

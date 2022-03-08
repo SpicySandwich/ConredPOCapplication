@@ -1,0 +1,9 @@
+
+j
+java:S1128"9Remove this unused import 'javax.persistence.Embeddable'.(‡¡Ý¬ûÿÿÿÿHðRMINORZ
+CODE_SMELL
+~
+java:S1128"MRemove this unused import 'org.springframework.kafka.annotation.EnableKafka'.(ð…Ž¿üÿÿÿÿHòRMINORZ
+CODE_SMELL
+Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(û¥åŸüÿÿÿÿHôRMINORZ
+CODE_SMELL

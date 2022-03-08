@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ShowViewDialog">
+		<item key="DIALOG_X_ORIGIN" value="735"/>
+		<item key="DIALOG_Y_ORIGIN" value="177"/>
+		<item key="DIALOG_WIDTH" value="472"/>
+		<item key="DIALOG_HEIGHT" value="517"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		<item key="ShowViewDialog.STORE_SELECTED_VIEW_ID" value="org.springframework.ide.eclipse.boot.dash.views.BootDashView"/>
+		<list key="ShowViewDialog.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="General"/>
+			<item value="Ant"/>
+			<item value="API Tools"/>
+			<item value="CodeTogether"/>
+			<item value="CVS"/>
+			<item value="Data Management"/>
+			<item value="Debug"/>
+			<item value="DevStyle"/>
+			<item value="Docker"/>
+			<item value="Eclipse Runtime Spies"/>
+			<item value="Forge"/>
+			<item value="Git"/>
+			<item value="Gradle"/>
+			<item value="Help"/>
+			<item value="Hibernate"/>
+			<item value="Java"/>
+			<item value="Java Browsing"/>
+			<item value="Java Monitor"/>
+			<item value="JavaServer Faces"/>
+			<item value="JBoss Tools"/>
+			<item value="JBoss Tools Web"/>
+			<item value="JBoss Tools Web Services"/>
+			<item value="JMX"/>
+			<item value="JPA"/>
+			<item value="Maven"/>
+			<item value="Mylyn"/>
+			<item value="Oomph"/>
+			<item value="Plug-in Development"/>
+			<item value="Other"/>
+		</list>
+	</section>
+</section>
