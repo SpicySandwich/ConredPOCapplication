@@ -41,10 +41,6 @@ public class ProductController {
       
       @Autowired
     	KafkaTemplate<String, ProductDTO> kafkaTemplateDTO ;
-      
-
-      
- 
   	
   	@Autowired
   	RestTemplate restTemplate;
@@ -60,7 +56,7 @@ public class ProductController {
       
       @PostMapping("/addproduct")
       Product PostProduct(@RequestBody(required = true) Product product) {
-    	 kafkaTemplate.send(producttopic, product);
+    kafkaTemplate.send(producttopic, product);
         return productRepository.save(product);
       }
     

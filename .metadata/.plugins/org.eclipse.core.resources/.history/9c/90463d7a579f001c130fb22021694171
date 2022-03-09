@@ -1,0 +1,29 @@
+version: "3.8"
+services: 
+  productservice-app:
+    image: productservice-app
+    restart: unless-stopped
+    build: .
+    ports:
+      - 8092:8092
+    environment:
+      - MYSQL_HOST= mysqldb
+      - MYSQL_USER= root
+      - MYSQL_PASSWORD= root
+      - MYSQL_PORT= 3306
+  mysqldb: 
+    container_name: mysqldb
+    restart: unless-stopped
+    image: mysql:latest
+    ports: 
+     - 3307:3306
+    cap_add:
+      - SYS_NICE
+    volumes:
+      -  /home/user/Desktop/db:/var/lib/mysql
+
+    environment:
+      - MYSQL_DATABASE= dbpoc
+      - MYSQL_ROOT_PASSWORD= root
+
+        

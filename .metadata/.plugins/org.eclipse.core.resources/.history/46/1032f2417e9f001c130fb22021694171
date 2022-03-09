@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  mysql-standalone1:
+    image: mysql:5.7
+    environment:
+    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_DATABASE=dbpoc
+    - MYSQL_USER=root 
+    - MYSQL_PASSWORD=root
+  ProductMicroservice:
+   image: productmicroservice
+   ports:
+     - 8082:8080
+   build:
+     context: ./
+     dockerfile: Dockerfile
+   depends_on:
+     - mysql-standalone1       

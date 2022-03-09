@@ -7,7 +7,6 @@
   <path value="C:/Users/conre/.m2/repository/io/netty/netty-transport-classes-epoll/4.1.73.Final/netty-transport-classes-epoll-4.1.73.Final.jar"/>
   <path value="C:/Users/conre/.m2/repository/org/springframework/boot/spring-boot-starter-json/2.6.3/spring-boot-starter-json-2.6.3.jar"/>
   <path value="C:/Users/conre/.m2/repository/org/springframework/boot/spring-boot-starter-aop/2.6.3/spring-boot-starter-aop-2.6.3.jar"/>
-  <path value="C:/Users/conre/.m2/repository/org/thymeleaf/thymeleaf/3.0.14.RELEASE/thymeleaf-3.0.14.RELEASE.jar"/>
   <path value="C:/Users/conre/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/2.6.3/spring-boot-starter-tomcat-2.6.3.jar"/>
   <path value="C:/Users/conre/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/2.6.3/spring-boot-autoconfigure-2.6.3.jar"/>
   <path value="C:/Users/conre/.m2/repository/io/netty/netty-tcnative-classes/2.0.46.Final/netty-tcnative-classes-2.0.46.Final.jar"/>
@@ -29,7 +28,6 @@
   <path value="C:/Users/conre/.m2/repository/org/apache/kafka/kafka-streams/3.0.0/kafka-streams-3.0.0.jar"/>
   <path value="C:/Users/conre/.m2/repository/io/swagger/core/v3/swagger-models/2.1.12/swagger-models-2.1.12.jar"/>
   <path value="C:/Users/conre/.m2/repository/ch/qos/logback/logback-core/1.2.10/logback-core-1.2.10.jar"/>
-  <path value="C:/Users/conre/.m2/repository/org/unbescape/unbescape/1.1.6.RELEASE/unbescape-1.1.6.RELEASE.jar"/>
   <path value="C:/Users/conre/.m2/repository/org/assertj/assertj-core/3.21.0/assertj-core-3.21.0.jar"/>
   <path value="C:/Users/conre/.m2/repository/org/xmlunit/xmlunit-core/2.8.4/xmlunit-core-2.8.4.jar"/>
   <path value="C:/Users/conre/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar"/>
@@ -68,10 +66,9 @@
   <path value="C:/Users/conre/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar"/>
   <path value="C:/Users/conre/.m2/repository/org/mockito/mockito-core/4.0.0/mockito-core-4.0.0.jar"/>
   <path value="C:/Users/conre/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/2.6.3/spring-boot-starter-data-jpa-2.6.3.jar"/>
-  <path value="C:/Users/conre/.m2/repository/org/springframework/kafka/spring-kafka/2.8.2/spring-kafka-2.8.2.jar"/>
   <path value="C:/Users/conre/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/9.0.56/tomcat-embed-core-9.0.56.jar"/>
+  <path value="C:/Users/conre/.m2/repository/org/springframework/kafka/spring-kafka/2.8.2/spring-kafka-2.8.2.jar"/>
   <path value="C:/Users/conre/.m2/repository/org/springframework/retry/spring-retry/1.3.1/spring-retry-1.3.1.jar"/>
-  <path value="C:/Users/conre/.m2/repository/org/attoparser/attoparser/2.0.5.RELEASE/attoparser-2.0.5.RELEASE.jar"/>
   <path value="C:/Users/conre/.m2/repository/org/lz4/lz4-java/1.7.1/lz4-java-1.7.1.jar"/>
   <path value="C:/Users/conre/.m2/repository/org/apache/kafka/kafka-storage-api/3.0.0/kafka-storage-api-3.0.0.jar"/>
   <path value="C:/Users/conre/.m2/repository/org/glassfish/jaxb/txw2/2.3.5/txw2-2.3.5.jar"/>
@@ -80,8 +77,8 @@
   <path value="C:/Users/conre/.m2/repository/com/typesafe/scala-logging/scala-logging_2.13/3.9.3/scala-logging_2.13-3.9.3.jar"/>
   <path value="C:/Users/conre/.m2/repository/com/zaxxer/HikariCP/4.0.3/HikariCP-4.0.3.jar"/>
   <path value="C:/Users/conre/.m2/repository/com/yammer/metrics/metrics-core/2.2.0/metrics-core-2.2.0.jar"/>
-  <path value="C:/Users/conre/.m2/repository/org/springframework/spring-aop/5.3.15/spring-aop-5.3.15.jar"/>
   <path value="C:/Users/conre/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.13.1/jackson-dataformat-yaml-2.13.1.jar"/>
+  <path value="C:/Users/conre/.m2/repository/org/springframework/spring-aop/5.3.15/spring-aop-5.3.15.jar"/>
   <path value="C:/Users/conre/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/9.0.56/tomcat-embed-el-9.0.56.jar"/>
   <path value="C:/Users/conre/.m2/repository/org/springframework/spring-orm/5.3.15/spring-orm-5.3.15.jar"/>
   <path value="C:/Users/conre/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.1/jackson-annotations-2.13.1.jar"/>
@@ -91,7 +88,6 @@
   <path value="C:/Users/conre/.m2/repository/net/bytebuddy/byte-buddy-agent/1.11.22/byte-buddy-agent-1.11.22.jar"/>
   <path value="C:/Users/conre/.m2/repository/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar"/>
   <path value="C:/Users/conre/.m2/repository/com/thoughtworks/paranamer/paranamer/2.8/paranamer-2.8.jar"/>
-  <path value="C:/Users/conre/.m2/repository/org/thymeleaf/thymeleaf-spring5/3.0.14.RELEASE/thymeleaf-spring5-3.0.14.RELEASE.jar"/>
   <path value="C:/Users/conre/.m2/repository/org/springframework/boot/spring-boot-starter-validation/2.6.3/spring-boot-starter-validation-2.6.3.jar"/>
   <path value="C:/Users/conre/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-csv/2.13.1/jackson-dataformat-csv-2.13.1.jar"/>
   <path value="C:/Users/conre/.m2/repository/org/webjars/swagger-ui/4.5.0/swagger-ui-4.5.0.jar"/>
@@ -144,7 +140,6 @@
   <path value="C:/Users/conre/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar"/>
   <path value="C:/Users/conre/.m2/repository/org/jboss/jandex/2.4.2.Final/jandex-2.4.2.Final.jar"/>
   <path value="C:/Users/conre/.m2/repository/org/springframework/spring-jcl/5.3.15/spring-jcl-5.3.15.jar"/>
-  <path value="C:/Users/conre/.m2/repository/org/thymeleaf/extras/thymeleaf-extras-java8time/3.0.4.RELEASE/thymeleaf-extras-java8time-3.0.4.RELEASE.jar"/>
   <path value="C:/Users/conre/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.13.1/jackson-module-parameter-names-2.13.1.jar"/>
   <path value="C:/Users/conre/.m2/repository/org/springframework/spring-jdbc/5.3.15/spring-jdbc-5.3.15.jar"/>
   <path value="C:/Users/conre/.m2/repository/io/netty/netty-resolver/4.1.73.Final/netty-resolver-4.1.73.Final.jar"/>
@@ -155,7 +150,6 @@
   <path value="C:/Users/conre/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar"/>
   <path value="C:/Users/conre/.m2/repository/org/mockito/mockito-junit-jupiter/4.0.0/mockito-junit-jupiter-4.0.0.jar"/>
   <path value="C:/Users/conre/.m2/repository/io/netty/netty-transport/4.1.73.Final/netty-transport-4.1.73.Final.jar"/>
-  <path value="C:/Users/conre/.m2/repository/org/springframework/boot/spring-boot-starter-thymeleaf/2.6.3/spring-boot-starter-thymeleaf-2.6.3.jar"/>
   <path value="C:/Users/conre/.m2/repository/org/scala-lang/modules/scala-java8-compat_2.13/1.0.0/scala-java8-compat_2.13-1.0.0.jar"/>
   <path value="C:/Users/conre/.m2/repository/com/sun/istack/istack-commons-runtime/3.0.12/istack-commons-runtime-3.0.12.jar"/>
   <path value="C:/Users/conre/.m2/repository/org/springframework/boot/spring-boot-test/2.6.3/spring-boot-test-2.6.3.jar"/>
