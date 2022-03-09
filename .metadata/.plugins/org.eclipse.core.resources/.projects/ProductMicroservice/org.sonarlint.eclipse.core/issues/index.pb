@@ -18,3 +18,7 @@ C
 docker-compose.yaml,e\f\ef8def03dc8f162799089e9b5f4321201c8810d5
 k
 ;src/main/java/com/product/Repository/ProductRepository.java,0\1\0153ebd9db25cdd130777f38b834632ea72e2d59
+4
+mvnw,5\d\5d837c4ed85ecaaf932c506e80ff5d7b9f3d590d
+h
+8src/main/java/com/product/Config/KafkaConfiguration.java,c\7\c77a8eb388bf1eb96c16b567eeebc8ddd5a3b89b
