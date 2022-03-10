@@ -8,7 +8,9 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 
-
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Component
 public class ProductExecption extends RuntimeException {
 
@@ -18,31 +20,7 @@ public class ProductExecption extends RuntimeException {
 	private String producterrorcode;
 	private String producterrormessage;
 	
-	public String getProducterrorcode() {
-		
-		return producterrorcode;
-	}
-	public void setProducterrorcode(String producterrorcode) {
-		this.producterrorcode = producterrorcode;
-	}
-	public String getProducterrormessage() {
-		return producterrormessage;
-	}
-	public void setProducterrormessage(String producterrormessage) {
-		this.producterrormessage = producterrormessage;
-	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	public ProductExecption() {
-		super();
-	}
-	public ProductExecption(String producterrorcode, String producterrormessage) {
-		super();
-		this.producterrorcode = producterrorcode;
-		this.producterrormessage = producterrormessage;
-	}
-	
+
 	
 	
 	

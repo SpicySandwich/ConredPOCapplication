@@ -1,9 +1,12 @@
 
-g	java:S125#"<This block of commented-out lines of code should be removed.(ΗχΡHή	RMAJORZ
+–
+java:S1488n"cImmediately return this expression instead of assigning it to the temporary variable "saveProduct".(σθ•ª8‡Κ””χ/HΦRMINORZ
+CODE_SMELL
+	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(™γώθύÿÿÿÿHΑRMINORZ
+CODE_SMELL
+™
+java:S1192)"cDefine a constant instead of duplicating this literal "Error getting finding list in data" 5 times.(Χ™κΘ8Γχ/HμRCRITICALZ
 CODE_SMELL
 q
-java:S1128
-">Remove this unused import 'com.product.Repository.ReviewRepo'.(ΌΒ™γ8δ©µ φ/Hά	RMINORZ
-CODE_SMELL
-	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(™γώθύÿÿÿÿHΰ	RMINORZ
+java:S1128">Remove this unused import 'com.product.Repository.ReviewRepo'.(ΌΒ™γ8Ύ¨‰•χ/H"RMINORZ
 CODE_SMELL
