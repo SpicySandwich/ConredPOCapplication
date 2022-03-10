@@ -1,0 +1,5 @@
+package com.product.ModeException;
+
+public class IllegalArgumentException {
+
+}

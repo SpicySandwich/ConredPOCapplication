@@ -975,3 +975,54 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-10 06:09:25.598
 !MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.tiXzFOFP => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-10 06:16:07.697
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-10 06:16:07.699
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@30513c77[org.springframework.tooling.boot.ls:1.30.0.202201310805(id=1446)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-10 06:16:07.702
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-10 06:16:10.350
+!MESSAGE Boot LS startup time from start to initialized: 2646ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-10 06:16:10.414
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.ngXBagdiisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-10 06:16:10.415
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-10 06:16:10.416
+!MESSAGE Scheduling initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-10 06:16:10.417
+!MESSAGE Scheduling initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-10 06:16:10.418
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-10 06:16:10.418
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.ngXBagdi => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-10 06:16:10.426
+!MESSAGE classpath=154 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-10 06:16:10.433
+!MESSAGE buffering callback sts4.classpath.ngXBagdi ProductMicroservice false 154
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-10 06:16:10.434
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-10 06:16:10.443
+!MESSAGE classpath=123 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-10 06:16:10.452
+!MESSAGE buffering callback sts4.classpath.ngXBagdi LoggerMicroservice false 123
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-10 06:16:10.455
+!MESSAGE executing callback sts4.classpath.ngXBagdi 2 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-10 06:16:10.804
+!MESSAGE executing callback sts4.classpath.ngXBagdi SUCCESS [done]

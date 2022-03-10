@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.product.DTO.ProductDTO;
 import com.product.Entity.Product;
-import com.product.Exception.ProductExecption;
+import com.product.ModeException.ProductExecption;
 import com.product.Repository.ProductRepository;
 import com.product.Repository.ReviewRepo;
 
