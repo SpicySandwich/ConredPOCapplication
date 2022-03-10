@@ -1,0 +1,72 @@
+package com.product.Service;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import com.product.DTO.ProductDTO;
+import com.product.Entity.Product;
+import com.product.Exception.ProductExecption;
+import com.product.Repository.ProductRepository;
+import com.product.Repository.ReviewRepo;
+
+@Service
+public class ProductService implements ProductServiceInt {
+	
+	@Autowired
+	private  ProductRepository productRepository;
+	
+
+	
+	@Autowired
+	private ProductDTOconverter productDTOconverter;
+	
+ 	
+	@Transactional
+	@Override
+	public Product addProduct (ProductDTO newProduct) {
+		
+		Product currentProduct =productRepository.getById( newProduct.getProductid());
+	
+		currentProduct.setProductname(newProduct.getProductname());
+		currentProduct.setProductbrand(newProduct.getProductbrand());
+		currentProduct.setProductprice(newProduct.getProductprice());
+		currentProduct.setProductdescription(newProduct.getProductdescription());
+		currentProduct.setProductquantity(newProduct.getProductquantity());  
+	    return productRepository.save(currentProduct);
+	    
+	}
+	
+	
+	@Override
+	public ProductDTO getUserByUserId(Long productid) { 
+		Product userObj = productRepository.findById(productid).orElse(null);
+		
+
+		  return  productDTOconverter.convertToDto(userObj);
+	  }
+	
+	@Override
+	public void deletedataByID(Long  productid) {
+
+		try {
+			 productRepository.deleteById(productid);
+		}catch (IllegalArgumentException e) {
+			throw new ProductExecption("001"," The id your try to delete is cannot be found, Kindly input existing Id" + e.getMessage());
+		}catch (Exception e) {
+			throw new ProductExecption("002","Error getting finding list in data" + e.getMessage());
+		}
+		
+	
+		
+	}
+
+
+     @Override
+     public List<Product> showAll() {
+	return productRepository.findAll();
+	
+}
+     
+
+}

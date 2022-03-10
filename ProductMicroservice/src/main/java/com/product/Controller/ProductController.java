@@ -6,11 +6,14 @@ import java.util.stream.Collectors;
 import com.product.DTO.ProductDTO;
 import com.product.Entity.Product;
 import com.product.Entity.ProductReviews;
+import com.product.Exception.ControllerException;
 import com.product.Repository.ProductRepository;
 import com.product.Repository.ReviewRepo;
 import com.product.Service.ProductService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -48,17 +51,29 @@ public class ProductController {
  
   	private final String producttopic = "producttopic";
       
+
       @GetMapping("/productlist")
-      public List<Product> GetProductName(){
-            return productService.showAll();
-        
-}
+  	public ResponseEntity<List<Product>> getAllEmployees(){
+  		
+  		List<Product> listOfAllProducts =productService.showAll();
+  		return new ResponseEntity<List<Product>>(listOfAllProducts, HttpStatus.OK);
+  	}
       
       @PostMapping("/addproduct")
-      Product PostProduct(@RequestBody(required = true) Product product) {
-    kafkaTemplate.send(producttopic, product);
-        return productRepository.save(product);
-      }
+  	public ResponseEntity<?>  PostProduct(@RequestBody(required = true) Product product){
+  		try {
+  		  kafkaTemplate.send(producttopic, product);
+  			Product  addingProduct = productService.addProduct(product);
+  			return new ResponseEntity<Product >(addingProduct, HttpStatus.CREATED);
+  		}catch (ControllerException exception) {
+  			ControllerException controllerException = new ControllerException(exception.getProducterrorcode(),exception.getProducterrormessage());
+  			return new ResponseEntity<ControllerException>(controllerException, HttpStatus.BAD_REQUEST);
+  		}catch (Exception exception) {
+  			ControllerException controllerException = new ControllerException("611","Something went wrong in controller");
+  			return new ResponseEntity<ControllerException>(controllerException, HttpStatus.BAD_REQUEST);
+  		}
+  	}
+     
     
       @GetMapping("/productview/{productid}")
       public ProductDTO GetProductName(@PathVariable Long productid,@RequestBody(required = true) ProductDTO product){
@@ -67,9 +82,21 @@ public class ProductController {
       }
       
       @PutMapping("/productupdate")
-      public Product PutProduct(@RequestBody(required = true)  ProductDTO product){
-    	  kafkaTemplateDTO.send(producttopic, product);
-         return  productService.addProduct (product);
+      public  ResponseEntity<?> PutProduct(@RequestBody(required = true)  ProductDTO product){
+
+         
+     	try {
+    		  kafkaTemplateDTO.send(producttopic, product);
+    			Product updateProduct = productService.updateProduct(product);
+    			return new ResponseEntity<Product >(updateProduct, HttpStatus.OK);
+    			
+    		}catch (ControllerException exception) {
+    			ControllerException controllerException = new ControllerException(exception.getProducterrorcode(),exception.getProducterrormessage());
+    			return new ResponseEntity<ControllerException>(controllerException, HttpStatus.BAD_REQUEST);
+    		}catch (Exception exception) {
+    			ControllerException controllerException = new ControllerException("611","Something went wrong in controller");
+    			return new ResponseEntity<ControllerException>(controllerException, HttpStatus.BAD_REQUEST);
+    		}
       }
 
       @DeleteMapping("/productdelete/{productid}")
@@ -77,7 +104,9 @@ public class ProductController {
     	  kafkaTemplateDTO.send(producttopic, product);
     	  productService.deletedataByID(productid);
             return productid;
-
+           
 
       }
+      
+
 }
