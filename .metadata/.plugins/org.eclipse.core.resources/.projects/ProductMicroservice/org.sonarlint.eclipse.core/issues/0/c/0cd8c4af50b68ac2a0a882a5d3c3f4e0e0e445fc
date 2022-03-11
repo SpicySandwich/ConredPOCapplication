@@ -1,58 +1,42 @@
 
-‘
-java:S2293C"YReplace the type specification in this constructor call with the diamond operator ("<>").(÷ÛØÜÿÿÿÿÿ8¼‡¤”÷/Hƒ"RMINORZ
+q
+java:S1128"9Remove this unused import 'org.springframework.ui.Model'.(ê†ıÿÿÿÿ8Äâ”÷/Hõ#RMINORZ
 CODE_SMELL
-‘
-java:S2293_"YReplace the type specification in this constructor call with the diamond operator ("<>").(àù„ùıÿÿÿÿ8¼‡¤”÷/H…"RMINORZ
+…	java:S100D"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×€Ü¼ıÿÿÿÿ8ö­ã›÷/H÷#RMINORZ
 CODE_SMELL
-Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÚØÚÑøÿÿÿÿH‡"RMINORZ
-CODE_SMELL
-M
-java:S11704"!Make this final field static too.(¢¨‹İHˆ"RMINORZ
+~	java:S100J"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ±¾ûÿÿÿÿHø#RMINORZ
 CODE_SMELL
 q
-java:S1128"9Remove this unused import 'org.springframework.ui.Model'.(ê†ıÿÿÿÿ8Äâ”÷/H‰"RMINORZ
-CODE_SMELL
-‘
-java:S2293["YReplace the type specification in this constructor call with the diamond operator ("<>").(‰†Êıÿÿÿÿ8èîÄ”÷/H‹"RMINORZ
-CODE_SMELL
-y	java:S100g"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ËÙÿõH"RMINORZ
-CODE_SMELL
-…	java:S100O"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×€Ü¼ıÿÿÿÿ8Äşÿ“÷/H"RMINORZ
+java:S1128">Remove this unused import 'com.product.Repository.ReviewRepo'.(¼Â™ã8Äâ”÷/Hù#RMINORZ
 CODE_SMELL
 v
-java:S1128">Remove this unused import 'com.product.Entity.ProductReviews'.(¹…õåÿÿÿÿÿ8Äâ”÷/H"RMINORZ
+java:S1128">Remove this unused import 'com.product.Entity.ProductReviews'.(¹…õåÿÿÿÿÿ8Äâ”÷/Hû#RMINORZ
+CODE_SMELL
+y	java:S100P"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ËÙÿõHı#RMINORZ
 CODE_SMELL
 
-java:S1128"URemove this unused import 'org.springframework.transaction.annotation.Transactional'.(ğùçøùÿÿÿÿ8Äâ”÷/H‘"RMINORZ
+java:S1128"URemove this unused import 'org.springframework.transaction.annotation.Transactional'.(ğùçøùÿÿÿÿ8Äâ”÷/Hş#RMINORZ
 CODE_SMELL
-‘
-java:S2293;"YReplace the type specification in this constructor call with the diamond operator ("<>").(âæØÈùÿÿÿÿ8ˆµ©”÷/H“"RMINORZ
+‚
+java:S1128	"JRemove this unused import 'com.product.ModeException.ControllerException'.(¿ŒĞãıÿÿÿÿ8ö­ã›÷/H€$RMINORZ
 CODE_SMELL
-‘
-java:S2293b"YReplace the type specification in this constructor call with the diamond operator ("<>").(àù„ùıÿÿÿÿ8¼‡¤”÷/H•"RMINORZ
+~
+java:S4684>"@Replace this persistent entity with a simple POJO or DTO object.(£¥õßıÿÿÿÿ8—…ëö/H‚$RCRITICALZVULNERABILITY
+…	java:S100>"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£¥õßıÿÿÿÿ8Äşÿ“÷/Hƒ$RMINORZ
 CODE_SMELL
-a
-java:S1452U"&Remove usage of generic wildcard type.(ĞÙş…ùÿÿÿÿ8¼‡¤”÷/H—"RCRITICALZ
+Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÚØÚÑøÿÿÿÿH„$RMINORZ
 CODE_SMELL
-‘
-java:S2293F"YReplace the type specification in this constructor call with the diamond operator ("<>").(àù„ùıÿÿÿÿ8èîÄ”÷/H˜"RMINORZ
+x
+java:S1128"@Remove this unused import 'org.springframework.http.HttpStatus'.(íŸ¤Šúÿÿÿÿ8ö­ã›÷/H…$RMINORZ
 CODE_SMELL
-\
-java:S1452?"&Remove usage of generic wildcard type.( ÑÈ¶8èîÄ”÷/Hš"RCRITICALZ
+M
+java:S11704"!Make this final field static too.(¢¨‹İH‡$RMINORZ
 CODE_SMELL
-q
-java:S1128">Remove this unused import 'com.product.Repository.ReviewRepo'.(¼Â™ã8Äâ”÷/H›"RMINORZ
-CODE_SMELL
-€	java:S100?"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( ÑÈ¶8Äşÿ“÷/H"RMINORZ
-CODE_SMELL
-~	java:S100U"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ĞÙş…ùÿÿÿÿH"RMINORZ
+|
+java:S1128"DRemove this unused import 'org.springframework.http.ResponseEntity'.(¶¯ø¦úÿÿÿÿ8ö­ã›÷/Hˆ$RMINORZ
 CODE_SMELL
 p
-java:S1128"8Remove this unused import 'java.util.stream.Collectors'.(Óóº´úÿÿÿÿ8Äâ”÷/HŸ"RMINORZ
+java:S1128"8Remove this unused import 'java.util.stream.Collectors'.(Óóº´úÿÿÿÿ8Äâ”÷/HŠ$RMINORZ
 CODE_SMELL
-‘
-java:S2293I"YReplace the type specification in this constructor call with the diamond operator ("<>").(àù„ùıÿÿÿÿ8èîÄ”÷/H¡"RMINORZ
+…	java:S1008"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áâü—ùÿÿÿÿ8Äşÿ“÷/HŒ$RMINORZ
 CODE_SMELL
-y
-java:S4684?"@Replace this persistent entity with a simple POJO or DTO object.( ÑÈ¶8—…ëö/H£"RCRITICALZVULNERABILITY

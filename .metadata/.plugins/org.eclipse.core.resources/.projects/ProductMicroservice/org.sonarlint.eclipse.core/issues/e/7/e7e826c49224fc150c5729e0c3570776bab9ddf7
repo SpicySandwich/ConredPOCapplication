@@ -1,0 +1,12 @@
+
+Z
+java:S1165")Make this "producterrorcode" field final.(½½Æ«ùÿÿÿÿH“$RMINORZ
+CODE_SMELL
+X
+java:S1165",Make this "producterrormessage" field final.(­Þ½õH”$RMINORZ
+CODE_SMELL
+X
+java:S1128",Remove this unused import 'lombok.ToString'.(¹ÂÄÓH•$RMINORZ
+CODE_SMELL
+Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ðà¹¼øÿÿÿÿH—$RMINORZ
+CODE_SMELL

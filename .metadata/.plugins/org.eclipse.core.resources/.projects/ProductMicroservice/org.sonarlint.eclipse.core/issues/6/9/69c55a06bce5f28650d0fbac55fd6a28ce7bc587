@@ -1,21 +1,0 @@
-
-n
-java:S1128"6Remove this unused import 'lombok.AllArgsConstructor'.(´œ¾öùÿÿÿÿ8ÕÙ¤“÷/HùRMINORZ
-CODE_SMELL
-_
-java:S1128",Remove this unused import 'lombok.ToString'.(¹ÂÄÓ8ÕÙ¤“÷/HÿRMINORZ
-CODE_SMELL
-_
-java:S1165",Make this "producterrormessage" field final.(­Ş½õ8»Ö÷/HÙRMINORZ
-CODE_SMELL
-`
-java:S1128"(Remove this unused import 'lombok.Data'.(÷í«ÿÿÿÿÿ8ÕÙ¤“÷/HûRMINORZ
-CODE_SMELL
-Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÊæàúÿÿÿÿHÍRMINORZ
-CODE_SMELL
-h
-java:S1128"5Remove this unused import 'lombok.NoArgsConstructor'.(¸¨›8ÕÙ¤“÷/HıRMINORZ
-CODE_SMELL
-a
-java:S1165")Make this "producterrorcode" field final.(½½Æ«ùÿÿÿÿ8»Ö÷/HØRMINORZ
-CODE_SMELL
