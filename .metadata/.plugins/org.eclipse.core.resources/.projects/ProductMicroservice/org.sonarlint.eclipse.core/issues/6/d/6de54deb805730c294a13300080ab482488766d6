@@ -1,12 +1,12 @@
 
-Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ü’¡øÿÿÿÿHú"RMINORZ
+\
+java:S1452"&Remove usage of generic wildcard type.(¥İ­ú8Š–œ÷/H¼*RCRITICALZ
 CODE_SMELL
 a
-java:S1452"&Remove usage of generic wildcard type.(¾şñ†üÿÿÿÿ8Åé—œ÷/Hî#RCRITICALZ
+java:S1452"&Remove usage of generic wildcard type.(¾şñ†üÿÿÿÿ8Åé—œ÷/H½*RCRITICALZ
 CODE_SMELL
 \
-java:S1452&"&Remove usage of generic wildcard type.(¯¯ë¢8Ü—œœ÷/Hï#RCRITICALZ
+java:S1452&"&Remove usage of generic wildcard type.(¯¯ë¢8Ü—œœ÷/H¾*RCRITICALZ
 CODE_SMELL
-\
-java:S1452"&Remove usage of generic wildcard type.(¥İ­ú8Š–œ÷/Hí#RCRITICALZ
+Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ü’¡øÿÿÿÿH¿*RMINORZ
 CODE_SMELL

@@ -7,11 +7,14 @@ import com.product.DTO.ProductDTO;
 import com.product.Entity.Product;
 import com.product.Entity.ProductReviews;
 import com.product.ModeException.ControllerException;
+import com.product.ProductProducer.ProductProducer;
 import com.product.Repository.ProductRepository;
 import com.product.Repository.ReviewRepo;
 import com.product.Service.ProductService;
 
+import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -48,9 +51,12 @@ public class ProductController {
   	@Autowired
   	RestTemplate restTemplate;
   	
- 
-  	private final String producttopic = "producttopic";
-      
+  	
+  	private final String TOPIC = "producttopic";
+  	
+  	@Autowired
+  	ProductProducer producer;
+  	
 
   	 @GetMapping("/productlist")
      public List<Product> GetProductName(){
@@ -60,25 +66,25 @@ public class ProductController {
      
      @PostMapping("/addproduct")
      Product PostProduct(@RequestBody(required = true) Product product) {
-   	 kafkaTemplate.send(producttopic, product);
-       return productRepository.save(product);
+   	 kafkaTemplate.send(TOPIC, product);
+       return  productService.addProduct(product);
      }
    
      @GetMapping("/productview/{productid}")
      public ProductDTO GetProductName(@PathVariable Long productid,@RequestBody(required = true) ProductDTO product){
-   		 kafkaTemplateDTO.send(producttopic, product); 
+   		 kafkaTemplateDTO.send(TOPIC, product); 
    	  return productService.getUserByUserId(productid);
      }
      
      @PutMapping("/productupdate")
      public Product PutProduct(@RequestBody(required = true)  ProductDTO product){
-   	  kafkaTemplateDTO.send(producttopic, product);
+   	  kafkaTemplateDTO.send(TOPIC, product);
         return  productService.updateProduct(product);
      }
 
      @DeleteMapping("/productdelete/{productid}")
      public Long  DeteleProduct(@PathVariable Long productid,@RequestBody(required = true) ProductDTO product){
-   	  kafkaTemplateDTO.send(producttopic, product);
+   	  kafkaTemplateDTO.send(TOPIC, product);
    	  productService.deletedataByID(productid);
            return productid;
 
