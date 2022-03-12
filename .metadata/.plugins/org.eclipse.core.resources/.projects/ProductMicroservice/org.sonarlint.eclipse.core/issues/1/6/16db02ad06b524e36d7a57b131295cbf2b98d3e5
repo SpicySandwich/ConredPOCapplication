@@ -1,6 +1,6 @@
 
-u
-java:S1128"DRemove this unused import 'org.hibernate.annotations.DynamicUpdate'.(Û­‰ÒøÿÿÿÿH©&RMINORZ
+Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(û¥åŸüÿÿÿÿHæ2RMINORZ
 CODE_SMELL
-Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(û¥åŸüÿÿÿÿH«&RMINORZ
+u
+java:S1128"DRemove this unused import 'org.hibernate.annotations.DynamicUpdate'.(Û­‰ÒøÿÿÿÿHç2RMINORZ
 CODE_SMELL

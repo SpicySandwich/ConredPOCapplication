@@ -17,7 +17,6 @@ public class ControllerExceptionViewer extends Exception {
 	private static final long serialVersionUID = 1L;
 	
 	@ExceptionHandler(IllegalArgumentException.class)
-	
 	public ResponseEntity<?> resourceNotFoundHandling(IllegalArgumentException exception, WebRequest request){
 		ErrorDetail errorDetails = 
 				new ErrorDetail(new Date(), exception.getMessage(), request.getDescription(false));

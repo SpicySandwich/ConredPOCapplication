@@ -1,25 +1,14 @@
 package com.product.Controller;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
+import com.product.Config.Producer.Producer;
 import com.product.DTO.ProductDTO;
 import com.product.Entity.Product;
-import com.product.Entity.ProductReviews;
-import com.product.ModeException.ControllerException;
-import com.product.ProductProducer.ProductProducer;
 import com.product.Repository.ProductRepository;
-import com.product.Repository.ReviewRepo;
 import com.product.Service.ProductService;
-
-import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -54,9 +44,8 @@ public class ProductController {
   	
   	private final String TOPIC = "producttopic";
   	
-  	@Autowired
-  	ProductProducer producer;
-  	
+    
+
 
   	 @GetMapping("/productlist")
      public List<Product> GetProductName(){

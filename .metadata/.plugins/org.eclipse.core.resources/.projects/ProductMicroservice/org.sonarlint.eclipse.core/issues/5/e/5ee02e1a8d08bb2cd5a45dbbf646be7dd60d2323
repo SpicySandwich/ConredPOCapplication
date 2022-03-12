@@ -1,9 +1,12 @@
 
-™
-java:S1192)"cDefine a constant instead of duplicating this literal "Error getting finding list in data" 5 times.(×™êÈ8ÃŽ÷/HÄ*RCRITICALZ
+Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(™ãþèýÿÿÿÿHÆ4RMINORZ
 CODE_SMELL
-Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(™ãþèýÿÿÿÿHÀ*RMINORZ
+™
+java:S1192)"cDefine a constant instead of duplicating this literal "Error getting finding list in data" 5 times.(×™êÈ8ÃŽ÷/HÀ4RCRITICALZ
 CODE_SMELL
 –
-java:S1488n"cImmediately return this expression instead of assigning it to the temporary variable "saveProduct".(óè•ª8‹ü‚Î÷/H¡,RMINORZ
+java:S1488p"cImmediately return this expression instead of assigning it to the temporary variable "saveProduct".(óè•ª8‹ü‚Î÷/HÇ4RMINORZ
+CODE_SMELL
+q
+java:S1128">Remove this unused import 'com.product.Repository.ReviewRepo'.(¼Â™ã8©ãÆð÷/Hä4RMINORZ
 CODE_SMELL

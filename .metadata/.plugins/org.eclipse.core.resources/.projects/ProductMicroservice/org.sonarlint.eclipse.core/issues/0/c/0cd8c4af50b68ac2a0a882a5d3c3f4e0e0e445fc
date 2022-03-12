@@ -1,50 +1,26 @@
 
-y	java:S100V"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ËÙÿõH)RMINORZ
-CODE_SMELL
-|
-java:S1128"DRemove this unused import 'org.apache.kafka.clients.admin.NewTopic'.(•Åüÿÿÿÿ8öÄ‚Î÷/H…,RMINORZ
-CODE_SMELL
-{
-java:S1128"HRemove this unused import 'org.springframework.context.annotation.Bean'.(‚î‰Ş8öÄ‚Î÷/H‡,RMINORZ
-CODE_SMELL
-|
-java:S1128"DRemove this unused import 'org.springframework.http.ResponseEntity'.(¶¯ø¦úÿÿÿÿ8öÄ‚Î÷/H‹,RMINORZ
-CODE_SMELL
 M
-java:S11707"!Make this final field static too.(ñàî›H¤)RMINORZ
+java:S1170-"!Make this final field static too.(ñàî›H³3RMINORZ
 CODE_SMELL
-
-java:S1128"URemove this unused import 'org.springframework.transaction.annotation.Transactional'.(ğùçøùÿÿÿÿ8öÄ‚Î÷/H,RMINORZ
+y	java:S100K"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ËÙÿõH«3RMINORZ
 CODE_SMELL
-…	java:S100J"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×€Ü¼ıÿÿÿÿ8Äşÿ“÷/H±)RMINORZ
+y
+java:S1128"ARemove this unused import 'com.product.Config.Producer.Producer'.(˜ê¼üÿÿÿÿ8¬æï÷/H‘4RMINORZ
 CODE_SMELL
-q
-java:S1128">Remove this unused import 'com.product.Repository.ReviewRepo'.(¼Â™ã8öÄ‚Î÷/Hƒ,RMINORZ
+…	java:S100?"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×€Ü¼ıÿÿÿÿ8Äşÿ“÷/H°3RMINORZ
 CODE_SMELL
-Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÚØÚÑøÿÿÿÿH²)RMINORZ
+‚	java:S116-"PRename this field "TOPIC" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñàî›8§õ“Í÷/H¯3RMINORZ
 CODE_SMELL
-~	java:S100P"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ±¾ûÿÿÿÿH¡)RMINORZ
+Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÚØÚÑøÿÿÿÿH²3RMINORZ
 CODE_SMELL
-x
-java:S1128"@Remove this unused import 'org.springframework.http.HttpStatus'.(íŸ¤Šúÿÿÿÿ8öÄ‚Î÷/H‰,RMINORZ
+~	java:S100E"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ±¾ûÿÿÿÿH¬3RMINORZ
 CODE_SMELL
-p
-java:S1128"8Remove this unused import 'java.util.stream.Collectors'.(Óóº´úÿÿÿÿ8öÄ‚Î÷/Hı+RMINORZ
+‰
+java:S1128"QRemove this unused import 'org.springframework.web.bind.annotation.RequestParam'.(Â¬À·ùÿÿÿÿ8¬æï÷/H“4RMINORZ
 CODE_SMELL
-q
-java:S1128"9Remove this unused import 'org.springframework.ui.Model'.(ê†ıÿÿÿÿ8öÄ‚Î÷/H,RMINORZ
-CODE_SMELL
-…	java:S100>"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áâü—ùÿÿÿÿ8ö­ã›÷/H)RMINORZ
-CODE_SMELL
-v
-java:S1128">Remove this unused import 'com.product.Entity.ProductReviews'.(¹…õåÿÿÿÿÿ8öÄ‚Î÷/Hÿ+RMINORZ
-CODE_SMELL
-‚
-java:S1128	"JRemove this unused import 'com.product.ModeException.ControllerException'.(¿ŒĞãıÿÿÿÿ8öÄ‚Î÷/H,RMINORZ
-CODE_SMELL
-…	java:S100D"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£¥õßıÿÿÿÿ8Äşÿ“÷/H®)RMINORZ
-CODE_SMELL
-‚	java:S1167"PRename this field "TOPIC" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñàî›8§õ“Í÷/H»*RMINORZ
+…	java:S1009"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£¥õßıÿÿÿÿ8Äşÿ“÷/H­3RMINORZ
 CODE_SMELL
 ~
-java:S4684D"@Replace this persistent entity with a simple POJO or DTO object.(£¥õßıÿÿÿÿ8—…ëö/H«)RCRITICALZVULNERABILITY
+java:S46849"@Replace this persistent entity with a simple POJO or DTO object.(£¥õßıÿÿÿÿ8º§ãæ÷/H±3RCRITICALZVULNERABILITY
+…	java:S1003"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áâü—ùÿÿÿÿ8ö­ã›÷/H®3RMINORZ
+CODE_SMELL

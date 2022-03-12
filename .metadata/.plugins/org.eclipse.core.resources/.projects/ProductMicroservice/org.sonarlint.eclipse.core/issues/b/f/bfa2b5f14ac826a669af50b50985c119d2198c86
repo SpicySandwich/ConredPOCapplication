@@ -1,10 +1,10 @@
 
 M
-java:S1170"!Make this final field static too.(¢¨‹İHÂ%RMINORZ
+java:S1170"!Make this final field static too.(¢¨‹İHé2RMINORZ
 CODE_SMELL
-y	java:S100%"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºÏ‰HÃ%RMINORZ
+y	java:S100%"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºÏ‰Hê2RMINORZ
+CODE_SMELL
+Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÚØÚÑøÿÿÿÿHë2RMINORZ
 CODE_SMELL
 r
-java:S4684%"@Replace this persistent entity with a simple POJO or DTO object.(ºÏ‰HÄ%RCRITICALZVULNERABILITY
-Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÚØÚÑøÿÿÿÿHÅ%RMINORZ
-CODE_SMELL
+java:S4684%"@Replace this persistent entity with a simple POJO or DTO object.(ºÏ‰Hì2RCRITICALZVULNERABILITY
