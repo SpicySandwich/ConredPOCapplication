@@ -1,26 +1,24 @@
 
-M
-java:S1170-"!Make this final field static too.(ñàî›H³3RMINORZ
-CODE_SMELL
-y	java:S100K"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ËÙÿõH«3RMINORZ
-CODE_SMELL
 y
-java:S1128"ARemove this unused import 'com.product.Config.Producer.Producer'.(˜ê¼üÿÿÿÿ8¬æï÷/H‘4RMINORZ
+java:S1128"ARemove this unused import 'com.product.Config.Producer.Producer'.(˜ê¼üÿÿÿÿ8¬æï÷/H‚JRMINORZ
 CODE_SMELL
-…	java:S100?"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×€Ü¼ıÿÿÿÿ8Äşÿ“÷/H°3RMINORZ
+…	java:S100?"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×€Ü¼ıÿÿÿÿ8ö­ã›÷/H‰JRMINORZ
 CODE_SMELL
-‚	java:S116-"PRename this field "TOPIC" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñàî›8§õ“Í÷/H¯3RMINORZ
+y	java:S100K"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ËÙÿõHJRMINORZ
 CODE_SMELL
-Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÚØÚÑøÿÿÿÿH²3RMINORZ
-CODE_SMELL
-~	java:S100E"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ±¾ûÿÿÿÿH¬3RMINORZ
+Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÚØÚÑøÿÿÿÿH†JRMINORZ
 CODE_SMELL
 ‰
-java:S1128"QRemove this unused import 'org.springframework.web.bind.annotation.RequestParam'.(Â¬À·ùÿÿÿÿ8¬æï÷/H“4RMINORZ
-CODE_SMELL
-…	java:S1009"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£¥õßıÿÿÿÿ8Äşÿ“÷/H­3RMINORZ
+java:S1128"QRemove this unused import 'org.springframework.web.bind.annotation.RequestParam'.(Â¬À·ùÿÿÿÿ8¬æï÷/H‹JRMINORZ
 CODE_SMELL
 ~
-java:S46849"@Replace this persistent entity with a simple POJO or DTO object.(£¥õßıÿÿÿÿ8º§ãæ÷/H±3RCRITICALZVULNERABILITY
-…	java:S1003"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áâü—ùÿÿÿÿ8ö­ã›÷/H®3RMINORZ
+java:S46849"@Replace this persistent entity with a simple POJO or DTO object.(£¥õßıÿÿÿÿ8º§ãæ÷/HˆJRCRITICALZVULNERABILITY
+…	java:S1003"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áâü—ùÿÿÿÿ8Äşÿ“÷/H…JRMINORZ
+CODE_SMELL
+~	java:S100E"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ±¾ûÿÿÿÿH„JRMINORZ
+CODE_SMELL
+…	java:S1009"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£¥õßıÿÿÿÿ8£º‘ø/HŠJRMINORZ
+CODE_SMELL
+T
+java:S1170-"!Make this final field static too.(¢¨‹İ8»óÂœø/H¡JRMINORZ
 CODE_SMELL

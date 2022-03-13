@@ -1,3 +1,6 @@
 
-Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(™¶ÔıÿÿÿÿH†3RMINORZ
+b
+java:S1068"*Remove this unused "logger" private field.(¬úŞùÿÿÿÿ8Ö¶ˆœø/HúIRMAJORZ
+CODE_SMELL
+Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(™¶ÔıÿÿÿÿHíIRMINORZ
 CODE_SMELL

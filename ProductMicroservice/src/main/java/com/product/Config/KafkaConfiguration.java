@@ -2,6 +2,8 @@ package com.product.Config;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;
@@ -30,7 +32,7 @@ public class KafkaConfiguration {
 		config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 		return new DefaultKafkaProducerFactory<>(config);
 	}
-	
+
 	@Bean
 	public KafkaTemplate<String, Product> kafkaInvoiceTemplate() {
 		KafkaTemplate<String, Product> kafkaInvoiceTemplate = new KafkaTemplate<String, Product>(producerFactory());
@@ -88,6 +90,11 @@ public class KafkaConfiguration {
 	public RestTemplate restTemplate() {
 	    return new RestTemplate();
 	}
+	
+	 @Bean
+	    public NewTopic topic() {
+	        return new NewTopic("producttopic", 1, (short) 1);
+	    }
 
 
 }

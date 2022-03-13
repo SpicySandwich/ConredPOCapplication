@@ -23,7 +23,7 @@ import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping("/product")
-@CrossOrigin
+//@CrossOrigin
 public class ProductController {
 
       @Autowired
@@ -42,7 +42,7 @@ public class ProductController {
   	RestTemplate restTemplate;
   	
   	
-  	private final String TOPIC = "producttopic";
+  	private final String producttopic = "producttopic";
   	
     
 
@@ -55,25 +55,25 @@ public class ProductController {
      
      @PostMapping("/addproduct")
      Product PostProduct(@RequestBody(required = true) Product product) {
-   	 kafkaTemplate.send(TOPIC, product);
+  	 kafkaTemplate.send(producttopic, product);
        return  productService.addProduct(product);
      }
    
      @GetMapping("/productview/{productid}")
      public ProductDTO GetProductName(@PathVariable Long productid,@RequestBody(required = true) ProductDTO product){
-   		 kafkaTemplateDTO.send(TOPIC, product); 
+   		 kafkaTemplateDTO.send(producttopic, product); 
    	  return productService.getUserByUserId(productid);
      }
      
      @PutMapping("/productupdate")
      public Product PutProduct(@RequestBody(required = true)  ProductDTO product){
-   	  kafkaTemplateDTO.send(TOPIC, product);
+   	  kafkaTemplateDTO.send(producttopic, product);
         return  productService.updateProduct(product);
      }
 
      @DeleteMapping("/productdelete/{productid}")
      public Long  DeteleProduct(@PathVariable Long productid,@RequestBody(required = true) ProductDTO product){
-   	  kafkaTemplateDTO.send(TOPIC, product);
+   	  kafkaTemplateDTO.send(producttopic, product);
    	  productService.deletedataByID(productid);
            return productid;
 
