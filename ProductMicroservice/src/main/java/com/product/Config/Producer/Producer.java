@@ -1,34 +1,51 @@
 package com.product.Config.Producer;
 
 import org.apache.kafka.clients.admin.NewTopic;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.kafka.config.TopicBuilder;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.stereotype.Service;
+import org.springframework.kafka.support.SendResult;
+import org.springframework.util.concurrent.ListenableFuture;
+import org.springframework.util.concurrent.ListenableFutureCallback;
 
-@Service
+@Configuration
 public class Producer {
 	
-	private static final Logger logger = LoggerFactory.getLogger(Producer.class);
+
 	
-	@Value("${topic.name}")   
-	private String producttopic;
+	@Value ("${spring.kafka.template.default-topic}")
+	private  String TOPIC;
 
 	    @Autowired
 	    private KafkaTemplate<String, String> kafkaTemplate;
 
-	    public void writeMessage(String msg){
-
-	        this.kafkaTemplate.send(producttopic, msg);
-	    }
+//	    public void writeMessage(String msg){
+//
+//	        this.kafkaTemplate.send(TOPIC , msg);
+//	    }
 	    
-	    @Bean
-	    public NewTopic addNewTopic() {
+	    public void sendMessage(String message) {
+            
+	        ListenableFuture<SendResult<String, String>> future = 
+	        		 this.kafkaTemplate.send( TOPIC, message);
 	    	
-	    	return new NewTopic("producttopic",1,(short) 1);
+	        future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
+
+	            @Override
+	            public void onSuccess(SendResult<String, String> result) {
+	                System.out.println("Sent message=[" + message + 
+	                  "] with offset=[" + result.getRecordMetadata().offset() + "]");
+	            }
+	            @Override
+	            public void onFailure(Throwable ex) {
+	                System.out.println("Unable to send message=[" 
+	                  + message + "] due to : " + ex.getMessage());
+	            }
+	        });
 	    }
 	    
 	    

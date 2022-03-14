@@ -1,36 +1,37 @@
 
-Œ
-java:S2293C"YReplace the type specification in this constructor call with the diamond operator ("<>").(ŸéÈ–8ù–‹ø/HèGRMINORZ
-CODE_SMELL
-Œ
-java:S22934"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ú„Ø8ù–‹ø/HæGRMINORZ
-CODE_SMELL
-
-java:S1488&"lImmediately return this expression instead of assigning it to the temporary variable "kafkaInvoiceTemplate".(Øä¢q8ù–‹ø/HßGRMINORZ
-CODE_SMELL
-’
-java:S41449"_Update this method so that its implementation is not identical to "producerFactory" on line 28.(§…ß†8ù–‹ø/HÛGRMAJORZ
-CODE_SMELL
-Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(É¯ÁäùÿÿÿÿHóGRMINORZ
+’	java:S116"[Rename this field "BOOSTRAP_SERVERS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÌƒÛÓûÿÿÿÿ8–Ë®·ø/HÕRRMINORZ
 CODE_SMELL
 Ÿ
-java:S1488C"lImmediately return this expression instead of assigning it to the temporary variable "kafkaInvoiceTemplate".(ŸéÈ–8ù–‹ø/HêGRMINORZ
-CODE_SMELL
-Œ
-java:S2293R"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÁÃòã8ù–‹ø/HİGRMINORZ
-CODE_SMELL
-˜
-java:S1488R"eImmediately return this expression instead of assigning it to the temporary variable "kafkaTemplate".(ÁÃòã8ù–‹ø/HíGRMINORZ
-CODE_SMELL
-…
-java:S1192"ODefine a constant instead of duplicating this literal "localhost:9092" 4 times.(ÖÇñî8»Û¼˜ø/H™HRCRITICALZ
+java:S1488;"lImmediately return this expression instead of assigning it to the temporary variable "kafkaInvoiceTemplate".(Ú„Ø8åÿ‘·ø/H÷PRMINORZ
 CODE_SMELL
 ‹
-java:S2293&"YReplace the type specification in this constructor call with the diamond operator ("<>").(Øä¢q8ù–‹ø/HâGRMINORZ
+java:S2293-"YReplace the type specification in this constructor call with the diamond operator ("<>").(Øä¢q8åÿ‘·ø/HìPRMINORZ
 CODE_SMELL
-Ÿ
-java:S14884"lImmediately return this expression instead of assigning it to the temporary variable "kafkaInvoiceTemplate".(Ú„Ø8ù–‹ø/HğGRMINORZ
+Œ
+java:S2293Y"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÁÃòã8åÿ‘·ø/HòPRMINORZ
+CODE_SMELL
+’
+java:S4144@"_Update this method so that its implementation is not identical to "producerFactory" on line 35.(§…ß†8åÿ‘·ø/HêPRMAJORZ
+CODE_SMELL
+‚	java:S116"PRename this field "TOPIC" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²Í³ä8¾é•·ø/HÍQRMINORZ
+CODE_SMELL
+Œ
+java:S2293;"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ú„Ø8åÿ‘·ø/HîPRMINORZ
+CODE_SMELL
+Œ
+java:S2293J"YReplace the type specification in this constructor call with the diamond operator ("<>").(ŸéÈ–8åÿ‘·ø/HğPRMINORZ
 CODE_SMELL
 —
-java:S4144*"_Update this method so that its implementation is not identical to "producerFactory" on line 28.(Í¨ Öüÿÿÿÿ8’µ·ø/HÄJRMAJORZ
+java:S41441"_Update this method so that its implementation is not identical to "producerFactory" on line 35.(Í¨ Öüÿÿÿÿ8åÿ‘·ø/HèPRMAJORZ
+CODE_SMELL
+˜
+java:S1488Y"eImmediately return this expression instead of assigning it to the temporary variable "kafkaTemplate".(ÁÃòã8åÿ‘·ø/HıPRMINORZ
+CODE_SMELL
+Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(É¯ÁäùÿÿÿÿHäPRMINORZ
+CODE_SMELL
+
+java:S1488-"lImmediately return this expression instead of assigning it to the temporary variable "kafkaInvoiceTemplate".(Øä¢q8åÿ‘·ø/HôPRMINORZ
+CODE_SMELL
+Ÿ
+java:S1488J"lImmediately return this expression instead of assigning it to the temporary variable "kafkaInvoiceTemplate".(ŸéÈ–8åÿ‘·ø/HúPRMINORZ
 CODE_SMELL

@@ -6,8 +6,12 @@ import java.util.Map;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.kafka.annotation.EnableKafka;
+import org.springframework.kafka.config.TopicBuilder;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
@@ -20,16 +24,31 @@ import com.product.Entity.ProductReviews;
 
 
 @Configuration
+@EnableKafka
+@PropertySource("classpath:application.properties")
 public class KafkaConfiguration {
 	
+
+	@Value("${spring.kafka.producer.bootstrap-servers}")
+	private  String server;
 
 	
 	@Bean
 	public ProducerFactory<String, Product> producerFactory() {
 		Map<String, Object> config = new HashMap<>();
-		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, server);
 		config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+		config.put(ProducerConfig.REQUEST_TIMEOUT_MS_CONFIG, 1000000 );
+		config.put(ProducerConfig.ACKS_CONFIG,"all");
+		config.put(ProducerConfig.LINGER_MS_CONFIG, 1);
+		config.put(ProducerConfig.RETRIES_CONFIG,0);
+		config.put(ProducerConfig.BUFFER_MEMORY_CONFIG, 33554432);
+		config.put(ProducerConfig.RETRY_BACKOFF_MS_CONFIG, 300);
+		config.put(ProducerConfig.BATCH_SIZE_CONFIG, 16384);
+		config.put(ProducerConfig.CONNECTIONS_MAX_IDLE_MS_CONFIG, 1000000);
+		config.put(ProducerConfig.METADATA_MAX_IDLE_CONFIG, 1000000);
+		config.put(ProducerConfig.METADATA_MAX_AGE_CONFIG, 1000000);
 		return new DefaultKafkaProducerFactory<>(config);
 	}
 
@@ -41,9 +60,19 @@ public class KafkaConfiguration {
 	@Bean
 	public ProducerFactory<String, ProductDTO> producerFactoryDTO() {
 		Map<String, Object> config = new HashMap<>();
-		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,server);
 		config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+		config.put(ProducerConfig.REQUEST_TIMEOUT_MS_CONFIG, 1000000 );
+		config.put(ProducerConfig.ACKS_CONFIG,"all");
+		config.put(ProducerConfig.LINGER_MS_CONFIG, 1);
+		config.put(ProducerConfig.RETRIES_CONFIG,0);
+		config.put(ProducerConfig.BUFFER_MEMORY_CONFIG, 33554432);
+		config.put(ProducerConfig.RETRY_BACKOFF_MS_CONFIG, 300);
+		config.put(ProducerConfig.BATCH_SIZE_CONFIG, 16384);
+		config.put(ProducerConfig.CONNECTIONS_MAX_IDLE_MS_CONFIG, 1000000);
+		config.put(ProducerConfig.METADATA_MAX_IDLE_CONFIG, 1000000);
+		config.put(ProducerConfig.METADATA_MAX_AGE_CONFIG, 1000000);
 		return new DefaultKafkaProducerFactory<>(config);
 	}
 	
@@ -56,9 +85,19 @@ public class KafkaConfiguration {
 	@Bean
 	public ProducerFactory<String, ProductReviews> producerFactoryReviews() {
 		Map<String, Object> config = new HashMap<>();
-		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, server);
 		config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+		config.put(ProducerConfig.REQUEST_TIMEOUT_MS_CONFIG, 1000000 );
+		config.put(ProducerConfig.ACKS_CONFIG,"all");
+		config.put(ProducerConfig.LINGER_MS_CONFIG, 1);
+		config.put(ProducerConfig.RETRIES_CONFIG,0);
+		config.put(ProducerConfig.BUFFER_MEMORY_CONFIG, 33554432);
+		config.put(ProducerConfig.RETRY_BACKOFF_MS_CONFIG, 300);
+		config.put(ProducerConfig.BATCH_SIZE_CONFIG, 16384);
+		config.put(ProducerConfig.CONNECTIONS_MAX_IDLE_MS_CONFIG, 1000000);
+		config.put(ProducerConfig.METADATA_MAX_IDLE_CONFIG, 1000000);
+		config.put(ProducerConfig.METADATA_MAX_AGE_CONFIG, 1000000);
 		return new DefaultKafkaProducerFactory<>(config);
 	}
 	
@@ -71,9 +110,19 @@ public class KafkaConfiguration {
 	@Bean
 	public ProducerFactory<String, String> stringProducerFactory() {
 		Map<String, Object> config = new HashMap<>();
-		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,server);
 		config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+		config.put(ProducerConfig.REQUEST_TIMEOUT_MS_CONFIG, 1000000 );
+		config.put(ProducerConfig.ACKS_CONFIG,"all");
+		config.put(ProducerConfig.LINGER_MS_CONFIG, 1);
+		config.put(ProducerConfig.RETRIES_CONFIG,0);
+		config.put(ProducerConfig.BUFFER_MEMORY_CONFIG, 33554432);
+		config.put(ProducerConfig.RETRY_BACKOFF_MS_CONFIG, 300);
+		config.put(ProducerConfig.BATCH_SIZE_CONFIG, 16384);
+		config.put(ProducerConfig.CONNECTIONS_MAX_IDLE_MS_CONFIG, 1000000);
+		config.put(ProducerConfig.METADATA_MAX_IDLE_CONFIG, 1000000);
+		config.put(ProducerConfig.METADATA_MAX_AGE_CONFIG, 1000000);
 		return new DefaultKafkaProducerFactory<>(config);
 	}
 	
@@ -91,10 +140,14 @@ public class KafkaConfiguration {
 	    return new RestTemplate();
 	}
 	
-	 @Bean
-	    public NewTopic topic() {
-	        return new NewTopic("producttopic", 1, (short) 1);
-	    }
-
+//    @Bean
+//    public NewTopic addNewTopic() {
+//    	
+//    	 return TopicBuilder.name(TOPIC)
+//    		      .partitions(1)
+//    		      .replicas(1)
+//    		      .compact()
+//    		      .build();
+//    }
 
 }
