@@ -164,24 +164,9 @@
   <path value="C:/Users/conre/.m2/repository/io/netty/netty-buffer/4.1.73.Final/netty-buffer-4.1.73.Final.jar"/>
  </paths>
  <validation>
-  <core validator-id="jboss.cdi.core"/>
-  <el>
-   <linked-el length="40" name="%0" offset="746" path="%1"/>
-   <linked-el length="40" name="%2" offset="746" path="%1"/>
-   <linked-el length="40" name="%3" offset="746" path="%1"/>
-   <linked-el length="40" name="%4" offset="746" path="%1"/>
-   <linked-el length="40" name="%5" offset="746" path="%1"/>
-  </el>
+  <el/>
  </validation>
- <aliases>
-  <alias path="spring" value="%0"/>
-  <alias path="spring.kafka" value="%2"/>
-  <alias path="spring.kafka.template" value="%3"/>
-  <alias
-   path="/ProductMicroservice/src/main/java/com/product/Config/Producer/Producer.java" value="%1"/>
-  <alias path="topic" value="%4"/>
-  <alias path="spring.kafka.template.default" value="%5"/>
- </aliases>
+ <aliases/>
  <includes/>
  <uris/>
 </kb-project>

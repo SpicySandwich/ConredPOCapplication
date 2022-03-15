@@ -1,7 +1,8 @@
 
 s
-java:S1128"GRemove this unused import 'org.springframework.boot.CommandLineRunner'.(È—ÿÅH±TRMINORZ
+java:S1128"GRemove this unused import 'org.springframework.boot.CommandLineRunner'.(È—ÿÅHXRMINORZ
 CODE_SMELL
 z
-java:S1128	"IRemove this unused import 'org.springframework.kafka.core.KafkaTemplate'.(˜€›‹üÿÿÿÿH³TRMINORZ
+java:S1128
+"IRemove this unused import 'org.springframework.kafka.core.KafkaTemplate'.(˜€›‹üÿÿÿÿH‘XRMINORZ
 CODE_SMELL

@@ -2,7 +2,6 @@ package com.product.Controller;
 
 import java.util.List;
 
-import com.product.Config.Producer.Producer;
 import com.product.DTO.ProductDTO;
 import com.product.Entity.Product;
 import com.product.Repository.ProductRepository;
@@ -45,6 +44,8 @@ public class ProductController {
   	
 
   	private  static final String TOPIC = "producttopic";
+  	
+  	
   	
 
   	 @GetMapping("/productlist")

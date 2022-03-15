@@ -1,26 +1,13 @@
 
-~
-java:S46849"@Replace this persistent entity with a simple POJO or DTO object.(£¥õßıÿÿÿÿ8º§ãæ÷/H¶RRCRITICALZVULNERABILITY
-~	java:S100E"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ±¾ûÿÿÿÿH³RRMINORZ
+…	java:S100A"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£¥õßıÿÿÿÿ8£º‘ø/HèrRMINORZ
 CODE_SMELL
-ƒ
-java:S1128"PRemove this unused import 'org.springframework.web.bind.annotation.CrossOrigin'.(º´Ñ†8ëßÿø/H±RRMINORZ
+y	java:S100S"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ËÙÿõHérRMINORZ
 CODE_SMELL
-Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÚØÚÑøÿÿÿÿH·RRMINORZ
+…	java:S100G"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×€Ü¼ıÿÿÿÿ8ö­ã›÷/HêrRMINORZ
 CODE_SMELL
-y	java:S100K"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ËÙÿõH®RRMINORZ
+Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÚØÚÑøÿÿÿÿHërRMINORZ
 CODE_SMELL
-‚	java:S116/"PRename this field "TOPIC" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²Í³ä8ƒõ§·ø/H¿RRMINORZ
+~	java:S100M"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ±¾ûÿÿÿÿHìrRMINORZ
 CODE_SMELL
-y
-java:S1128"ARemove this unused import 'com.product.Config.Producer.Producer'.(˜ê¼üÿÿÿÿ8¬æï÷/H¯RRMINORZ
-CODE_SMELL
-‰
-java:S1128"QRemove this unused import 'org.springframework.web.bind.annotation.RequestParam'.(Â¬À·ùÿÿÿÿ8¬æï÷/H¬RRMINORZ
-CODE_SMELL
-…	java:S100?"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×€Ü¼ıÿÿÿÿ8Äşÿ“÷/HµRRMINORZ
-CODE_SMELL
-…	java:S1003"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áâü—ùÿÿÿÿ8ö­ã›÷/H«RRMINORZ
-CODE_SMELL
-…	java:S1009"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£¥õßıÿÿÿÿ8£º‘ø/H´RRMINORZ
+…	java:S1003"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áâü—ùÿÿÿÿ8Äşÿ“÷/HírRMINORZ
 CODE_SMELL

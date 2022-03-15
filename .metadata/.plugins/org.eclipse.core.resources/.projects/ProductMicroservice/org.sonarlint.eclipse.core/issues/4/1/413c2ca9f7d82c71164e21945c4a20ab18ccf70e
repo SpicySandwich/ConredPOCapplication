@@ -1,16 +1,23 @@
 
-Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(™¶ÔıÿÿÿÿHƒQRMINORZ
-CODE_SMELL
-‚	java:S116"PRename this field "TOPIC" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²Í³ä8òÕ“·ø/H²QRMINORZ
-CODE_SMELL
-{
-java:S1128"HRemove this unused import 'org.springframework.context.annotation.Bean'.(‚î‰Ş8éÈç³ø/H„QRMINORZ
-CODE_SMELL
-n	java:S125"<This block of commented-out lines of code should be removed.(÷³‰ˆ8éÈç³ø/H€QRMAJORZ
+k	java:S106("9Replace this use of System.out or System.err by a logger.(´ä¯8½••¼ø/H«ZRMAJORZ
 CODE_SMELL
 }
-java:S1128"JRemove this unused import 'org.springframework.kafka.config.TopicBuilder'.(»à‡8éÈç³ø/H†QRMINORZ
+java:S1128	"JRemove this unused import 'org.springframework.kafka.config.TopicBuilder'.(»à‡8éÈç³ø/HúWRMINORZ
+CODE_SMELL
+Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(™¶ÔıÿÿÿÿHşWRMINORZ
+CODE_SMELL
+‚	java:S116"PRename this field "TOPIC" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²Í³ä8òÕ“·ø/HöWRMINORZ
+CODE_SMELL
+s	java:S125"<This block of commented-out lines of code should be removed.(Àä¨šÿÿÿÿÿ8½••¼ø/H§ZRMAJORZ
+CODE_SMELL
+{
+java:S1128"HRemove this unused import 'org.springframework.context.annotation.Bean'.(‚î‰Ş8éÈç³ø/HüWRMINORZ
+CODE_SMELL
+k	java:S106-"9Replace this use of System.out or System.err by a logger.(©¦ç¦8½••¼ø/HªZRMAJORZ
 CODE_SMELL
 |
-java:S1128"DRemove this unused import 'org.apache.kafka.clients.admin.NewTopic'.(•Åüÿÿÿÿ8éÈç³ø/HˆQRMINORZ
+java:S1128"DRemove this unused import 'org.apache.kafka.clients.admin.NewTopic'.(•Åüÿÿÿÿ8éÈç³ø/HÿWRMINORZ
+CODE_SMELL
+…
+java:S1128"RRemove this unused import 'org.springframework.context.annotation.PropertySource'.(™¢˜é8ŞìöÇø/HÃpRMINORZ
 CODE_SMELL

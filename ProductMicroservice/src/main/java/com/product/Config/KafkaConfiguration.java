@@ -25,18 +25,15 @@ import com.product.Entity.ProductReviews;
 
 @Configuration
 @EnableKafka
-@PropertySource("classpath:application.properties")
+
 public class KafkaConfiguration {
 	
-
-	@Value("${spring.kafka.producer.bootstrap-servers}")
-	private  String server;
 
 	
 	@Bean
 	public ProducerFactory<String, Product> producerFactory() {
 		Map<String, Object> config = new HashMap<>();
-		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, server);
+		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
 		config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 		config.put(ProducerConfig.REQUEST_TIMEOUT_MS_CONFIG, 1000000 );
@@ -60,7 +57,7 @@ public class KafkaConfiguration {
 	@Bean
 	public ProducerFactory<String, ProductDTO> producerFactoryDTO() {
 		Map<String, Object> config = new HashMap<>();
-		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,server);
+		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"localhost:9092");
 		config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 		config.put(ProducerConfig.REQUEST_TIMEOUT_MS_CONFIG, 1000000 );
@@ -85,7 +82,7 @@ public class KafkaConfiguration {
 	@Bean
 	public ProducerFactory<String, ProductReviews> producerFactoryReviews() {
 		Map<String, Object> config = new HashMap<>();
-		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, server);
+		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
 		config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 		config.put(ProducerConfig.REQUEST_TIMEOUT_MS_CONFIG, 1000000 );
@@ -110,7 +107,7 @@ public class KafkaConfiguration {
 	@Bean
 	public ProducerFactory<String, String> stringProducerFactory() {
 		Map<String, Object> config = new HashMap<>();
-		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,server);
+		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"localhost:9092");
 		config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		config.put(ProducerConfig.REQUEST_TIMEOUT_MS_CONFIG, 1000000 );

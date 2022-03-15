@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.logactivity.Repository.LogsRepository"/>
     <fullyQualifiedTypeName name="com.logactivity.Entity.LogsRecord"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="javax.annotation.PostConstruct"/>
     <fullyQualifiedTypeName name="com.fasterxml.jackson.databind.introspect.TypeResolutionContext.Empty"/>
-    <fullyQualifiedTypeName name="lombok.Data"/>
     <fullyQualifiedTypeName name="lombok.ToString"/>
     <fullyQualifiedTypeName name="lombok.extern.apachecommons.CommonsLog"/>
     <fullyQualifiedTypeName name="com.product.Exception.ProductExecption"/>
@@ -42,7 +40,6 @@
     <fullyQualifiedTypeName name="com.product.Entity.ProductReviews"/>
     <fullyQualifiedTypeName name="com.product.Entity.Product"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
@@ -53,5 +50,14 @@
     <fullyQualifiedTypeName name="org.apache.kafka.clients.admin.NewTopic"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
     <fullyQualifiedTypeName name="org.springframework.kafka.config.TopicBuilder"/>
+    <fullyQualifiedTypeName name="org.springframework.kafka.annotation.EnableKafka"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.product.Config.KafkaConfiguration"/>
+    <fullyQualifiedTypeName name="lombok.Data"/>
+    <fullyQualifiedTypeName name="org.springframework.util.concurrent.ListenableFuture"/>
+    <fullyQualifiedTypeName name="org.springframework.kafka.support.SendResult"/>
+    <fullyQualifiedTypeName name="org.springframework.util.concurrent.ListenableFutureCallback"/>
+    <fullyQualifiedTypeName name="com.product.Config.ProductDetailsProducer"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.PropertySource"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Value"/>
 </qualifiedTypeNameHistroy>
