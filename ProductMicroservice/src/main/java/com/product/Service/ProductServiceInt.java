@@ -16,7 +16,7 @@ public  interface ProductServiceInt {
 	 
 	 void deletedataByID(Long  productid);
 	 
-	 ProductDTO getUserByUserId(Long productid);
+	 Product getUserByUserId(Long productid);
 	 
 
 
