@@ -7,27 +7,17 @@ import com.product.Entity.Product;
 
 public  interface ProductServiceInt {
 	
-	
-//	Product  addProduct(Product  product);
-//
-//	Product updateProduct (ProductDTO newProduct);
-//	
-//	 List<Product > showAll() ;
-//	 
-//	 void deletedataByID(Long  productid);
-//	 
-//	 Product getUserByUserId(Long productid);
-	 
-	 
-	 //---------------------------------------
+
 	 
 		List <Product> getProduct();
 
-		Product get (long productid);
+		Product getPoductInfo (long productid);
 
 		void save(Product product);
 
-		void delete (int id);
+		void delete (long id);
+		
+		Object updateProduct (ProductDTO newProduct);
 	 
 
 

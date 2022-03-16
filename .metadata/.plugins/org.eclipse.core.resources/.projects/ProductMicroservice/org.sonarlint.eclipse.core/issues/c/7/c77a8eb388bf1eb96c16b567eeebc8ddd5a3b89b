@@ -1,57 +1,48 @@
 
+ƒ
+java:S1128	"ORemove this unused import 'org.springframework.beans.factory.annotation.Value'.(ìø›8µŠÅ—ù/H‹RMINORZ
+CODE_SMELL
 
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÁÃòã8åÿ‘·ø/HĞtRMINORZ
-CODE_SMELL
-…
-java:S1128"RRemove this unused import 'org.springframework.context.annotation.PropertySource'.(™¢˜é8Ë äø/HŞ~RMINORZ
-CODE_SMELL
-Œ
-java:S2293O"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ú„Ø8åÿ‘·ø/HÌtRMINORZ
-CODE_SMELL
-}
-java:S1128"JRemove this unused import 'org.springframework.kafka.config.TopicBuilder'.(»à‡8Ë äø/Hà~RMINORZ
-CODE_SMELL
-…
-java:S1192%"ODefine a constant instead of duplicating this literal "localhost:9092" 5 times.(ÖÇñî8ŸÀÙø/HâtRCRITICALZ
-CODE_SMELL
-Ÿ
-java:S1488O"lImmediately return this expression instead of assigning it to the temporary variable "kafkaInvoiceTemplate".(Ú„Ø8åÿ‘·ø/HÙtRMINORZ
-CODE_SMELL
-—
-java:S4144;"_Update this method so that its implementation is not identical to "producerFactory" on line 35.(Í¨ Öüÿÿÿÿ8¾ƒ¬Âø/HÎtRMAJORZ
-CODE_SMELL
-‹
-java:S22937"YReplace the type specification in this constructor call with the diamond operator ("<>").(Øä¢q8åÿ‘·ø/HàtRMINORZ
-CODE_SMELL
-’
-java:S4144T"_Update this method so that its implementation is not identical to "producerFactory" on line 35.(§…ß†8åÿ‘·ø/HÊtRMAJORZ
-CODE_SMELL
-“
-java:S4144†"_Update this method so that its implementation is not identical to "producerFactory" on line 35.(Œ”ãê8œÁ‡äø/H·~RMAJORZ
-CODE_SMELL
-|
-java:S1128"DRemove this unused import 'org.apache.kafka.clients.admin.NewTopic'.(•Åüÿÿÿÿ8Ë äø/HÚ~RMINORZ
-CODE_SMELL
-Ÿ
-java:S1488h"lImmediately return this expression instead of assigning it to the temporary variable "kafkaInvoiceTemplate".(ŸéÈ–8åÿ‘·ø/HÕtRMINORZ
+java:S2293L"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÁÃòã8åÿ‘·ø/HÊ‚RMINORZ
 CODE_SMELL
 ™
-java:S1488"eImmediately return this expression instead of assigning it to the temporary variable "kafkaTemplate".(ÁÃòã8åÿ‘·ø/HÒtRMINORZ
-CODE_SMELL
-
-java:S14887"lImmediately return this expression instead of assigning it to the temporary variable "kafkaInvoiceTemplate".(Øä¢q8åÿ‘·ø/HçtRMINORZ
-CODE_SMELL
-Œ
-java:S2293h"YReplace the type specification in this constructor call with the diamond operator ("<>").(ŸéÈ–8åÿ‘·ø/HêtRMINORZ
+java:S1488L"eImmediately return this expression instead of assigning it to the temporary variable "kafkaTemplate".(ÁÃòã8åÿ‘·ø/HÁ‚RMINORZ
 CODE_SMELL
 
-java:S2293š"YReplace the type specification in this constructor call with the diamond operator ("<>").(°Û±8œÁ‡äø/Hº~RMINORZ
+java:S2293["YReplace the type specification in this constructor call with the diamond operator ("<>").(°Û±8œÁ‡äø/Hâ‚RMINORZ
 CODE_SMELL
-Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(É¯ÁäùÿÿÿÿHØtRMINORZ
+
+java:S2293;"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ú„Ø8åÿ‘·ø/HÛ‚RMINORZ
 CODE_SMELL
-‚
-java:S1128	"ORemove this unused import 'org.springframework.beans.factory.annotation.Value'.(ìø›8Ë äø/HÜ~RMINORZ
+Ÿ
+java:S1488-"lImmediately return this expression instead of assigning it to the temporary variable "kafkaInvoiceTemplate".(Øä¢q8åÿ‘·ø/HØ‚RMINORZ
+CODE_SMELL
+†
+java:S1128"RRemove this unused import 'org.springframework.context.annotation.PropertySource'.(™¢˜é8µŠÅ—ù/HRMINORZ
+CODE_SMELL
+“
+java:S4144Q"_Update this method so that its implementation is not identical to "producerFactory" on line 34.(Œ”ãê8œÁ‡äø/HÄ‚RMAJORZ
+CODE_SMELL
+}
+java:S1128"DRemove this unused import 'org.apache.kafka.clients.admin.NewTopic'.(•Åüÿÿÿÿ8µŠÅ—ù/H‰RMINORZ
+CODE_SMELL
+~
+java:S1128"JRemove this unused import 'org.springframework.kafka.config.TopicBuilder'.(»à‡8µŠÅ—ù/HRMINORZ
+CODE_SMELL
+‹	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(É¯ÁäùÿÿÿÿHÑ‚RMINORZ
+CODE_SMELL
+Œ
+java:S2293-"YReplace the type specification in this constructor call with the diamond operator ("<>").(Øä¢q8åÿ‘·ø/Hà‚RMINORZ
 CODE_SMELL
  
-java:S1488š"lImmediately return this expression instead of assigning it to the temporary variable "kafkaInvoiceTemplate".(°Û±8œÁ‡äø/H¼~RMINORZ
+java:S1488;"lImmediately return this expression instead of assigning it to the temporary variable "kafkaInvoiceTemplate".(Ú„Ø8åÿ‘·ø/Hä‚RMINORZ
+CODE_SMELL
+˜
+java:S41441"_Update this method so that its implementation is not identical to "producerFactory" on line 34.(Í¨ Öüÿÿÿÿ8¾ƒ¬Âø/H¹‚RMAJORZ
+CODE_SMELL
+ 
+java:S1488["lImmediately return this expression instead of assigning it to the temporary variable "kafkaInvoiceTemplate".(°Û±8œÁ‡äø/HÌ‚RMINORZ
+CODE_SMELL
+†
+java:S1192$"ODefine a constant instead of duplicating this literal "localhost:9092" 4 times.(ÖÇñî8ŸÀÙø/H»‚RCRITICALZ
 CODE_SMELL

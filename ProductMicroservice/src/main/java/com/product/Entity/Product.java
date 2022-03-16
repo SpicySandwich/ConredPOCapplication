@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -34,12 +33,10 @@ public class Product  {
       private Long productid;
 
       @NotNull
-      @Size(min = 2, message = "Please enter product name")
       @Column(nullable = false, length = 50)
       private String productname;
       
       @NotNull
-     @Size(min = 2, message = "Please enter product brand")
       @Column(nullable = false, length = 50)
       private String productbrand;
 
@@ -47,8 +44,8 @@ public class Product  {
       @Column(nullable = false)
       private Double productprice;
 
+  
       @NotNull
-     @Size(min = 4, message = "Please enter product decription")
       @Column(nullable = false, length = 200)
       private String productdescription;
       
@@ -56,12 +53,12 @@ public class Product  {
       @Column(nullable = false)
       private Integer productquantity;
       
-   @NotNull
+      @NotNull
       @DateTimeFormat(pattern = "yyyy-MM-dd")
       @Column(nullable = false, updatable = false)
       private Date productcurrentdate;
       
-   @NotNull	
+      @NotNull
       @DateTimeFormat(pattern = "yyyy-MM-dd")
       @Column(nullable = false, updatable = false)
       private Date productexpirationdate;

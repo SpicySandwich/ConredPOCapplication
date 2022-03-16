@@ -1,3 +1,0 @@
-FROM openjdk:8-alpine
-ADD target/*.jar appjar
-ENTRYPOINT ["java","-jar","app.jar"]

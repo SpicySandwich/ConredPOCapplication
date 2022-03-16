@@ -1,9 +1,9 @@
 
-…	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(÷ÆœáHÖwRMINORZ
+g
+java:S1128"5Remove this unused import 'javax.persistence.Entity'.(úƒßýûÿÿÿÿHé‚RMINORZ
 CODE_SMELL
-t
-java:S1128"HRemove this unused import 'com.fasterxml.jackson.annotation.JsonIgnore'.(þ‘‹„H×wRMINORZ
+†	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(÷ÆœáHë‚RMINORZ
 CODE_SMELL
-f
-java:S1128"5Remove this unused import 'javax.persistence.Entity'.(úƒßýûÿÿÿÿHÔwRMINORZ
+u
+java:S1128"HRemove this unused import 'com.fasterxml.jackson.annotation.JsonIgnore'.(þ‘‹„Hç‚RMINORZ
 CODE_SMELL
