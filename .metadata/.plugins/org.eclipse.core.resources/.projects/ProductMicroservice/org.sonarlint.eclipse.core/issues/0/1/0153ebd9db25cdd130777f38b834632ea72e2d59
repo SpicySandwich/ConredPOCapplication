@@ -1,6 +1,6 @@
 
-Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ù¥ÒşÿÿÿÿH¯oRMINORZ
-CODE_SMELL
 o
-java:S1128"7Remove this unused import 'com.product.DTO.ProductDTO'.(‚ççÌÿÿÿÿÿ8ÿ¿ûêö/H°oRMINORZ
+java:S1128"7Remove this unused import 'com.product.DTO.ProductDTO'.(‚ççÌÿÿÿÿÿ8ÿ¿ûêö/H¨wRMINORZ
+CODE_SMELL
+Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ù¥ÒşÿÿÿÿHªwRMINORZ
 CODE_SMELL

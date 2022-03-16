@@ -4,89 +4,126 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.product.DAO.ProductDAO;
 import com.product.DTO.ProductDTO;
 import com.product.Entity.Product;
 import com.product.ModeException.ProductExecption;
-import com.product.Repository.ProductRepository;
-import com.product.Repository.ReviewRepo;
 
 @Service
 public class ProductService implements ProductServiceInt {
 	
 	@Autowired
-	private  ProductRepository productRepository;
+	ProductDAO productDAO;
 	
 
-	
-	@Autowired
-	private ProductDTOconverter productDTOconverter;
-	
- 	
 	@Transactional
 	@Override
-	public Product updateProduct (ProductDTO newProduct) {
+	public List<Product> getProduct() {
 		
-		try {
-		Product currentProduct = this.productRepository.getById( newProduct.getProductid()); 
-		
-			currentProduct.setProductname(newProduct.getProductname());
-			currentProduct.setProductbrand(newProduct.getProductbrand());
-			currentProduct.setProductprice(newProduct.getProductprice());
-			currentProduct.setProductdescription(newProduct.getProductdescription());
-			currentProduct.setProductquantity(newProduct.getProductquantity());  
-		    return productRepository.save(currentProduct);
-		    
-		}catch (Exception e) {
-		
-			throw new ProductExecption("Product List is emptyl");
-		}
-			
-		}
-	
-	@Override
-	public Product getUserByUserId(Long productid) { 
-		return productRepository.findById(productid).orElseThrow(() -> new ProductExecption("Product not found" + productid ) );
-			
-		  
-	  }
-	
-	@Override
-	public void deletedataByID(Long  productid) {
+		return productDAO.getProduct();
+	}
 
-		try {
-			 productRepository.deleteById(productid);
-			
-		}catch (Exception e) {
-			throw new ProductExecption("Product id is empty or null" + productid );
-		}
+	@Override
+	public Product get(long productid) {
+	
+		return null;
+	}
 
-			
+	@Transactional
+	@Override
+	public void save(Product product) {
 		
+		productDAO.save(product);
 		
 	}
 
-
-     @Override
-     public List<Product> showAll() {
-
-	List<Product> productList = null;
-
-		
-		
-		return productList =  productRepository.findAll();
-
-	
-}
-
-
 	@Override
-	public Product addProduct(Product product) {
-		
+	public void delete(int id) {
 	
-			Product saveProduct = productRepository.save(product);
-			return saveProduct;
-			
+		
 	}
+	
+	
+	
+	
+//	@Autowired
+//	private  ProductRepository productRepository;
+//	
+//	@Autowired
+//	private ProductDTOconverter productDTOconverter;
+//	
+ 	
+//	@Transactional
+//	@Override
+//	public Product updateProduct (ProductDTO newProduct) {
+//		
+//		try {
+//		Product currentProduct = this.productRepository.getById( newProduct.getProductid()); 
+//		
+//			currentProduct.setProductname(newProduct.getProductname());
+//			currentProduct.setProductbrand(newProduct.getProductbrand());
+//			currentProduct.setProductprice(newProduct.getProductprice());
+//			currentProduct.setProductdescription(newProduct.getProductdescription());
+//			currentProduct.setProductquantity(newProduct.getProductquantity());  
+//		    return productRepository.save(currentProduct);
+//		    
+//		}catch (Exception e) {
+//		
+//			throw new ProductExecption("Cannot update Date format");
+//		}
+//			
+//		}
+//	
+//	@Override
+//	public Product getUserByUserId(Long productid) { 
+//		return productRepository.findById(productid).orElseThrow(() -> new ProductExecption("Product not found by id of = " + productid ) );
+//			
+//		  
+//	  }
+//	
+//	@Override
+//	public void deletedataByID(Long  productid) {
+//
+//		try {
+//			 productRepository.deleteById(productid);
+//			
+//		}catch (Exception e) {
+//			throw new ProductExecption("Product id is empty or null" + productid );
+//		}
+//
+//			
+//		
+//		
+//	}
+//
+//
+//     @Override
+//     public List<Product> showAll() {
+//
+//	List<Product> productList = null;
+//
+//		
+//		
+//		return productList =  productRepository.findAll();
+//
+//	
+//}
+//
+//
+//	@Override
+//	public Product addProduct(Product product) {
+//		
+//	try {
+//			Product saveProduct = productRepository.save(product);
+//			return saveProduct;
+//			
+//	}catch (Exception e) {
+//		
+//		throw new ProductExecption("Please fill up all the field ");
+//	}
+//	
+//	}
      
 
 }

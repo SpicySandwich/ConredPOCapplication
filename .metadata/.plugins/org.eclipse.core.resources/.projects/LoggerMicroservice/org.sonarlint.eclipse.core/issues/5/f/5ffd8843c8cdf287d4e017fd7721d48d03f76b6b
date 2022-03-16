@@ -1,10 +1,10 @@
 
 f
-java:S6213":Rename this variable to not match a restricted identifier.(÷ÈèŽHÕRMAJORZ
+java:S6213":Rename this variable to not match a restricted identifier.(÷ÈèŽHèvRMAJORZ
+CODE_SMELL
+…	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¿ŽÛíHévRMINORZ
 CODE_SMELL
 h
-java:S2230"CMake this method "public" or remove the "@Transactional" annotation(¸®«ÍHÖRMAJORZBUG
-i	java:S106"9Replace this use of System.out or System.err by a logger.(¦‹¤ËüÿÿÿÿH×RMAJORZ
-CODE_SMELL
-…	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¿ŽÛíHØRMINORZ
+java:S2230"CMake this method "public" or remove the "@Transactional" annotation(¸®«ÍHævRMAJORZBUG
+i	java:S106"9Replace this use of System.out or System.err by a logger.(¦‹¤ËüÿÿÿÿHçvRMAJORZ
 CODE_SMELL

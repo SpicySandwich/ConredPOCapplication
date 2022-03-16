@@ -7,7 +7,6 @@ import com.product.DTO.ProductDTO;
 import com.product.Entity.Product;
 import com.product.ModeException.ErrorDetail;
 import com.product.ModeException.ProductExecption;
-import com.product.Repository.ProductRepository;
 import com.product.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -32,9 +31,6 @@ import org.springframework.web.context.request.WebRequest;
 @RequestMapping("/product")
 //@CrossOrigin
 public class ProductController {
-
-      @Autowired
-      private ProductRepository productRepository;
       
       @Autowired
       private ProductService productService;
@@ -57,44 +53,42 @@ public class ProductController {
 
   	 @GetMapping("/productlist")
      public List<Product> GetProductName(){
-           return productService.showAll();
+           return productService.getProduct();
+           
+  	 }
        
-}
+
   	 
-  	@PostMapping
-  	public String test(@RequestBody(required = true) Product msg) {
-  		
-  		
-  		kafkaTemplate.send(TOPIC, msg);
-  		return "hellow";
-  	}
-     
+  
      @PostMapping("/addproduct")
      Product PostProduct(@RequestBody(required = true) Product product) {
-  	 kafkaTemplate.send(TOPIC, product);
-       return  productService.addProduct(product);
+ // 	 kafkaTemplate.send(TOPIC, product);
+    //   return  productService.addProduct(product);
+       
+    	 productService.save(product);
+		return product;
      }
-   
-     @GetMapping("/productview/{productid}")
-     public Product GetProductName(@PathVariable Long productid,@RequestBody(required = true) ProductDTO product){
-   		 kafkaTemplateDTO.send(TOPIC, product); 
-   	  return productService.getUserByUserId(productid);
-     }
-     
-     @PutMapping("/productupdate")
-     public Product PutProduct(@RequestBody(required = true)  ProductDTO product){
-   	  kafkaTemplateDTO.send(TOPIC, product);
-        return  productService.updateProduct(product);
-     }
-
-     @DeleteMapping("/productdelete/{productid}")
-     public Long  DeteleProduct(@PathVariable Long productid,@RequestBody(required = true) ProductDTO product){
-   	  kafkaTemplateDTO.send(TOPIC, product);
-   	  productService.deletedataByID(productid);
-           return productid;
-
-
-     }
+//   
+//     @GetMapping("/productview/{productid}")
+//     public Product GetProductName(@PathVariable Long productid,@RequestBody(required = true) ProductDTO product){
+//   		 kafkaTemplateDTO.send(TOPIC, product); 
+//   	  return productService.getUserByUserId(productid);
+//     }
+//     
+//     @PutMapping("/productupdate")
+//     public Product PutProduct(@RequestBody(required = true)  ProductDTO product){
+//   	  kafkaTemplateDTO.send(TOPIC, product);
+//        return  productService.updateProduct(product);
+//     }
+//
+//     @DeleteMapping("/productdelete/{productid}")
+//     public Long  DeteleProduct(@PathVariable Long productid,@RequestBody(required = true) ProductDTO product){
+//   	  kafkaTemplateDTO.send(TOPIC, product);
+//   	  productService.deletedataByID(productid);
+//           return productid;
+//
+//
+//     }
      
  	
 

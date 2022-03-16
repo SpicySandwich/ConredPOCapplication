@@ -1,24 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.logactivity.Entity.LogsRecord"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
-    <fullyQualifiedTypeName name="javax.annotation.PostConstruct"/>
     <fullyQualifiedTypeName name="com.fasterxml.jackson.databind.introspect.TypeResolutionContext.Empty"/>
     <fullyQualifiedTypeName name="lombok.ToString"/>
     <fullyQualifiedTypeName name="lombok.extern.apachecommons.CommonsLog"/>
     <fullyQualifiedTypeName name="com.product.Exception.ProductExecption"/>
     <fullyQualifiedTypeName name="com.product.Exception.ControllerException"/>
     <fullyQualifiedTypeName name="com.product.Service.ProductServiceInt"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ControllerAdvice"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ExceptionHandler"/>
     <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseStatus"/>
-    <fullyQualifiedTypeName name="com.product.ModeException.ProductExecption"/>
-    <fullyQualifiedTypeName name="com.product.ModeException.ErrorDetail"/>
-    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
-    <fullyQualifiedTypeName name="org.springframework.web.context.request.WebRequest"/>
-    <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
     <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="io.swagger.v3.oas.annotations.servers.Server"/>
     <fullyQualifiedTypeName name="com.product.ProductProducer.ProductProducer"/>
@@ -38,7 +28,6 @@
     <fullyQualifiedTypeName name="org.springframework.kafka.core.KafkaTemplate"/>
     <fullyQualifiedTypeName name="com.product.DTO.ProductDTO"/>
     <fullyQualifiedTypeName name="com.product.Entity.ProductReviews"/>
-    <fullyQualifiedTypeName name="com.product.Entity.Product"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
     <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
@@ -60,4 +49,15 @@
     <fullyQualifiedTypeName name="com.product.Config.ProductDetailsProducer"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.PropertySource"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Value"/>
+    <fullyQualifiedTypeName name="org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ControllerAdvice"/>
+    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
+    <fullyQualifiedTypeName name="org.springframework.web.context.request.WebRequest"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ExceptionHandler"/>
+    <fullyQualifiedTypeName name="com.product.ModeException.ErrorDetail"/>
+    <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
+    <fullyQualifiedTypeName name="java.lang.Object"/>
+    <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
+    <fullyQualifiedTypeName name="com.product.Entity.Product"/>
+    <fullyQualifiedTypeName name="com.product.ModeException.ProductExecption"/>
 </qualifiedTypeNameHistroy>

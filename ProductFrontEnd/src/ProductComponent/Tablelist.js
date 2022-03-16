@@ -148,8 +148,8 @@ class Tablelist extends React.Component {
             th > Product Current Date < /th> <
             th > Product Expiration Date < /th> <
             th > Edit < /th> <
-            th > Delete < /th> <
-            /tr> <
+            th > Delete < /th> < /
+            tr > <
             /thead>
 
             <
@@ -186,8 +186,11 @@ class Tablelist extends React.Component {
                     IconButton aria - label = "fingerprint"
                     color = "success"
                     onClick = {
-                        (e) => { this.edit(product.productid);
-                            this.handleModalShowHide(); } } >
+                        (e) => {
+                            this.edit(product.productid);
+                            this.handleModalShowHide();
+                        }
+                    } >
                     <
                     i class = "material-icons" > < /i> <
                     Fingerprint / >
@@ -205,15 +208,17 @@ class Tablelist extends React.Component {
                     Modal show = { this.state.showHide } >
                     <
                     Modal.Header closeButton onClick = {
-                        (e) => this.handleModalShowHide().edit(product.productid) } >
+                        (e) => this.handleModalShowHide().edit(product.productid)
+                    } >
                     <
-                    Modal.Title > Product Update < /Modal.Title> <
-                    /Modal.Header> <
+                    Modal.Title > Product Update < /Modal.Title> < /
+                    Modal.Header > <
                     Modal.Body >
 
                     <
                     Form onSubmit = {
-                        (e) => this.submit(e, this.state.productid) } >
+                        (e) => this.submit(e, this.state.productid)
+                    } >
 
 
                     <
@@ -224,12 +229,13 @@ class Tablelist extends React.Component {
                     Form.Control type = "hidden"
                     placeholder = "Enter Product Name"
                     onChange = {
-                        (e) => this.setState({ productid: e.target.value }) }
+                        (e) => this.setState({ productid: e.target.value })
+                    }
                     value = { this.state.productid }
                     /> <
                     Form.Text className = "text-muted" >
-                    We 'll never share your email with anyone else. <
-                    /Form.Text> <
+                    We 'll never share your email with anyone else. < /
+                    Form.Text > <
                     /Form.Group>
 
 
@@ -242,12 +248,13 @@ class Tablelist extends React.Component {
                     Form.Control type = "text"
                     placeholder = "Enter Product Name"
                     onChange = {
-                        (e) => this.setState({ productname: e.target.value }) }
+                        (e) => this.setState({ productname: e.target.value })
+                    }
                     value = { this.state.productname }
                     /> <
                     Form.Text className = "text-muted" >
-                    We 'll never share your email with anyone else. <
-                    /Form.Text> <
+                    We 'll never share your email with anyone else. < /
+                    Form.Text > <
                     /Form.Group>
 
                     <
@@ -258,12 +265,13 @@ class Tablelist extends React.Component {
                     Form.Control type = "text"
                     placeholder = "Enter Produc Brand"
                     onChange = {
-                        (e) => this.setState({ productbrand: e.target.value }) }
+                        (e) => this.setState({ productbrand: e.target.value })
+                    }
                     value = { this.state.productbrand }
                     /> <
                     Form.Text className = "text-muted" >
-                    We 'll never share your email with anyone else. <
-                    /Form.Text> <
+                    We 'll never share your email with anyone else. < /
+                    Form.Text > <
                     /Form.Group>
 
 
@@ -275,12 +283,13 @@ class Tablelist extends React.Component {
                     Form.Control type = "number"
                     placeholder = "Enter Product Price"
                     onChange = {
-                        (e) => this.setState({ productprice: e.target.value }) }
+                        (e) => this.setState({ productprice: e.target.value })
+                    }
                     value = { this.state.productprice }
                     /> <
                     Form.Text className = "text-muted" >
-                    We 'll never share your email with anyone else. <
-                    /Form.Text> <
+                    We 'll never share your email with anyone else. < /
+                    Form.Text > <
                     /Form.Group>
 
                     <
@@ -291,12 +300,13 @@ class Tablelist extends React.Component {
                     Form.Control type = "text"
                     placeholder = "Enter Product Description"
                     onChange = {
-                        (e) => this.setState({ productdescription: e.target.value }) }
+                        (e) => this.setState({ productdescription: e.target.value })
+                    }
                     value = { this.state.productdescription }
                     /> <
                     Form.Text className = "text-muted" >
-                    We 'll never share your email with anyone else. <
-                    /Form.Text> <
+                    We 'll never share your email with anyone else. < /
+                    Form.Text > <
                     /Form.Group>
 
                     <
@@ -307,12 +317,13 @@ class Tablelist extends React.Component {
                     Form.Control type = "number"
                     placeholder = "Enter Product Quantity"
                     onChange = {
-                        (e) => this.setState({ productquantity: e.target.value }) }
+                        (e) => this.setState({ productquantity: e.target.value })
+                    }
                     value = { this.state.productquantity }
                     /> <
                     Form.Text className = "text-muted" >
-                    We 'll never share your email with anyone else. <
-                    /Form.Text> <
+                    We 'll never share your email with anyone else. < /
+                    Form.Text > <
                     /Form.Group>
 
                     <
@@ -323,12 +334,13 @@ class Tablelist extends React.Component {
                     Form.Control type = "text"
                     placeholder = "Enter Product Current Date"
                     onChange = {
-                        (e) => this.setState({ productcurrentdate: e.target.value }) }
+                        (e) => this.setState({ productcurrentdate: e.target.value })
+                    }
                     value = { this.state.productcurrentdate }
                     /> <
                     Form.Text className = "text-muted" >
-                    We 'll never share your email with anyone else. <
-                    /Form.Text> <
+                    We 'll never share your email with anyone else. < /
+                    Form.Text > <
                     /Form.Group>
 
                     <
@@ -339,14 +351,15 @@ class Tablelist extends React.Component {
                     Form.Control type = "text"
                     placeholder = "Enter Product Current Date"
                     onChange = {
-                        (e) => this.setState({ productexpirationdate: e.target.value }) }
+                        (e) => this.setState({ productexpirationdate: e.target.value })
+                    }
                     value = { this.state.productexpirationdate }
                     /> <
                     Form.Text className = "text-muted" >
-                    We 'll never share your email with anyone else. <
-                    /Form.Text> <
-                    /Form.Group> <
-                    /Form>
+                    We 'll never share your email with anyone else. < /
+                    Form.Text > <
+                    /Form.Group> < /
+                    Form >
 
 
                     <
@@ -355,20 +368,22 @@ class Tablelist extends React.Component {
                     <
                     Button variant = "secondary"
                     onClick = {
-                        () => this.handleModalShowHide() } >
+                        () => this.handleModalShowHide()
+                    } >
                     Close <
                     /Button> <
                     Button variant = "primary"
                     onClick = {
-                        () => this.handleModalShowHide() }
+                        () => this.handleModalShowHide()
+                    }
                     class = "btn waves-effect waves-light right"
                     type = "submit"
                     name = "action" >
                     Save Changes <
-                    /Button> <
-                    /Modal.Footer> <
-                    /Modal> <
-                    /td> <
+                    /Button> < /
+                    Modal.Footer > <
+                    /Modal> < /
+                    td > <
                     td >
                     <
                     Stack direction = "row"
@@ -379,25 +394,26 @@ class Tablelist extends React.Component {
                     IconButton aria - label = "delete"
                     size = "large"
                     onClick = {
-                        (e) => this.delete(product.productid) }
+                        (e) => this.delete(product.productid)
+                    }
                     type = "submit"
                     name = "action" >
                     <
                     DeleteIcon fontSize = "large"
                     color = "secondary" / >
                     <
-                    /IconButton> <
-                    /Stack>
+                    /IconButton> < /
+                    Stack >
 
                     <
-                    /td> <
-                    /tr>
+                    /td> < /
+                    tr >
                 )
             }
 
             <
-            /tbody> <
-            /Table>
+            /tbody> < /
+            Table >
 
 
 

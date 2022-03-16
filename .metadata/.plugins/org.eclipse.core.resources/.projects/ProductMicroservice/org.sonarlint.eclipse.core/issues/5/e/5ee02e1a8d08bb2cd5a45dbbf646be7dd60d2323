@@ -1,12 +1,18 @@
 
+w
+java:S1854L"?Remove this useless assignment to local variable "productList".(ì¼Õ×ÿÿÿÿÿ8¶¤âø/H|RMAJORZ
+CODE_SMELL
 q
-java:S1128">Remove this unused import 'com.product.Repository.ReviewRepo'.(¼Â™ã8©ãÆğ÷/Hõ6RMINORZ
+java:S1128">Remove this unused import 'com.product.Repository.ReviewRepo'.(¼Â™ã8¼ëäâø/H¼}RMINORZ
 CODE_SMELL
-–
-java:S1488p"cImmediately return this expression instead of assigning it to the temporary variable "saveProduct".(óè•ª8‹ü‚Î÷/Hì6RMINORZ
+Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(™ãşèıÿÿÿÿHˆwRMINORZ
 CODE_SMELL
-Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(™ãşèıÿÿÿÿH÷6RMINORZ
+c
+java:S1481H"0Remove this unused "productList" local variable.(±öÚê8¶¤âø/H‚|RMINORZ
 CODE_SMELL
-™
-java:S1192)"cDefine a constant instead of duplicating this literal "Error getting finding list in data" 5 times.(×™êÈ8Ã÷/Hú6RCRITICALZ
+f
+java:S1121L".Extract the assignment out of this expression.(ì¼Õ×ÿÿÿÿÿ8‰Ï§âø/H¦|RMAJORZ
+CODE_SMELL
+—
+java:S1488V"cImmediately return this expression instead of assigning it to the temporary variable "saveProduct".(óè•ª8üäõäø/H¿RMINORZ
 CODE_SMELL

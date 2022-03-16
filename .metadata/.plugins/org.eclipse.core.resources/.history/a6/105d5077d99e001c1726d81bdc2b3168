@@ -1,6 +1,0 @@
-FROM openjdk:8
-WORKDIR '/product-app'
-ADD target/ProductMicroservice.jar ProductMicroservice.jar
-EXPOSE 8091
-COPY . .
-ENTRYPOINT ["java", "-jar", "ProductMicroservice.jar"]

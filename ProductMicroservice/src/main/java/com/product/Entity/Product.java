@@ -3,7 +3,6 @@ package com.product.Entity;
 import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,7 +13,6 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.kafka.annotation.EnableKafka;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,12 +24,12 @@ import lombok.ToString;
 @AllArgsConstructor
 @Entity
 @ToString
-@Table(name = "dbproduct")
+@Table(name = "tb_product")
 @DynamicUpdate
 public class Product  {
 
       @Id
-      @GeneratedValue(strategy = GenerationType.IDENTITY)
+      @GeneratedValue(strategy = GenerationType.AUTO)
       @Column(name = "productid")
       private Long productid;
 

@@ -1,3 +1,12 @@
 
-Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ğà¹¼øÿÿÿÿHÜ#RMINORZ
+h
+java:S1128"5Remove this unused import 'lombok.NoArgsConstructor'.(¸¨›8®¬ âø/Hñ{RMINORZ
+CODE_SMELL
+^
+java:S1128"+Remove this unused import 'java.util.Date'.(¸…¼ü8Õ‡Îàø/H·xRMINORZ
+CODE_SMELL
+}
+java:S1128"ERemove this unused import 'org.springframework.stereotype.Component'.(Ş÷Ñ¸ÿÿÿÿÿ8®¬ âø/Hï{RMINORZ
+CODE_SMELL
+Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ğà¹¼øÿÿÿÿH wRMINORZ
 CODE_SMELL
