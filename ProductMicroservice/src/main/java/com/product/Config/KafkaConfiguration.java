@@ -2,16 +2,11 @@ package com.product.Config;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.kafka.annotation.EnableKafka;
-import org.springframework.kafka.config.TopicBuilder;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
@@ -27,8 +22,6 @@ import com.product.ModeException.ProductExecption;
 @EnableKafka
 
 public class KafkaConfiguration {
-	
-
 	
 	@Bean
 	public ProducerFactory<String, Product> producerFactory() {
@@ -87,10 +80,26 @@ public class KafkaConfiguration {
 	}
 	
 	@Bean
+	public KafkaTemplate<String,Long> kafkaInvoiceTemplateLong() {
+		KafkaTemplate<String, Long> kafkaInvoiceTemplate = new KafkaTemplate<String,Long>( producerProductLong());
+		return kafkaInvoiceTemplate;
+	}
+	
+	@Bean
+	public ProducerFactory<String, Long> producerProductLong() {
+		Map<String, Object> config = new HashMap<>();
+		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+		config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+		config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+		return new DefaultKafkaProducerFactory<>(config);
+	}
+	
+	@Bean
 	public KafkaTemplate<String,ProductExecption> kafkaInvoiceTemplateExecption() {
 		KafkaTemplate<String, ProductExecption> kafkaInvoiceTemplate = new KafkaTemplate<String,ProductExecption>( producerProductException());
 		return kafkaInvoiceTemplate;
 	}
+
 
 	
 

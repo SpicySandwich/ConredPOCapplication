@@ -1,5 +1,0 @@
-package com.product.ExceptionHandling;
-
-public class ProductException {
-
-}

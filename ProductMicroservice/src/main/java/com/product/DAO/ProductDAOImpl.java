@@ -21,14 +21,17 @@ public class ProductDAOImpl  implements ProductDAO{
 		Session session = entityManager.unwrap(Session.class);
 		Query<Product> query = session.createQuery("FROM Product", Product.class);
 		List<Product>list = query.getResultList();
+		session.close();
 		return list;
+		
 	}
 
 	@Override
-	public Product getPoductInfo(long productid) {
+	public Product getPoductInfo(Long productid) {
 		
 		Session session = entityManager.unwrap(Session.class);
 	    Product productObj =	session.get(Product.class, productid);
+	    session.close();
 	    return productObj;
 		
 	}
@@ -38,15 +41,17 @@ public class ProductDAOImpl  implements ProductDAO{
 		
 		Session session = entityManager.unwrap(Session.class);
 		session.save(product);
+		session.close();
 		
 	}
 
 	@Override
-	public void delete(long productid) {
+	public void delete(Long productid) {
 		
 		Session session = entityManager.unwrap(Session.class);
 		Product productObj = session.get(Product.class, productid);
 		session.delete(productObj);
+		session.close();
 		
 	
 		
@@ -57,6 +62,7 @@ public class ProductDAOImpl  implements ProductDAO{
 		
 		Session session = entityManager.unwrap(Session.class);
 		session.update( newProduct);
+		session.close();
 		return newProduct;
 	}
 

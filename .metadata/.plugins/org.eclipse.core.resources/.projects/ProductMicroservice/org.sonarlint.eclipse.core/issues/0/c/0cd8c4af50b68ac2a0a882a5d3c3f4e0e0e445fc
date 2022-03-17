@@ -1,21 +1,22 @@
 
-	java:S1002"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Úè†¼8—í°—ù/H¯‹RMINORZ
+†	java:S100)"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼¦¢«øÿÿÿÿ8—í°—ù/HÑ›RMINORZ
 CODE_SMELL
-Š
-java:S1128"QRemove this unused import 'org.springframework.web.bind.annotation.RequestParam'.(Â¬À·ùÿÿÿÿ8ÃÛÔšù/H——RMINORZ
+‹	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÚØÚÑøÿÿÿÿHÍ›RMINORZ
 CODE_SMELL
-z
-java:S46842"@Replace this persistent entity with a simple POJO or DTO object.(Úè†¼8—í°—ù/H°‹RCRITICALZVULNERABILITY
-†	java:S100A"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºÖÓşÿÿÿÿ8”®°šù/Hç•RMINORZ
+†	java:S100#"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áâü—ùÿÿÿÿ8ÀÜ§™ù/HÖ›RMINORZ
 CODE_SMELL
-†	java:S100;"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œ­ª ûÿÿÿÿ8ÀÜ§™ù/H“‘RMINORZ
+
+java:S4684)"@Replace this persistent entity with a simple POJO or DTO object.(¼¦¢«øÿÿÿÿ8—í°—ù/HÌ›RCRITICALZVULNERABILITY
+†	java:S1004"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íçÃƒøÿÿÿÿ8”®°šù/HÓ›RMINORZ
 CODE_SMELL
-†	java:S100,"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áâü—ùÿÿÿÿ8—¯Å–ù/H©‰RMINORZ
+	java:S100;"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßãºÈ8éøÓ™ù/HÎ›RMINORZ
 CODE_SMELL
-_
-java:S1128"+Remove this unused import 'java.util.Date'.(¸…¼ü8ÃÛÔšù/H•—RMINORZ
+†	java:S100/"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰¢ëøÿÿÿÿ8—¯Å–ù/HÒ›RMINORZ
 CODE_SMELL
-	java:S100I"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ï¼¿Ë8éøÓ™ù/Hô’RMINORZ
+
+java:S1128"FRemove this unused import 'com.product.KafkaProducer.ProductProducer'.(³ÿÅµùÿÿÿÿ8“Œö°ù/HÛŸRMINORZ
 CODE_SMELL
-‹	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÚØÚÑøÿÿÿÿH¢‚RMINORZ
+‚
+java:S1128
+"IRemove this unused import 'org.springframework.kafka.core.KafkaTemplate'.(˜€›‹üÿÿÿÿ8“Œö°ù/HİŸRMINORZ
 CODE_SMELL

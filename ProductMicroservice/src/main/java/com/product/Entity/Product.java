@@ -44,7 +44,6 @@ public class Product  {
       @Column(nullable = false)
       private Double productprice;
 
-  
       @NotNull
       @Column(nullable = false, length = 200)
       private String productdescription;

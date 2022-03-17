@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.kafka.KafkaProperties"/>
-    <fullyQualifiedTypeName name="java.util.HashMap"/>
-    <fullyQualifiedTypeName name="java.util.Map"/>
-    <fullyQualifiedTypeName name="org.springframework.kafka.support.serializer.JsonSerializer"/>
-    <fullyQualifiedTypeName name="org.apache.kafka.common.serialization.StringSerializer"/>
     <fullyQualifiedTypeName name="org.springframework.kafka.core.ProducerFactory"/>
     <fullyQualifiedTypeName name="org.springframework.kafka.core.DefaultKafkaProducerFactory"/>
     <fullyQualifiedTypeName name="org.apache.kafka.clients.producer.ProducerConfig"/>
-    <fullyQualifiedTypeName name="org.springframework.kafka.core.KafkaTemplate"/>
-    <fullyQualifiedTypeName name="com.product.DTO.ProductDTO"/>
     <fullyQualifiedTypeName name="com.product.Entity.ProductReviews"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
     <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
     <fullyQualifiedTypeName name="org.slf4j.Logger"/>
     <fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
@@ -25,9 +17,6 @@
     <fullyQualifiedTypeName name="org.springframework.kafka.annotation.EnableKafka"/>
     <fullyQualifiedTypeName name="com.product.Config.KafkaConfiguration"/>
     <fullyQualifiedTypeName name="lombok.Data"/>
-    <fullyQualifiedTypeName name="org.springframework.util.concurrent.ListenableFuture"/>
-    <fullyQualifiedTypeName name="org.springframework.kafka.support.SendResult"/>
-    <fullyQualifiedTypeName name="org.springframework.util.concurrent.ListenableFutureCallback"/>
     <fullyQualifiedTypeName name="com.product.Config.ProductDetailsProducer"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.PropertySource"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Value"/>
@@ -39,7 +28,6 @@
     <fullyQualifiedTypeName name="com.product.ModeException.ErrorDetail"/>
     <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
     <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
-    <fullyQualifiedTypeName name="com.product.ModeException.ProductExecption"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.product.DAO.productDAOImpl"/>
     <fullyQualifiedTypeName name="org.hibernate.Session"/>
@@ -49,15 +37,27 @@
     <fullyQualifiedTypeName name="javax.persistence.TypedQuery"/>
     <fullyQualifiedTypeName name="org.hibernate.query.Query"/>
     <fullyQualifiedTypeName name="com.product.DAO.productDAO"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="org.springframework.format.annotation.DateTimeFormat"/>
     <fullyQualifiedTypeName name="org.hibernate.annotations.Table"/>
     <fullyQualifiedTypeName name="com.product.DAO.ProductDAO"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
-    <fullyQualifiedTypeName name="com.product.Entity.Product"/>
     <fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
     <fullyQualifiedTypeName name="java.lang.Object"/>
     <fullyQualifiedTypeName name="javax.validation.constraints.NotNull"/>
     <fullyQualifiedTypeName name="org.hibernate.validator.constraints.NotEmpty"/>
+    <fullyQualifiedTypeName name="org.springframework.util.concurrent.ListenableFuture"/>
+    <fullyQualifiedTypeName name="javax.websocket.SendResult"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="org.springframework.util.concurrent.ListenableFutureCallback"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
+    <fullyQualifiedTypeName name="org.springframework.kafka.support.SendResult"/>
+    <fullyQualifiedTypeName name="com.product.ModeException.ProductExecption"/>
+    <fullyQualifiedTypeName name="lombok.Setter"/>
+    <fullyQualifiedTypeName name="lombok.Getter"/>
+    <fullyQualifiedTypeName name="com.product.KafkaProducer.ProductProducer"/>
+    <fullyQualifiedTypeName name="com.product.DTO.ProductDTO"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="org.springframework.kafka.core.KafkaTemplate"/>
+    <fullyQualifiedTypeName name="com.product.Entity.Product"/>
 </qualifiedTypeNameHistroy>

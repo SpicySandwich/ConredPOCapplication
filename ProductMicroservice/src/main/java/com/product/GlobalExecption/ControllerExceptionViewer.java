@@ -20,6 +20,7 @@ public class ControllerExceptionViewer extends  ResponseEntityExceptionHandler {
 	public ResponseEntity<Object> handleProductExceptionNotFound(ProductExecption ex, WebRequest request){
 		
 		return new ResponseEntity<Object>(new ErrorDetail(ex.getMessage(), HttpStatus.NOT_FOUND, LocalDateTime.now()),HttpStatus.NOT_FOUND);
+		
 	}
 	
 	

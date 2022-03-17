@@ -1,12 +1,12 @@
 
-i
-java:S1128"5Remove this unused import 'lombok.NoArgsConstructor'.(¸¨›8®¬ âø/Hï‚RMINORZ
-CODE_SMELL
-‹	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ğà¹¼øÿÿÿÿHñ‚RMINORZ
-CODE_SMELL
 _
-java:S1128"+Remove this unused import 'java.util.Date'.(¸…¼ü8Õ‡Îàø/Hò‚RMINORZ
+java:S1128"+Remove this unused import 'java.util.Date'.(¸…¼ü8Õ‡Îàø/HúœRMINORZ
+CODE_SMELL
+i
+java:S1128"5Remove this unused import 'lombok.NoArgsConstructor'.(¸¨›8®¬ âø/HöœRMINORZ
 CODE_SMELL
 ~
-java:S1128"ERemove this unused import 'org.springframework.stereotype.Component'.(Ş÷Ñ¸ÿÿÿÿÿ8®¬ âø/Hô‚RMINORZ
+java:S1128"ERemove this unused import 'org.springframework.stereotype.Component'.(Ş÷Ñ¸ÿÿÿÿÿ8®¬ âø/HøœRMINORZ
+CODE_SMELL
+‹	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ğà¹¼øÿÿÿÿHõœRMINORZ
 CODE_SMELL

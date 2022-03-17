@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.product.DAO.ProductDAO;
 import com.product.DTO.ProductDTO;
 import com.product.Entity.Product;
+import com.product.KafkaProducer.ProductProducer;
 import com.product.ModeException.ProductExecption;
 
 @Service
@@ -15,6 +16,10 @@ public class ProductService implements ProductServiceInt {
 	
 	@Autowired
 	ProductDAO productDAO;
+	
+	@Autowired
+	ProductProducer productProducer;
+	
 	
 
 	@Transactional
@@ -27,14 +32,19 @@ public class ProductService implements ProductServiceInt {
 
 	@Transactional
 	@Override
-	public Product getPoductInfo(long productid) {
+	public Product getPoductInfo(Long productid) {
+
 		
 		try {
+			
+	       productProducer.sendMessageDTO("Product viewed id:" +productid);
+
 		return productDAO.getPoductInfo(productid);
+		
 		
 		}catch (Exception e) {
 		
-			throw new ProductExecption("Product not found by id of = " + productid );
+			throw new ProductExecption("Product not found by id: " + productid );
 		}
 	
 	}
@@ -43,21 +53,23 @@ public class ProductService implements ProductServiceInt {
 	@Override
 	public void save(Product product) {
 
-		if(product != null) {
+		if(product == null) {
 			
 			throw new ProductExecption("Please fill up all the field ");
 			
 		}else {
-			
+	productProducer.sendMessage(product);
 			productDAO.save(product);
+			
 		}
 	
 	}
 
 	@Transactional
 	@Override
-	public void delete(long productid) {
+	public void delete(Long productid) {
 	try {
+		  productProducer.sendMessageDTO("Deteted id:" +productid);
 		productDAO.delete(productid);
 	}catch (Exception e) {
 		throw new ProductExecption("Product id your tring to delete is invalid for id:" + productid );
@@ -76,7 +88,11 @@ public class ProductService implements ProductServiceInt {
 			currentProduct.setProductprice(newProduct.getProductprice());
 			currentProduct.setProductdescription(newProduct.getProductdescription());
 			currentProduct.setProductquantity(newProduct.getProductquantity());  
+			
+			 productProducer.sendMessageDTO("Updated Product : "+ newProduct);
+			 
 		    return productDAO.updateProduct(currentProduct);
+		    
 		}catch (Exception e) {
 			
 				throw new ProductExecption("Id your trying to update is invalid");
