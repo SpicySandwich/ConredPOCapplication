@@ -13,7 +13,6 @@ import org.springframework.kafka.core.KafkaTemplate;
 
 @SpringBootApplication
 @EnableJpaRepositories
-@PropertySource("classpath:application.properties")
 public class ProductMicroserviceApplication {
 
 	public static void main(String[] args) {

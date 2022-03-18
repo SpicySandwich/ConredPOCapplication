@@ -15,6 +15,7 @@ public class ProductDAOImpl  implements ProductDAO{
 	@Autowired
 	private EntityManager entityManager;
 
+
 	@Override
 	public List<Product> getProduct() {
 	
@@ -38,10 +39,9 @@ public class ProductDAOImpl  implements ProductDAO{
 
 	@Override
 	public void save(Product product) {
-		
 		Session session = entityManager.unwrap(Session.class);
-		session.save(product);
-		session.close();
+		    session.save(product);
+		    session.close();
 		
 	}
 

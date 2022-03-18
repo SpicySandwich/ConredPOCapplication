@@ -1,16 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.springframework.kafka.core.ProducerFactory"/>
-    <fullyQualifiedTypeName name="org.springframework.kafka.core.DefaultKafkaProducerFactory"/>
-    <fullyQualifiedTypeName name="org.apache.kafka.clients.producer.ProducerConfig"/>
-    <fullyQualifiedTypeName name="com.product.Entity.ProductReviews"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
-    <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
-    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
-    <fullyQualifiedTypeName name="org.slf4j.Logger"/>
-    <fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
-    <fullyQualifiedTypeName name="com.product.Config.Producer.Producer"/>
-    <fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
     <fullyQualifiedTypeName name="org.apache.kafka.clients.admin.NewTopic"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
     <fullyQualifiedTypeName name="org.springframework.kafka.config.TopicBuilder"/>
@@ -45,7 +34,6 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
     <fullyQualifiedTypeName name="java.lang.Object"/>
     <fullyQualifiedTypeName name="javax.validation.constraints.NotNull"/>
-    <fullyQualifiedTypeName name="org.hibernate.validator.constraints.NotEmpty"/>
     <fullyQualifiedTypeName name="org.springframework.util.concurrent.ListenableFuture"/>
     <fullyQualifiedTypeName name="javax.websocket.SendResult"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
@@ -57,7 +45,19 @@
     <fullyQualifiedTypeName name="lombok.Getter"/>
     <fullyQualifiedTypeName name="com.product.KafkaProducer.ProductProducer"/>
     <fullyQualifiedTypeName name="com.product.DTO.ProductDTO"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="org.springframework.kafka.core.KafkaTemplate"/>
     <fullyQualifiedTypeName name="com.product.Entity.Product"/>
+    <fullyQualifiedTypeName name="org.springframework.util.StringUtils"/>
+    <fullyQualifiedTypeName name="org.springframework.util.ObjectUtils"/>
+    <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
+    <fullyQualifiedTypeName name="org.hibernate.validator.constraints.NotEmpty"/>
+    <fullyQualifiedTypeName name="javax.validation.constraints.NotEmpty"/>
+    <fullyQualifiedTypeName name="org.springframework.lang.NonNull"/>
+    <fullyQualifiedTypeName name="org.hibernate.HibernateException"/>
+    <fullyQualifiedTypeName name="org.hibernate.Transaction"/>
+    <fullyQualifiedTypeName name="javax.transaction.Transaction"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="org.hibernate.SessionFactory"/>
+    <fullyQualifiedTypeName name="org.hibernate.validator.constraints.NotBlank"/>
+    <fullyQualifiedTypeName name="javax.validation.constraints.NotBlank"/>
 </qualifiedTypeNameHistroy>

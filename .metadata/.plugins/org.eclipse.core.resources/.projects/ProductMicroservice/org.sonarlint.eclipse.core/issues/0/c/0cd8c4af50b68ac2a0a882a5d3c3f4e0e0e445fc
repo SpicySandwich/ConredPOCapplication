@@ -1,22 +1,22 @@
 
-†	java:S100)"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼¦¢«øÿÿÿÿ8—í°—ù/HÑ›RMINORZ
+	java:S100;"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßãºÈ8éøÓ™ù/H¸¦RMINORZ
 CODE_SMELL
-‹	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÚØÚÑøÿÿÿÿHÍ›RMINORZ
-CODE_SMELL
-†	java:S100#"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áâü—ùÿÿÿÿ8ÀÜ§™ù/HÖ›RMINORZ
+†	java:S100#"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áâü—ùÿÿÿÿ8ÀÜ§™ù/H¹¦RMINORZ
 CODE_SMELL
 
-java:S4684)"@Replace this persistent entity with a simple POJO or DTO object.(¼¦¢«øÿÿÿÿ8—í°—ù/HÌ›RCRITICALZVULNERABILITY
-†	java:S1004"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íçÃƒøÿÿÿÿ8”®°šù/HÓ›RMINORZ
+java:S4684)"@Replace this persistent entity with a simple POJO or DTO object.(¼¦¢«øÿÿÿÿ8—í°—ù/Hº¦RCRITICALZVULNERABILITY
+†	java:S100/"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰¢ëøÿÿÿÿ8—¯Å–ù/H»¦RMINORZ
 CODE_SMELL
-	java:S100;"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßãºÈ8éøÓ™ù/HÎ›RMINORZ
+†	java:S1004"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íçÃƒøÿÿÿÿ8”®°šù/H¼¦RMINORZ
 CODE_SMELL
-†	java:S100/"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰¢ëøÿÿÿÿ8—¯Å–ù/HÒ›RMINORZ
+‹	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÚØÚÑøÿÿÿÿH½¦RMINORZ
+CODE_SMELL
+†	java:S100)"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼¦¢«øÿÿÿÿ8—í°—ù/H¾¦RMINORZ
 CODE_SMELL
 
-java:S1128"FRemove this unused import 'com.product.KafkaProducer.ProductProducer'.(³ÿÅµùÿÿÿÿ8“Œö°ù/HÛŸRMINORZ
+java:S1128"FRemove this unused import 'com.product.KafkaProducer.ProductProducer'.(³ÿÅµùÿÿÿÿ8‰È€Öù/H¿¦RMINORZ
 CODE_SMELL
 ‚
 java:S1128
-"IRemove this unused import 'org.springframework.kafka.core.KafkaTemplate'.(˜€›‹üÿÿÿÿ8“Œö°ù/HİŸRMINORZ
+"IRemove this unused import 'org.springframework.kafka.core.KafkaTemplate'.(˜€›‹üÿÿÿÿ8‰È€Öù/HÁ¦RMINORZ
 CODE_SMELL

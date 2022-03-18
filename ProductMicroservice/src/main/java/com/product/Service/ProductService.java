@@ -2,9 +2,9 @@ package com.product.Service;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.product.DAO.ProductDAO;
 import com.product.DTO.ProductDTO;
 import com.product.Entity.Product;
@@ -32,45 +32,44 @@ public class ProductService implements ProductServiceInt {
 
 	@Transactional
 	@Override
-	public Product getPoductInfo(Long productid) {
-
+	public Product getPoductInfo(@NonNull Long productid){
 		
-		try {
+try {
+	productProducer.sendMessageDTO("Product viewed id:" +productid);
+
+	return productDAO.getPoductInfo(productid);
+	
+} catch (Exception  e) {
+	throw new ProductExecption("Product not found by id: " + productid );
+	
+}
 			
-	       productProducer.sendMessageDTO("Product viewed id:" +productid);
-
-		return productDAO.getPoductInfo(productid);
 		
-		
-		}catch (Exception e) {
-		
-			throw new ProductExecption("Product not found by id: " + productid );
-		}
 	
 	}
 
-	@Transactional
-	@Override
-	public void save(Product product) {
 
-		if(product == null) {
-			
-			throw new ProductExecption("Please fill up all the field ");
-			
-		}else {
-	productProducer.sendMessage(product);
-			productDAO.save(product);
-			
-		}
+	@Override
+	public void save( Product product) {
 	
+	
+		try {
+			
+			productDAO.save(product);
+			 productProducer.sendMessageDTO("Added a product : " +product);
+		} catch (Exception e) {
+			throw new ProductExecption("Please fill up all the field ");
+		}	
+
 	}
 
 	@Transactional
 	@Override
 	public void delete(Long productid) {
 	try {
-		  productProducer.sendMessageDTO("Deteted id:" +productid);
 		productDAO.delete(productid);
+		  productProducer.sendMessageDTO("Deteted id:" +productid);
+	
 	}catch (Exception e) {
 		throw new ProductExecption("Product id your tring to delete is invalid for id:" + productid );
 	}

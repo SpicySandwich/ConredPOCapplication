@@ -18,7 +18,5 @@ public  interface ProductServiceInt {
 		void delete (Long id);
 		
 		Object updateProduct (ProductDTO newProduct);
-	 
-
 
 }

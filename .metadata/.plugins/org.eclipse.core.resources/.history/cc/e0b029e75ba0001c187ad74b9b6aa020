@@ -1,8 +1,0 @@
-package com.product.GlobalExecption;
-
-import org.springframework.web.bind.annotation.ControllerAdvice;
-
-@ControllerAdvice
-public class ControllerExceptionViewer {
-
-}

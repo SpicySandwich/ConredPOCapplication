@@ -8,9 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.DynamicUpdate;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
@@ -28,38 +30,39 @@ import lombok.ToString;
 public class Product  {
 
       @Id
-      @GeneratedValue(strategy = GenerationType.AUTO)
-      @Column(name = "productid")
+      @GeneratedValue(strategy = GenerationType.IDENTITY)
+      @Column
       private Long productid;
 
       @NotNull
-      @Column(nullable = false, length = 50)
+      @Column
       private String productname;
       
       @NotNull
-      @Column(nullable = false, length = 50)
+      @Column
       private String productbrand;
 
       @NotNull
-      @Column(nullable = false)
+      @Column
       private Double productprice;
 
       @NotNull
-      @Column(nullable = false, length = 200)
+      @Column
       private String productdescription;
       
       @NotNull
-      @Column(nullable = false)
+      @Column
       private Integer productquantity;
       
       @NotNull
       @DateTimeFormat(pattern = "yyyy-MM-dd")
-      @Column(nullable = false, updatable = false)
+      @Column(columnDefinition = "timestamp default current_timestamp", insertable = false, updatable = false)
       private Date productcurrentdate;
       
       @NotNull
+      @Future
       @DateTimeFormat(pattern = "yyyy-MM-dd")
-      @Column(nullable = false, updatable = false)
+      @Column(updatable = false)
       private Date productexpirationdate;
       
       
