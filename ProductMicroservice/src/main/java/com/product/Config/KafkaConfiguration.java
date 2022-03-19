@@ -16,6 +16,7 @@ import org.springframework.web.client.RestTemplate;
 import com.product.DTO.ProductDTO;
 import com.product.Entity.Product;
 import com.product.ModeException.ProductExecption;
+import com.product.ModeException.ProductInternalError;
 
 
 @Configuration
@@ -71,7 +72,7 @@ public class KafkaConfiguration {
 	}
 	
 	@Bean
-	public ProducerFactory<String, ProductExecption> producerProductException() {
+	public ProducerFactory<String, ProductInternalError> producerProductException() {
 		Map<String, Object> config = new HashMap<>();
 		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
 		config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
@@ -80,25 +81,11 @@ public class KafkaConfiguration {
 	}
 	
 	@Bean
-	public KafkaTemplate<String,Long> kafkaInvoiceTemplateLong() {
-		KafkaTemplate<String, Long> kafkaInvoiceTemplate = new KafkaTemplate<String,Long>( producerProductLong());
+	public KafkaTemplate<String,ProductInternalError> kafkaInvoiceTemplateLong() {
+		KafkaTemplate<String, ProductInternalError> kafkaInvoiceTemplate = new KafkaTemplate<String,ProductInternalError>(producerProductException());
 		return kafkaInvoiceTemplate;
 	}
 	
-	@Bean
-	public ProducerFactory<String, Long> producerProductLong() {
-		Map<String, Object> config = new HashMap<>();
-		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
-		config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-		config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
-		return new DefaultKafkaProducerFactory<>(config);
-	}
-	
-	@Bean
-	public KafkaTemplate<String,ProductExecption> kafkaInvoiceTemplateExecption() {
-		KafkaTemplate<String, ProductExecption> kafkaInvoiceTemplate = new KafkaTemplate<String,ProductExecption>( producerProductException());
-		return kafkaInvoiceTemplate;
-	}
 
 
 	

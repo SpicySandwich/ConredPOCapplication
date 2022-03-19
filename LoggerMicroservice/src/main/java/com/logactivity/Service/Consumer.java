@@ -17,7 +17,6 @@ public class Consumer {
 	@Autowired(required = false) 
 	private LogsRecord record;
 	
-	//mongodb save consume  
 	@KafkaListener(topics = "${topic.name}", containerFactory = "kafkaListenerContainerFactory")
 	@Transactional
 	  LogsRecord  listen(String alllogs){

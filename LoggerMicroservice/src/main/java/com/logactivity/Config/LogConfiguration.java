@@ -24,7 +24,8 @@ public class LogConfiguration {
 	        ConcurrentKafkaListenerContainerFactory<String,String> factory=new ConcurrentKafkaListenerContainerFactory<>();
 	        factory.setConsumerFactory(consumerFactory(kafkaProperties));
 	        return factory;
-	        
-
-}
+	        }
+	    
+	    
+	    
 }

@@ -1,20 +1,14 @@
 package com.product.ModeException;
 
-
-public class ProductExecption extends RuntimeException {
-
-
+public class ProductInternalError extends RuntimeException{
 
 	private static final long serialVersionUID = 1L;
 	
-	public ProductExecption (String message) {
+	public ProductInternalError (String message) {
+		
 		super(message);
 		
-	
 	}
-	
-	
-	
-		
+
 
 }

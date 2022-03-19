@@ -10,6 +10,7 @@ import com.product.DTO.ProductDTO;
 import com.product.Entity.Product;
 import com.product.KafkaProducer.ProductProducer;
 import com.product.ModeException.ProductExecption;
+import com.product.ModeException.ProductInternalError;
 
 @Service
 public class ProductService implements ProductServiceInt {
@@ -40,6 +41,7 @@ try {
 	return productDAO.getPoductInfo(productid);
 	
 } catch (Exception  e) {
+	productProducer.sendMessageException(new ProductInternalError("Internal error will send to kafka topic"+productid));
 	throw new ProductExecption("Product not found by id: " + productid );
 	
 }
@@ -49,6 +51,7 @@ try {
 	}
 
 
+	@Transactional
 	@Override
 	public void save( Product product) {
 	
@@ -57,9 +60,15 @@ try {
 			
 			productDAO.save(product);
 			 productProducer.sendMessageDTO("Added a product : " +product);
+			 
 		} catch (Exception e) {
-			throw new ProductExecption("Please fill up all the field ");
-		}	
+			
+	//internal error to kafka
+			productProducer.sendMessageException(new ProductInternalError("Internal error for adding product will send to kafka topic"+product));
+	//exception handling
+		throw new ProductExecption("Please fill up all the field ");
+			 
+		}
 
 	}
 
@@ -71,6 +80,8 @@ try {
 		  productProducer.sendMessageDTO("Deteted id:" +productid);
 	
 	}catch (Exception e) {
+		
+		productProducer.sendMessageException(new ProductInternalError("Internal error for delete will send to kafka topic"+productid));
 		throw new ProductExecption("Product id your tring to delete is invalid for id:" + productid );
 	}
 	}
@@ -93,7 +104,7 @@ try {
 		    return productDAO.updateProduct(currentProduct);
 		    
 		}catch (Exception e) {
-			
+			productProducer.sendMessageException(new ProductInternalError("Internal error for update will send to kafka topic"+currentProduct));
 				throw new ProductExecption("Id your trying to update is invalid");
 			}
 	}	

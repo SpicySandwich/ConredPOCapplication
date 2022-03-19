@@ -135,9 +135,10 @@
   <path value="C:/Users/conre/.m2/repository/io/netty/netty-resolver/4.1.74.Final/netty-resolver-4.1.74.Final.jar"/>
  </paths>
  <validation>
+  <core validator-id="jboss.cdi.core"/>
   <el>
-   <linked-el length="15" name="%0" offset="579" path="%1"/>
-   <linked-el length="15" name="%2" offset="579" path="%1"/>
+   <linked-el length="15" name="%0" offset="552" path="%1"/>
+   <linked-el length="15" name="%2" offset="552" path="%1"/>
   </el>
  </validation>
  <aliases>

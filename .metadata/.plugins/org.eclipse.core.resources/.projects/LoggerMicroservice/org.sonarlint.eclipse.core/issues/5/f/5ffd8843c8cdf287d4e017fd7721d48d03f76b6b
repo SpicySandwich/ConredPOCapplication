@@ -1,10 +1,10 @@
 
-i
-java:S2230"CMake this method "public" or remove the "@Transactional" annotation(¸®«ÍHü‚RMAJORZBUG
-j	java:S106"9Replace this use of System.out or System.err by a logger.(¦‹¤ËüÿÿÿÿHı‚RMAJORZ
+†	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¿ÛíHŸ¬RMINORZ
 CODE_SMELL
-†	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¿ÛíHş‚RMINORZ
+j	java:S106"9Replace this use of System.out or System.err by a logger.(¦‹¤ËüÿÿÿÿH¬RMAJORZ
 CODE_SMELL
 g
-java:S6213":Rename this variable to not match a restricted identifier.(÷ÈèHÿ‚RMAJORZ
+java:S6213":Rename this variable to not match a restricted identifier.(÷ÈèHœ¬RMAJORZ
 CODE_SMELL
+i
+java:S2230"CMake this method "public" or remove the "@Transactional" annotation(¸®«ÍH¬RMAJORZBUG
