@@ -40,3 +40,5 @@ l
 <src/main/java/com/product/KafkaProducer/ProductProducer.java,a\6\a6cf3c491e259ff52e48e3028836abbfc5415c0d
 o
 ?src/main/java/com/product/KafkaProducer/ProductProducerInt.java,6\3\634b6e7e9a0bc236e41a6ccebb317b240962dd84
+q
+Asrc/main/java/com/product/ModeException/ProductInternalError.java,c\e\ce09baa57c0ea1d8b63aa4a47ffcd9f1e802f0e5

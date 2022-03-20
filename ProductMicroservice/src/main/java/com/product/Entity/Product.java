@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Future;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.DynamicUpdate;
@@ -33,32 +34,39 @@ public class Product  {
       @GeneratedValue(strategy = GenerationType.IDENTITY)
       @Column
       private Long productid;
-
+      
+      @NotEmpty
       @NotNull
       @Column
       private String productname;
       
+      @NotEmpty
       @NotNull
       @Column
       private String productbrand;
 
+      @NotEmpty
       @NotNull
       @Column
       private Double productprice;
 
+      @NotEmpty
       @NotNull
       @Column
       private String productdescription;
       
+      @NotEmpty
       @NotNull
       @Column
       private Integer productquantity;
       
+      @NotEmpty
       @NotNull
       @DateTimeFormat(pattern = "yyyy-MM-dd")
       @Column(columnDefinition = "timestamp default current_timestamp", insertable = false, updatable = false)
       private Date productcurrentdate;
       
+      @NotEmpty
       @NotNull
       @Future
       @DateTimeFormat(pattern = "yyyy-MM-dd")

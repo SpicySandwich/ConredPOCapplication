@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.hibernate.query.Query"/>
-    <fullyQualifiedTypeName name="com.product.DAO.productDAO"/>
-    <fullyQualifiedTypeName name="org.springframework.format.annotation.DateTimeFormat"/>
-    <fullyQualifiedTypeName name="org.hibernate.annotations.Table"/>
-    <fullyQualifiedTypeName name="com.product.DAO.ProductDAO"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
     <fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
-    <fullyQualifiedTypeName name="org.springframework.util.concurrent.ListenableFuture"/>
     <fullyQualifiedTypeName name="javax.websocket.SendResult"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="org.springframework.util.concurrent.ListenableFutureCallback"/>
     <fullyQualifiedTypeName name="java.lang.Override"/>
-    <fullyQualifiedTypeName name="org.springframework.kafka.support.SendResult"/>
     <fullyQualifiedTypeName name="lombok.Setter"/>
     <fullyQualifiedTypeName name="lombok.Getter"/>
     <fullyQualifiedTypeName name="com.product.DTO.ProductDTO"/>
@@ -21,7 +14,6 @@
     <fullyQualifiedTypeName name="org.springframework.util.StringUtils"/>
     <fullyQualifiedTypeName name="org.springframework.util.ObjectUtils"/>
     <fullyQualifiedTypeName name="org.hibernate.validator.constraints.NotEmpty"/>
-    <fullyQualifiedTypeName name="javax.validation.constraints.NotEmpty"/>
     <fullyQualifiedTypeName name="org.hibernate.HibernateException"/>
     <fullyQualifiedTypeName name="org.hibernate.Transaction"/>
     <fullyQualifiedTypeName name="javax.transaction.Transaction"/>
@@ -53,11 +45,19 @@
     <fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
     <fullyQualifiedTypeName name="org.springframework.kafka.core.KafkaTemplate"/>
     <fullyQualifiedTypeName name="org.springframework.kafka.retrytopic.RetryTopicConfiguration"/>
-    <fullyQualifiedTypeName name="com.product.ModeException.ProductExecption"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="org.springframework.kafka.retrytopic.RetryTopicConfigurationBuilder"/>
     <fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
     <fullyQualifiedTypeName name="com.product.KafkaProducer.ProductProducer"/>
     <fullyQualifiedTypeName name="org.slf4j.Logger"/>
+    <fullyQualifiedTypeName name="org.springframework.retry.annotation.Retryable"/>
+    <fullyQualifiedTypeName name="org.apache.logging.log4j.message.Message"/>
+    <fullyQualifiedTypeName name="org.apache.catalina.connector.Response"/>
+    <fullyQualifiedTypeName name="com.product.ModeException.ProductExecption"/>
+    <fullyQualifiedTypeName name="org.springframework.util.concurrent.ListenableFuture"/>
+    <fullyQualifiedTypeName name="org.springframework.kafka.support.SendResult"/>
+    <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
+    <fullyQualifiedTypeName name="com.product.ModeException.ProductInternalError"/>
+    <fullyQualifiedTypeName name="javax.validation.constraints.NotEmpty"/>
 </qualifiedTypeNameHistroy>
