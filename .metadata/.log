@@ -3679,3 +3679,98 @@ java.lang.InterruptedException
 	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
 	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
 	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-21 16:11:05.562
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.xtrItLvZ
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-21 16:11:05.564
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.xtrItLvZ
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-21 16:11:05.565
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-21 16:11:05.565
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.xtrItLvZ => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-21 16:13:39.996
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-21 16:13:39.997
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@3548cbf8[org.springframework.tooling.boot.ls:1.30.0.202201310805(id=1446)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-21 16:13:39.998
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-21 16:13:45.232
+!MESSAGE Boot LS startup time from start to initialized: 5233ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-21 16:13:45.283
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.QJYKddEeisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-21 16:13:45.284
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-21 16:13:45.285
+!MESSAGE Scheduling initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-21 16:13:45.285
+!MESSAGE Scheduling initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-21 16:13:45.286
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-21 16:13:45.286
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.QJYKddEe => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-21 16:13:45.293
+!MESSAGE classpath=174 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-21 16:13:45.298
+!MESSAGE buffering callback sts4.classpath.QJYKddEe ProductMicroservice false 174
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-21 16:13:45.299
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-21 16:13:45.302
+!MESSAGE classpath=80 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-21 16:13:45.305
+!MESSAGE buffering callback sts4.classpath.QJYKddEe CartGatewayService false 80
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-21 16:13:45.305
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-21 16:13:45.309
+!MESSAGE classpath=74 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-21 16:13:45.312
+!MESSAGE buffering callback sts4.classpath.QJYKddEe CartService false 74
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-21 16:13:45.313
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-21 16:13:45.317
+!MESSAGE classpath=135 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-21 16:13:45.321
+!MESSAGE buffering callback sts4.classpath.QJYKddEe LoggerMicroservice false 135
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-21 16:13:45.321
+!MESSAGE executing callback sts4.classpath.QJYKddEe 4 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-21 16:13:47.325
+!MESSAGE executing callback sts4.classpath.QJYKddEe FAILED
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 4 0 2022-03-21 16:13:47.326
+!MESSAGE 
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+	at org.springframework.tooling.ls.eclipse.commons.LSP4ECommandExecutor.executeClientCommand(LSP4ECommandExecutor.java:37)
+	at org.springframework.tooling.jdt.ls.commons.classpath.SendClasspathNotificationsJob.flush(SendClasspathNotificationsJob.java:178)
+	at org.springframework.tooling.jdt.ls.commons.classpath.SendClasspathNotificationsJob.run(SendClasspathNotificationsJob.java:149)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.ui 2 2 2022-03-21 16:19:26.921
+!MESSAGE Invalid property category path: org.springframework.ide.eclipse.beans.ui.properties.ProjectPropertyPage (bundle: org.springframework.ide.eclipse.xml.namespaces, propertyPage: org.springframework.ide.eclipse.beans.ui.namespaces.projectPropertyPage)

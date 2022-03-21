@@ -64,7 +64,7 @@ public class ProductService implements ProductServiceInt {
 try {
 	productProducer.sendMessageDTO("Product viewed id:" +productid);
 
-	return convertProductDTOtoProduct(productDAO.getPoductInfo(productid));
+	
 	
 } catch (Exception  e) {
 	productProducer.sendMessageException(new ProductInternalError("Internal error for viewing data will send to kafka topic"+productid));
@@ -72,7 +72,7 @@ try {
 	
 }
 			
-	
+return convertProductDTOtoProduct(productDAO.getPoductInfo(productid));
 	}
 	
 	@Transactional
@@ -98,18 +98,20 @@ try {
 	
 		try {
 			
+	
+			
 			productDAO.save(product);
 			 productProducer.sendMessageDTO("Added a product : " +product);
-			return convertProductDTOtoProduct(product);
+	
 			 
-		} catch (Exception e) {
+		} 	
+		catch (Exception e) {
 			
-	//internal error to kafka
 			productProducer.sendMessageException(new ProductInternalError("Internal error for adding product will send to kafka topic"+product));
-	//exception handling
 		throw new ProductExecption("Please fill up all the field ");
 			 
 		}
+		return convertProductDTOtoProduct(product);
 
 	}
 
@@ -130,12 +132,14 @@ try {
 			
 			 productProducer.sendMessageDTO("Updated Product : "+ newProduct);
 			 
-		    return productDAO.updateProduct(currentProduct);
+		  
 		    
 		}catch (Exception e) {
 			productProducer.sendMessageException(new ProductInternalError("Internal error for update will send to kafka topic"+currentProduct));
 				throw new ProductExecption("Id your trying to update is invalid");
 			}
+		
+		  return productDAO.updateProduct(currentProduct);
 	}
 
 

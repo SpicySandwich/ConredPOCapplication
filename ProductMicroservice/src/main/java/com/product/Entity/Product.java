@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Future;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -36,11 +37,12 @@ public class Product  {
       private Long productid;
       
      
+      @NotBlank
       @NotNull
       @Column
       private String productname;
       
- 
+      @NotBlank
       @NotNull
       @Column
       private String productbrand;
@@ -51,6 +53,7 @@ public class Product  {
       private Double productprice;
 
  
+      @NotBlank
       @NotNull
       @Column
       private String productdescription;
