@@ -1,6 +1,10 @@
 package com.product.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
+import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
@@ -16,20 +20,45 @@ import com.product.ModeException.ProductInternalError;
 public class ProductService implements ProductServiceInt {
 	
 	@Autowired
-	ProductDAO productDAO;
+	private ProductDAO productDAO;
 	
 	@Autowired
-	ProductProducer productProducer;
+	private ProductProducer productProducer;
+	
+	@Autowired
+	private ModelMapper modelMapper;
 	
 	
+	private ProductDTO convertProductDTOtoProduct(Product product) {
+
+		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
+		ProductDTO productdto = new ProductDTO();
+		productdto = modelMapper.map(product, ProductDTO.class);
+		return productdto;
+		
+	}	
+
 
 	@Transactional
 	@Override
-	public List<Product> getProduct() {
+	public List<ProductDTO> getProduct() {
 	
-		return productDAO.getProduct();
+		try {
+			return productDAO.getProduct()
+					.stream()
+	                .map(this::convertProductDTOtoProduct)
+	                .collect(Collectors.toList());	
+			
+		} catch (Exception e) {
+			
+			productProducer.sendMessageException(new ProductInternalError("Internal error for list of data will send to kafka topic"));
+			throw new ProductExecption("Product List not found " );
+		
+		}
+	
 
 	}
+
 
 	@Transactional
 	@Override
@@ -41,7 +70,7 @@ try {
 	return productDAO.getPoductInfo(productid);
 	
 } catch (Exception  e) {
-	productProducer.sendMessageException(new ProductInternalError("Internal error will send to kafka topic"+productid));
+	productProducer.sendMessageException(new ProductInternalError("Internal error for viewing data will send to kafka topic"+productid));
 	throw new ProductExecption("Product not found by id: " + productid );
 	
 }
@@ -107,7 +136,9 @@ try {
 			productProducer.sendMessageException(new ProductInternalError("Internal error for update will send to kafka topic"+currentProduct));
 				throw new ProductExecption("Id your trying to update is invalid");
 			}
-	}	
+	}
+
+
 
 
      

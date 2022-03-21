@@ -1,3 +1,6 @@
 
-‹	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(™γώθύÿÿÿÿHρ®RMINORZ
+‹	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(™γώθύÿÿÿÿH—΄RMINORZ
+CODE_SMELL
+o
+java:S18541";Remove this useless assignment to local variable "product".(Ά¦Μ›8»ΛώΤϊ/HµRMAJORZ
 CODE_SMELL

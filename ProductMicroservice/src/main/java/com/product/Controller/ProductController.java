@@ -32,7 +32,7 @@ public class ProductController {
   	
 
   	 @GetMapping("/productlist")
-     public List<Product> GetProductName(){
+     public List<ProductDTO> GetProductName(){
            return productService.getProduct();
            
   	 }

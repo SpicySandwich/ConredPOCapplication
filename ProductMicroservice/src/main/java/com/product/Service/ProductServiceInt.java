@@ -9,7 +9,7 @@ public  interface ProductServiceInt {
 	
 
 	 
-		List <Product> getProduct();
+		List <ProductDTO> getProduct();
 
 		Product getPoductInfo (Long productid);
 
@@ -18,5 +18,7 @@ public  interface ProductServiceInt {
 		void delete (Long id);
 		
 		Object updateProduct (ProductDTO newProduct);
+		
+	
 
 }
