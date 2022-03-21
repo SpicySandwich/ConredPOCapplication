@@ -27,7 +27,7 @@ public class ProductDTO {
       private Integer productquantity;
       private Date productcurrentdate;
       private Date productexpirationdate;
-	
+      
 
 
 }

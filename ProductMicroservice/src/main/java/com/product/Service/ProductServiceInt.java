@@ -11,11 +11,11 @@ public  interface ProductServiceInt {
 	 
 		List <ProductDTO> getProduct();
 
-		Product getPoductInfo (Long productid);
+		ProductDTO getPoductInfo (Long productid);
 
-		void save(Product product);
+		ProductDTO save(Product product);
 
-		void delete (Long id);
+		ProductDTO delete (Long id);
 		
 		Object updateProduct (ProductDTO newProduct);
 		

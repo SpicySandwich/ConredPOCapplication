@@ -46,12 +46,13 @@ public class ProductDAOImpl  implements ProductDAO{
 	}
 
 	@Override
-	public void delete(Long productid) {
+	public Product delete(Long productid) {
 		
 		Session session = entityManager.unwrap(Session.class);
 		Product productObj = session.get(Product.class, productid);
 		session.delete(productObj);
 		session.close();
+		return productObj;
 		
 	
 		

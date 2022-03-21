@@ -44,7 +44,7 @@ public class ProductController {
      }
   
      @GetMapping("/productview/{productid}")
-     public Product GetProductName(@PathVariable Long productid,@RequestBody  ProductDTO product){
+     public ProductDTO GetProductName(@PathVariable Long productid,@RequestBody  ProductDTO product){
    	  return productService.getPoductInfo(productid);
      }
     

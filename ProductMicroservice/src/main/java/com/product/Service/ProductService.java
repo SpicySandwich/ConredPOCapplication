@@ -38,7 +38,6 @@ public class ProductService implements ProductServiceInt {
 		
 	}	
 
-
 	@Transactional
 	@Override
 	public List<ProductDTO> getProduct() {
@@ -58,16 +57,14 @@ public class ProductService implements ProductServiceInt {
 	
 
 	}
-
-
 	@Transactional
 	@Override
-	public Product getPoductInfo(@NonNull Long productid){
+	public ProductDTO getPoductInfo(@NonNull Long productid){
 		
 try {
 	productProducer.sendMessageDTO("Product viewed id:" +productid);
 
-	return productDAO.getPoductInfo(productid);
+	return convertProductDTOtoProduct(productDAO.getPoductInfo(productid));
 	
 } catch (Exception  e) {
 	productProducer.sendMessageException(new ProductInternalError("Internal error for viewing data will send to kafka topic"+productid));
@@ -75,20 +72,35 @@ try {
 	
 }
 			
-		
 	
 	}
-
-
+	
 	@Transactional
 	@Override
-	public void save( Product product) {
+	public ProductDTO delete(Long productid) {
+	try {
+		 productProducer.sendMessageDTO("Deteted id:" +productid);
+		 
+		return convertProductDTOtoProduct(productDAO.delete(productid));
+		 
+	
+	}catch (Exception e) {
+		
+		productProducer.sendMessageException(new ProductInternalError("Internal error for delete will send to kafka topic"+productid));
+		throw new ProductExecption("Product id your tring to delete is invalid for id:" + productid );
+	}
+	}
+	
+	@Transactional
+	@Override
+	public ProductDTO save( Product product) {
 	
 	
 		try {
 			
 			productDAO.save(product);
 			 productProducer.sendMessageDTO("Added a product : " +product);
+			return convertProductDTOtoProduct(product);
 			 
 		} catch (Exception e) {
 			
@@ -101,19 +113,7 @@ try {
 
 	}
 
-	@Transactional
-	@Override
-	public void delete(Long productid) {
-	try {
-		productDAO.delete(productid);
-		  productProducer.sendMessageDTO("Deteted id:" +productid);
-	
-	}catch (Exception e) {
-		
-		productProducer.sendMessageException(new ProductInternalError("Internal error for delete will send to kafka topic"+productid));
-		throw new ProductExecption("Product id your tring to delete is invalid for id:" + productid );
-	}
-	}
+
 
 	
 	@Transactional

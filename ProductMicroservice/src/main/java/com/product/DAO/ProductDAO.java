@@ -14,7 +14,7 @@ public interface ProductDAO {
 
 	void save(Product product);
 
-	void delete (Long id);
+	Product delete (Long id);
 	
 	Object updateProduct (Product currentProduct);
 	
