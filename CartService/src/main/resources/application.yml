@@ -21,4 +21,4 @@ actable:
     
 mybatis:
   table:
-    auto: create
+    auto: update

@@ -5390,3 +5390,140 @@ java.lang.InterruptedException
 	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
 	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
 	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 19:22:15.469
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.arJkAJfO
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 19:22:15.471
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.arJkAJfO
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 19:22:15.472
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 19:22:15.473
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.arJkAJfO => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 19:29:36.113
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 19:29:36.114
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@d1e6b6[org.springframework.tooling.boot.ls:1.30.0.202201310805(id=1446)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 19:29:36.116
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 19:29:43.098
+!MESSAGE Boot LS startup time from start to initialized: 6980ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 19:29:43.174
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.BNMHKWDxisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 19:29:43.177
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 19:29:43.177
+!MESSAGE Scheduling initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 19:29:43.178
+!MESSAGE Scheduling initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 19:29:43.179
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 19:29:43.180
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.BNMHKWDx => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 19:29:43.184
+!MESSAGE classpath=80 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 19:29:43.189
+!MESSAGE buffering callback sts4.classpath.BNMHKWDx CartGatewayService false 80
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 19:29:43.190
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 19:29:43.194
+!MESSAGE classpath=77 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 19:29:43.198
+!MESSAGE buffering callback sts4.classpath.BNMHKWDx CartService false 77
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 19:29:43.199
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 19:29:43.208
+!MESSAGE classpath=135 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 19:29:43.213
+!MESSAGE buffering callback sts4.classpath.BNMHKWDx LoggerMicroservice false 135
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 19:29:43.215
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 19:29:43.227
+!MESSAGE classpath=174 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 19:29:43.234
+!MESSAGE buffering callback sts4.classpath.BNMHKWDx ProductMicroservice false 174
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 19:29:43.236
+!MESSAGE executing callback sts4.classpath.BNMHKWDx 4 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 19:29:45.240
+!MESSAGE executing callback sts4.classpath.BNMHKWDx FAILED
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 4 0 2022-03-22 19:29:45.241
+!MESSAGE 
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+	at org.springframework.tooling.ls.eclipse.commons.LSP4ECommandExecutor.executeClientCommand(LSP4ECommandExecutor.java:37)
+	at org.springframework.tooling.jdt.ls.commons.classpath.SendClasspathNotificationsJob.flush(SendClasspathNotificationsJob.java:178)
+	at org.springframework.tooling.jdt.ls.commons.classpath.SendClasspathNotificationsJob.run(SendClasspathNotificationsJob.java:149)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 20:00:46.143
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 20:00:46.149
+!MESSAGE classpath=77 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 20:00:46.153
+!MESSAGE buffering callback sts4.classpath.BNMHKWDx CartService false 77
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 20:00:46.154
+!MESSAGE executing callback sts4.classpath.BNMHKWDx 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 20:00:46.174
+!MESSAGE executing callback sts4.classpath.BNMHKWDx SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 20:00:46.453
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 20:00:46.459
+!MESSAGE classpath=77 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 20:00:46.466
+!MESSAGE buffering callback sts4.classpath.BNMHKWDx CartService false 77
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 20:00:46.466
+!MESSAGE executing callback sts4.classpath.BNMHKWDx 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 20:00:48.058
+!MESSAGE executing callback sts4.classpath.BNMHKWDx SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 20:00:48.060
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 20:00:48.064
+!MESSAGE classpath=77 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 20:00:48.067
+!MESSAGE buffering callback sts4.classpath.BNMHKWDx CartService false 77
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 20:00:48.068
+!MESSAGE executing callback sts4.classpath.BNMHKWDx 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-03-22 20:00:48.084
+!MESSAGE executing callback sts4.classpath.BNMHKWDx SUCCESS [done]

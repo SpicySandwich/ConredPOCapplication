@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Update;
 import com.cartservice.Model.GuestClient;
 
 @Mapper
-public interface GuestClientRepo {
+public interface GuestClientRepo  {
 	
 	@Select("select * from tb_guest_client")
     public List <GuestClient > findAll();
@@ -28,5 +28,5 @@ public interface GuestClientRepo {
     @Update("Update tb_guest_client set firstname=#{firstname}, " +
         "lastname=#{lastname}, email=#{email}, currentdate=#{currentdate}  where clientid=#{clientid} ")
     public int update(GuestClient guestClient);
-
+    
 }
