@@ -17,6 +17,20 @@
 		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
+	
+
+	  <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.0.18</version>
+        </dependency>
+	
+<dependency>
+    <groupId>com.gitee.sunchenbin.mybatis.actable</groupId>
+    <artifactId>mybatis-enhance-actable</artifactId>
+    <version>1.0.1</version>
+</dependency>
+	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -43,6 +57,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		 <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <optional>true</optional>
+    </dependency>
+		
 	</dependencies>
 
 	<build>
@@ -50,6 +71,15 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				
+				  <configuration>
+          <excludes>
+            <exclude>
+              <groupId>org.projectlombok</groupId>
+              <artifactId>lombok</artifactId>
+            </exclude>
+          </excludes>
+        </configuration>
 			</plugin>
 		</plugins>
 	</build>

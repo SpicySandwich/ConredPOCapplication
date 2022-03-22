@@ -35,7 +35,6 @@ public class Product  {
       @GeneratedValue(strategy = GenerationType.IDENTITY)
       @Column
       private Long productid;
-      
      
       @NotBlank
       @NotNull
@@ -47,29 +46,24 @@ public class Product  {
       @Column
       private String productbrand;
 
-
       @NotNull
       @Column
       private Double productprice;
-
  
       @NotBlank
       @NotNull
       @Column
       private String productdescription;
       
-
       @NotNull
       @Column
       private Integer productquantity;
       
- 
       @NotNull
       @DateTimeFormat(pattern = "yyyy-MM-dd")
       @Column(columnDefinition = "timestamp default current_timestamp", insertable = false, updatable = false)
       private Date productcurrentdate;
       
-    
       @NotNull
       @Future
       @DateTimeFormat(pattern = "yyyy-MM-dd")

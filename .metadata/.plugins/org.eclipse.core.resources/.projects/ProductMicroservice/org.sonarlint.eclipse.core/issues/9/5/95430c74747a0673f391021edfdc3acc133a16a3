@@ -1,21 +1,21 @@
 
-u
-java:S1128"HRemove this unused import 'com.fasterxml.jackson.annotation.JsonIgnore'.(ş‘‹„H÷³RMINORZ
-CODE_SMELL
-g
-java:S1128"5Remove this unused import 'javax.persistence.Entity'.(úƒßıûÿÿÿÿHú³RMINORZ
-CODE_SMELL
 Š
-java:S1128	"QRemove this unused import 'org.springframework.format.annotation.DateTimeFormat'.(‡ˆôƒøÿÿÿÿ8È Ôú/H´RMINORZ
+java:S1128	"QRemove this unused import 'org.springframework.format.annotation.DateTimeFormat'.(‡ˆôƒøÿÿÿÿ8È Ôú/H»¶RMINORZ
 CODE_SMELL
 z
-java:S1128"ARemove this unused import 'javax.validation.constraints.NotNull'.(áç¥ãüÿÿÿÿ8È Ôú/H‹´RMINORZ
+java:S1128"ARemove this unused import 'javax.validation.constraints.NotNull'.(áç¥ãüÿÿÿÿ8È Ôú/H¿¶RMINORZ
+CODE_SMELL
+g
+java:S1128"5Remove this unused import 'javax.persistence.Entity'.(úƒßıûÿÿÿÿHÅ¶RMINORZ
 CODE_SMELL
 ~
-java:S1128"JRemove this unused import 'com.fasterxml.jackson.annotation.JsonProperty'.(ËÃ§Ï8È Ôú/H‘´RMINORZ
+java:S1128"JRemove this unused import 'com.fasterxml.jackson.annotation.JsonProperty'.(ËÃ§Ï8È Ôú/H½¶RMINORZ
 CODE_SMELL
-†	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(÷ÆœáHù³RMINORZ
+†	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(÷ÆœáHº¶RMINORZ
 CODE_SMELL
 r
-java:S1128">Remove this unused import 'javax.validation.constraints.Size'.(›«´İ8È Ôú/H´RMINORZ
+java:S1128">Remove this unused import 'javax.validation.constraints.Size'.(›«´İ8È Ôú/HÃ¶RMINORZ
+CODE_SMELL
+u
+java:S1128"HRemove this unused import 'com.fasterxml.jackson.annotation.JsonIgnore'.(ş‘‹„HÁ¶RMINORZ
 CODE_SMELL

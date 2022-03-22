@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/dbpoc?characterEncoding=utf8&useSSL=false&autoReconnect=true
+    username: root
+    password: root
+    testWhileIdle: true
+    validationQuery: SELECT 1
+
+server:
+  port: 8093
+
+
+actable:
+  table:
+    auto: update
+  model:
+    pack: com.cartservice.Model
+  database:
+    type: mysql
+    
+mybatis:
+  table:
+    auto: create

@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.lang.Override"/>
-    <fullyQualifiedTypeName name="lombok.Setter"/>
-    <fullyQualifiedTypeName name="lombok.Getter"/>
-    <fullyQualifiedTypeName name="org.springframework.util.StringUtils"/>
     <fullyQualifiedTypeName name="org.springframework.util.ObjectUtils"/>
     <fullyQualifiedTypeName name="org.hibernate.validator.constraints.NotEmpty"/>
     <fullyQualifiedTypeName name="org.hibernate.HibernateException"/>
     <fullyQualifiedTypeName name="org.hibernate.Transaction"/>
     <fullyQualifiedTypeName name="javax.transaction.Transaction"/>
     <fullyQualifiedTypeName name="org.hibernate.SessionFactory"/>
-    <fullyQualifiedTypeName name="org.hibernate.validator.constraints.NotBlank"/>
-    <fullyQualifiedTypeName name="javax.validation.constraints.NotBlank"/>
     <fullyQualifiedTypeName name="javax.validation.constraints.Future"/>
     <fullyQualifiedTypeName name="javax.validation.constraints.NotNull"/>
-    <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
     <fullyQualifiedTypeName name="java.lang.Object"/>
     <fullyQualifiedTypeName name="org.hibernate.annotations.DynamicUpdate"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
@@ -32,7 +25,6 @@
     <fullyQualifiedTypeName name="org.springframework.kafka.support.serializer.ErrorHandlingDeserializer"/>
     <fullyQualifiedTypeName name="org.apache.kafka.common.serialization.StringDeserializer"/>
     <fullyQualifiedTypeName name="org.springframework.kafka.listener.RecoveringBatchErrorHandler"/>
-    <fullyQualifiedTypeName name="org.springframework.lang.NonNull"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
     <fullyQualifiedTypeName name="org.springframework.kafka.core.KafkaTemplate"/>
     <fullyQualifiedTypeName name="org.springframework.kafka.retrytopic.RetryTopicConfiguration"/>
@@ -48,16 +40,24 @@
     <fullyQualifiedTypeName name="com.product.ModeException.ProductExecption"/>
     <fullyQualifiedTypeName name="org.springframework.util.concurrent.ListenableFuture"/>
     <fullyQualifiedTypeName name="org.springframework.kafka.support.SendResult"/>
-    <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
     <fullyQualifiedTypeName name="com.product.ModeException.ProductInternalError"/>
     <fullyQualifiedTypeName name="javax.validation.constraints.NotEmpty"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="org.modelmapper.ModelMapper"/>
     <fullyQualifiedTypeName name="org.modelmapper.spi.MatchingStrategy"/>
     <fullyQualifiedTypeName name="org.modelmapper.convention.MatchingStrategies"/>
-    <fullyQualifiedTypeName name="com.product.DTO.ProductDTO"/>
-    <fullyQualifiedTypeName name="com.product.Entity.Product"/>
     <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
     <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
     <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
+    <fullyQualifiedTypeName name="com.product.DTO.ProductDTO"/>
+    <fullyQualifiedTypeName name="com.product.Entity.Product"/>
+    <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
+    <fullyQualifiedTypeName name="com.product.ModeException.ProductNullExecption"/>
+    <fullyQualifiedTypeName name="org.springframework.lang.NonNull"/>
+    <fullyQualifiedTypeName name="javax.validation.constraints.Null"/>
+    <fullyQualifiedTypeName name="org.springframework.data.crossstore.ChangeSetPersister.NotFoundException"/>
+    <fullyQualifiedTypeName name="javassist.NotFoundException"/>
+    <fullyQualifiedTypeName name="org.hibernate.validator.constraints.NotBlank"/>
+    <fullyQualifiedTypeName name="javax.validation.constraints.NotBlank"/>
+    <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
 </qualifiedTypeNameHistroy>
