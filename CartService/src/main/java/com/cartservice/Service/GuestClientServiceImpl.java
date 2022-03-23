@@ -1,10 +1,8 @@
 package com.cartservice.Service;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.cartservice.DAO.GuestClientRepo;
 import com.cartservice.Model.GuestClient;
 

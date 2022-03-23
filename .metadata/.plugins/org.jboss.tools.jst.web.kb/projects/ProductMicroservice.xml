@@ -184,7 +184,6 @@
   <path value="C:/Users/conre/.m2/repository/io/netty/netty-buffer/4.1.73.Final/netty-buffer-4.1.73.Final.jar"/>
  </paths>
  <validation>
-  <core validator-id="jboss.cdi.core"/>
   <el/>
  </validation>
  <aliases/>

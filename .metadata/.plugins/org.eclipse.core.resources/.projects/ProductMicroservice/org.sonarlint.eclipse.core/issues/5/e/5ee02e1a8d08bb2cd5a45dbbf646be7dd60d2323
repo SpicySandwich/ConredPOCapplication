@@ -1,6 +1,6 @@
 
-w
-java:S1854#">Remove this useless assignment to local variable "productdto".(ה›צרשÿÿÿÿ8û°Ûײת/H׃µRMAJORZ
+‹	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(™ד‏ט‎ÿÿÿÿH¢»RMINORZ
 CODE_SMELL
-‹	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(™ד‏ט‎ÿÿÿÿH’µRMINORZ
+w
+java:S1854#">Remove this useless assignment to local variable "productdto".(ה›צרשÿÿÿÿ8û°Ûײת/H£»RMAJORZ
 CODE_SMELL

@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import com.cartservice.Model.GuestClient;
@@ -23,6 +24,7 @@ public interface GuestClientRepo  {
 
     @Insert("INSERT INTO tb_guest_client(clientid, firstname, lastname,email,currentdate) " +
         " VALUES (#{clientid}, #{firstname}, #{lastname}, #{email}, #{currentdate} )")
+    @Options(useGeneratedKeys = true, keyColumn = "clientid", keyProperty = "clientid")
     public int insert(GuestClient guestClient);
 
     @Update("Update tb_guest_client set firstname=#{firstname}, " +
