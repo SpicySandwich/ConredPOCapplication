@@ -222,8 +222,8 @@
   <uri name="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" uri="jar:file:/C:/Users/conre/eclipse/plugins/org.eclipse.wst.standard.schemas_1.0.800.v201901071922.jar!/xsd/ws-securitypolicy-1.2.xsd"/>
   <uri name="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200802" uri="jar:file:/C:/Users/conre/eclipse/plugins/org.eclipse.wst.standard.schemas_1.0.800.v201901071922.jar!/xsd/ws-securitypolicy.xsd"/>
   <uri name="http://www.w3.org/TR/xmldsig-core/xmldsig-core-schema.xsd" uri="jar:file:/C:/Users/conre/eclipse/plugins/org.eclipse.wst.standard.schemas_1.0.800.v201901071922.jar!/xsd/xmldsig-core-schema.xsd"/>
-  <system systemId="http://www.w3.org/2001/xml.xsd" uri="jar:file:/C:/Users/conre/eclipse/plugins/org.eclipse.xsd_2.18.0.v20210924-1719.jar!/cache/www.w3.org/2001/xml.xsd"/>
-  <uri name="http://www.w3.org/2001/XMLSchema" uri="jar:file:/C:/Users/conre/eclipse/plugins/org.eclipse.xsd_2.18.0.v20210924-1719.jar!/cache/www.w3.org/2001/XMLSchema.xsd"/>
+  <system systemId="http://www.w3.org/2001/xml.xsd" uri="jar:file:/C:/Users/conre/eclipse/plugins/org.eclipse.xsd_2.18.0.v20211216-0527.jar!/cache/www.w3.org/2001/xml.xsd"/>
+  <uri name="http://www.w3.org/2001/XMLSchema" uri="jar:file:/C:/Users/conre/eclipse/plugins/org.eclipse.xsd_2.18.0.v20211216-0527.jar!/cache/www.w3.org/2001/XMLSchema.xsd"/>
   <uri id="org.w3c.xinclude" name="http://www.w3.org/2001/XInclude" uri="jar:file:/C:/Users/conre/eclipse/plugins/org.eclipse.wst.xsl.core_1.2.100.v201907231732.jar!/xslt-schemas/xinclude.xsd"/>
   <uri name="http://activemq.apache.org/schema/spring" uri="jar:file:/C:/Users/conre/eclipse/plugins/org.fusesource.ide.catalogs_11.13.0.v20211006-0918.jar!/xsd/fuse/activemq-spring-5.11.0.redhat-620133.xsd"/>
   <uri name="http://activemq.apache.org/schema/ra" uri="jar:file:/C:/Users/conre/eclipse/plugins/org.fusesource.ide.catalogs_11.13.0.v20211006-0918.jar!/xsd/fuse/activemq-ra-5.11.0.redhat-620133.xsd"/>
@@ -743,5 +743,5 @@
   <uri name="http://java.sun.com/xml/ns/javaee/web-facelettaglibary_2_0.xsd" uri="jar:file:/C:/Users/conre/eclipse/plugins/org.jboss.tools.jst.web_3.10.100.v20211020-1212.jar!/catalog/web-facelettaglibrary_2_0.xsd"/>
   <uri name="http://java.sun.com/xml/ns/javaee/web-facelettaglibrary_2_0.xsd" uri="jar:file:/C:/Users/conre/eclipse/plugins/org.jboss.tools.jst.web_3.10.100.v20211020-1212.jar!/catalog/web-facelettaglibrary_2_0.xsd"/>
   <public publicId="-//OASIS//DTD DocBook XML V4.1.2//EN" uri="file:/C:/Users/conre/eclipse/plugins/org.jboss.tools.vpe.docbook_3.9.0.v20210316-0802/dtds/docbookx-4.1.2.dtd"/>
-  <public publicId="-//LOG4J//DTD LOG4J//EN" uri="jar:file:/C:/Users/conre/eclipse/plugins/org.springsource.ide.eclipse.commons.ui_4.13.1.202201310805.jar!/dtd/log4j-1.2.dtd" webURL="https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd"/>
+  <public publicId="-//LOG4J//DTD LOG4J//EN" uri="jar:file:/C:/Users/conre/eclipse/plugins/org.springsource.ide.eclipse.commons.ui_4.14.0.202203131529.jar!/dtd/log4j-1.2.dtd" webURL="https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd"/>
 </catalog>

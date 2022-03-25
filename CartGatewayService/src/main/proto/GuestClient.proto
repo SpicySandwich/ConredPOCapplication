@@ -1,7 +1,15 @@
 syntax = "proto3";
-option java_multiple_files = true;
-package com.GRPCserver;
 
+package com.cartgatewayservice;
+
+option java_multiple_files = true;
+option java_package = "com.cartgatewayservice";
+
+service ClientGuestService {
+    rpc ClientGuest(ClientGuestRequest) returns (ClientGuestResponse){
+
+    }
+}
 
 message ClientGuestRequest {
     int32 setclientguest_id = 1;
@@ -16,7 +24,4 @@ message ClientGuestResponse {
     string getclientguest_firstname = 2;
     string getclientguest_lastname = 3;
     string getclientguest_email = 4;
-}
-service ClientGuestService {
-    rpc ping(ClientGuestRequest) returns (ClientGuestResponse);
 }
