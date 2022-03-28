@@ -862,19 +862,6 @@ IEclipsePreferences#com-wolfram-eclipse-MEET {
 		'syntaxcolor.string.literal=255,0,255'
 		'syntaxcolor.live.bracket.matching.bold=false'
 }
-IEclipsePreferences#de-jcup-yamleditor {
-	preferences:
-		'colorBlock=47,95,95'
-		'colorBooleans=104,151,187'
-		'colorComments=115,130,140'
-		'colorDoubleStrings=23,198,163'
-		'colorHyperlink=143,155,163'
-		'colorMappings=197,104,28'
-		'colorNormalText=227,230,232'
-		'colorSingleStrings=23,198,163'
-		'colorTemplateVariable=255,51,153'
-		'colorYamlKeywords=126,140,149'
-}
 IEclipsePreferences#de-walware-statet-base-ui {
 	preferences:
 		'editors/optionsParameters.foreground=192,192,192'
@@ -2152,14 +2139,6 @@ IEclipsePreferences#org-eclipse-ui-workbench {
 		'content_assist_parameters_foreground=233,235,237'
 		'content_assist_proposals_background=46,52,56'
 		'content_assist_proposals_foreground=233,235,237'
-		'cucumber.eclipse.editor.presentation.gherkin_comment_colour=190,62,62'
-		'cucumber.eclipse.editor.presentation.gherkin_keyword_colour=196,196,64'
-		'cucumber.eclipse.editor.presentation.gherkin_numeric_literal_colour=62,190,62'
-		'cucumber.eclipse.editor.presentation.gherkin_placeholder_colour=246,123,0'
-		'cucumber.eclipse.editor.presentation.gherkin_step_colour=64,196,196'
-		'cucumber.eclipse.editor.presentation.gherkin_string_colour=62,190,62'
-		'cucumber.eclipse.editor.presentation.gherkin_tag_colour=64,196,255'
-		'cucumber.eclipse.editor.presentation.gherkin_text_colour=196,202,207'
 		'declBoder=0,254,254'
 		'doctypeExternalId=110,124,135'
 		'doctypeExternalPubref=0,254,254'

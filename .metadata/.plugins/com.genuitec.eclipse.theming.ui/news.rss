@@ -12,7 +12,7 @@
 	<atom:link href="https://www.genuitec.com/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.genuitec.com</link>
 	<description>The Cloud Control Company</description>
-	<lastBuildDate>Tue, 25 Jan 2022 19:17:31 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 24 Mar 2022 19:28:29 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,24 @@
 	1	</sy:updateFrequency>
 	
 	<item>
+		<title>MyEclipse 2022.1 &#8211; Jakarta EE 9 and Vue in Eclipse + More!</title>
+		<link>https://www.genuitec.com/myeclipse-2022-1-jakarta-ee-9-and-vue-in-eclipse-more/</link>
+		
+		<dc:creator><![CDATA[Brian Fernandes]]></dc:creator>
+		<pubDate>Thu, 24 Mar 2022 19:28:29 +0000</pubDate>
+				<category><![CDATA[Genuitec]]></category>
+		<category><![CDATA[In Product]]></category>
+		<category><![CDATA[MyEclipse]]></category>
+		<guid isPermaLink="false">https://www.genuitec.com/?page_id=679947</guid>
+
+					<description><![CDATA[<p>MyEclipse 2022.1 is live with Jakarta EE 9 &#038; Vue support in Eclipse. Also, Apple Silicon and Java 17 support with integrated IDE live share</p>
+<p>The post <a rel="nofollow" href="https://www.genuitec.com/myeclipse-2022-1-jakarta-ee-9-and-vue-in-eclipse-more/">MyEclipse 2022.1 &#8211; Jakarta EE 9 and Vue in Eclipse + More!</a> appeared first on <a rel="nofollow" href="https://www.genuitec.com">Genuitec</a>.</p>
+]]></description>
+		
+		
+		
+			</item>
+		<item>
 		<title>CodeTogether 2022.1—Blazing Fast Content Assist &#038; Extensive Scalability</title>
 		<link>https://www.genuitec.com/codetogether-2022-1-blazing-fast-content-assist-extensive-scalability/</link>
 		
@@ -259,24 +277,6 @@
 
 					<description><![CDATA[<p>Now available in CodeTogether 3.2: read-only terminal support, better editor colors in Eclipse &#038; IntelliJ, an improved CodeTogether view and more!</p>
 <p>The post <a rel="nofollow" href="https://www.genuitec.com/codetogether-3-2/">CodeTogether 3.2—Shared Terminals are Here!</a> appeared first on <a rel="nofollow" href="https://www.genuitec.com">Genuitec</a>.</p>
-]]></description>
-		
-		
-		
-			</item>
-		<item>
-		<title>CodeTogether 3.1 with Console Sharing, Access Control &#038; More</title>
-		<link>https://www.genuitec.com/codetogether-3-1/</link>
-		
-		<dc:creator><![CDATA[Brian Fernandes]]></dc:creator>
-		<pubDate>Tue, 08 Dec 2020 22:36:36 +0000</pubDate>
-				<category><![CDATA[CodeTogether]]></category>
-		<category><![CDATA[Genuitec]]></category>
-		<category><![CDATA[In Product]]></category>
-		<guid isPermaLink="false">https://www.genuitec.com/?p=668683</guid>
-
-					<description><![CDATA[<p>CodeTogether 3.1 is now available with console sharing, access control, non-project file access, on-premises improvements and key fixes.</p>
-<p>The post <a rel="nofollow" href="https://www.genuitec.com/codetogether-3-1/">CodeTogether 3.1 with Console Sharing, Access Control &#038; More</a> appeared first on <a rel="nofollow" href="https://www.genuitec.com">Genuitec</a>.</p>
 ]]></description>
 		
 		

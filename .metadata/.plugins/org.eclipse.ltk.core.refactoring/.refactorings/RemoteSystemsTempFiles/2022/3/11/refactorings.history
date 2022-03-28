@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Move element &apos;GlobalExecption&apos; to &apos;ProductMicroservice/src/main/java/com.product&apos;&#x0D;&#x0A;- Original project: &apos;RemoteSystemsTempFiles&apos;&#x0D;&#x0A;- Destination element: &apos;ProductMicroservice/src/main/java/com.product&apos;&#x0D;&#x0A;- Original element: &apos;GlobalExecption&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move folder" destination="=ProductMicroservice/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.product" element1="GlobalExecption" files="0" flags="589830" folders="1" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1647094652620" units="0" version="1.0"/>
-</session>

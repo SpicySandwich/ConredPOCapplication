@@ -22,3 +22,7 @@ actable:
 mybatis:
   table:
     auto: update
+
+grpc:
+  server:
+     port: 9090
