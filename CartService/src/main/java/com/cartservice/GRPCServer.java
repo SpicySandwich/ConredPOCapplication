@@ -1,29 +1,32 @@
 package com.cartservice;
 
+import com.grpcserver.ClientGuestGrpc.ClientGuestImplBase;
 import com.grpcserver.GuestClientServer.APIResponse;
-import com.grpcserver.GuestClientServer.Empty;
-import com.grpcserver.GuestClientServer.LoginRequest;
-import com.grpcserver.userGrpc.userImplBase;
+import com.grpcserver.GuestClientServer.ClientGuestRequest;
 
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
 
 @GrpcService
-public class GRPCServer  extends userImplBase{
+public class GRPCServer  extends ClientGuestImplBase{
+	
+	
 
 	@Override
-	public void login(LoginRequest request, StreamObserver<APIResponse> responseObserver) {
+	public void clientGuestData(ClientGuestRequest request, StreamObserver<APIResponse> responseObserver) {
 	
 		System.out.println("inside kogin");
 		
-		String username = request.getUsername();
-		String password = request.getPassword();
+		Integer clientid = request.getClientGuestId();
+		String clientname = request.getClientGuestName();
+		String clientemail = request.getClientGuestEmail();
+		
 		
 		
 		APIResponse.Builder  responce = APIResponse.newBuilder();
-		if(username.equals(password)) {
+		if( clientid != null || clientname != null || clientemail != null) {
 			
-			responce.setResponseCode(0).setResponsemessage("sucess");
+			responce.setResponseCode(0).setResponsemessage("success");
 			
 		}else {
 			
@@ -36,10 +39,7 @@ public class GRPCServer  extends userImplBase{
 		responseObserver.onCompleted();
 	}
 
-	@Override
-	public void logout(Empty request, StreamObserver<APIResponse> responseObserver) {
 	
-	}
 	
 	
 

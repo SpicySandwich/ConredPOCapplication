@@ -1,10 +1,12 @@
 package com.cartgatewayservice;
 
+
+
 import org.springframework.stereotype.Service;
 
+import com.grpcserver.ClientGuestGrpc;
 import com.grpcserver.GuestClientServer.APIResponse;
-import com.grpcserver.GuestClientServer.LoginRequest;
-import com.grpcserver.userGrpc;
+import com.grpcserver.GuestClientServer.ClientGuestRequest;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
@@ -20,12 +22,13 @@ public class GRPCClientGuestService {
             .build();
 	
 
-	userGrpc.userBlockingStub stub = userGrpc.newBlockingStub(channel);
+	ClientGuestGrpc.ClientGuestBlockingStub stub = ClientGuestGrpc.newBlockingStub(channel);
 	
 	
-	APIResponse response = stub.login(LoginRequest.newBuilder()
-			.setUsername("")
-			.setPassword("")
+	APIResponse response = stub.clientGuestData(ClientGuestRequest.newBuilder()
+			.setClientGuestId(0)
+			.setClientGuestName("")
+			.setClientGuestEmail("")
 			.build());
 	
 	channel.shutdown();
