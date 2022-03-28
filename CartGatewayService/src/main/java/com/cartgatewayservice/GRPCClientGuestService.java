@@ -16,7 +16,7 @@ import io.grpc.ManagedChannelBuilder;
 public class GRPCClientGuestService {
 
 	
-	public String test() {
+	public String inserdata() {
 	ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 9090)
             .usePlaintext()
             .build();
@@ -25,7 +25,7 @@ public class GRPCClientGuestService {
 	ClientGuestGrpc.ClientGuestBlockingStub stub = ClientGuestGrpc.newBlockingStub(channel);
 	
 	
-	APIResponse response = stub.clientGuestData(ClientGuestRequest.newBuilder()
+	APIResponse response = stub.insert(ClientGuestRequest.newBuilder()
 			.setClientGuestId(0)
 			.setClientGuestName("")
 			.setClientGuestEmail("")

@@ -21,6 +21,13 @@
 	
 	
 	<dependencies>
+	
+	<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.google.api.grpc/proto-google-common-protos -->
 <dependency>
@@ -69,6 +76,8 @@
 			<version>2.5.1.RELEASE</version>
 			<type>pom</type>
 		</dependency>
+		
+		
 	</dependencies>
 
 	<build>

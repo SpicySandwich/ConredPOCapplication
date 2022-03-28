@@ -3,7 +3,11 @@ syntax = "proto3";
 option java_package = "com.grpcserver";
 
 service ClientGuest{
-    rpc ClientGuestData(ClientGuestRequest)  returns (APIResponse);
+
+    rpc insert(ClientGuestRequest) returns(APIResponse);
+    rpc findAll(ClientGuestRequest) returns(APIResponse);
+    rpc deleteById(ClientGuestRequest) returns(APIResponse);
+    rpc findById(ClientGuestRequest) returns(APIResponse);
 
 }
 
@@ -13,6 +17,7 @@ message ClientGuestRequest{
        string  client_guest_name = 2;
        string  client_guest_email = 3;
 }
+
 
 message APIResponse{
       string responsemessage = 1;

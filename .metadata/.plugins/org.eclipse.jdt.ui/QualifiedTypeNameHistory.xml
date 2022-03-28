@@ -1,2 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.grpcserver.GuestClientServer.APIResponse.Builder"/>
+    <fullyQualifiedTypeName name="io.grpc.ServerBuilder"/>
+    <fullyQualifiedTypeName name="io.grpc.Server"/>
+    <fullyQualifiedTypeName name="io.grpc.ManagedChannel"/>
+    <fullyQualifiedTypeName name="io.grpc.ManagedChannelBuilder"/>
+    <fullyQualifiedTypeName name="net.devh.boot.grpc.server.service.GrpcService"/>
+    <fullyQualifiedTypeName name="io.grpc.Channel"/>
+    <fullyQualifiedTypeName name="com.grpcserver.userGrpc.userBlockingStub"/>
+    <fullyQualifiedTypeName name="com.grpcserver.userGrpc"/>
+    <fullyQualifiedTypeName name="com.grpcserver.GuestClientServer.LoginRequest"/>
+    <fullyQualifiedTypeName name="com.grpcserver.ClientGuestGrpc.ClientGuestImplBase"/>
+    <fullyQualifiedTypeName name="com.grpcserver.GuestClientServer.APIResponse"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="com.grpcserver.ClientGuestGrpc"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
+    <fullyQualifiedTypeName name="lombok.Data"/>
+    <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
+    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
+    <fullyQualifiedTypeName name="com.gitee.sunchenbin.mybatis.actable.annotation.Table"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.cartservice.DAO.ClientDAO"/>
+    <fullyQualifiedTypeName name="com.cartservice.Model.ClientGuestRequest"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+    <fullyQualifiedTypeName name="com.grpcserver.GuestClientServer.ClientGuestRequest"/>
+    <fullyQualifiedTypeName name="com.cartservice.Model.Client"/>
+</qualifiedTypeNameHistroy>

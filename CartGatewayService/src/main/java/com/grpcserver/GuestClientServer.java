@@ -1400,10 +1400,13 @@ public final class GuestClientServer {
       "Request\022\027\n\017client_guest_id\030\001 \001(\005\022\031\n\021clie" +
       "nt_guest_name\030\002 \001(\t\022\032\n\022client_guest_emai" +
       "l\030\003 \001(\t\"<\n\013APIResponse\022\027\n\017responsemessag" +
-      "e\030\001 \001(\t\022\024\n\014responseCode\030\002 \001(\0052C\n\013ClientG" +
-      "uest\0224\n\017ClientGuestData\022\023.ClientGuestReq" +
-      "uest\032\014.APIResponseB\020\n\016com.grpcserverb\006pr" +
-      "oto3"
+      "e\030\001 \001(\t\022\024\n\014responseCode\030\002 \001(\0052\310\001\n\013Client" +
+      "Guest\022+\n\006insert\022\023.ClientGuestRequest\032\014.A" +
+      "PIResponse\022,\n\007findAll\022\023.ClientGuestReque" +
+      "st\032\014.APIResponse\022/\n\ndeleteById\022\023.ClientG" +
+      "uestRequest\032\014.APIResponse\022-\n\010findById\022\023." +
+      "ClientGuestRequest\032\014.APIResponseB\020\n\016com." +
+      "grpcserverb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

@@ -28,35 +28,131 @@ public final class ClientGuestGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequest,
-      com.grpcserver.GuestClientServer.APIResponse> getClientGuestDataMethod;
+      com.grpcserver.GuestClientServer.APIResponse> getInsertMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "ClientGuestData",
+      fullMethodName = SERVICE_NAME + '/' + "insert",
       requestType = com.grpcserver.GuestClientServer.ClientGuestRequest.class,
       responseType = com.grpcserver.GuestClientServer.APIResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequest,
-      com.grpcserver.GuestClientServer.APIResponse> getClientGuestDataMethod() {
-    io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequest, com.grpcserver.GuestClientServer.APIResponse> getClientGuestDataMethod;
-    if ((getClientGuestDataMethod = ClientGuestGrpc.getClientGuestDataMethod) == null) {
+      com.grpcserver.GuestClientServer.APIResponse> getInsertMethod() {
+    io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequest, com.grpcserver.GuestClientServer.APIResponse> getInsertMethod;
+    if ((getInsertMethod = ClientGuestGrpc.getInsertMethod) == null) {
       synchronized (ClientGuestGrpc.class) {
-        if ((getClientGuestDataMethod = ClientGuestGrpc.getClientGuestDataMethod) == null) {
-          ClientGuestGrpc.getClientGuestDataMethod = getClientGuestDataMethod = 
+        if ((getInsertMethod = ClientGuestGrpc.getInsertMethod) == null) {
+          ClientGuestGrpc.getInsertMethod = getInsertMethod = 
               io.grpc.MethodDescriptor.<com.grpcserver.GuestClientServer.ClientGuestRequest, com.grpcserver.GuestClientServer.APIResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "ClientGuest", "ClientGuestData"))
+                  "ClientGuest", "insert"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.grpcserver.GuestClientServer.ClientGuestRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.grpcserver.GuestClientServer.APIResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new ClientGuestMethodDescriptorSupplier("ClientGuestData"))
+                  .setSchemaDescriptor(new ClientGuestMethodDescriptorSupplier("insert"))
                   .build();
           }
         }
      }
-     return getClientGuestDataMethod;
+     return getInsertMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequest,
+      com.grpcserver.GuestClientServer.APIResponse> getFindAllMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "findAll",
+      requestType = com.grpcserver.GuestClientServer.ClientGuestRequest.class,
+      responseType = com.grpcserver.GuestClientServer.APIResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequest,
+      com.grpcserver.GuestClientServer.APIResponse> getFindAllMethod() {
+    io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequest, com.grpcserver.GuestClientServer.APIResponse> getFindAllMethod;
+    if ((getFindAllMethod = ClientGuestGrpc.getFindAllMethod) == null) {
+      synchronized (ClientGuestGrpc.class) {
+        if ((getFindAllMethod = ClientGuestGrpc.getFindAllMethod) == null) {
+          ClientGuestGrpc.getFindAllMethod = getFindAllMethod = 
+              io.grpc.MethodDescriptor.<com.grpcserver.GuestClientServer.ClientGuestRequest, com.grpcserver.GuestClientServer.APIResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "ClientGuest", "findAll"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.grpcserver.GuestClientServer.ClientGuestRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.grpcserver.GuestClientServer.APIResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new ClientGuestMethodDescriptorSupplier("findAll"))
+                  .build();
+          }
+        }
+     }
+     return getFindAllMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequest,
+      com.grpcserver.GuestClientServer.APIResponse> getDeleteByIdMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "deleteById",
+      requestType = com.grpcserver.GuestClientServer.ClientGuestRequest.class,
+      responseType = com.grpcserver.GuestClientServer.APIResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequest,
+      com.grpcserver.GuestClientServer.APIResponse> getDeleteByIdMethod() {
+    io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequest, com.grpcserver.GuestClientServer.APIResponse> getDeleteByIdMethod;
+    if ((getDeleteByIdMethod = ClientGuestGrpc.getDeleteByIdMethod) == null) {
+      synchronized (ClientGuestGrpc.class) {
+        if ((getDeleteByIdMethod = ClientGuestGrpc.getDeleteByIdMethod) == null) {
+          ClientGuestGrpc.getDeleteByIdMethod = getDeleteByIdMethod = 
+              io.grpc.MethodDescriptor.<com.grpcserver.GuestClientServer.ClientGuestRequest, com.grpcserver.GuestClientServer.APIResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "ClientGuest", "deleteById"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.grpcserver.GuestClientServer.ClientGuestRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.grpcserver.GuestClientServer.APIResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new ClientGuestMethodDescriptorSupplier("deleteById"))
+                  .build();
+          }
+        }
+     }
+     return getDeleteByIdMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequest,
+      com.grpcserver.GuestClientServer.APIResponse> getFindByIdMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "findById",
+      requestType = com.grpcserver.GuestClientServer.ClientGuestRequest.class,
+      responseType = com.grpcserver.GuestClientServer.APIResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequest,
+      com.grpcserver.GuestClientServer.APIResponse> getFindByIdMethod() {
+    io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequest, com.grpcserver.GuestClientServer.APIResponse> getFindByIdMethod;
+    if ((getFindByIdMethod = ClientGuestGrpc.getFindByIdMethod) == null) {
+      synchronized (ClientGuestGrpc.class) {
+        if ((getFindByIdMethod = ClientGuestGrpc.getFindByIdMethod) == null) {
+          ClientGuestGrpc.getFindByIdMethod = getFindByIdMethod = 
+              io.grpc.MethodDescriptor.<com.grpcserver.GuestClientServer.ClientGuestRequest, com.grpcserver.GuestClientServer.APIResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "ClientGuest", "findById"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.grpcserver.GuestClientServer.ClientGuestRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.grpcserver.GuestClientServer.APIResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new ClientGuestMethodDescriptorSupplier("findById"))
+                  .build();
+          }
+        }
+     }
+     return getFindByIdMethod;
   }
 
   /**
@@ -88,20 +184,62 @@ public final class ClientGuestGrpc {
 
     /**
      */
-    public void clientGuestData(com.grpcserver.GuestClientServer.ClientGuestRequest request,
+    public void insert(com.grpcserver.GuestClientServer.ClientGuestRequest request,
         io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.APIResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getClientGuestDataMethod(), responseObserver);
+      asyncUnimplementedUnaryCall(getInsertMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void findAll(com.grpcserver.GuestClientServer.ClientGuestRequest request,
+        io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.APIResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getFindAllMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void deleteById(com.grpcserver.GuestClientServer.ClientGuestRequest request,
+        io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.APIResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getDeleteByIdMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void findById(com.grpcserver.GuestClientServer.ClientGuestRequest request,
+        io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.APIResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getFindByIdMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
-            getClientGuestDataMethod(),
+            getInsertMethod(),
             asyncUnaryCall(
               new MethodHandlers<
                 com.grpcserver.GuestClientServer.ClientGuestRequest,
                 com.grpcserver.GuestClientServer.APIResponse>(
-                  this, METHODID_CLIENT_GUEST_DATA)))
+                  this, METHODID_INSERT)))
+          .addMethod(
+            getFindAllMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.grpcserver.GuestClientServer.ClientGuestRequest,
+                com.grpcserver.GuestClientServer.APIResponse>(
+                  this, METHODID_FIND_ALL)))
+          .addMethod(
+            getDeleteByIdMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.grpcserver.GuestClientServer.ClientGuestRequest,
+                com.grpcserver.GuestClientServer.APIResponse>(
+                  this, METHODID_DELETE_BY_ID)))
+          .addMethod(
+            getFindByIdMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.grpcserver.GuestClientServer.ClientGuestRequest,
+                com.grpcserver.GuestClientServer.APIResponse>(
+                  this, METHODID_FIND_BY_ID)))
           .build();
     }
   }
@@ -126,10 +264,34 @@ public final class ClientGuestGrpc {
 
     /**
      */
-    public void clientGuestData(com.grpcserver.GuestClientServer.ClientGuestRequest request,
+    public void insert(com.grpcserver.GuestClientServer.ClientGuestRequest request,
         io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.APIResponse> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getClientGuestDataMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getInsertMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void findAll(com.grpcserver.GuestClientServer.ClientGuestRequest request,
+        io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.APIResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getFindAllMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void deleteById(com.grpcserver.GuestClientServer.ClientGuestRequest request,
+        io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.APIResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getDeleteByIdMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void findById(com.grpcserver.GuestClientServer.ClientGuestRequest request,
+        io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.APIResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getFindByIdMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -153,9 +315,30 @@ public final class ClientGuestGrpc {
 
     /**
      */
-    public com.grpcserver.GuestClientServer.APIResponse clientGuestData(com.grpcserver.GuestClientServer.ClientGuestRequest request) {
+    public com.grpcserver.GuestClientServer.APIResponse insert(com.grpcserver.GuestClientServer.ClientGuestRequest request) {
       return blockingUnaryCall(
-          getChannel(), getClientGuestDataMethod(), getCallOptions(), request);
+          getChannel(), getInsertMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.grpcserver.GuestClientServer.APIResponse findAll(com.grpcserver.GuestClientServer.ClientGuestRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getFindAllMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.grpcserver.GuestClientServer.APIResponse deleteById(com.grpcserver.GuestClientServer.ClientGuestRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getDeleteByIdMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.grpcserver.GuestClientServer.APIResponse findById(com.grpcserver.GuestClientServer.ClientGuestRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getFindByIdMethod(), getCallOptions(), request);
     }
   }
 
@@ -179,14 +362,41 @@ public final class ClientGuestGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.grpcserver.GuestClientServer.APIResponse> clientGuestData(
+    public com.google.common.util.concurrent.ListenableFuture<com.grpcserver.GuestClientServer.APIResponse> insert(
         com.grpcserver.GuestClientServer.ClientGuestRequest request) {
       return futureUnaryCall(
-          getChannel().newCall(getClientGuestDataMethod(), getCallOptions()), request);
+          getChannel().newCall(getInsertMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.grpcserver.GuestClientServer.APIResponse> findAll(
+        com.grpcserver.GuestClientServer.ClientGuestRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getFindAllMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.grpcserver.GuestClientServer.APIResponse> deleteById(
+        com.grpcserver.GuestClientServer.ClientGuestRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getDeleteByIdMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.grpcserver.GuestClientServer.APIResponse> findById(
+        com.grpcserver.GuestClientServer.ClientGuestRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getFindByIdMethod(), getCallOptions()), request);
     }
   }
 
-  private static final int METHODID_CLIENT_GUEST_DATA = 0;
+  private static final int METHODID_INSERT = 0;
+  private static final int METHODID_FIND_ALL = 1;
+  private static final int METHODID_DELETE_BY_ID = 2;
+  private static final int METHODID_FIND_BY_ID = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -205,8 +415,20 @@ public final class ClientGuestGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_CLIENT_GUEST_DATA:
-          serviceImpl.clientGuestData((com.grpcserver.GuestClientServer.ClientGuestRequest) request,
+        case METHODID_INSERT:
+          serviceImpl.insert((com.grpcserver.GuestClientServer.ClientGuestRequest) request,
+              (io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.APIResponse>) responseObserver);
+          break;
+        case METHODID_FIND_ALL:
+          serviceImpl.findAll((com.grpcserver.GuestClientServer.ClientGuestRequest) request,
+              (io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.APIResponse>) responseObserver);
+          break;
+        case METHODID_DELETE_BY_ID:
+          serviceImpl.deleteById((com.grpcserver.GuestClientServer.ClientGuestRequest) request,
+              (io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.APIResponse>) responseObserver);
+          break;
+        case METHODID_FIND_BY_ID:
+          serviceImpl.findById((com.grpcserver.GuestClientServer.ClientGuestRequest) request,
               (io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.APIResponse>) responseObserver);
           break;
         default:
@@ -270,7 +492,10 @@ public final class ClientGuestGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new ClientGuestFileDescriptorSupplier())
-              .addMethod(getClientGuestDataMethod())
+              .addMethod(getInsertMethod())
+              .addMethod(getFindAllMethod())
+              .addMethod(getDeleteByIdMethod())
+              .addMethod(getFindByIdMethod())
               .build();
         }
       }
