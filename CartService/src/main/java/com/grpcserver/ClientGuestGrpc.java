@@ -155,6 +155,38 @@ public final class ClientGuestGrpc {
      return getFindByIdMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequest,
+      com.grpcserver.GuestClientServer.APIResponse> getUpdateMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "update",
+      requestType = com.grpcserver.GuestClientServer.ClientGuestRequest.class,
+      responseType = com.grpcserver.GuestClientServer.APIResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequest,
+      com.grpcserver.GuestClientServer.APIResponse> getUpdateMethod() {
+    io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequest, com.grpcserver.GuestClientServer.APIResponse> getUpdateMethod;
+    if ((getUpdateMethod = ClientGuestGrpc.getUpdateMethod) == null) {
+      synchronized (ClientGuestGrpc.class) {
+        if ((getUpdateMethod = ClientGuestGrpc.getUpdateMethod) == null) {
+          ClientGuestGrpc.getUpdateMethod = getUpdateMethod = 
+              io.grpc.MethodDescriptor.<com.grpcserver.GuestClientServer.ClientGuestRequest, com.grpcserver.GuestClientServer.APIResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "ClientGuest", "update"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.grpcserver.GuestClientServer.ClientGuestRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.grpcserver.GuestClientServer.APIResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new ClientGuestMethodDescriptorSupplier("update"))
+                  .build();
+          }
+        }
+     }
+     return getUpdateMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -210,6 +242,13 @@ public final class ClientGuestGrpc {
       asyncUnimplementedUnaryCall(getFindByIdMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void update(com.grpcserver.GuestClientServer.ClientGuestRequest request,
+        io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.APIResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getUpdateMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -240,6 +279,13 @@ public final class ClientGuestGrpc {
                 com.grpcserver.GuestClientServer.ClientGuestRequest,
                 com.grpcserver.GuestClientServer.APIResponse>(
                   this, METHODID_FIND_BY_ID)))
+          .addMethod(
+            getUpdateMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.grpcserver.GuestClientServer.ClientGuestRequest,
+                com.grpcserver.GuestClientServer.APIResponse>(
+                  this, METHODID_UPDATE)))
           .build();
     }
   }
@@ -293,6 +339,14 @@ public final class ClientGuestGrpc {
       asyncUnaryCall(
           getChannel().newCall(getFindByIdMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void update(com.grpcserver.GuestClientServer.ClientGuestRequest request,
+        io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.APIResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getUpdateMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -339,6 +393,13 @@ public final class ClientGuestGrpc {
     public com.grpcserver.GuestClientServer.APIResponse findById(com.grpcserver.GuestClientServer.ClientGuestRequest request) {
       return blockingUnaryCall(
           getChannel(), getFindByIdMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.grpcserver.GuestClientServer.APIResponse update(com.grpcserver.GuestClientServer.ClientGuestRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getUpdateMethod(), getCallOptions(), request);
     }
   }
 
@@ -391,12 +452,21 @@ public final class ClientGuestGrpc {
       return futureUnaryCall(
           getChannel().newCall(getFindByIdMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.grpcserver.GuestClientServer.APIResponse> update(
+        com.grpcserver.GuestClientServer.ClientGuestRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getUpdateMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_INSERT = 0;
   private static final int METHODID_FIND_ALL = 1;
   private static final int METHODID_DELETE_BY_ID = 2;
   private static final int METHODID_FIND_BY_ID = 3;
+  private static final int METHODID_UPDATE = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -429,6 +499,10 @@ public final class ClientGuestGrpc {
           break;
         case METHODID_FIND_BY_ID:
           serviceImpl.findById((com.grpcserver.GuestClientServer.ClientGuestRequest) request,
+              (io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.APIResponse>) responseObserver);
+          break;
+        case METHODID_UPDATE:
+          serviceImpl.update((com.grpcserver.GuestClientServer.ClientGuestRequest) request,
               (io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.APIResponse>) responseObserver);
           break;
         default:
@@ -496,6 +570,7 @@ public final class ClientGuestGrpc {
               .addMethod(getFindAllMethod())
               .addMethod(getDeleteByIdMethod())
               .addMethod(getFindByIdMethod())
+              .addMethod(getUpdateMethod())
               .build();
         }
       }

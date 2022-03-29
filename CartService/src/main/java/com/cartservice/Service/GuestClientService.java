@@ -1,21 +1,22 @@
 package com.cartservice.Service;
 
 import java.util.List;
-import com.cartservice.Model.GuestClient;
+
+import com.cartservice.Model.Client;
 
 
 
 public interface GuestClientService {
 	
 	
-	List <GuestClient> getAll();
+	List <Client> getAll();
 
-	GuestClient  getGuestClientInfo (Long clientid);
+	Client  getGuestClientInfo (Integer client_guest_id);
 
-	void saveGuestClientInfo(GuestClient guestClient);
+	void saveGuestClientInfo(Client client);
 
-	void deleteGuestClientInfo (Long clientid);
+	void deleteGuestClientInfo (Integer client_guest_id);
 	
-	void updateGuestClientInfo (GuestClient guestClient);
+	void updateGuestClientInfo (Client client);
 
 }

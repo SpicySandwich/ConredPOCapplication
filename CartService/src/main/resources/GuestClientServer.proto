@@ -8,6 +8,7 @@ service ClientGuest{
     rpc findAll(ClientGuestRequest) returns(APIResponse);
     rpc deleteById(ClientGuestRequest) returns(APIResponse);
     rpc findById(ClientGuestRequest) returns(APIResponse);
+     rpc update(ClientGuestRequest) returns(APIResponse);
 
 }
 

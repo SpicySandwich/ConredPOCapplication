@@ -17,10 +17,10 @@ public interface GuestClientRepo  {
     public List <GuestClient > findAll();
 
     @Select("SELECT * FROM tb_guest_client WHERE clientid = #{clientid}")
-    public GuestClient findById(Long id);
+    public GuestClient findById(Integer id);
 
     @Delete("DELETE FROM tb_guest_client WHERE clientid = #{clientid}")
-    public int deleteById(Long id);
+    public int deleteById(Integer id);
 
     @Insert("INSERT INTO tb_guest_client(clientid, firstname, lastname,email,currentdate) " +
         " VALUES (#{clientid}, #{firstname}, #{lastname}, #{email}, #{currentdate} )")
@@ -29,6 +29,6 @@ public interface GuestClientRepo  {
 
     @Update("Update tb_guest_client set firstname=#{firstname}, " +
         "lastname=#{lastname}, email=#{email}, currentdate=#{currentdate}  where clientid=#{clientid} ")
-    public int update(GuestClient guestClient);
+    public void update(GuestClient guestClient);
     
 }
