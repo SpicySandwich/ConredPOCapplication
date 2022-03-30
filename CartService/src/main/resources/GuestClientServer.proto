@@ -4,19 +4,27 @@ option java_package = "com.grpcserver";
 
 service ClientGuest{
 
+    rpc findAllByFilter(ClientGuestRequest) returns (ClientGuestrList);
     rpc insert(ClientGuestRequest) returns(APIResponse);
-    rpc findAll(ClientGuestRequest) returns(APIResponse);
+    rpc findAll(Empty) returns(stream ClientGuestRequest);
     rpc deleteById(ClientGuestRequest) returns(APIResponse);
     rpc findById(ClientGuestRequest) returns(APIResponse);
-     rpc update(ClientGuestRequest) returns(APIResponse);
+    rpc update(ClientGuestRequest) returns(APIResponse);
 
 }
+
+message Empty {}
 
 message ClientGuestRequest{
 
        int32 client_guest_id = 1;
        string  client_guest_name = 2;
        string  client_guest_email = 3;
+}
+
+message ClientGuestrList {
+     repeated ClientGuestRequest clientguestall = 1;
+     int64 clientguestcount = 2;
 }
 
 

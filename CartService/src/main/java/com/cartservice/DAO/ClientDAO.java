@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import com.cartservice.Model.Client;
+import com.grpcserver.GuestClientServer.ClientGuestRequest;
 
 
 
@@ -17,7 +18,7 @@ import com.cartservice.Model.Client;
 public interface ClientDAO {
 	
 	@Select("select * from tb_client")
-    public List <Client> findAll();
+    public  List <Client> findAll();
 	
 	@Insert("INSERT INTO tb_client(client_guest_id, client_guest_name, client_guest_email) " +
 		      " VALUES (#{client_guest_id}, #{client_guest_name}, #{client_guest_email} )")
@@ -34,5 +35,7 @@ public interface ClientDAO {
 	 @Update("Update tb_client set client_guest_name=#{client_guest_name}, " +
 		        "client_guest_email=#{client_guest_email}  where client_guest_id = #{client_guest_id} ")
 		    public int update(Client guestClient);
+
+	
 
 }

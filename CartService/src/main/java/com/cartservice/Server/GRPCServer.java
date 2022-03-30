@@ -1,10 +1,18 @@
 package com.cartservice.Server;
 
+import java.util.Iterator;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+
+import com.cartservice.DAO.ClientDAO;
+import com.cartservice.Model.Client;
 import com.cartservice.Service.GuestClientServiceImpl;
 import com.grpcserver.ClientGuestGrpc.ClientGuestImplBase;
 import com.grpcserver.GuestClientServer.APIResponse;
 import com.grpcserver.GuestClientServer.ClientGuestRequest;
+import com.grpcserver.GuestClientServer.ClientGuestrList;
+import com.grpcserver.GuestClientServer.Empty;
 
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
@@ -13,17 +21,13 @@ import net.devh.boot.grpc.server.service.GrpcService;
 public class GRPCServer  extends ClientGuestImplBase{
 	
 
-
 @Autowired
 private GuestClientServiceImpl guestClientServiceImpl;
 
 
-com.cartservice.Model.Client clientGuestRequest = new com.cartservice.Model.Client();
-
-	
 	@Override
 	public void insert(ClientGuestRequest request, StreamObserver<APIResponse> responseObserver) {
-		
+		com.cartservice.Model.Client clientGuestRequest = new com.cartservice.Model.Client();
 		
 		Integer clientid = request.getClientGuestId();
 		String clientname = request.getClientGuestName();
@@ -56,11 +60,7 @@ com.cartservice.Model.Client clientGuestRequest = new com.cartservice.Model.Clie
 
 	}
 	
-	@Override
-	public void findAll(ClientGuestRequest request, StreamObserver<APIResponse> responseObserver) {
 	
-	}
-
 	@Override
 	public void deleteById(ClientGuestRequest request, StreamObserver<APIResponse> responseObserver) {
 		
@@ -79,28 +79,11 @@ com.cartservice.Model.Client clientGuestRequest = new com.cartservice.Model.Clie
 	
 	}
 
-	@Override
-	public void findById(ClientGuestRequest request, StreamObserver<APIResponse> responseObserver) {
-		
-		Integer clientid = request.getClientGuestId();
-	
-		
-		
-		
-		guestClientServiceImpl.getGuestClientInfo(clientid);
 
-				APIResponse.Builder  responce = APIResponse.newBuilder();
-				responce.setResponseCode(0).setResponsemessage("Succefulley added to database " + clientGuestRequest);
-
-				responseObserver.onNext(responce.build());
-				responseObserver.onCompleted();
-
-
-	}
 
 	@Override
 	public void update(ClientGuestRequest request, StreamObserver<APIResponse> responseObserver) {
-
+		com.cartservice.Model.Client clientGuestRequest = new com.cartservice.Model.Client();
 		
 		Integer clientid = request.getClientGuestId();
 		String clientname = request.getClientGuestName();
@@ -121,7 +104,33 @@ com.cartservice.Model.Client clientGuestRequest = new com.cartservice.Model.Clie
 		
 	}
 	
-	
+	@Override
+	public void findById(ClientGuestRequest request, StreamObserver<APIResponse> responseObserver) {
+		
+		com.cartservice.Model.Client clientGuestRequest = guestClientServiceImpl.getGuestClientInfo( request.getClientGuestId());
 
+				APIResponse.Builder  responce = APIResponse.newBuilder();
+				responce.setResponseCode(0).setResponsemessage("Succefull view your the data " + clientGuestRequest);
+
+				responseObserver.onNext(responce.build());
+				responseObserver.onCompleted();
+
+
+	}
+
+
+	@Override
+	public void findAll(Empty request, StreamObserver<ClientGuestRequest> responseObserver) {
+		List<Client> list = guestClientServiceImpl.getAll();
+		
+	for(Client client : list) {
+		
+		responseObserver.onNext(client.toGuest());
+		
+	}
+	   responseObserver.onCompleted();
+	}
+
+	
 
 }
