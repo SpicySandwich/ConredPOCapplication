@@ -1,17 +1,14 @@
 package com.cartservice.Server;
 
-import java.util.Iterator;
+
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-
-import com.cartservice.DAO.ClientDAO;
 import com.cartservice.Model.Client;
 import com.cartservice.Service.GuestClientServiceImpl;
+import com.google.protobuf.Int32Value;
 import com.grpcserver.ClientGuestGrpc.ClientGuestImplBase;
 import com.grpcserver.GuestClientServer.APIResponse;
 import com.grpcserver.GuestClientServer.ClientGuestRequest;
-import com.grpcserver.GuestClientServer.ClientGuestrList;
 import com.grpcserver.GuestClientServer.Empty;
 
 import io.grpc.stub.StreamObserver;
@@ -104,20 +101,6 @@ private GuestClientServiceImpl guestClientServiceImpl;
 		
 	}
 	
-	@Override
-	public void findById(ClientGuestRequest request, StreamObserver<APIResponse> responseObserver) {
-		
-		com.cartservice.Model.Client clientGuestRequest = guestClientServiceImpl.getGuestClientInfo( request.getClientGuestId());
-
-				APIResponse.Builder  responce = APIResponse.newBuilder();
-				responce.setResponseCode(0).setResponsemessage("Succefull view your the data " + clientGuestRequest);
-
-				responseObserver.onNext(responce.build());
-				responseObserver.onCompleted();
-
-
-	}
-
 
 	@Override
 	public void findAll(Empty request, StreamObserver<ClientGuestRequest> responseObserver) {
@@ -129,6 +112,16 @@ private GuestClientServiceImpl guestClientServiceImpl;
 		
 	}
 	   responseObserver.onCompleted();
+	}
+
+
+	@Override
+	public void findById(Int32Value request, StreamObserver<ClientGuestRequest> responseObserver) {
+
+		com.cartservice.Model.Client clientGuestRequest = guestClientServiceImpl.getGuestClientInfo( request.getValue());
+		
+						responseObserver.onNext(clientGuestRequest.toGuest());
+						responseObserver.onCompleted();
 	}
 
 	

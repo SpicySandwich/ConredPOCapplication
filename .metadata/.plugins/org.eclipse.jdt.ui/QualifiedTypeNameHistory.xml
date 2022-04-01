@@ -31,12 +31,15 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="ch.qos.logback.core.net.server.Client"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="com.cartservice.DAO.ClientDAO"/>
     <fullyQualifiedTypeName name="javax.tools.DocumentationTool"/>
     <fullyQualifiedTypeName name="com.cartservice.Model.Client"/>
-    <fullyQualifiedTypeName name="com.grpcserver.GuestClientServer.ClientGuestRequest"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
     <fullyQualifiedTypeName name="com.cartgatewayservice.Model.ClientEntity"/>
     <fullyQualifiedTypeName name="com.grpcserver.GuestClientServer.ClientGuestrList"/>
+    <fullyQualifiedTypeName name="com.grpcserver.GuestClientServer.ClientGuestRequest2"/>
+    <fullyQualifiedTypeName name="com.grpcserver.GuestClientServer.ClientGuestRequest"/>
+    <fullyQualifiedTypeName name="com.google.protobuf.Int32Value"/>
 </qualifiedTypeNameHistroy>

@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cartgatewayservice.Model.ClientEntity;
 import com.cartgatewayservice.Service.GRPCClientGuestService;
-;
+import com.grpcserver.GuestClientServer.ClientGuestRequest;
+
+
 
 
 
@@ -26,7 +28,7 @@ public class ClientGuestController {
  
 	
      @PostMapping("/clientGuest")
-     public String test2( @RequestBody ClientEntity clientEntity) {
+     public String addClient( @RequestBody ClientEntity clientEntity) {
       return  grpcClientGuestService.inserdata(clientEntity);
          
          
@@ -48,24 +50,33 @@ public class ClientGuestController {
      }
      
      @GetMapping("/clientGuest/{client_guest_id}")
-    	 public ClientEntity getGuestClientData(@PathVariable Integer client_guest_id, @RequestBody ClientEntity clientEntity) {
-    	  grpcClientGuestService.findData(client_guest_id);
-    	  return clientEntity;
-
+    	 public ClientEntity  getGuestClientData(@PathVariable Integer client_guest_id, @RequestBody ClientEntity clientEntity) {
+              return grpcClientGuestService.findClient(client_guest_id);
+            
     	 
      }
      
-//     @GetMapping("/clientGuestList")
-//     public List<ClientEntity> GetProductName(){
-//           return grpcClientGuestService.getAllCLientData();
-//           
-//  	 }
-     
-     
- 
-    
-     
+     @GetMapping("/clientGuestListall")
+     public List<ClientGuestRequest> GetProductName(){
 
+       return grpcClientGuestService.getAllCLientData();
+             
+            
+  	 }
+
+
+       //    @GetMapping("/productlist")
+       //    public List<ProductDTO> GetProductName(){
+       //          return productService.getProduct();
+                
+       //         }
+            
      
+       
+       //    @GetMapping("/productview/{productid}")
+       //    public ProductDTO GetProductName(@PathVariable Long productid,@RequestBody  ProductDTO product){
+       //           return productService.getPoductInfo(productid);
+       //    }
+         
     
 }

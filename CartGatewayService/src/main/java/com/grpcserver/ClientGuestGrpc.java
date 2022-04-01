@@ -155,30 +155,30 @@ public final class ClientGuestGrpc {
      return getDeleteByIdMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequest,
-      com.grpcserver.GuestClientServer.APIResponse> getFindByIdMethod;
+  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Int32Value,
+      com.grpcserver.GuestClientServer.ClientGuestRequest> getFindByIdMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "findById",
-      requestType = com.grpcserver.GuestClientServer.ClientGuestRequest.class,
-      responseType = com.grpcserver.GuestClientServer.APIResponse.class,
+      requestType = com.google.protobuf.Int32Value.class,
+      responseType = com.grpcserver.GuestClientServer.ClientGuestRequest.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequest,
-      com.grpcserver.GuestClientServer.APIResponse> getFindByIdMethod() {
-    io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequest, com.grpcserver.GuestClientServer.APIResponse> getFindByIdMethod;
+  public static io.grpc.MethodDescriptor<com.google.protobuf.Int32Value,
+      com.grpcserver.GuestClientServer.ClientGuestRequest> getFindByIdMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.Int32Value, com.grpcserver.GuestClientServer.ClientGuestRequest> getFindByIdMethod;
     if ((getFindByIdMethod = ClientGuestGrpc.getFindByIdMethod) == null) {
       synchronized (ClientGuestGrpc.class) {
         if ((getFindByIdMethod = ClientGuestGrpc.getFindByIdMethod) == null) {
           ClientGuestGrpc.getFindByIdMethod = getFindByIdMethod = 
-              io.grpc.MethodDescriptor.<com.grpcserver.GuestClientServer.ClientGuestRequest, com.grpcserver.GuestClientServer.APIResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.google.protobuf.Int32Value, com.grpcserver.GuestClientServer.ClientGuestRequest>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "ClientGuest", "findById"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.grpcserver.GuestClientServer.ClientGuestRequest.getDefaultInstance()))
+                  com.google.protobuf.Int32Value.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.grpcserver.GuestClientServer.APIResponse.getDefaultInstance()))
+                  com.grpcserver.GuestClientServer.ClientGuestRequest.getDefaultInstance()))
                   .setSchemaDescriptor(new ClientGuestMethodDescriptorSupplier("findById"))
                   .build();
           }
@@ -276,8 +276,8 @@ public final class ClientGuestGrpc {
 
     /**
      */
-    public void findById(com.grpcserver.GuestClientServer.ClientGuestRequest request,
-        io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.APIResponse> responseObserver) {
+    public void findById(com.google.protobuf.Int32Value request,
+        io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.ClientGuestRequest> responseObserver) {
       asyncUnimplementedUnaryCall(getFindByIdMethod(), responseObserver);
     }
 
@@ -322,8 +322,8 @@ public final class ClientGuestGrpc {
             getFindByIdMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                com.grpcserver.GuestClientServer.ClientGuestRequest,
-                com.grpcserver.GuestClientServer.APIResponse>(
+                com.google.protobuf.Int32Value,
+                com.grpcserver.GuestClientServer.ClientGuestRequest>(
                   this, METHODID_FIND_BY_ID)))
           .addMethod(
             getUpdateMethod(),
@@ -388,8 +388,8 @@ public final class ClientGuestGrpc {
 
     /**
      */
-    public void findById(com.grpcserver.GuestClientServer.ClientGuestRequest request,
-        io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.APIResponse> responseObserver) {
+    public void findById(com.google.protobuf.Int32Value request,
+        io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.ClientGuestRequest> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getFindByIdMethod(), getCallOptions()), request, responseObserver);
     }
@@ -452,7 +452,7 @@ public final class ClientGuestGrpc {
 
     /**
      */
-    public com.grpcserver.GuestClientServer.APIResponse findById(com.grpcserver.GuestClientServer.ClientGuestRequest request) {
+    public com.grpcserver.GuestClientServer.ClientGuestRequest findById(com.google.protobuf.Int32Value request) {
       return blockingUnaryCall(
           getChannel(), getFindByIdMethod(), getCallOptions(), request);
     }
@@ -509,8 +509,8 @@ public final class ClientGuestGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.grpcserver.GuestClientServer.APIResponse> findById(
-        com.grpcserver.GuestClientServer.ClientGuestRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.grpcserver.GuestClientServer.ClientGuestRequest> findById(
+        com.google.protobuf.Int32Value request) {
       return futureUnaryCall(
           getChannel().newCall(getFindByIdMethod(), getCallOptions()), request);
     }
@@ -565,8 +565,8 @@ public final class ClientGuestGrpc {
               (io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.APIResponse>) responseObserver);
           break;
         case METHODID_FIND_BY_ID:
-          serviceImpl.findById((com.grpcserver.GuestClientServer.ClientGuestRequest) request,
-              (io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.APIResponse>) responseObserver);
+          serviceImpl.findById((com.google.protobuf.Int32Value) request,
+              (io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.ClientGuestRequest>) responseObserver);
           break;
         case METHODID_UPDATE:
           serviceImpl.update((com.grpcserver.GuestClientServer.ClientGuestRequest) request,

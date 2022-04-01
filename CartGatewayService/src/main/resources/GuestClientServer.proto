@@ -1,6 +1,8 @@
 syntax = "proto3";
 
 option java_package = "com.grpcserver";
+import "google/protobuf/wrappers.proto";
+
 
 service ClientGuest{
 
@@ -8,7 +10,7 @@ service ClientGuest{
     rpc insert(ClientGuestRequest) returns(APIResponse);
     rpc findAll(Empty) returns(stream ClientGuestRequest);
     rpc deleteById(ClientGuestRequest) returns(APIResponse);
-    rpc findById(ClientGuestRequest) returns(APIResponse);
+    rpc findById(google.protobuf.Int32Value) returns(ClientGuestRequest);
     rpc update(ClientGuestRequest) returns(APIResponse);
 
 }

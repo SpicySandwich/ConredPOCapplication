@@ -25,7 +25,6 @@ public final class GuestClientServer {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:Empty)
       EmptyOrBuilder {
-  private static final long serialVersionUID = 0L;
     // Use Empty.newBuilder() to construct.
     private Empty(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -36,18 +35,13 @@ public final class GuestClientServer {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return this.unknownFields;
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
     private Empty(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -57,8 +51,7 @@ public final class GuestClientServer {
               done = true;
               break;
             default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
+              if (!input.skipField(tag)) {
                 done = true;
               }
               break;
@@ -71,7 +64,6 @@ public final class GuestClientServer {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -80,7 +72,6 @@ public final class GuestClientServer {
       return com.grpcserver.GuestClientServer.internal_static_Empty_descriptor;
     }
 
-    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.grpcserver.GuestClientServer.internal_static_Empty_fieldAccessorTable
@@ -89,7 +80,6 @@ public final class GuestClientServer {
     }
 
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -99,23 +89,20 @@ public final class GuestClientServer {
       return true;
     }
 
-    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      unknownFields.writeTo(output);
     }
 
-    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
-      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
+    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -127,7 +114,6 @@ public final class GuestClientServer {
       com.grpcserver.GuestClientServer.Empty other = (com.grpcserver.GuestClientServer.Empty) obj;
 
       boolean result = true;
-      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -137,23 +123,12 @@ public final class GuestClientServer {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (19 * hash) + getDescriptorForType().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.grpcserver.GuestClientServer.Empty parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.grpcserver.GuestClientServer.Empty parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
     public static com.grpcserver.GuestClientServer.Empty parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -213,7 +188,6 @@ public final class GuestClientServer {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -221,7 +195,6 @@ public final class GuestClientServer {
     public static Builder newBuilder(com.grpcserver.GuestClientServer.Empty prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -245,7 +218,6 @@ public final class GuestClientServer {
         return com.grpcserver.GuestClientServer.internal_static_Empty_descriptor;
       }
 
-      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.grpcserver.GuestClientServer.internal_static_Empty_fieldAccessorTable
@@ -268,24 +240,20 @@ public final class GuestClientServer {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @java.lang.Override
       public Builder clear() {
         super.clear();
         return this;
       }
 
-      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.grpcserver.GuestClientServer.internal_static_Empty_descriptor;
       }
 
-      @java.lang.Override
       public com.grpcserver.GuestClientServer.Empty getDefaultInstanceForType() {
         return com.grpcserver.GuestClientServer.Empty.getDefaultInstance();
       }
 
-      @java.lang.Override
       public com.grpcserver.GuestClientServer.Empty build() {
         com.grpcserver.GuestClientServer.Empty result = buildPartial();
         if (!result.isInitialized()) {
@@ -294,46 +262,38 @@ public final class GuestClientServer {
         return result;
       }
 
-      @java.lang.Override
       public com.grpcserver.GuestClientServer.Empty buildPartial() {
         com.grpcserver.GuestClientServer.Empty result = new com.grpcserver.GuestClientServer.Empty(this);
         onBuilt();
         return result;
       }
 
-      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
-      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
-      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.grpcserver.GuestClientServer.Empty) {
           return mergeFrom((com.grpcserver.GuestClientServer.Empty)other);
@@ -345,17 +305,14 @@ public final class GuestClientServer {
 
       public Builder mergeFrom(com.grpcserver.GuestClientServer.Empty other) {
         if (other == com.grpcserver.GuestClientServer.Empty.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
-      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -373,16 +330,14 @@ public final class GuestClientServer {
         }
         return this;
       }
-      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return this;
       }
 
-      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
+        return this;
       }
 
 
@@ -401,12 +356,11 @@ public final class GuestClientServer {
 
     private static final com.google.protobuf.Parser<Empty>
         PARSER = new com.google.protobuf.AbstractParser<Empty>() {
-      @java.lang.Override
       public Empty parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Empty(input, extensionRegistry);
+          return new Empty(input, extensionRegistry);
       }
     };
 
@@ -419,7 +373,6 @@ public final class GuestClientServer {
       return PARSER;
     }
 
-    @java.lang.Override
     public com.grpcserver.GuestClientServer.Empty getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -431,26 +384,26 @@ public final class GuestClientServer {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 client_guest_id = 1;</code>
+     * <code>optional int32 client_guest_id = 1;</code>
      */
     int getClientGuestId();
 
     /**
-     * <code>string client_guest_name = 2;</code>
+     * <code>optional string client_guest_name = 2;</code>
      */
     java.lang.String getClientGuestName();
     /**
-     * <code>string client_guest_name = 2;</code>
+     * <code>optional string client_guest_name = 2;</code>
      */
     com.google.protobuf.ByteString
         getClientGuestNameBytes();
 
     /**
-     * <code>string client_guest_email = 3;</code>
+     * <code>optional string client_guest_email = 3;</code>
      */
     java.lang.String getClientGuestEmail();
     /**
-     * <code>string client_guest_email = 3;</code>
+     * <code>optional string client_guest_email = 3;</code>
      */
     com.google.protobuf.ByteString
         getClientGuestEmailBytes();
@@ -462,7 +415,6 @@ public final class GuestClientServer {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:ClientGuestRequest)
       ClientGuestRequestOrBuilder {
-  private static final long serialVersionUID = 0L;
     // Use ClientGuestRequest.newBuilder() to construct.
     private ClientGuestRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -476,19 +428,14 @@ public final class GuestClientServer {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return this.unknownFields;
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
     private ClientGuestRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -497,6 +444,12 @@ public final class GuestClientServer {
             case 0:
               done = true;
               break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
             case 8: {
 
               clientGuestId_ = input.readInt32();
@@ -514,13 +467,6 @@ public final class GuestClientServer {
               clientGuestEmail_ = s;
               break;
             }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -529,7 +475,6 @@ public final class GuestClientServer {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -538,7 +483,6 @@ public final class GuestClientServer {
       return com.grpcserver.GuestClientServer.internal_static_ClientGuestRequest_descriptor;
     }
 
-    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.grpcserver.GuestClientServer.internal_static_ClientGuestRequest_fieldAccessorTable
@@ -549,7 +493,7 @@ public final class GuestClientServer {
     public static final int CLIENT_GUEST_ID_FIELD_NUMBER = 1;
     private int clientGuestId_;
     /**
-     * <code>int32 client_guest_id = 1;</code>
+     * <code>optional int32 client_guest_id = 1;</code>
      */
     public int getClientGuestId() {
       return clientGuestId_;
@@ -558,7 +502,7 @@ public final class GuestClientServer {
     public static final int CLIENT_GUEST_NAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object clientGuestName_;
     /**
-     * <code>string client_guest_name = 2;</code>
+     * <code>optional string client_guest_name = 2;</code>
      */
     public java.lang.String getClientGuestName() {
       java.lang.Object ref = clientGuestName_;
@@ -573,7 +517,7 @@ public final class GuestClientServer {
       }
     }
     /**
-     * <code>string client_guest_name = 2;</code>
+     * <code>optional string client_guest_name = 2;</code>
      */
     public com.google.protobuf.ByteString
         getClientGuestNameBytes() {
@@ -592,7 +536,7 @@ public final class GuestClientServer {
     public static final int CLIENT_GUEST_EMAIL_FIELD_NUMBER = 3;
     private volatile java.lang.Object clientGuestEmail_;
     /**
-     * <code>string client_guest_email = 3;</code>
+     * <code>optional string client_guest_email = 3;</code>
      */
     public java.lang.String getClientGuestEmail() {
       java.lang.Object ref = clientGuestEmail_;
@@ -607,7 +551,7 @@ public final class GuestClientServer {
       }
     }
     /**
-     * <code>string client_guest_email = 3;</code>
+     * <code>optional string client_guest_email = 3;</code>
      */
     public com.google.protobuf.ByteString
         getClientGuestEmailBytes() {
@@ -624,7 +568,6 @@ public final class GuestClientServer {
     }
 
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -634,7 +577,6 @@ public final class GuestClientServer {
       return true;
     }
 
-    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (clientGuestId_ != 0) {
@@ -646,10 +588,8 @@ public final class GuestClientServer {
       if (!getClientGuestEmailBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, clientGuestEmail_);
       }
-      unknownFields.writeTo(output);
     }
 
-    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -665,11 +605,11 @@ public final class GuestClientServer {
       if (!getClientGuestEmailBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, clientGuestEmail_);
       }
-      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
+    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -687,7 +627,6 @@ public final class GuestClientServer {
           .equals(other.getClientGuestName());
       result = result && getClientGuestEmail()
           .equals(other.getClientGuestEmail());
-      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -697,7 +636,7 @@ public final class GuestClientServer {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (19 * hash) + getDescriptorForType().hashCode();
       hash = (37 * hash) + CLIENT_GUEST_ID_FIELD_NUMBER;
       hash = (53 * hash) + getClientGuestId();
       hash = (37 * hash) + CLIENT_GUEST_NAME_FIELD_NUMBER;
@@ -709,17 +648,6 @@ public final class GuestClientServer {
       return hash;
     }
 
-    public static com.grpcserver.GuestClientServer.ClientGuestRequest parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.grpcserver.GuestClientServer.ClientGuestRequest parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
     public static com.grpcserver.GuestClientServer.ClientGuestRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -779,7 +707,6 @@ public final class GuestClientServer {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -787,7 +714,6 @@ public final class GuestClientServer {
     public static Builder newBuilder(com.grpcserver.GuestClientServer.ClientGuestRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -811,7 +737,6 @@ public final class GuestClientServer {
         return com.grpcserver.GuestClientServer.internal_static_ClientGuestRequest_descriptor;
       }
 
-      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.grpcserver.GuestClientServer.internal_static_ClientGuestRequest_fieldAccessorTable
@@ -834,7 +759,6 @@ public final class GuestClientServer {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @java.lang.Override
       public Builder clear() {
         super.clear();
         clientGuestId_ = 0;
@@ -846,18 +770,15 @@ public final class GuestClientServer {
         return this;
       }
 
-      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.grpcserver.GuestClientServer.internal_static_ClientGuestRequest_descriptor;
       }
 
-      @java.lang.Override
       public com.grpcserver.GuestClientServer.ClientGuestRequest getDefaultInstanceForType() {
         return com.grpcserver.GuestClientServer.ClientGuestRequest.getDefaultInstance();
       }
 
-      @java.lang.Override
       public com.grpcserver.GuestClientServer.ClientGuestRequest build() {
         com.grpcserver.GuestClientServer.ClientGuestRequest result = buildPartial();
         if (!result.isInitialized()) {
@@ -866,7 +787,6 @@ public final class GuestClientServer {
         return result;
       }
 
-      @java.lang.Override
       public com.grpcserver.GuestClientServer.ClientGuestRequest buildPartial() {
         com.grpcserver.GuestClientServer.ClientGuestRequest result = new com.grpcserver.GuestClientServer.ClientGuestRequest(this);
         result.clientGuestId_ = clientGuestId_;
@@ -876,39 +796,32 @@ public final class GuestClientServer {
         return result;
       }
 
-      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
-      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
-      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.grpcserver.GuestClientServer.ClientGuestRequest) {
           return mergeFrom((com.grpcserver.GuestClientServer.ClientGuestRequest)other);
@@ -931,17 +844,14 @@ public final class GuestClientServer {
           clientGuestEmail_ = other.clientGuestEmail_;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
-      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -962,13 +872,13 @@ public final class GuestClientServer {
 
       private int clientGuestId_ ;
       /**
-       * <code>int32 client_guest_id = 1;</code>
+       * <code>optional int32 client_guest_id = 1;</code>
        */
       public int getClientGuestId() {
         return clientGuestId_;
       }
       /**
-       * <code>int32 client_guest_id = 1;</code>
+       * <code>optional int32 client_guest_id = 1;</code>
        */
       public Builder setClientGuestId(int value) {
         
@@ -977,7 +887,7 @@ public final class GuestClientServer {
         return this;
       }
       /**
-       * <code>int32 client_guest_id = 1;</code>
+       * <code>optional int32 client_guest_id = 1;</code>
        */
       public Builder clearClientGuestId() {
         
@@ -988,7 +898,7 @@ public final class GuestClientServer {
 
       private java.lang.Object clientGuestName_ = "";
       /**
-       * <code>string client_guest_name = 2;</code>
+       * <code>optional string client_guest_name = 2;</code>
        */
       public java.lang.String getClientGuestName() {
         java.lang.Object ref = clientGuestName_;
@@ -1003,7 +913,7 @@ public final class GuestClientServer {
         }
       }
       /**
-       * <code>string client_guest_name = 2;</code>
+       * <code>optional string client_guest_name = 2;</code>
        */
       public com.google.protobuf.ByteString
           getClientGuestNameBytes() {
@@ -1019,7 +929,7 @@ public final class GuestClientServer {
         }
       }
       /**
-       * <code>string client_guest_name = 2;</code>
+       * <code>optional string client_guest_name = 2;</code>
        */
       public Builder setClientGuestName(
           java.lang.String value) {
@@ -1032,7 +942,7 @@ public final class GuestClientServer {
         return this;
       }
       /**
-       * <code>string client_guest_name = 2;</code>
+       * <code>optional string client_guest_name = 2;</code>
        */
       public Builder clearClientGuestName() {
         
@@ -1041,7 +951,7 @@ public final class GuestClientServer {
         return this;
       }
       /**
-       * <code>string client_guest_name = 2;</code>
+       * <code>optional string client_guest_name = 2;</code>
        */
       public Builder setClientGuestNameBytes(
           com.google.protobuf.ByteString value) {
@@ -1057,7 +967,7 @@ public final class GuestClientServer {
 
       private java.lang.Object clientGuestEmail_ = "";
       /**
-       * <code>string client_guest_email = 3;</code>
+       * <code>optional string client_guest_email = 3;</code>
        */
       public java.lang.String getClientGuestEmail() {
         java.lang.Object ref = clientGuestEmail_;
@@ -1072,7 +982,7 @@ public final class GuestClientServer {
         }
       }
       /**
-       * <code>string client_guest_email = 3;</code>
+       * <code>optional string client_guest_email = 3;</code>
        */
       public com.google.protobuf.ByteString
           getClientGuestEmailBytes() {
@@ -1088,7 +998,7 @@ public final class GuestClientServer {
         }
       }
       /**
-       * <code>string client_guest_email = 3;</code>
+       * <code>optional string client_guest_email = 3;</code>
        */
       public Builder setClientGuestEmail(
           java.lang.String value) {
@@ -1101,7 +1011,7 @@ public final class GuestClientServer {
         return this;
       }
       /**
-       * <code>string client_guest_email = 3;</code>
+       * <code>optional string client_guest_email = 3;</code>
        */
       public Builder clearClientGuestEmail() {
         
@@ -1110,7 +1020,7 @@ public final class GuestClientServer {
         return this;
       }
       /**
-       * <code>string client_guest_email = 3;</code>
+       * <code>optional string client_guest_email = 3;</code>
        */
       public Builder setClientGuestEmailBytes(
           com.google.protobuf.ByteString value) {
@@ -1123,16 +1033,14 @@ public final class GuestClientServer {
         onChanged();
         return this;
       }
-      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return this;
       }
 
-      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
+        return this;
       }
 
 
@@ -1151,12 +1059,11 @@ public final class GuestClientServer {
 
     private static final com.google.protobuf.Parser<ClientGuestRequest>
         PARSER = new com.google.protobuf.AbstractParser<ClientGuestRequest>() {
-      @java.lang.Override
       public ClientGuestRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ClientGuestRequest(input, extensionRegistry);
+          return new ClientGuestRequest(input, extensionRegistry);
       }
     };
 
@@ -1169,7 +1076,6 @@ public final class GuestClientServer {
       return PARSER;
     }
 
-    @java.lang.Override
     public com.grpcserver.GuestClientServer.ClientGuestRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -1205,7 +1111,7 @@ public final class GuestClientServer {
         int index);
 
     /**
-     * <code>int64 clientguestcount = 2;</code>
+     * <code>optional int64 clientguestcount = 2;</code>
      */
     long getClientguestcount();
   }
@@ -1216,7 +1122,6 @@ public final class GuestClientServer {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:ClientGuestrList)
       ClientGuestrListOrBuilder {
-  private static final long serialVersionUID = 0L;
     // Use ClientGuestrList.newBuilder() to construct.
     private ClientGuestrList(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -1229,19 +1134,14 @@ public final class GuestClientServer {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return this.unknownFields;
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
     private ClientGuestrList(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -1250,6 +1150,12 @@ public final class GuestClientServer {
             case 0:
               done = true;
               break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                 clientguestall_ = new java.util.ArrayList<com.grpcserver.GuestClientServer.ClientGuestRequest>();
@@ -1264,13 +1170,6 @@ public final class GuestClientServer {
               clientguestcount_ = input.readInt64();
               break;
             }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -1282,7 +1181,6 @@ public final class GuestClientServer {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
           clientguestall_ = java.util.Collections.unmodifiableList(clientguestall_);
         }
-        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -1291,7 +1189,6 @@ public final class GuestClientServer {
       return com.grpcserver.GuestClientServer.internal_static_ClientGuestrList_descriptor;
     }
 
-    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.grpcserver.GuestClientServer.internal_static_ClientGuestrList_fieldAccessorTable
@@ -1338,14 +1235,13 @@ public final class GuestClientServer {
     public static final int CLIENTGUESTCOUNT_FIELD_NUMBER = 2;
     private long clientguestcount_;
     /**
-     * <code>int64 clientguestcount = 2;</code>
+     * <code>optional int64 clientguestcount = 2;</code>
      */
     public long getClientguestcount() {
       return clientguestcount_;
     }
 
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1355,7 +1251,6 @@ public final class GuestClientServer {
       return true;
     }
 
-    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       for (int i = 0; i < clientguestall_.size(); i++) {
@@ -1364,10 +1259,8 @@ public final class GuestClientServer {
       if (clientguestcount_ != 0L) {
         output.writeInt64(2, clientguestcount_);
       }
-      unknownFields.writeTo(output);
     }
 
-    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1381,11 +1274,11 @@ public final class GuestClientServer {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, clientguestcount_);
       }
-      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
+    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -1401,7 +1294,6 @@ public final class GuestClientServer {
           .equals(other.getClientguestallList());
       result = result && (getClientguestcount()
           == other.getClientguestcount());
-      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -1411,7 +1303,7 @@ public final class GuestClientServer {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (19 * hash) + getDescriptorForType().hashCode();
       if (getClientguestallCount() > 0) {
         hash = (37 * hash) + CLIENTGUESTALL_FIELD_NUMBER;
         hash = (53 * hash) + getClientguestallList().hashCode();
@@ -1424,17 +1316,6 @@ public final class GuestClientServer {
       return hash;
     }
 
-    public static com.grpcserver.GuestClientServer.ClientGuestrList parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.grpcserver.GuestClientServer.ClientGuestrList parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
     public static com.grpcserver.GuestClientServer.ClientGuestrList parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1494,7 +1375,6 @@ public final class GuestClientServer {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -1502,7 +1382,6 @@ public final class GuestClientServer {
     public static Builder newBuilder(com.grpcserver.GuestClientServer.ClientGuestrList prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -1526,7 +1405,6 @@ public final class GuestClientServer {
         return com.grpcserver.GuestClientServer.internal_static_ClientGuestrList_descriptor;
       }
 
-      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.grpcserver.GuestClientServer.internal_static_ClientGuestrList_fieldAccessorTable
@@ -1550,7 +1428,6 @@ public final class GuestClientServer {
           getClientguestallFieldBuilder();
         }
       }
-      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (clientguestallBuilder_ == null) {
@@ -1564,18 +1441,15 @@ public final class GuestClientServer {
         return this;
       }
 
-      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.grpcserver.GuestClientServer.internal_static_ClientGuestrList_descriptor;
       }
 
-      @java.lang.Override
       public com.grpcserver.GuestClientServer.ClientGuestrList getDefaultInstanceForType() {
         return com.grpcserver.GuestClientServer.ClientGuestrList.getDefaultInstance();
       }
 
-      @java.lang.Override
       public com.grpcserver.GuestClientServer.ClientGuestrList build() {
         com.grpcserver.GuestClientServer.ClientGuestrList result = buildPartial();
         if (!result.isInitialized()) {
@@ -1584,7 +1458,6 @@ public final class GuestClientServer {
         return result;
       }
 
-      @java.lang.Override
       public com.grpcserver.GuestClientServer.ClientGuestrList buildPartial() {
         com.grpcserver.GuestClientServer.ClientGuestrList result = new com.grpcserver.GuestClientServer.ClientGuestrList(this);
         int from_bitField0_ = bitField0_;
@@ -1604,39 +1477,32 @@ public final class GuestClientServer {
         return result;
       }
 
-      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
-      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
-      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.grpcserver.GuestClientServer.ClientGuestrList) {
           return mergeFrom((com.grpcserver.GuestClientServer.ClientGuestrList)other);
@@ -1677,17 +1543,14 @@ public final class GuestClientServer {
         if (other.getClientguestcount() != 0L) {
           setClientguestcount(other.getClientguestcount());
         }
-        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
-      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1949,13 +1812,13 @@ public final class GuestClientServer {
 
       private long clientguestcount_ ;
       /**
-       * <code>int64 clientguestcount = 2;</code>
+       * <code>optional int64 clientguestcount = 2;</code>
        */
       public long getClientguestcount() {
         return clientguestcount_;
       }
       /**
-       * <code>int64 clientguestcount = 2;</code>
+       * <code>optional int64 clientguestcount = 2;</code>
        */
       public Builder setClientguestcount(long value) {
         
@@ -1964,7 +1827,7 @@ public final class GuestClientServer {
         return this;
       }
       /**
-       * <code>int64 clientguestcount = 2;</code>
+       * <code>optional int64 clientguestcount = 2;</code>
        */
       public Builder clearClientguestcount() {
         
@@ -1972,16 +1835,14 @@ public final class GuestClientServer {
         onChanged();
         return this;
       }
-      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return this;
       }
 
-      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
+        return this;
       }
 
 
@@ -2000,12 +1861,11 @@ public final class GuestClientServer {
 
     private static final com.google.protobuf.Parser<ClientGuestrList>
         PARSER = new com.google.protobuf.AbstractParser<ClientGuestrList>() {
-      @java.lang.Override
       public ClientGuestrList parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ClientGuestrList(input, extensionRegistry);
+          return new ClientGuestrList(input, extensionRegistry);
       }
     };
 
@@ -2018,7 +1878,6 @@ public final class GuestClientServer {
       return PARSER;
     }
 
-    @java.lang.Override
     public com.grpcserver.GuestClientServer.ClientGuestrList getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -2030,17 +1889,17 @@ public final class GuestClientServer {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string responsemessage = 1;</code>
+     * <code>optional string responsemessage = 1;</code>
      */
     java.lang.String getResponsemessage();
     /**
-     * <code>string responsemessage = 1;</code>
+     * <code>optional string responsemessage = 1;</code>
      */
     com.google.protobuf.ByteString
         getResponsemessageBytes();
 
     /**
-     * <code>int32 responseCode = 2;</code>
+     * <code>optional int32 responseCode = 2;</code>
      */
     int getResponseCode();
   }
@@ -2051,7 +1910,6 @@ public final class GuestClientServer {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:APIResponse)
       APIResponseOrBuilder {
-  private static final long serialVersionUID = 0L;
     // Use APIResponse.newBuilder() to construct.
     private APIResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -2064,19 +1922,14 @@ public final class GuestClientServer {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return this.unknownFields;
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
     private APIResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -2085,6 +1938,12 @@ public final class GuestClientServer {
             case 0:
               done = true;
               break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
@@ -2096,13 +1955,6 @@ public final class GuestClientServer {
               responseCode_ = input.readInt32();
               break;
             }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -2111,7 +1963,6 @@ public final class GuestClientServer {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -2120,7 +1971,6 @@ public final class GuestClientServer {
       return com.grpcserver.GuestClientServer.internal_static_APIResponse_descriptor;
     }
 
-    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.grpcserver.GuestClientServer.internal_static_APIResponse_fieldAccessorTable
@@ -2131,7 +1981,7 @@ public final class GuestClientServer {
     public static final int RESPONSEMESSAGE_FIELD_NUMBER = 1;
     private volatile java.lang.Object responsemessage_;
     /**
-     * <code>string responsemessage = 1;</code>
+     * <code>optional string responsemessage = 1;</code>
      */
     public java.lang.String getResponsemessage() {
       java.lang.Object ref = responsemessage_;
@@ -2146,7 +1996,7 @@ public final class GuestClientServer {
       }
     }
     /**
-     * <code>string responsemessage = 1;</code>
+     * <code>optional string responsemessage = 1;</code>
      */
     public com.google.protobuf.ByteString
         getResponsemessageBytes() {
@@ -2165,14 +2015,13 @@ public final class GuestClientServer {
     public static final int RESPONSECODE_FIELD_NUMBER = 2;
     private int responseCode_;
     /**
-     * <code>int32 responseCode = 2;</code>
+     * <code>optional int32 responseCode = 2;</code>
      */
     public int getResponseCode() {
       return responseCode_;
     }
 
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2182,7 +2031,6 @@ public final class GuestClientServer {
       return true;
     }
 
-    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!getResponsemessageBytes().isEmpty()) {
@@ -2191,10 +2039,8 @@ public final class GuestClientServer {
       if (responseCode_ != 0) {
         output.writeInt32(2, responseCode_);
       }
-      unknownFields.writeTo(output);
     }
 
-    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -2207,11 +2053,11 @@ public final class GuestClientServer {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, responseCode_);
       }
-      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
+    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -2227,7 +2073,6 @@ public final class GuestClientServer {
           .equals(other.getResponsemessage());
       result = result && (getResponseCode()
           == other.getResponseCode());
-      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -2237,7 +2082,7 @@ public final class GuestClientServer {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (19 * hash) + getDescriptorForType().hashCode();
       hash = (37 * hash) + RESPONSEMESSAGE_FIELD_NUMBER;
       hash = (53 * hash) + getResponsemessage().hashCode();
       hash = (37 * hash) + RESPONSECODE_FIELD_NUMBER;
@@ -2247,17 +2092,6 @@ public final class GuestClientServer {
       return hash;
     }
 
-    public static com.grpcserver.GuestClientServer.APIResponse parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.grpcserver.GuestClientServer.APIResponse parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
     public static com.grpcserver.GuestClientServer.APIResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2317,7 +2151,6 @@ public final class GuestClientServer {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -2325,7 +2158,6 @@ public final class GuestClientServer {
     public static Builder newBuilder(com.grpcserver.GuestClientServer.APIResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -2349,7 +2181,6 @@ public final class GuestClientServer {
         return com.grpcserver.GuestClientServer.internal_static_APIResponse_descriptor;
       }
 
-      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.grpcserver.GuestClientServer.internal_static_APIResponse_fieldAccessorTable
@@ -2372,7 +2203,6 @@ public final class GuestClientServer {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @java.lang.Override
       public Builder clear() {
         super.clear();
         responsemessage_ = "";
@@ -2382,18 +2212,15 @@ public final class GuestClientServer {
         return this;
       }
 
-      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.grpcserver.GuestClientServer.internal_static_APIResponse_descriptor;
       }
 
-      @java.lang.Override
       public com.grpcserver.GuestClientServer.APIResponse getDefaultInstanceForType() {
         return com.grpcserver.GuestClientServer.APIResponse.getDefaultInstance();
       }
 
-      @java.lang.Override
       public com.grpcserver.GuestClientServer.APIResponse build() {
         com.grpcserver.GuestClientServer.APIResponse result = buildPartial();
         if (!result.isInitialized()) {
@@ -2402,7 +2229,6 @@ public final class GuestClientServer {
         return result;
       }
 
-      @java.lang.Override
       public com.grpcserver.GuestClientServer.APIResponse buildPartial() {
         com.grpcserver.GuestClientServer.APIResponse result = new com.grpcserver.GuestClientServer.APIResponse(this);
         result.responsemessage_ = responsemessage_;
@@ -2411,39 +2237,32 @@ public final class GuestClientServer {
         return result;
       }
 
-      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
-      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
-      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.grpcserver.GuestClientServer.APIResponse) {
           return mergeFrom((com.grpcserver.GuestClientServer.APIResponse)other);
@@ -2462,17 +2281,14 @@ public final class GuestClientServer {
         if (other.getResponseCode() != 0) {
           setResponseCode(other.getResponseCode());
         }
-        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
-      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2493,7 +2309,7 @@ public final class GuestClientServer {
 
       private java.lang.Object responsemessage_ = "";
       /**
-       * <code>string responsemessage = 1;</code>
+       * <code>optional string responsemessage = 1;</code>
        */
       public java.lang.String getResponsemessage() {
         java.lang.Object ref = responsemessage_;
@@ -2508,7 +2324,7 @@ public final class GuestClientServer {
         }
       }
       /**
-       * <code>string responsemessage = 1;</code>
+       * <code>optional string responsemessage = 1;</code>
        */
       public com.google.protobuf.ByteString
           getResponsemessageBytes() {
@@ -2524,7 +2340,7 @@ public final class GuestClientServer {
         }
       }
       /**
-       * <code>string responsemessage = 1;</code>
+       * <code>optional string responsemessage = 1;</code>
        */
       public Builder setResponsemessage(
           java.lang.String value) {
@@ -2537,7 +2353,7 @@ public final class GuestClientServer {
         return this;
       }
       /**
-       * <code>string responsemessage = 1;</code>
+       * <code>optional string responsemessage = 1;</code>
        */
       public Builder clearResponsemessage() {
         
@@ -2546,7 +2362,7 @@ public final class GuestClientServer {
         return this;
       }
       /**
-       * <code>string responsemessage = 1;</code>
+       * <code>optional string responsemessage = 1;</code>
        */
       public Builder setResponsemessageBytes(
           com.google.protobuf.ByteString value) {
@@ -2562,13 +2378,13 @@ public final class GuestClientServer {
 
       private int responseCode_ ;
       /**
-       * <code>int32 responseCode = 2;</code>
+       * <code>optional int32 responseCode = 2;</code>
        */
       public int getResponseCode() {
         return responseCode_;
       }
       /**
-       * <code>int32 responseCode = 2;</code>
+       * <code>optional int32 responseCode = 2;</code>
        */
       public Builder setResponseCode(int value) {
         
@@ -2577,7 +2393,7 @@ public final class GuestClientServer {
         return this;
       }
       /**
-       * <code>int32 responseCode = 2;</code>
+       * <code>optional int32 responseCode = 2;</code>
        */
       public Builder clearResponseCode() {
         
@@ -2585,16 +2401,14 @@ public final class GuestClientServer {
         onChanged();
         return this;
       }
-      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return this;
       }
 
-      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
+        return this;
       }
 
 
@@ -2613,12 +2427,11 @@ public final class GuestClientServer {
 
     private static final com.google.protobuf.Parser<APIResponse>
         PARSER = new com.google.protobuf.AbstractParser<APIResponse>() {
-      @java.lang.Override
       public APIResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new APIResponse(input, extensionRegistry);
+          return new APIResponse(input, extensionRegistry);
       }
     };
 
@@ -2631,7 +2444,6 @@ public final class GuestClientServer {
       return PARSER;
     }
 
-    @java.lang.Override
     public com.grpcserver.GuestClientServer.APIResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -2667,22 +2479,23 @@ public final class GuestClientServer {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\027GuestClientServer.proto\"\007\n\005Empty\"d\n\022Cl" +
-      "ientGuestRequest\022\027\n\017client_guest_id\030\001 \001(" +
-      "\005\022\031\n\021client_guest_name\030\002 \001(\t\022\032\n\022client_g" +
-      "uest_email\030\003 \001(\t\"Y\n\020ClientGuestrList\022+\n\016" +
-      "clientguestall\030\001 \003(\0132\023.ClientGuestReques" +
-      "t\022\030\n\020clientguestcount\030\002 \001(\003\"<\n\013APIRespon" +
-      "se\022\027\n\017responsemessage\030\001 \001(\t\022\024\n\014responseC" +
-      "ode\030\002 \001(\0052\254\002\n\013ClientGuest\0229\n\017findAllByFi" +
-      "lter\022\023.ClientGuestRequest\032\021.ClientGuestr" +
-      "List\022+\n\006insert\022\023.ClientGuestRequest\032\014.AP" +
-      "IResponse\022(\n\007findAll\022\006.Empty\032\023.ClientGue" +
-      "stRequest0\001\022/\n\ndeleteById\022\023.ClientGuestR" +
-      "equest\032\014.APIResponse\022-\n\010findById\022\023.Clien" +
-      "tGuestRequest\032\014.APIResponse\022+\n\006update\022\023." +
-      "ClientGuestRequest\032\014.APIResponseB\020\n\016com." +
-      "grpcserverb\006proto3"
+      "\n\027GuestClientServer.proto\032\036google/protob" +
+      "uf/wrappers.proto\"\007\n\005Empty\"d\n\022ClientGues" +
+      "tRequest\022\027\n\017client_guest_id\030\001 \001(\005\022\031\n\021cli" +
+      "ent_guest_name\030\002 \001(\t\022\032\n\022client_guest_ema" +
+      "il\030\003 \001(\t\"Y\n\020ClientGuestrList\022+\n\016clientgu" +
+      "estall\030\001 \003(\0132\023.ClientGuestRequest\022\030\n\020cli" +
+      "entguestcount\030\002 \001(\003\"<\n\013APIResponse\022\027\n\017re" +
+      "sponsemessage\030\001 \001(\t\022\024\n\014responseCode\030\002 \001(" +
+      "\0052\273\002\n\013ClientGuest\0229\n\017findAllByFilter\022\023.C" +
+      "lientGuestRequest\032\021.ClientGuestrList\022+\n\006",
+      "insert\022\023.ClientGuestRequest\032\014.APIRespons" +
+      "e\022(\n\007findAll\022\006.Empty\032\023.ClientGuestReques" +
+      "t0\001\022/\n\ndeleteById\022\023.ClientGuestRequest\032\014" +
+      ".APIResponse\022<\n\010findById\022\033.google.protob" +
+      "uf.Int32Value\032\023.ClientGuestRequest\022+\n\006up" +
+      "date\022\023.ClientGuestRequest\032\014.APIResponseB" +
+      "\020\n\016com.grpcserverb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2695,6 +2508,7 @@ public final class GuestClientServer {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.google.protobuf.WrappersProto.getDescriptor(),
         }, assigner);
     internal_static_Empty_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -2720,6 +2534,7 @@ public final class GuestClientServer {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_APIResponse_descriptor,
         new java.lang.String[] { "Responsemessage", "ResponseCode", });
+    com.google.protobuf.WrappersProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

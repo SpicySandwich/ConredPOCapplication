@@ -5,8 +5,8 @@ package com.cartgatewayservice.Service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-
 import com.cartgatewayservice.Model.ClientEntity;
+import com.google.protobuf.Int32Value;
 import com.grpcserver.ClientGuestGrpc;
 import com.grpcserver.GuestClientServer.APIResponse;
 import com.grpcserver.GuestClientServer.ClientGuestRequest;
@@ -18,8 +18,8 @@ import io.grpc.ManagedChannelBuilder;
 
 @Service
 public class GRPCClientGuestService {
+
 	
-	private ClientGuestGrpc.ClientGuestBlockingStub stub;
 		
 	ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 9090)
             .usePlaintext()
@@ -69,27 +69,35 @@ public class GRPCClientGuestService {
 	}
 	
 
-	public String findData(Integer client_guest_id) {
-
-		ClientGuestGrpc.ClientGuestBlockingStub stub = ClientGuestGrpc.newBlockingStub(channel);
-
-	ClientEntity clientEntity = new ClientEntity();
+	public ClientEntity findClient (Integer client_guest_id) {
 		
-		APIResponse response = stub.findById(ClientGuestRequest.newBuilder()
-				.setClientGuestId(client_guest_id)
-				.build());
+		ClientGuestGrpc.ClientGuestBlockingStub stub = ClientGuestGrpc.newBlockingStub(channel);
+	
+		ClientEntity clientEntity = new ClientEntity();
+		
+		ClientGuestRequest clientGuestRequest = stub.findById(Int32Value.of(client_guest_id));
 			
-		return response.getResponsemessage();
+			clientEntity.setClient_guest_id(clientGuestRequest.getClientGuestId());
+			clientEntity.setClient_guest_name(clientGuestRequest.getClientGuestName());
+			clientEntity.setClient_guest_email(clientGuestRequest.getClientGuestEmail());
+		
+		return clientEntity;
+
+		
+
 	}
 	
-	public  List<ClientGuestRequest> getAllCLientData(ClientGuestRequest clientGuestRequest) {
-		
+	public  List<ClientGuestRequest> getAllCLientData() {
 
-		ClientGuestrList clientGuestrList = stub.findAllByFilter(clientGuestRequest);
+		ClientEntity client = new ClientEntity();
+		
+		ClientGuestGrpc.ClientGuestBlockingStub stub = ClientGuestGrpc.newBlockingStub(channel);
+
+		ClientGuestrList clientGuestrList = stub.findAllByFilter(client.toGuest());
+		
+		channel.shutdown();
 		return clientGuestrList.getClientguestallList();
 		
 	}
-
-
 
 }
