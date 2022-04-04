@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cartgatewayservice.Model.ClientEntity;
 import com.cartgatewayservice.Service.GRPCClientGuestService;
 import com.grpcserver.GuestClientServer.ClientGuestRequest;
+import com.grpcserver.GuestClientServer.ClientGuestRequestOutput;
 
 
 
@@ -55,28 +56,23 @@ public class ClientGuestController {
             
     	 
      }
-     
-     @GetMapping("/clientGuestListall")
-     public List<ClientGuestRequest> GetProductName(){
 
-       return grpcClientGuestService.getAllCLientData();
+ 
+     @GetMapping("/clientGuestListall")
+     public List<ClientGuestRequest> GetProductName(ClientGuestRequestOutput clientGuestRequestOutput){
+
+      return grpcClientGuestService.findalls(clientGuestRequestOutput);
              
             
-  	 }
+    }
 
-
-       //    @GetMapping("/productlist")
-       //    public List<ProductDTO> GetProductName(){
-       //          return productService.getProduct();
-                
-       //         }
-            
      
-       
-       //    @GetMapping("/productview/{productid}")
-       //    public ProductDTO GetProductName(@PathVariable Long productid,@RequestBody  ProductDTO product){
-       //           return productService.getPoductInfo(productid);
-       //    }
-         
-    
+    //  @GetMapping("/clientGuestListall")
+    //  public List <ClientEntity> GetProductName(){
+
+    //   return grpcClientGuestService.getProducts();
+             
+            
+    // }
+
 }

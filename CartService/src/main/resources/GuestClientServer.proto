@@ -6,12 +6,14 @@ import "google/protobuf/wrappers.proto";
 
 service ClientGuest{
 
-    rpc findAllByFilter(ClientGuestRequest) returns (ClientGuestrList);
+    rpc findAllByFilter(ClientGuestRequestOutput) returns (ClientGuestrList);
     rpc insert(ClientGuestRequest) returns(APIResponse);
     rpc findAll(Empty) returns(stream ClientGuestRequest);
     rpc deleteById(ClientGuestRequest) returns(APIResponse);
     rpc findById(google.protobuf.Int32Value) returns(ClientGuestRequest);
     rpc update(ClientGuestRequest) returns(APIResponse);
+
+   
 
 }
 
@@ -22,6 +24,13 @@ message ClientGuestRequest{
        int32 client_guest_id = 1;
        string  client_guest_name = 2;
        string  client_guest_email = 3;
+}
+
+message ClientGuestRequestOutput{
+
+    int32 client_guest_id = 1;
+    string  client_guest_name = 2;
+    string  client_guest_email = 3;
 }
 
 message ClientGuestrList {

@@ -2081,7 +2081,6 @@ IEclipsePreferences#org-eclipse-ui-editors {
 		'occurrenceIndicationColor=65,65,4'
 		'org.eclipse.cdt.ui.occurrenceIndicationColor=65,65,4'
 		'org.eclipse.cdt.ui.writeOccurrenceIndicationColor=65,65,4'
-		'org.sonarlint.eclipse.ui.issueFlow.color=79,60,60'
 		'overrideIndicatorColor=75,116,113'
 		'partialcoverage_color=95,95,0'
 		'printMarginColor=192,192,192'
@@ -2120,7 +2119,6 @@ IEclipsePreferences#org-eclipse-ui-workbench {
 		'ID=89,179,179'
 		'INCOMING_COLOR=31,179,235'
 		'MEDIA=242,0,255'
-		'MESSAGE_WARNING_COLOR=255,174,0'
 		'OUTGOING_COLOR=235,237,239'
 		'PROPERTY_NAME=255,0,255'
 		'PROPERTY_VALUE=242,0,255'
@@ -2405,17 +2403,6 @@ IEclipsePreferences#org-eclipse-wst-jsdt-ui {
 		'semanticHighlighting.methodDeclarationName.strikethrough=false'
 		'semanticHighlighting.methodDeclarationName.underline=false'
 		'tagName=192,192,192'
-}
-IEclipsePreferences#org-eclipse-wst-json-ui {
-	preferences:
-		'COLON=#ffffff | null | false | false | false | false'
-		'COMMA=#ffffff | null | false | false | false | false'
-		'CURLY_BRACE=#ffffff | null | false | false | false | false'
-		'OBJECT_KEY=#bed6ff | null | false | false | false | false'
-		'VALUE_BOOLEAN=#03a8d8 | null | false | false | false | false'
-		'VALUE_NULL=#89969f | null | false | false | false | false'
-		'VALUE_NUMBER=#cb4f40 | null | false | false | false | false'
-		'VALUE_STRING=#ffc600 | null | true | true | false | false'
 }
 IEclipsePreferences#org-eclipse-wst-sse-ui {
 	preferences:

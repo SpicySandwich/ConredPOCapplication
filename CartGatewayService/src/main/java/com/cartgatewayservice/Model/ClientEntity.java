@@ -10,12 +10,14 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class ClientEntity {
 	
 	private Integer client_guest_id;
@@ -35,12 +37,12 @@ public class ClientEntity {
 
 	public List<ClientGuestRequest> findThe(ClientEntity clientGuestRequest){
 
-		return ClientGuestrList.newBuilder()
-		.getClientguestallList();
+		return ClientGuestrList.newBuilder().getClientguestallList();
 	}
 
-	public static ClientEntity fromClient(ClientGuestRequest clientGuestRequest) {
-		
+	public ClientEntity fromClient() {
+
+		ClientGuestRequest.Builder clientGuestRequest = ClientGuestRequest.newBuilder();
 		ClientEntity client = new ClientEntity();
 		
 		client.setClient_guest_id(clientGuestRequest.getClientGuestId());
