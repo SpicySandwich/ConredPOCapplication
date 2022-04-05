@@ -3356,29 +3356,25 @@ public final class GuestClientServer {
   static {
     java.lang.String[] descriptorData = {
       "\n\027GuestClientServer.proto\032\036google/protob" +
-      "uf/wrappers.proto\"\007\n\005Empty\"d\n\022ClientGues" +
-      "tRequest\022\027\n\017client_guest_id\030\001 \001(\005\022\031\n\021cli" +
-      "ent_guest_name\030\002 \001(\t\022\032\n\022client_guest_ema" +
-      "il\030\003 \001(\t\"j\n\030ClientGuestRequestOutput\022\027\n\017" +
-      "client_guest_id\030\001 \001(\005\022\031\n\021client_guest_na" +
-      "me\030\002 \001(\t\022\032\n\022client_guest_email\030\003 \001(\t\"?\n\020" +
-      "ClientGuestrList\022+\n\016clientguestall\030\001 \003(\013" +
-      "2\023.ClientGuestRequest\"<\n\013APIResponse\022\027\n\017" +
-      "responsemessage\030\001 \001(\t\022\024\n\014responseCode\030\002 " +
-      "\001(\0052\357\003\n\013ClientGuest\022A\n\017findAllByFilter\022\031" +
-      ".ClientGuestRequestOutput\032\021.ClientGuestr" +
-      "List0\001\022+\n\006insert\022\023.ClientGuestRequest\032\014." +
-      "APIResponse\022(\n\007findAll\022\006.Empty\032\023.ClientG" +
-      "uestRequest0\001\022/\n\ndeleteById\022\023.ClientGues" +
-      "tRequest\032\014.APIResponse\022<\n\010findById\022\033.goo" +
-      "gle.protobuf.Int32Value\032\023.ClientGuestReq" +
-      "uest\022+\n\006update\022\023.ClientGuestRequest\032\014.AP" +
-      "IResponse\0224\n\010allinOne\022\023.ClientGuestReque" +
-      "st\032\023.ClientGuestRequest\022;\n\007AllData\022\023.Cli" +
-      "entGuestRequest\032\031.ClientGuestRequestOutp" +
-      "ut(\001\0227\n\tallinOne2\022\023.ClientGuestRequest\032\023" +
-      ".ClientGuestRequest(\001B\020\n\016com.grpcserverb" +
-      "\006proto3"
+      "uf/wrappers.proto\032\033google/protobuf/empty" +
+      ".proto\"\007\n\005Empty\"d\n\022ClientGuestRequest\022\027\n" +
+      "\017client_guest_id\030\001 \001(\005\022\031\n\021client_guest_n" +
+      "ame\030\002 \001(\t\022\032\n\022client_guest_email\030\003 \001(\t\"j\n" +
+      "\030ClientGuestRequestOutput\022\027\n\017client_gues" +
+      "t_id\030\001 \001(\005\022\031\n\021client_guest_name\030\002 \001(\t\022\032\n" +
+      "\022client_guest_email\030\003 \001(\t\"?\n\020ClientGuest" +
+      "rList\022+\n\016clientguestall\030\001 \003(\0132\023.ClientGu" +
+      "estRequest\"<\n\013APIResponse\022\027\n\017responsemes" +
+      "sage\030\001 \001(\t\022\024\n\014responseCode\030\002 \001(\0052\323\002\n\013Cli" +
+      "entGuest\022A\n\017findAllByFilter\022\031.ClientGues" +
+      "tRequestOutput\032\021.ClientGuestrList0\001\022+\n\006i" +
+      "nsert\022\023.ClientGuestRequest\032\014.APIResponse" +
+      "\0228\n\007findAll\022\026.google.protobuf.Empty\032\023.Cl" +
+      "ientGuestRequest0\001\022/\n\ndeleteById\022\023.Clien" +
+      "tGuestRequest\032\014.APIResponse\022<\n\010findById\022" +
+      "\033.google.protobuf.Int32Value\032\023.ClientGue" +
+      "stRequest\022+\n\006update\022\023.ClientGuestRequest" +
+      "\032\014.APIResponseB\020\n\016com.grpcserverb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -3392,6 +3388,7 @@ public final class GuestClientServer {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.WrappersProto.getDescriptor(),
+          com.google.protobuf.EmptyProto.getDescriptor(),
         }, assigner);
     internal_static_Empty_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -3424,6 +3421,7 @@ public final class GuestClientServer {
         internal_static_APIResponse_descriptor,
         new java.lang.String[] { "Responsemessage", "ResponseCode", });
     com.google.protobuf.WrappersProto.getDescriptor();
+    com.google.protobuf.EmptyProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

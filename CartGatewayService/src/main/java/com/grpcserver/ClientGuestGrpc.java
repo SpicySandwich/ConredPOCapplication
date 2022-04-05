@@ -91,28 +91,28 @@ public final class ClientGuestGrpc {
      return getInsertMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.Empty,
+  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
       com.grpcserver.GuestClientServer.ClientGuestRequest> getFindAllMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "findAll",
-      requestType = com.grpcserver.GuestClientServer.Empty.class,
+      requestType = com.google.protobuf.Empty.class,
       responseType = com.grpcserver.GuestClientServer.ClientGuestRequest.class,
       methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
-  public static io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.Empty,
+  public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
       com.grpcserver.GuestClientServer.ClientGuestRequest> getFindAllMethod() {
-    io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.Empty, com.grpcserver.GuestClientServer.ClientGuestRequest> getFindAllMethod;
+    io.grpc.MethodDescriptor<com.google.protobuf.Empty, com.grpcserver.GuestClientServer.ClientGuestRequest> getFindAllMethod;
     if ((getFindAllMethod = ClientGuestGrpc.getFindAllMethod) == null) {
       synchronized (ClientGuestGrpc.class) {
         if ((getFindAllMethod = ClientGuestGrpc.getFindAllMethod) == null) {
           ClientGuestGrpc.getFindAllMethod = getFindAllMethod = 
-              io.grpc.MethodDescriptor.<com.grpcserver.GuestClientServer.Empty, com.grpcserver.GuestClientServer.ClientGuestRequest>newBuilder()
+              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, com.grpcserver.GuestClientServer.ClientGuestRequest>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
               .setFullMethodName(generateFullMethodName(
                   "ClientGuest", "findAll"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.grpcserver.GuestClientServer.Empty.getDefaultInstance()))
+                  com.google.protobuf.Empty.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.grpcserver.GuestClientServer.ClientGuestRequest.getDefaultInstance()))
                   .setSchemaDescriptor(new ClientGuestMethodDescriptorSupplier("findAll"))
@@ -219,102 +219,6 @@ public final class ClientGuestGrpc {
      return getUpdateMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequest,
-      com.grpcserver.GuestClientServer.ClientGuestRequest> getAllinOneMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "allinOne",
-      requestType = com.grpcserver.GuestClientServer.ClientGuestRequest.class,
-      responseType = com.grpcserver.GuestClientServer.ClientGuestRequest.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequest,
-      com.grpcserver.GuestClientServer.ClientGuestRequest> getAllinOneMethod() {
-    io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequest, com.grpcserver.GuestClientServer.ClientGuestRequest> getAllinOneMethod;
-    if ((getAllinOneMethod = ClientGuestGrpc.getAllinOneMethod) == null) {
-      synchronized (ClientGuestGrpc.class) {
-        if ((getAllinOneMethod = ClientGuestGrpc.getAllinOneMethod) == null) {
-          ClientGuestGrpc.getAllinOneMethod = getAllinOneMethod = 
-              io.grpc.MethodDescriptor.<com.grpcserver.GuestClientServer.ClientGuestRequest, com.grpcserver.GuestClientServer.ClientGuestRequest>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(
-                  "ClientGuest", "allinOne"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.grpcserver.GuestClientServer.ClientGuestRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.grpcserver.GuestClientServer.ClientGuestRequest.getDefaultInstance()))
-                  .setSchemaDescriptor(new ClientGuestMethodDescriptorSupplier("allinOne"))
-                  .build();
-          }
-        }
-     }
-     return getAllinOneMethod;
-  }
-
-  private static volatile io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequest,
-      com.grpcserver.GuestClientServer.ClientGuestRequestOutput> getAllDataMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "AllData",
-      requestType = com.grpcserver.GuestClientServer.ClientGuestRequest.class,
-      responseType = com.grpcserver.GuestClientServer.ClientGuestRequestOutput.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
-  public static io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequest,
-      com.grpcserver.GuestClientServer.ClientGuestRequestOutput> getAllDataMethod() {
-    io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequest, com.grpcserver.GuestClientServer.ClientGuestRequestOutput> getAllDataMethod;
-    if ((getAllDataMethod = ClientGuestGrpc.getAllDataMethod) == null) {
-      synchronized (ClientGuestGrpc.class) {
-        if ((getAllDataMethod = ClientGuestGrpc.getAllDataMethod) == null) {
-          ClientGuestGrpc.getAllDataMethod = getAllDataMethod = 
-              io.grpc.MethodDescriptor.<com.grpcserver.GuestClientServer.ClientGuestRequest, com.grpcserver.GuestClientServer.ClientGuestRequestOutput>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
-              .setFullMethodName(generateFullMethodName(
-                  "ClientGuest", "AllData"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.grpcserver.GuestClientServer.ClientGuestRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.grpcserver.GuestClientServer.ClientGuestRequestOutput.getDefaultInstance()))
-                  .setSchemaDescriptor(new ClientGuestMethodDescriptorSupplier("AllData"))
-                  .build();
-          }
-        }
-     }
-     return getAllDataMethod;
-  }
-
-  private static volatile io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequest,
-      com.grpcserver.GuestClientServer.ClientGuestRequest> getAllinOne2Method;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "allinOne2",
-      requestType = com.grpcserver.GuestClientServer.ClientGuestRequest.class,
-      responseType = com.grpcserver.GuestClientServer.ClientGuestRequest.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
-  public static io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequest,
-      com.grpcserver.GuestClientServer.ClientGuestRequest> getAllinOne2Method() {
-    io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequest, com.grpcserver.GuestClientServer.ClientGuestRequest> getAllinOne2Method;
-    if ((getAllinOne2Method = ClientGuestGrpc.getAllinOne2Method) == null) {
-      synchronized (ClientGuestGrpc.class) {
-        if ((getAllinOne2Method = ClientGuestGrpc.getAllinOne2Method) == null) {
-          ClientGuestGrpc.getAllinOne2Method = getAllinOne2Method = 
-              io.grpc.MethodDescriptor.<com.grpcserver.GuestClientServer.ClientGuestRequest, com.grpcserver.GuestClientServer.ClientGuestRequest>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
-              .setFullMethodName(generateFullMethodName(
-                  "ClientGuest", "allinOne2"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.grpcserver.GuestClientServer.ClientGuestRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.grpcserver.GuestClientServer.ClientGuestRequest.getDefaultInstance()))
-                  .setSchemaDescriptor(new ClientGuestMethodDescriptorSupplier("allinOne2"))
-                  .build();
-          }
-        }
-     }
-     return getAllinOne2Method;
-  }
-
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -358,7 +262,7 @@ public final class ClientGuestGrpc {
 
     /**
      */
-    public void findAll(com.grpcserver.GuestClientServer.Empty request,
+    public void findAll(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.ClientGuestRequest> responseObserver) {
       asyncUnimplementedUnaryCall(getFindAllMethod(), responseObserver);
     }
@@ -384,27 +288,6 @@ public final class ClientGuestGrpc {
       asyncUnimplementedUnaryCall(getUpdateMethod(), responseObserver);
     }
 
-    /**
-     */
-    public void allinOne(com.grpcserver.GuestClientServer.ClientGuestRequest request,
-        io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.ClientGuestRequest> responseObserver) {
-      asyncUnimplementedUnaryCall(getAllinOneMethod(), responseObserver);
-    }
-
-    /**
-     */
-    public io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.ClientGuestRequest> allData(
-        io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.ClientGuestRequestOutput> responseObserver) {
-      return asyncUnimplementedStreamingCall(getAllDataMethod(), responseObserver);
-    }
-
-    /**
-     */
-    public io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.ClientGuestRequest> allinOne2(
-        io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.ClientGuestRequest> responseObserver) {
-      return asyncUnimplementedStreamingCall(getAllinOne2Method(), responseObserver);
-    }
-
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -425,7 +308,7 @@ public final class ClientGuestGrpc {
             getFindAllMethod(),
             asyncServerStreamingCall(
               new MethodHandlers<
-                com.grpcserver.GuestClientServer.Empty,
+                com.google.protobuf.Empty,
                 com.grpcserver.GuestClientServer.ClientGuestRequest>(
                   this, METHODID_FIND_ALL)))
           .addMethod(
@@ -449,27 +332,6 @@ public final class ClientGuestGrpc {
                 com.grpcserver.GuestClientServer.ClientGuestRequest,
                 com.grpcserver.GuestClientServer.APIResponse>(
                   this, METHODID_UPDATE)))
-          .addMethod(
-            getAllinOneMethod(),
-            asyncUnaryCall(
-              new MethodHandlers<
-                com.grpcserver.GuestClientServer.ClientGuestRequest,
-                com.grpcserver.GuestClientServer.ClientGuestRequest>(
-                  this, METHODID_ALLIN_ONE)))
-          .addMethod(
-            getAllDataMethod(),
-            asyncClientStreamingCall(
-              new MethodHandlers<
-                com.grpcserver.GuestClientServer.ClientGuestRequest,
-                com.grpcserver.GuestClientServer.ClientGuestRequestOutput>(
-                  this, METHODID_ALL_DATA)))
-          .addMethod(
-            getAllinOne2Method(),
-            asyncClientStreamingCall(
-              new MethodHandlers<
-                com.grpcserver.GuestClientServer.ClientGuestRequest,
-                com.grpcserver.GuestClientServer.ClientGuestRequest>(
-                  this, METHODID_ALLIN_ONE2)))
           .build();
     }
   }
@@ -510,7 +372,7 @@ public final class ClientGuestGrpc {
 
     /**
      */
-    public void findAll(com.grpcserver.GuestClientServer.Empty request,
+    public void findAll(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.ClientGuestRequest> responseObserver) {
       asyncServerStreamingCall(
           getChannel().newCall(getFindAllMethod(), getCallOptions()), request, responseObserver);
@@ -538,30 +400,6 @@ public final class ClientGuestGrpc {
         io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.APIResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getUpdateMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
-    public void allinOne(com.grpcserver.GuestClientServer.ClientGuestRequest request,
-        io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.ClientGuestRequest> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(getAllinOneMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
-    public io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.ClientGuestRequest> allData(
-        io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.ClientGuestRequestOutput> responseObserver) {
-      return asyncClientStreamingCall(
-          getChannel().newCall(getAllDataMethod(), getCallOptions()), responseObserver);
-    }
-
-    /**
-     */
-    public io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.ClientGuestRequest> allinOne2(
-        io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.ClientGuestRequest> responseObserver) {
-      return asyncClientStreamingCall(
-          getChannel().newCall(getAllinOne2Method(), getCallOptions()), responseObserver);
     }
   }
 
@@ -601,7 +439,7 @@ public final class ClientGuestGrpc {
     /**
      */
     public java.util.Iterator<com.grpcserver.GuestClientServer.ClientGuestRequest> findAll(
-        com.grpcserver.GuestClientServer.Empty request) {
+        com.google.protobuf.Empty request) {
       return blockingServerStreamingCall(
           getChannel(), getFindAllMethod(), getCallOptions(), request);
     }
@@ -625,13 +463,6 @@ public final class ClientGuestGrpc {
     public com.grpcserver.GuestClientServer.APIResponse update(com.grpcserver.GuestClientServer.ClientGuestRequest request) {
       return blockingUnaryCall(
           getChannel(), getUpdateMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
-    public com.grpcserver.GuestClientServer.ClientGuestRequest allinOne(com.grpcserver.GuestClientServer.ClientGuestRequest request) {
-      return blockingUnaryCall(
-          getChannel(), getAllinOneMethod(), getCallOptions(), request);
     }
   }
 
@@ -684,14 +515,6 @@ public final class ClientGuestGrpc {
       return futureUnaryCall(
           getChannel().newCall(getUpdateMethod(), getCallOptions()), request);
     }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<com.grpcserver.GuestClientServer.ClientGuestRequest> allinOne(
-        com.grpcserver.GuestClientServer.ClientGuestRequest request) {
-      return futureUnaryCall(
-          getChannel().newCall(getAllinOneMethod(), getCallOptions()), request);
-    }
   }
 
   private static final int METHODID_FIND_ALL_BY_FILTER = 0;
@@ -700,9 +523,6 @@ public final class ClientGuestGrpc {
   private static final int METHODID_DELETE_BY_ID = 3;
   private static final int METHODID_FIND_BY_ID = 4;
   private static final int METHODID_UPDATE = 5;
-  private static final int METHODID_ALLIN_ONE = 6;
-  private static final int METHODID_ALL_DATA = 7;
-  private static final int METHODID_ALLIN_ONE2 = 8;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -730,7 +550,7 @@ public final class ClientGuestGrpc {
               (io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.APIResponse>) responseObserver);
           break;
         case METHODID_FIND_ALL:
-          serviceImpl.findAll((com.grpcserver.GuestClientServer.Empty) request,
+          serviceImpl.findAll((com.google.protobuf.Empty) request,
               (io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.ClientGuestRequest>) responseObserver);
           break;
         case METHODID_DELETE_BY_ID:
@@ -745,10 +565,6 @@ public final class ClientGuestGrpc {
           serviceImpl.update((com.grpcserver.GuestClientServer.ClientGuestRequest) request,
               (io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.APIResponse>) responseObserver);
           break;
-        case METHODID_ALLIN_ONE:
-          serviceImpl.allinOne((com.grpcserver.GuestClientServer.ClientGuestRequest) request,
-              (io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.ClientGuestRequest>) responseObserver);
-          break;
         default:
           throw new AssertionError();
       }
@@ -759,12 +575,6 @@ public final class ClientGuestGrpc {
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_ALL_DATA:
-          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.allData(
-              (io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.ClientGuestRequestOutput>) responseObserver);
-        case METHODID_ALLIN_ONE2:
-          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.allinOne2(
-              (io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.ClientGuestRequest>) responseObserver);
         default:
           throw new AssertionError();
       }
@@ -822,9 +632,6 @@ public final class ClientGuestGrpc {
               .addMethod(getDeleteByIdMethod())
               .addMethod(getFindByIdMethod())
               .addMethod(getUpdateMethod())
-              .addMethod(getAllinOneMethod())
-              .addMethod(getAllDataMethod())
-              .addMethod(getAllinOne2Method())
               .build();
         }
       }

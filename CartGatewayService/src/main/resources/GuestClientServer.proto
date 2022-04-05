@@ -2,24 +2,19 @@ syntax = "proto3";
 
 option java_package = "com.grpcserver";
 import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
 
 
 service ClientGuest{
 
     rpc findAllByFilter(ClientGuestRequestOutput) returns ( stream ClientGuestrList);
     rpc insert(ClientGuestRequest) returns(APIResponse);
-    rpc findAll(Empty) returns(stream ClientGuestRequest);
+    rpc findAll(google.protobuf.Empty) returns(stream ClientGuestRequest);
     rpc deleteById(ClientGuestRequest) returns(APIResponse);
     rpc findById(google.protobuf.Int32Value) returns(ClientGuestRequest);
     rpc update(ClientGuestRequest) returns(APIResponse);
-
-    rpc allinOne(ClientGuestRequest) returns(ClientGuestRequest);
-
-
-     rpc AllData(stream  ClientGuestRequest) returns (ClientGuestRequestOutput) ;
-     
-    rpc allinOne2(stream ClientGuestRequest) returns(ClientGuestRequest);
-
+    
+ 
 }
 
 message Empty {}

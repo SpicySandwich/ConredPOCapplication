@@ -58,13 +58,13 @@ public class ClientGuestController {
      }
 
  
-     @GetMapping("/clientGuestListall")
-     public List<ClientGuestRequest> GetProductName(ClientGuestRequestOutput clientGuestRequestOutput){
-
-      return grpcClientGuestService.findalls(clientGuestRequestOutput);
-             
-            
-    }
+//      @GetMapping("/clientGuestListall")
+//      public List<ClientEntity> GetProductName(){
+//
+//       return grpcClientGuestService.getProduct();
+//             
+//            
+//     }
 
      
     //  @GetMapping("/clientGuestListall")

@@ -110,6 +110,7 @@ private GuestClientServiceImpl guestClientServiceImpl;
 		
 		responseObserver.onNext(client.toGuest());
 		
+		
 	}
 	   responseObserver.onCompleted();
 	}
