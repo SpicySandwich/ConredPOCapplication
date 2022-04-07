@@ -10,11 +10,7 @@ import org.springframework.web.client.RestTemplate;
 public class CartGatewayServiceApplication {
 	
 
-	@Bean
-	public RestTemplate restTemplate() {
-		
-		return new RestTemplate();
-	}
+	
 
 	public static void main(String[] args) {
 		SpringApplication.run(CartGatewayServiceApplication.class, args);

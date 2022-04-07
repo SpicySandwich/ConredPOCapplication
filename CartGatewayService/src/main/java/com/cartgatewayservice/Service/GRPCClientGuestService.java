@@ -1,33 +1,16 @@
 package com.cartgatewayservice.Service;
 
 
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
-import java.util.stream.Collectors;
-
 import org.springframework.stereotype.Service;
-import com.cartgatewayservice.Model.ClientEntity;
+import com.cartgatewayservice.Model.GuestClient;
 import com.google.protobuf.Int32Value;
 import com.grpcserver.ClientGuestGrpc;
-import com.grpcserver.GuestClientServer;
 import com.grpcserver.GuestClientServer.APIResponse;
 import com.grpcserver.GuestClientServer.ClientGuestRequest;
-import com.grpcserver.GuestClientServer.ClientGuestRequestOrBuilder;
-import com.grpcserver.GuestClientServer.ClientGuestRequestOutput;
-import com.grpcserver.GuestClientServer.ClientGuestRequestOutputOrBuilder;
 import com.grpcserver.GuestClientServer.ClientGuestrList;
-import com.grpcserver.GuestClientServer.ClientGuestrListOrBuilder;
-import com.grpcserver.GuestClientServer.Empty;
-import com.grpcserver.GuestClientServer.Empty.Builder;
-
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
-import io.grpc.stub.StreamObserver;
-import lombok.var;
 
 
 @Service
@@ -39,14 +22,14 @@ public class GRPCClientGuestService {
             .usePlaintext()
             .build();
 	
-	public String inserdata(ClientEntity clientEntity) {
+	public String inserdata(GuestClient guestClient) {
 
 	ClientGuestGrpc.ClientGuestBlockingStub stub = ClientGuestGrpc.newBlockingStub(channel);
 
 	APIResponse response = stub.insert(ClientGuestRequest.newBuilder()
 			.setClientGuestId(0)
-			.setClientGuestName(clientEntity.getClient_guest_name())
-			.setClientGuestEmail(clientEntity.getClient_guest_email())
+			.setClientGuestName(guestClient.getClient_guest_name())
+			.setClientGuestEmail(guestClient.getClient_guest_email())
 			.build());
 	
 	return response.getResponsemessage();
@@ -57,25 +40,25 @@ public class GRPCClientGuestService {
 
 		ClientGuestGrpc.ClientGuestBlockingStub stub = ClientGuestGrpc.newBlockingStub(channel);
 
-		ClientEntity clientEntity = new ClientEntity();
+		GuestClient guestClient = new GuestClient();
 		
-		clientEntity.setClient_guest_id(client_guest_id);
+		guestClient.setClient_guest_id(client_guest_id);
 		
 		APIResponse response = stub.deleteById(ClientGuestRequest.newBuilder()
-				.setClientGuestId(clientEntity.getClient_guest_id())
+				.setClientGuestId(guestClient.getClient_guest_id())
 				.build());
 	
 		return response.getResponsemessage();
 }
 	
-	public String updatedata(ClientEntity clientEntity) {
+	public String updatedata(GuestClient guestClient) {
 
 	ClientGuestGrpc.ClientGuestBlockingStub stub = ClientGuestGrpc.newBlockingStub(channel);
 
 	APIResponse response = stub.update(ClientGuestRequest.newBuilder()
-			.setClientGuestId(clientEntity.getClient_guest_id())
-			.setClientGuestName(clientEntity.getClient_guest_name())
-			.setClientGuestEmail(clientEntity.getClient_guest_email())
+			.setClientGuestId(guestClient.getClient_guest_id())
+			.setClientGuestName(guestClient.getClient_guest_name())
+			.setClientGuestEmail(guestClient.getClient_guest_email())
 			.build());
 	
 	return response.getResponsemessage();
@@ -83,22 +66,22 @@ public class GRPCClientGuestService {
 	}
 	
 
-	public ClientEntity findClient (Integer client_guest_id) {
+	public GuestClient findClient (Integer client_guest_id) {
 		
 		
 		ClientGuestGrpc.ClientGuestBlockingStub stub = ClientGuestGrpc.newBlockingStub(channel);
 	
-		ClientEntity clientEntity = new ClientEntity();
+		GuestClient guestClient = new GuestClient();
 		
 		ClientGuestRequest clientGuestRequest = stub.findById(Int32Value.of(client_guest_id));
 			
-			clientEntity.setClient_guest_id(clientGuestRequest.getClientGuestId());
-			clientEntity.setClient_guest_name(clientGuestRequest.getClientGuestName());
-			clientEntity.setClient_guest_email(clientGuestRequest.getClientGuestEmail());
+			guestClient.setClient_guest_id(clientGuestRequest.getClientGuestId());
+			guestClient.setClient_guest_name(clientGuestRequest.getClientGuestName());
+			guestClient.setClient_guest_email(clientGuestRequest.getClientGuestEmail());
 			
 			
 		
-		return clientEntity;
+		return guestClient;
 
 		
 
