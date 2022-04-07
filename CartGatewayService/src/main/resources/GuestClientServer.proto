@@ -2,19 +2,19 @@ syntax = "proto3";
 
 option java_package = "com.grpcserver";
 import "google/protobuf/wrappers.proto";
-import "google/protobuf/empty.proto";
 
 
 service ClientGuest{
 
-    rpc findAllByFilter(ClientGuestRequestOutput) returns ( stream ClientGuestrList);
+    rpc findAllByFilter(ClientGuestRequestOutput) returns (ClientGuestrList);
     rpc insert(ClientGuestRequest) returns(APIResponse);
-    rpc findAll(google.protobuf.Empty) returns(stream ClientGuestRequest);
+    rpc findAll(Empty) returns(stream ClientGuestRequest);
     rpc deleteById(ClientGuestRequest) returns(APIResponse);
     rpc findById(google.protobuf.Int32Value) returns(ClientGuestRequest);
     rpc update(ClientGuestRequest) returns(APIResponse);
-    
- 
+
+   
+
 }
 
 message Empty {}
@@ -35,7 +35,7 @@ message ClientGuestRequestOutput{
 
 message ClientGuestrList {
      repeated ClientGuestRequest clientguestall = 1;
-    
+     int64 clientguestcount = 2;
 }
 
 

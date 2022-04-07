@@ -3,6 +3,8 @@ package com.cartservice.Server;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import com.cartservice.DTO.ClientGuestDTO;
 import com.cartservice.Model.Client;
 import com.cartservice.Service.GuestClientServiceImpl;
 import com.google.protobuf.Int32Value;
@@ -36,7 +38,7 @@ private GuestClientServiceImpl guestClientServiceImpl;
 		clientGuestRequest.setClient_guest_email(clientemail);
 		
 		
-		guestClientServiceImpl.saveGuestClientInfo(clientGuestRequest);
+		guestClientServiceImpl.saveDataFromDTO(clientGuestRequest);
 
 				
 				APIResponse.Builder  responce = APIResponse.newBuilder();
@@ -45,10 +47,12 @@ private GuestClientServiceImpl guestClientServiceImpl;
 					
 					responce.setResponseCode(0).setResponsemessage("Succefulley added to database " + clientGuestRequest);
 					
-				}else{
-					
-					responce.setResponseCode(8).setResponsemessage("Failed to add data in database");
 				}
+				
+//				else{
+//					
+//					responce.setResponseCode(8).setResponsemessage("Failed to add data in database");
+//				}
 			
 				
 				responseObserver.onNext(responce.build());
@@ -61,13 +65,9 @@ private GuestClientServiceImpl guestClientServiceImpl;
 	@Override
 	public void deleteById(ClientGuestRequest request, StreamObserver<APIResponse> responseObserver) {
 		
-
 		Integer clientid = request.getClientGuestId();
 	
-		
-		
-		
-		guestClientServiceImpl.deleteGuestClientInfo(clientid);
+		guestClientServiceImpl.deleteDTO(clientid);
 
 				APIResponse.Builder  responce = APIResponse.newBuilder();
 
@@ -75,8 +75,6 @@ private GuestClientServiceImpl guestClientServiceImpl;
 				responseObserver.onCompleted();
 	
 	}
-
-
 
 	@Override
 	public void update(ClientGuestRequest request, StreamObserver<APIResponse> responseObserver) {
@@ -91,7 +89,7 @@ private GuestClientServiceImpl guestClientServiceImpl;
 		clientGuestRequest.setClient_guest_email(clientemail);
 		
 		
-		guestClientServiceImpl.updateGuestClientInfo(clientGuestRequest);
+		guestClientServiceImpl.updatebyDTO(clientGuestRequest);
 
 				
 				APIResponse.Builder  responce = APIResponse.newBuilder();
@@ -119,7 +117,7 @@ private GuestClientServiceImpl guestClientServiceImpl;
 	@Override
 	public void findById(Int32Value request, StreamObserver<ClientGuestRequest> responseObserver) {
 
-		com.cartservice.Model.Client clientGuestRequest = guestClientServiceImpl.getGuestClientInfo( request.getValue());
+		ClientGuestDTO clientGuestRequest = guestClientServiceImpl.getDataByDTO( request.getValue());
 		
 						responseObserver.onNext(clientGuestRequest.toGuest());
 						responseObserver.onCompleted();

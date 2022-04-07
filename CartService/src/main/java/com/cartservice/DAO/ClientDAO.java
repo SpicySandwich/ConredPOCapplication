@@ -26,7 +26,7 @@ public interface ClientDAO {
 	public int insert(Client clientGuestRequest);
 	
 	@Delete("DELETE FROM tb_client WHERE client_guest_id = #{client_guest_id}")
-    public int deleteById(Integer client_guest_id);
+    public  Client deleteById(Integer client_guest_id);
 
 	
 	@Select("SELECT * FROM tb_client  WHERE client_guest_id = #{client_guest_id}")
@@ -34,7 +34,7 @@ public interface ClientDAO {
 	
 	 @Update("Update tb_client set client_guest_name=#{client_guest_name}, " +
 		        "client_guest_email=#{client_guest_email}  where client_guest_id = #{client_guest_id} ")
-		    public int update(Client guestClient);
+		    public Client update(Client guestClient);
 
 	
 

@@ -1953,6 +1953,11 @@ public final class GuestClientServer {
      */
     com.grpcserver.GuestClientServer.ClientGuestRequestOrBuilder getClientguestallOrBuilder(
         int index);
+
+    /**
+     * <code>int64 clientguestcount = 2;</code>
+     */
+    long getClientguestcount();
   }
   /**
    * Protobuf type {@code ClientGuestrList}
@@ -1968,6 +1973,7 @@ public final class GuestClientServer {
     }
     private ClientGuestrList() {
       clientguestall_ = java.util.Collections.emptyList();
+      clientguestcount_ = 0L;
     }
 
     @java.lang.Override
@@ -2001,6 +2007,11 @@ public final class GuestClientServer {
               }
               clientguestall_.add(
                   input.readMessage(com.grpcserver.GuestClientServer.ClientGuestRequest.parser(), extensionRegistry));
+              break;
+            }
+            case 16: {
+
+              clientguestcount_ = input.readInt64();
               break;
             }
             default: {
@@ -2038,6 +2049,7 @@ public final class GuestClientServer {
               com.grpcserver.GuestClientServer.ClientGuestrList.class, com.grpcserver.GuestClientServer.ClientGuestrList.Builder.class);
     }
 
+    private int bitField0_;
     public static final int CLIENTGUESTALL_FIELD_NUMBER = 1;
     private java.util.List<com.grpcserver.GuestClientServer.ClientGuestRequest> clientguestall_;
     /**
@@ -2073,6 +2085,15 @@ public final class GuestClientServer {
       return clientguestall_.get(index);
     }
 
+    public static final int CLIENTGUESTCOUNT_FIELD_NUMBER = 2;
+    private long clientguestcount_;
+    /**
+     * <code>int64 clientguestcount = 2;</code>
+     */
+    public long getClientguestcount() {
+      return clientguestcount_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2090,6 +2111,9 @@ public final class GuestClientServer {
       for (int i = 0; i < clientguestall_.size(); i++) {
         output.writeMessage(1, clientguestall_.get(i));
       }
+      if (clientguestcount_ != 0L) {
+        output.writeInt64(2, clientguestcount_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2102,6 +2126,10 @@ public final class GuestClientServer {
       for (int i = 0; i < clientguestall_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, clientguestall_.get(i));
+      }
+      if (clientguestcount_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, clientguestcount_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2121,6 +2149,8 @@ public final class GuestClientServer {
       boolean result = true;
       result = result && getClientguestallList()
           .equals(other.getClientguestallList());
+      result = result && (getClientguestcount()
+          == other.getClientguestcount());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -2136,6 +2166,9 @@ public final class GuestClientServer {
         hash = (37 * hash) + CLIENTGUESTALL_FIELD_NUMBER;
         hash = (53 * hash) + getClientguestallList().hashCode();
       }
+      hash = (37 * hash) + CLIENTGUESTCOUNT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getClientguestcount());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2276,6 +2309,8 @@ public final class GuestClientServer {
         } else {
           clientguestallBuilder_.clear();
         }
+        clientguestcount_ = 0L;
+
         return this;
       }
 
@@ -2303,6 +2338,7 @@ public final class GuestClientServer {
       public com.grpcserver.GuestClientServer.ClientGuestrList buildPartial() {
         com.grpcserver.GuestClientServer.ClientGuestrList result = new com.grpcserver.GuestClientServer.ClientGuestrList(this);
         int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         if (clientguestallBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001)) {
             clientguestall_ = java.util.Collections.unmodifiableList(clientguestall_);
@@ -2312,6 +2348,8 @@ public final class GuestClientServer {
         } else {
           result.clientguestall_ = clientguestallBuilder_.build();
         }
+        result.clientguestcount_ = clientguestcount_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -2385,6 +2423,9 @@ public final class GuestClientServer {
               clientguestallBuilder_.addAllMessages(other.clientguestall_);
             }
           }
+        }
+        if (other.getClientguestcount() != 0L) {
+          setClientguestcount(other.getClientguestcount());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2654,6 +2695,32 @@ public final class GuestClientServer {
           clientguestall_ = null;
         }
         return clientguestallBuilder_;
+      }
+
+      private long clientguestcount_ ;
+      /**
+       * <code>int64 clientguestcount = 2;</code>
+       */
+      public long getClientguestcount() {
+        return clientguestcount_;
+      }
+      /**
+       * <code>int64 clientguestcount = 2;</code>
+       */
+      public Builder setClientguestcount(long value) {
+        
+        clientguestcount_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 clientguestcount = 2;</code>
+       */
+      public Builder clearClientguestcount() {
+        
+        clientguestcount_ = 0L;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -3356,25 +3423,25 @@ public final class GuestClientServer {
   static {
     java.lang.String[] descriptorData = {
       "\n\027GuestClientServer.proto\032\036google/protob" +
-      "uf/wrappers.proto\032\033google/protobuf/empty" +
-      ".proto\"\007\n\005Empty\"d\n\022ClientGuestRequest\022\027\n" +
-      "\017client_guest_id\030\001 \001(\005\022\031\n\021client_guest_n" +
-      "ame\030\002 \001(\t\022\032\n\022client_guest_email\030\003 \001(\t\"j\n" +
-      "\030ClientGuestRequestOutput\022\027\n\017client_gues" +
-      "t_id\030\001 \001(\005\022\031\n\021client_guest_name\030\002 \001(\t\022\032\n" +
-      "\022client_guest_email\030\003 \001(\t\"?\n\020ClientGuest" +
-      "rList\022+\n\016clientguestall\030\001 \003(\0132\023.ClientGu" +
-      "estRequest\"<\n\013APIResponse\022\027\n\017responsemes" +
-      "sage\030\001 \001(\t\022\024\n\014responseCode\030\002 \001(\0052\323\002\n\013Cli" +
-      "entGuest\022A\n\017findAllByFilter\022\031.ClientGues" +
-      "tRequestOutput\032\021.ClientGuestrList0\001\022+\n\006i" +
-      "nsert\022\023.ClientGuestRequest\032\014.APIResponse" +
-      "\0228\n\007findAll\022\026.google.protobuf.Empty\032\023.Cl" +
-      "ientGuestRequest0\001\022/\n\ndeleteById\022\023.Clien" +
-      "tGuestRequest\032\014.APIResponse\022<\n\010findById\022" +
-      "\033.google.protobuf.Int32Value\032\023.ClientGue" +
-      "stRequest\022+\n\006update\022\023.ClientGuestRequest" +
-      "\032\014.APIResponseB\020\n\016com.grpcserverb\006proto3"
+      "uf/wrappers.proto\"\007\n\005Empty\"d\n\022ClientGues" +
+      "tRequest\022\027\n\017client_guest_id\030\001 \001(\005\022\031\n\021cli" +
+      "ent_guest_name\030\002 \001(\t\022\032\n\022client_guest_ema" +
+      "il\030\003 \001(\t\"j\n\030ClientGuestRequestOutput\022\027\n\017" +
+      "client_guest_id\030\001 \001(\005\022\031\n\021client_guest_na" +
+      "me\030\002 \001(\t\022\032\n\022client_guest_email\030\003 \001(\t\"Y\n\020" +
+      "ClientGuestrList\022+\n\016clientguestall\030\001 \003(\013" +
+      "2\023.ClientGuestRequest\022\030\n\020clientguestcoun" +
+      "t\030\002 \001(\003\"<\n\013APIResponse\022\027\n\017responsemessag" +
+      "e\030\001 \001(\t\022\024\n\014responseCode\030\002 \001(\0052\301\002\n\013Client" +
+      "Guest\022?\n\017findAllByFilter\022\031.ClientGuestRe" +
+      "questOutput\032\021.ClientGuestrList\022+\n\006insert" +
+      "\022\023.ClientGuestRequest\032\014.APIResponse\022(\n\007f" +
+      "indAll\022\006.Empty\032\023.ClientGuestRequest0\001\022/\n" +
+      "\ndeleteById\022\023.ClientGuestRequest\032\014.APIRe" +
+      "sponse\022<\n\010findById\022\033.google.protobuf.Int" +
+      "32Value\032\023.ClientGuestRequest\022+\n\006update\022\023" +
+      ".ClientGuestRequest\032\014.APIResponseB\020\n\016com" +
+      ".grpcserverb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -3388,7 +3455,6 @@ public final class GuestClientServer {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.WrappersProto.getDescriptor(),
-          com.google.protobuf.EmptyProto.getDescriptor(),
         }, assigner);
     internal_static_Empty_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -3413,7 +3479,7 @@ public final class GuestClientServer {
     internal_static_ClientGuestrList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ClientGuestrList_descriptor,
-        new java.lang.String[] { "Clientguestall", });
+        new java.lang.String[] { "Clientguestall", "Clientguestcount", });
     internal_static_APIResponse_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_APIResponse_fieldAccessorTable = new
@@ -3421,7 +3487,6 @@ public final class GuestClientServer {
         internal_static_APIResponse_descriptor,
         new java.lang.String[] { "Responsemessage", "ResponseCode", });
     com.google.protobuf.WrappersProto.getDescriptor();
-    com.google.protobuf.EmptyProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

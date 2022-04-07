@@ -1,6 +1,7 @@
 package com.cartservice;
 
 import org.apache.ibatis.type.MappedTypes;
+import org.modelmapper.ModelMapper;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,6 +21,11 @@ public class CartServiceApplication {
 		SpringApplication.run(CartServiceApplication.class, args);
 		
 	
+	}
+	
+	@Bean
+	public ModelMapper modelMapper() {
+	    return new ModelMapper();
 	}
 	
 	
