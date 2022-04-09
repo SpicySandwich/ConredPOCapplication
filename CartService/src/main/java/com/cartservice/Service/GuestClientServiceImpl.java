@@ -50,9 +50,9 @@ public class GuestClientServiceImpl implements GuestClientService{
 	
 	//DTO Delete
 	
-	public void deleteDTO(Integer client_guest_id) {
+	public ClientGuestDTO deleteDTO(Integer client_guest_id) {
 		
-	 convertClientGuestDTOtoClient (clientDAO.deleteById(client_guest_id));
+    return convertClientGuestDTOtoClient (clientDAO.deleteById(client_guest_id));
 	}
 	
 	//DTO update

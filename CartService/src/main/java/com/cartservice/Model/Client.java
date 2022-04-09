@@ -31,6 +31,14 @@ public class Client {
 				
 	}
 	
+	public ClientGuestRequest byID() {
+		
+		return ClientGuestRequest.newBuilder()
+				.setClientGuestId(getClient_guest_id())
+				.build();
+				
+	}
+	
 	public static Client fromClient(ClientGuestRequest clientGuestRequest) {
 		
 		Client client = new Client();

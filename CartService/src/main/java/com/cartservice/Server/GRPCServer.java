@@ -64,10 +64,12 @@ private GuestClientServiceImpl guestClientServiceImpl;
 	
 	@Override
 	public void deleteById(ClientGuestRequest request, StreamObserver<APIResponse> responseObserver) {
-		
-		Integer clientid = request.getClientGuestId();
-	
-		guestClientServiceImpl.deleteDTO(clientid);
+	//	com.cartservice.Model.Client clientGuestRequest = new com.cartservice.Model.Client();
+		ClientGuestDTO clientGuestRequest = new ClientGuestDTO();
+//		Integer clientid = request.getClientGuestId();
+	//	Integer clientid2 =   clientGuestRequest.setClient_guest_id(request.getClientGuestId());
+		ClientGuestRequest clientid2 =	clientGuestRequest.byID();
+		guestClientServiceImpl.deleteDTO(clientid2.getClientGuestId());
 
 				APIResponse.Builder  responce = APIResponse.newBuilder();
 
@@ -76,17 +78,16 @@ private GuestClientServiceImpl guestClientServiceImpl;
 	
 	}
 
+
+
+
 	@Override
 	public void update(ClientGuestRequest request, StreamObserver<APIResponse> responseObserver) {
 		com.cartservice.Model.Client clientGuestRequest = new com.cartservice.Model.Client();
 		
-		Integer clientid = request.getClientGuestId();
-		String clientname = request.getClientGuestName();
-		String clientemail = request.getClientGuestEmail();
-		
-		clientGuestRequest.setClient_guest_id(clientid);
-		clientGuestRequest.setClient_guest_name(clientname);
-		clientGuestRequest.setClient_guest_email(clientemail);
+		clientGuestRequest.setClient_guest_id(request.getClientGuestId());
+		clientGuestRequest.setClient_guest_name(request.getClientGuestName());
+		clientGuestRequest.setClient_guest_email(request.getClientGuestEmail());
 		
 		
 		guestClientServiceImpl.updatebyDTO(clientGuestRequest);
@@ -99,6 +100,7 @@ private GuestClientServiceImpl guestClientServiceImpl;
 		
 	}
 	
+
 
 	@Override
 	public void findAll(Empty request, StreamObserver<ClientGuestRequest> responseObserver) {

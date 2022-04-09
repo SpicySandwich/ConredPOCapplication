@@ -24,5 +24,29 @@ public class ClientGuestDTO {
 				.build();
 				
 	}
+	
+	public ClientGuestDTO clientDTOtoGRPC(ClientGuestDTO clientGuestDTO) {
+		
+		ClientGuestRequest.Builder responce = ClientGuestRequest.newBuilder();
+	
+		
+		clientGuestDTO .setClient_guest_id(responce.getClientGuestId());
+		clientGuestDTO .setClient_guest_name(responce.getClientGuestName());
+		clientGuestDTO .setClient_guest_email(responce.getClientGuestEmail());
+		
+		return clientGuestDTO;
+		
+	
+	}
+	
+public ClientGuestRequest byID() {
+	ClientGuestRequest.Builder responce = ClientGuestRequest.newBuilder();
+	responce.getClientGuestId();
+		return responce.build() ;
+				
+	}
+	
+	
+
 
 }
