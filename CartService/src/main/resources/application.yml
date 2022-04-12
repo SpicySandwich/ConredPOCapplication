@@ -30,7 +30,11 @@ grpc:
      
 
 
-
+log4j:
+   appender:
+    file:
+      layout: org.apache.log4j.PatternLayout
+      ConversionPattern: "%d %p %t %c %m"
   
    
 

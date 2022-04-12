@@ -39,10 +39,10 @@ public class ClientGuestDTO {
 	
 	}
 	
-public ClientGuestRequest byID() {
+public Integer byID() {
 	ClientGuestRequest.Builder responce = ClientGuestRequest.newBuilder();
-	responce.getClientGuestId();
-		return responce.build() ;
+ //responce.getClientGuestId();
+		return responce.getClientGuestId() ;
 				
 	}
 	

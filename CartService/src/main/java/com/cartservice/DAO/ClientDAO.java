@@ -13,7 +13,6 @@ import com.grpcserver.GuestClientServer.ClientGuestRequest;
 
 
 
-
 @Mapper
 public interface ClientDAO {
 	
@@ -26,7 +25,7 @@ public interface ClientDAO {
 	public int insert(Client clientGuestRequest);
 	
 	@Delete("DELETE FROM tb_client WHERE client_guest_id = #{client_guest_id}")
-	public Client  deleteById(Integer client_guest_id);
+	public Client deleteById(Integer client_guest_id);
 
 	
 	@Select("SELECT * FROM tb_client  WHERE client_guest_id = #{client_guest_id}")
