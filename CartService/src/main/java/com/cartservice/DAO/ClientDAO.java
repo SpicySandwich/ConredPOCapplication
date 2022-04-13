@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import com.cartservice.Model.Client;
@@ -35,6 +36,7 @@ public interface ClientDAO {
 		        "client_guest_email=#{client_guest_email}  where client_guest_id = #{client_guest_id} ")
 		   void update(Client guestClient);
 
-	
+	 @Select("SELECT EXISTS(SELECT 1 FROM tb_client WHERE client_guest_email=#{client_guest_emaill})")
+	 boolean checkEmailExists(String client_guest_email);
 
 }

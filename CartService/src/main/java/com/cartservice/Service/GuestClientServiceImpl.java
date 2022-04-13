@@ -63,6 +63,16 @@ public class GuestClientServiceImpl implements GuestClientService{
 	return convertClientGuestDTOtoClient( client);
 		
 	}
+	
+	//Validate Duplicate Email
+	
+	public boolean chechEmail(String client_guest_email) {
+		
+		return clientDAO.checkEmailExists(client_guest_email);
+		
+    //convertClientGuestDTOtoClient(clientDAO.checkEmailExists(client_guest_email));
+		
+	}
 
 
 	@Override

@@ -2,6 +2,7 @@ syntax = "proto3";
 
 option java_package = "com.grpcserver";
 import "google/protobuf/wrappers.proto";
+import "google/protobuf/timestamp.proto";
 
 
 service ClientGuest{
@@ -43,4 +44,13 @@ message APIResponse{
       string responsemessage = 1;
       int32  responseCode  = 2;
 }
+enum ClientGuestErrorCode {
+  CLIENT_GUEST_NOT_FOUND = 0;
+  CLIENT_GUEST_VALUE_CANNOT_BE_NULL = 1;
+  CLIENT_GUEST_EMAIL_DUPLICATE = 2;
+}
 
+message ClientGuestExceptionResponse {
+  google.protobuf.Timestamp timestamp = 1;
+  ClientGuestErrorCode error_code = 2;
+}

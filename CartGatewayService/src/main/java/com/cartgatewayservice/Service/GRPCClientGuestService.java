@@ -3,11 +3,8 @@ package com.cartgatewayservice.Service;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cartgatewayservice.ErrorAdvice.GlobalExceptionHandler;
-import com.cartgatewayservice.ErrorModel.NotFoundException;
 import com.cartgatewayservice.Model.GuestClient;
 import com.google.protobuf.Int32Value;
 import com.grpcserver.ClientGuestGrpc;
@@ -16,15 +13,12 @@ import com.grpcserver.GuestClientServer.ClientGuestRequest;
 import com.grpcserver.GuestClientServer.ClientGuestrList;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
-import net.devh.boot.grpc.server.service.GrpcService;
 
 
-@GrpcService
+@Service
 public class GRPCClientGuestService {
 
-	
-	@Autowired
-	private GlobalExceptionHandler globalExceptionHandler;
+
 	
 		
 	ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 9090)
@@ -79,20 +73,13 @@ public class GRPCClientGuestService {
 			
 		ClientGuestGrpc.ClientGuestBlockingStub stub = ClientGuestGrpc.newBlockingStub(channel);
 		GuestClient guestClient = new GuestClient();
-	try {
-		
-	
+
 		ClientGuestRequest clientGuestRequest = stub.findById(Int32Value.of(client_guest_id));
 			
 			guestClient.setClient_guest_id(clientGuestRequest.getClientGuestId());
 			guestClient.setClient_guest_name(clientGuestRequest.getClientGuestName());
 			guestClient.setClient_guest_email(clientGuestRequest.getClientGuestEmail());
-			
-	} catch (Exception e) {
 		
-		 globalExceptionHandler.handleInvalidArgument(new NotFoundException("Client Id not found"));
-		
-	}		
 		
 		return guestClient;
 

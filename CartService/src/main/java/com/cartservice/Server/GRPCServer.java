@@ -9,12 +9,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
+import org.springframework.dao.DuplicateKeyException;
+
 import com.cartservice.DTO.ClientGuestDTO;
+import com.cartservice.ExceptionModel.ClientGuestDuplicateEmail;
+import com.cartservice.ExceptionModel.ClientGuestNotNull;
 import com.cartservice.Model.Client;
 import com.cartservice.Service.GuestClientServiceImpl;
+import com.cartservice.Validation.ClientGuestValidation;
 import com.google.protobuf.Int32Value;
 import com.grpcserver.ClientGuestGrpc.ClientGuestImplBase;
 import com.grpcserver.GuestClientServer.APIResponse;
+import com.grpcserver.GuestClientServer.ClientGuestErrorCode;
 import com.grpcserver.GuestClientServer.ClientGuestRequest;
 import com.grpcserver.GuestClientServer.Empty;
 import io.grpc.stub.StreamObserver;
@@ -24,7 +30,9 @@ import net.devh.boot.grpc.server.service.GrpcService;
 @GrpcService
 public class GRPCServer  extends ClientGuestImplBase{
 	
-
+@Autowired
+private ClientGuestValidation clientGuestValidation;
+	
 @Autowired
 private GuestClientServiceImpl guestClientServiceImpl;
 
@@ -34,37 +42,42 @@ private static final Logger log = LoggerFactory.getLogger(GRPCServer.class);
 	@Override
 	public void insert(ClientGuestRequest request, StreamObserver<APIResponse> responseObserver) {
 		
-		com.cartservice.Model.Client client = new com.cartservice.Model.Client();
-		client.setClient_guest_id(request.getClientGuestId());
-		client.setClient_guest_name(request.getClientGuestName());
-		client.setClient_guest_email(request.getClientGuestEmail());
 		
-		guestClientServiceImpl.saveDataFromDTO(client);
-					
-				APIResponse.Builder  responce = APIResponse.newBuilder();
-				
-				if(client != null) {
-					
-					responce.setResponseCode(0).setResponsemessage("Succefulley added to database " +client);
-					
-				}
-				
-//				else{
-//					
-//					responce.setResponseCode(8).setResponsemessage("Failed to add data in database");
-//				}
+		com.cartservice.Model.Client client = new com.cartservice.Model.Client();
+		try {
 			
-				
-				responseObserver.onNext(responce.build());
-				responseObserver.onCompleted();
+			client.setClient_guest_id(request.getClientGuestId());
+			client.setClient_guest_name(request.getClientGuestName());
+			client.setClient_guest_email(request.getClientGuestEmail());
+			guestClientServiceImpl.saveDataFromDTO(client);
 			
-
+			APIResponse.Builder  responce = APIResponse.newBuilder();
+			
+			if(client != null) {
+				
+				responce.setResponseCode(0).setResponsemessage("Succefull added to database " +client);
+				
+			}
+			responseObserver.onNext(responce.build());
+			responseObserver.onCompleted();
+			
+			
+		}catch (DuplicateKeyException e) {
+		
+			clientGuestValidation.EmailValidation(client);
+		}
+		
+		catch (Exception e) {
+			
+			clientGuestValidation.validation(client);
+			
+		}
+	
+				
+				
+			
 	}
 	
-	
-
-
-
 
 	@Override
 	public void update(ClientGuestRequest request, StreamObserver<APIResponse> responseObserver) {
@@ -103,14 +116,21 @@ private static final Logger log = LoggerFactory.getLogger(GRPCServer.class);
 
 	@Override
 	public void findById(Int32Value request, StreamObserver<ClientGuestRequest> responseObserver) {
-
-		ClientGuestDTO clientGuestRequest = guestClientServiceImpl.getDataByDTO( request.getValue());
-
-			
-	
 		
-						responseObserver.onNext(clientGuestRequest.toGuest());
-						responseObserver.onCompleted();
+
+		try {
+			
+			ClientGuestDTO clientGuestRequest = guestClientServiceImpl.getDataByDTO( request.getValue());
+
+			responseObserver.onNext(clientGuestRequest.toGuest());
+			responseObserver.onCompleted();
+			
+		} catch (Exception e) {
+		
+			clientGuestValidation.validateID(request.getValue());	
+			
+		}
+	
 						
 	
 	}
