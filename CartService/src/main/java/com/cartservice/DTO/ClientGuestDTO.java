@@ -25,6 +25,21 @@ public class ClientGuestDTO {
 				
 	}
 	
+	public int toDeleteTest() {
+		
+		return ClientGuestRequest.newBuilder()
+				.getClientGuestId();
+	
+	}
+	
+	public ClientGuestRequest toDeleteID() {
+		
+		return ClientGuestRequest.newBuilder()
+				.setClientGuestId(getClient_guest_id())
+				.build();
+				
+	}
+	
 	public ClientGuestDTO clientDTOtoGRPC(ClientGuestDTO clientGuestDTO) {
 		
 		ClientGuestRequest.Builder responce = ClientGuestRequest.newBuilder();
@@ -45,6 +60,8 @@ public Integer byID() {
 		return responce.getClientGuestId() ;
 				
 	}
+
+
 	
 	
 

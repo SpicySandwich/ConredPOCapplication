@@ -52,5 +52,13 @@ public class GuestClient {
 		return client;
 		
 	}
+	
+	public ClientGuestRequest toDeleteID() {
+		
+		return ClientGuestRequest.newBuilder()
+				.setClientGuestId(getClient_guest_id())
+				.build();
+				
+	}
 
 }

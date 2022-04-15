@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.NoHandlerFoundException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+
 import com.product.ModeException.ErrorDetail;
 import com.product.ModeException.ProductExecption;
+import com.product.ModeException.ProductIDnotFound;
 import com.product.ModeException.ProductInternalError;
 
 
@@ -28,6 +30,13 @@ public class ControllerExceptionViewer extends  ResponseEntityExceptionHandler {
 	public ResponseEntity<Object> handleProductExceptionNotFound(ProductInternalError ex, WebRequest request){
 		
 		return new ResponseEntity<Object>(new ErrorDetail(ex.getMessage(), HttpStatus.NOT_FOUND, LocalDateTime.now()),HttpStatus.NOT_FOUND);
+		
+	}
+	
+	@ExceptionHandler(ProductIDnotFound.class)
+	public ResponseEntity<Object> handleProductExceptionNotFound(ProductIDnotFound ex, WebRequest request){
+		
+		return new ResponseEntity<Object>(new ErrorDetail(ex.getMessage(), HttpStatus.BAD_REQUEST, LocalDateTime.now()),HttpStatus.NOT_FOUND);
 		
 	}
 	

@@ -14,6 +14,7 @@ import com.product.DTO.ProductDTO;
 import com.product.Entity.Product;
 import com.product.KafkaProducer.ProductProducer;
 import com.product.ModeException.ProductExecption;
+import com.product.ModeException.ProductIDnotFound;
 import com.product.ModeException.ProductInternalError;
 
 @Service
@@ -64,15 +65,15 @@ public class ProductService implements ProductServiceInt {
 try {
 	productProducer.sendMessageDTO("Product viewed id:" +productid);
 
-	
+	return convertProductDTOtoProduct(productDAO.getPoductInfo(productid));
 	
 } catch (Exception  e) {
 	productProducer.sendMessageException(new ProductInternalError("Internal error for viewing data will send to kafka topic"+productid));
-	throw new ProductExecption("Product not found by id: " + productid );
+	throw new ProductIDnotFound("Product not found by id: " + productid );
 	
 }
 			
-return convertProductDTOtoProduct(productDAO.getPoductInfo(productid));
+
 	}
 	
 	@Transactional

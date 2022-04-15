@@ -16,6 +16,14 @@ public class Client {
 	private String client_guest_name;
 	private String client_guest_email;
 	
+	public int toDeleteTest() {
+		
+		return ClientGuestRequest.newBuilder()
+				.getClientGuestId();
+	
+	}
+	
+	
 	public ClientGuestRequest toGuest() {
 		
 		return ClientGuestRequest.newBuilder()
