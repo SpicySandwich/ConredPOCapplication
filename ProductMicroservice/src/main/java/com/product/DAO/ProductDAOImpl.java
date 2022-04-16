@@ -15,7 +15,7 @@ public class ProductDAOImpl  implements ProductDAO{
 	@Autowired
 	private EntityManager entityManager;
 
-
+	
 	@Override
 	public List<Product> getProduct() {
 	
@@ -45,16 +45,19 @@ public class ProductDAOImpl  implements ProductDAO{
 		
 	}
 
+
 	@Override
 	public Product delete(Long productid) {
 		
-		Session session = entityManager.unwrap(Session.class);
+		Session session = entityManager.unwrap(Session.class);	
+		String hql = "DELETE FROM Product "  + 
+	             "WHERE productid = :productid";
 		Product productObj = session.get(Product.class, productid);
-		session.delete(productObj);
-		session.close();
-		return productObj;
-		
-	
+	Query query = session.createQuery(hql);
+	query.setParameter("productid", productid);
+	query.executeUpdate();
+
+	return productObj ;
 		
 	}
 
