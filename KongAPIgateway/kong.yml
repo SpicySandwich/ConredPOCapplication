@@ -1,0 +1,66 @@
+_format_version: "2.1"
+_transform: true
+
+services:
+    
+#Product host
+
+#Product add product
+ 
+- host: host.docker.internal
+  port: 8091
+  name: productadd-service
+  path: /product/addproduct
+  routes:
+  - name: productadd-service
+    paths:
+    - /productadd
+    strip_path: true
+    
+ #Product delete product
+    
+- host: host.docker.internal
+  port: 8091
+  name: productdelete-service
+  path: /product/productdelete
+  routes:
+  - name: productdelete-service
+    paths:
+    - /productdelete
+    strip_path: true
+    
+#Product update product
+
+- host: host.docker.internal
+  port: 8091
+  name: productupdate-service
+  path: /product/productupdate
+  routes:
+  - name: productupdate-service
+    paths:
+    - /productupdate
+    strip_path: true
+    
+#Product findbyId product 
+   
+- host: host.docker.internal
+  port: 8091
+  name: productfind-service
+  path: /product/productview
+  routes:
+  - name: productfind-service
+    paths:
+    - /productfind
+    strip_path: true
+    
+#Product List product 
+   
+- host: host.docker.internal
+  port: 8091
+  name: productlist-service
+  path: /product/productlist
+  routes:
+  - name: productlist-service
+    paths:
+    - /productlist
+    strip_path: true
