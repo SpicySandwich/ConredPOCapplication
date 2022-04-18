@@ -3,64 +3,114 @@ _transform: true
 
 services:
     
-#Product host
+#  ------ Product host -------
 
 #Product add product
  
 - host: host.docker.internal
   port: 8091
-  name: productadd-service
+  name: product-add-service
   path: /product/addproduct
   routes:
-  - name: productadd-service
+  - name: product-add-service
     paths:
-    - /productadd
+    - /product/add
     strip_path: true
     
  #Product delete product
     
 - host: host.docker.internal
   port: 8091
-  name: productdelete-service
+  name: product-delete-service
   path: /product/productdelete
   routes:
-  - name: productdelete-service
+  - name: product-delete-service
     paths:
-    - /productdelete
+    - /product/delete
     strip_path: true
     
 #Product update product
 
 - host: host.docker.internal
   port: 8091
-  name: productupdate-service
+  name: product-update-service
   path: /product/productupdate
   routes:
-  - name: productupdate-service
+  - name: product-update-service
     paths:
-    - /productupdate
+    - /product/update
     strip_path: true
     
 #Product findbyId product 
    
 - host: host.docker.internal
   port: 8091
-  name: productfind-service
+  name: product-find-service
   path: /product/productview
   routes:
-  - name: productfind-service
+  - name: product-find-service
     paths:
-    - /productfind
+    - /product/find
     strip_path: true
     
 #Product List product 
    
 - host: host.docker.internal
   port: 8091
-  name: productlist-service
+  name: product-list-service
   path: /product/productlist
   routes:
-  - name: productlist-service
+  - name: product-list-service
     paths:
-    - /productlist
+    - /product/list
+    strip_path: true
+    
+#   -------- Cart Host --------
+
+#Cart add
+
+- host: host.docker.internal
+  port: 8094
+  name: cart-add-service
+  path: /clientGuest
+  routes:
+  - name: cart-add-service
+    paths:
+    - /cart/add
+    strip_path: true
+
+#Cart delete
+ 
+- host: host.docker.internal
+  port: 8094
+  name: cart-delete-service
+  path: /clientGuest
+  routes:
+  - name: cart-delete-service
+    paths:
+    - /cart/delete
+    strip_path: true
+
+#Cart find
+   
+- host: host.docker.internal
+  port: 8094
+  name: cart-find-service
+  path: /clientGuest
+  routes:
+  - name: cart-find-service
+    paths:
+    - /cart/find
+    strip_path: true
+
+#Cart update
+   
+- host: host.docker.internal
+  port: 8094
+  name: cart-update-service
+  path: /clientGuest
+  routes:
+  - name: cart-update-service
+    paths:
+    - /cart/update
     strip_path: true
