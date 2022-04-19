@@ -40,6 +40,7 @@ public class GRPCClientGuestService {
 			.setClientGuestId(0)
 			.setClientGuestName(guestClient.getClient_guest_name())
 			.setClientGuestEmail(guestClient.getClient_guest_email())
+			.setPurchaseItem(guestClient.getClient_guest_id())
 			.build());
 	return response.getResponsemessage();
 	
@@ -74,6 +75,7 @@ public class GRPCClientGuestService {
 			.setClientGuestId(guestClient.getClient_guest_id())
 			.setClientGuestName(guestClient.getClient_guest_name())
 			.setClientGuestEmail(guestClient.getClient_guest_email())
+			.setPurchaseItem(guestClient.getClient_guest_id())
 			.build());
 	
 	return response.getResponsemessage();
@@ -93,6 +95,7 @@ public class GRPCClientGuestService {
 				guestClient.setClient_guest_id(clientGuestRequest.getClientGuestId());
 				guestClient.setClient_guest_name(clientGuestRequest.getClientGuestName());
 				guestClient.setClient_guest_email(clientGuestRequest.getClientGuestEmail());
+				guestClient.setPurchase_item(clientGuestRequest.getPurchaseItem());
 				
 				
 			} catch (Exception e) {

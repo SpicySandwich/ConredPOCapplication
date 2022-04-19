@@ -514,6 +514,11 @@ public final class GuestClientServer {
      */
     com.google.protobuf.ByteString
         getClientGuestEmailBytes();
+
+    /**
+     * <code>optional int32 purchase_item = 4;</code>
+     */
+    int getPurchaseItem();
   }
   /**
    * Protobuf type {@code ClientGuestRequest}
@@ -530,6 +535,7 @@ public final class GuestClientServer {
       clientGuestId_ = 0;
       clientGuestName_ = "";
       clientGuestEmail_ = "";
+      purchaseItem_ = 0;
     }
 
     @java.lang.Override
@@ -572,6 +578,11 @@ public final class GuestClientServer {
               java.lang.String s = input.readStringRequireUtf8();
 
               clientGuestEmail_ = s;
+              break;
+            }
+            case 32: {
+
+              purchaseItem_ = input.readInt32();
               break;
             }
           }
@@ -674,6 +685,15 @@ public final class GuestClientServer {
       }
     }
 
+    public static final int PURCHASE_ITEM_FIELD_NUMBER = 4;
+    private int purchaseItem_;
+    /**
+     * <code>optional int32 purchase_item = 4;</code>
+     */
+    public int getPurchaseItem() {
+      return purchaseItem_;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -695,6 +715,9 @@ public final class GuestClientServer {
       if (!getClientGuestEmailBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, clientGuestEmail_);
       }
+      if (purchaseItem_ != 0) {
+        output.writeInt32(4, purchaseItem_);
+      }
     }
 
     public int getSerializedSize() {
@@ -711,6 +734,10 @@ public final class GuestClientServer {
       }
       if (!getClientGuestEmailBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, clientGuestEmail_);
+      }
+      if (purchaseItem_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, purchaseItem_);
       }
       memoizedSize = size;
       return size;
@@ -734,6 +761,8 @@ public final class GuestClientServer {
           .equals(other.getClientGuestName());
       result = result && getClientGuestEmail()
           .equals(other.getClientGuestEmail());
+      result = result && (getPurchaseItem()
+          == other.getPurchaseItem());
       return result;
     }
 
@@ -750,6 +779,8 @@ public final class GuestClientServer {
       hash = (53 * hash) + getClientGuestName().hashCode();
       hash = (37 * hash) + CLIENT_GUEST_EMAIL_FIELD_NUMBER;
       hash = (53 * hash) + getClientGuestEmail().hashCode();
+      hash = (37 * hash) + PURCHASE_ITEM_FIELD_NUMBER;
+      hash = (53 * hash) + getPurchaseItem();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -874,6 +905,8 @@ public final class GuestClientServer {
 
         clientGuestEmail_ = "";
 
+        purchaseItem_ = 0;
+
         return this;
       }
 
@@ -899,6 +932,7 @@ public final class GuestClientServer {
         result.clientGuestId_ = clientGuestId_;
         result.clientGuestName_ = clientGuestName_;
         result.clientGuestEmail_ = clientGuestEmail_;
+        result.purchaseItem_ = purchaseItem_;
         onBuilt();
         return result;
       }
@@ -950,6 +984,9 @@ public final class GuestClientServer {
         if (!other.getClientGuestEmail().isEmpty()) {
           clientGuestEmail_ = other.clientGuestEmail_;
           onChanged();
+        }
+        if (other.getPurchaseItem() != 0) {
+          setPurchaseItem(other.getPurchaseItem());
         }
         onChanged();
         return this;
@@ -1137,6 +1174,32 @@ public final class GuestClientServer {
   checkByteStringIsUtf8(value);
         
         clientGuestEmail_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int purchaseItem_ ;
+      /**
+       * <code>optional int32 purchase_item = 4;</code>
+       */
+      public int getPurchaseItem() {
+        return purchaseItem_;
+      }
+      /**
+       * <code>optional int32 purchase_item = 4;</code>
+       */
+      public Builder setPurchaseItem(int value) {
+        
+        purchaseItem_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 purchase_item = 4;</code>
+       */
+      public Builder clearPurchaseItem() {
+        
+        purchaseItem_ = 0;
         onChanged();
         return this;
       }
@@ -3953,31 +4016,32 @@ public final class GuestClientServer {
     java.lang.String[] descriptorData = {
       "\n\027GuestClientServer.proto\032\036google/protob" +
       "uf/wrappers.proto\032\037google/protobuf/times" +
-      "tamp.proto\"\007\n\005Empty\"d\n\022ClientGuestReques" +
+      "tamp.proto\"\007\n\005Empty\"{\n\022ClientGuestReques" +
       "t\022\027\n\017client_guest_id\030\001 \001(\005\022\031\n\021client_gue" +
       "st_name\030\002 \001(\t\022\032\n\022client_guest_email\030\003 \001(" +
-      "\t\"j\n\030ClientGuestRequestOutput\022\027\n\017client_" +
-      "guest_id\030\001 \001(\005\022\031\n\021client_guest_name\030\002 \001(" +
-      "\t\022\032\n\022client_guest_email\030\003 \001(\t\"Y\n\020ClientG" +
-      "uestrList\022+\n\016clientguestall\030\001 \003(\0132\023.Clie" +
-      "ntGuestRequest\022\030\n\020clientguestcount\030\002 \001(\003",
-      "\"<\n\013APIResponse\022\027\n\017responsemessage\030\001 \001(\t" +
-      "\022\024\n\014responseCode\030\002 \001(\005\"x\n\034ClientGuestExc" +
-      "eptionResponse\022-\n\ttimestamp\030\001 \001(\0132\032.goog" +
-      "le.protobuf.Timestamp\022)\n\nerror_code\030\002 \001(" +
-      "\0162\025.ClientGuestErrorCode*{\n\024ClientGuestE" +
-      "rrorCode\022\032\n\026CLIENT_GUEST_NOT_FOUND\020\000\022%\n!" +
-      "CLIENT_GUEST_VALUE_CANNOT_BE_NULL\020\001\022 \n\034C" +
-      "LIENT_GUEST_EMAIL_DUPLICATE\020\0022\301\002\n\013Client" +
-      "Guest\022?\n\017findAllByFilter\022\031.ClientGuestRe" +
-      "questOutput\032\021.ClientGuestrList\022+\n\006insert",
-      "\022\023.ClientGuestRequest\032\014.APIResponse\022(\n\007f" +
-      "indAll\022\006.Empty\032\023.ClientGuestRequest0\001\022/\n" +
-      "\ndeleteById\022\023.ClientGuestRequest\032\014.APIRe" +
-      "sponse\022<\n\010findById\022\033.google.protobuf.Int" +
-      "32Value\032\023.ClientGuestRequest\022+\n\006update\022\023" +
-      ".ClientGuestRequest\032\014.APIResponseB\020\n\016com" +
-      ".grpcserverb\006proto3"
+      "\t\022\025\n\rpurchase_item\030\004 \001(\005\"j\n\030ClientGuestR" +
+      "equestOutput\022\027\n\017client_guest_id\030\001 \001(\005\022\031\n" +
+      "\021client_guest_name\030\002 \001(\t\022\032\n\022client_guest" +
+      "_email\030\003 \001(\t\"Y\n\020ClientGuestrList\022+\n\016clie" +
+      "ntguestall\030\001 \003(\0132\023.ClientGuestRequest\022\030\n",
+      "\020clientguestcount\030\002 \001(\003\"<\n\013APIResponse\022\027" +
+      "\n\017responsemessage\030\001 \001(\t\022\024\n\014responseCode\030" +
+      "\002 \001(\005\"x\n\034ClientGuestExceptionResponse\022-\n" +
+      "\ttimestamp\030\001 \001(\0132\032.google.protobuf.Times" +
+      "tamp\022)\n\nerror_code\030\002 \001(\0162\025.ClientGuestEr" +
+      "rorCode*{\n\024ClientGuestErrorCode\022\032\n\026CLIEN" +
+      "T_GUEST_NOT_FOUND\020\000\022%\n!CLIENT_GUEST_VALU" +
+      "E_CANNOT_BE_NULL\020\001\022 \n\034CLIENT_GUEST_EMAIL" +
+      "_DUPLICATE\020\0022\301\002\n\013ClientGuest\022?\n\017findAllB" +
+      "yFilter\022\031.ClientGuestRequestOutput\032\021.Cli",
+      "entGuestrList\022+\n\006insert\022\023.ClientGuestReq" +
+      "uest\032\014.APIResponse\022(\n\007findAll\022\006.Empty\032\023." +
+      "ClientGuestRequest0\001\022/\n\ndeleteById\022\023.Cli" +
+      "entGuestRequest\032\014.APIResponse\022<\n\010findByI" +
+      "d\022\033.google.protobuf.Int32Value\032\023.ClientG" +
+      "uestRequest\022+\n\006update\022\023.ClientGuestReque" +
+      "st\032\014.APIResponseB\020\n\016com.grpcserverb\006prot" +
+      "o3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -4004,7 +4068,7 @@ public final class GuestClientServer {
     internal_static_ClientGuestRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ClientGuestRequest_descriptor,
-        new java.lang.String[] { "ClientGuestId", "ClientGuestName", "ClientGuestEmail", });
+        new java.lang.String[] { "ClientGuestId", "ClientGuestName", "ClientGuestEmail", "PurchaseItem", });
     internal_static_ClientGuestRequestOutput_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_ClientGuestRequestOutput_fieldAccessorTable = new

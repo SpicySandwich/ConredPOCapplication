@@ -60,16 +60,16 @@ public class ProductService implements ProductServiceInt {
 	}
 	@Transactional
 	@Override
-	public ProductDTO getPoductInfo(@NonNull Long productid){
+	public ProductDTO getPoductInfo(@NonNull Integer purchase_item){
 		
 try {
-	productProducer.sendMessageDTO("Product viewed id:" +productid);
+	productProducer.sendMessageDTO("Product viewed id:" +purchase_item);
 
-	return convertProductDTOtoProduct(productDAO.getPoductInfo(productid));
+	return convertProductDTOtoProduct(productDAO.getPoductInfo(purchase_item));
 	
 } catch (Exception  e) {
-	productProducer.sendMessageException(new ProductInternalError("Internal error for viewing data will send to kafka topic"+productid));
-	throw new ProductIDnotFound("Product not found by id: " + productid );
+	productProducer.sendMessageException(new ProductInternalError("Internal error for viewing data will send to kafka topic"+purchase_item));
+	throw new ProductIDnotFound("Product not found by id: " + purchase_item );
 	
 }
 			
@@ -78,17 +78,17 @@ try {
 	
 	@Transactional
 	@Override
-	public ProductDTO delete(Long productid) {
+	public ProductDTO delete(Integer purchase_item) {
 	try {
-		 productProducer.sendMessageDTO("Deteted id:" +productid);
+		 productProducer.sendMessageDTO("Deteted id:" +purchase_item);
 		 
-		return convertProductDTOtoProduct(productDAO.delete(productid));
+		return convertProductDTOtoProduct(productDAO.delete(purchase_item));
 		 
 	
 	}catch (Exception e) {
 		
-		productProducer.sendMessageException(new ProductInternalError("Internal error for delete will send to kafka topic"+productid));
-		throw new ProductExecption("Product id your tring to delete is invalid for id:" + productid );
+		productProducer.sendMessageException(new ProductInternalError("Internal error for delete will send to kafka topic "+purchase_item));
+		throw new ProductExecption("Product id your tring to delete is invalid for id: " + purchase_item );
 	}
 	}
 	
@@ -123,7 +123,7 @@ try {
    @Override
 	public Object updateProduct(ProductDTO newProduct) {
 		
-		Product currentProduct = this.productDAO.getPoductInfo( newProduct.getProductid()); 
+		Product currentProduct = this.productDAO.getPoductInfo( newProduct.getPurchase_item()); 
 		try {
 			currentProduct.setProductname(newProduct.getProductname());
 			currentProduct.setProductbrand(newProduct.getProductbrand());

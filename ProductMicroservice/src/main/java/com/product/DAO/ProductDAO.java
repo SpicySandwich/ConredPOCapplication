@@ -10,11 +10,11 @@ public interface ProductDAO {
 	
 	List <Product> getProduct();
 
-	Product getPoductInfo(Long productid);
+	Product getPoductInfo(Integer purchase_item);
 
 	void save(Product product);
 
-	Product delete (Long id);
+	Product delete (Integer purchase_item);
 	
 	Object updateProduct (Product currentProduct);
 	

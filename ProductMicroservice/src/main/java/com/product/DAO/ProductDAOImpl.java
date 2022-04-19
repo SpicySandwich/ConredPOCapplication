@@ -28,10 +28,10 @@ public class ProductDAOImpl  implements ProductDAO{
 	}
 
 	@Override
-	public Product getPoductInfo(Long productid) {
+	public Product getPoductInfo(Integer purchase_item) {
 		
 		Session session = entityManager.unwrap(Session.class);
-	    Product productObj =	session.get(Product.class, productid);
+	    Product productObj =	session.get(Product.class, purchase_item);
 	    session.close();
 	    return productObj;
 		
@@ -47,14 +47,14 @@ public class ProductDAOImpl  implements ProductDAO{
 
 
 	@Override
-	public Product delete(Long productid) {
+	public Product delete(Integer purchase_item) {
 		
 		Session session = entityManager.unwrap(Session.class);	
 		String hql = "DELETE FROM Product "  + 
 	             "WHERE productid = :productid";
-		Product productObj = session.get(Product.class, productid);
+		Product productObj = session.get(Product.class, purchase_item);
 	Query query = session.createQuery(hql);
-	query.setParameter("productid", productid);
+	query.setParameter("productid",purchase_item);
 	query.executeUpdate();
 
 	return productObj ;

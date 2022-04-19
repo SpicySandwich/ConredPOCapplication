@@ -24,6 +24,7 @@ message ClientGuestRequest{
        int32 client_guest_id = 1;
        string  client_guest_name = 2;
        string  client_guest_email = 3;
+       int32 purchase_item = 4;
 }
 
 message ClientGuestRequestOutput{

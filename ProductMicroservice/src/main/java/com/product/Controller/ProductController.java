@@ -44,21 +44,21 @@ public class ProductController {
      }
   
      @GetMapping("/productview/{productid}")
-     public ProductDTO GetProductName(@PathVariable Long productid){
-   	  return productService.getPoductInfo(productid);
+     public ProductDTO GetProductName(@PathVariable Integer purchase_item){
+   	  return productService.getPoductInfo(purchase_item);
      }
     
      @PutMapping("/productupdate")
      public String PutProduct(@RequestBody ProductDTO product){
         productService.updateProduct(product);
 		return "Successfully update the product: " + product;
-       
+      
      }
 
      @DeleteMapping("/productdelete/{productid}")
-     public String DeteleProduct(@PathVariable Long productid,@RequestBody ProductDTO product){
-   	  productService.delete(productid);
-           return "Succesfully deleted id:" +  productid;
+     public String DeteleProduct(@PathVariable Integer purchase_item,@RequestBody ProductDTO product){
+   	  productService.delete(purchase_item);
+           return "Succesfully deleted id:" +  purchase_item;
 
 
      }

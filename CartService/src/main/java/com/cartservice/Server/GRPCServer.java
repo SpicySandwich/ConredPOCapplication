@@ -42,6 +42,7 @@ private static final Logger log = LoggerFactory.getLogger(GRPCServer.class);
 			
 			client.setClient_guest_name(request.getClientGuestName());
 			client.setClient_guest_email(request.getClientGuestEmail());
+			client.setPurchase_item(request.getPurchaseItem());
 					
 			String name = null;
 				
