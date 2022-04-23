@@ -27,38 +27,6 @@ public final class ClientGuestGrpc {
   public static final String SERVICE_NAME = "ClientGuest";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequestOutput,
-      com.grpcserver.GuestClientServer.ClientGuestrList> getFindAllByFilterMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "findAllByFilter",
-      requestType = com.grpcserver.GuestClientServer.ClientGuestRequestOutput.class,
-      responseType = com.grpcserver.GuestClientServer.ClientGuestrList.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequestOutput,
-      com.grpcserver.GuestClientServer.ClientGuestrList> getFindAllByFilterMethod() {
-    io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequestOutput, com.grpcserver.GuestClientServer.ClientGuestrList> getFindAllByFilterMethod;
-    if ((getFindAllByFilterMethod = ClientGuestGrpc.getFindAllByFilterMethod) == null) {
-      synchronized (ClientGuestGrpc.class) {
-        if ((getFindAllByFilterMethod = ClientGuestGrpc.getFindAllByFilterMethod) == null) {
-          ClientGuestGrpc.getFindAllByFilterMethod = getFindAllByFilterMethod = 
-              io.grpc.MethodDescriptor.<com.grpcserver.GuestClientServer.ClientGuestRequestOutput, com.grpcserver.GuestClientServer.ClientGuestrList>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(
-                  "ClientGuest", "findAllByFilter"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.grpcserver.GuestClientServer.ClientGuestRequestOutput.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.grpcserver.GuestClientServer.ClientGuestrList.getDefaultInstance()))
-                  .setSchemaDescriptor(new ClientGuestMethodDescriptorSupplier("findAllByFilter"))
-                  .build();
-          }
-        }
-     }
-     return getFindAllByFilterMethod;
-  }
-
   private static volatile io.grpc.MethodDescriptor<com.grpcserver.GuestClientServer.ClientGuestRequest,
       com.grpcserver.GuestClientServer.APIResponse> getInsertMethod;
 
@@ -248,13 +216,6 @@ public final class ClientGuestGrpc {
 
     /**
      */
-    public void findAllByFilter(com.grpcserver.GuestClientServer.ClientGuestRequestOutput request,
-        io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.ClientGuestrList> responseObserver) {
-      asyncUnimplementedUnaryCall(getFindAllByFilterMethod(), responseObserver);
-    }
-
-    /**
-     */
     public void insert(com.grpcserver.GuestClientServer.ClientGuestRequest request,
         io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.APIResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getInsertMethod(), responseObserver);
@@ -290,13 +251,6 @@ public final class ClientGuestGrpc {
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
-          .addMethod(
-            getFindAllByFilterMethod(),
-            asyncUnaryCall(
-              new MethodHandlers<
-                com.grpcserver.GuestClientServer.ClientGuestRequestOutput,
-                com.grpcserver.GuestClientServer.ClientGuestrList>(
-                  this, METHODID_FIND_ALL_BY_FILTER)))
           .addMethod(
             getInsertMethod(),
             asyncUnaryCall(
@@ -352,14 +306,6 @@ public final class ClientGuestGrpc {
     protected ClientGuestStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new ClientGuestStub(channel, callOptions);
-    }
-
-    /**
-     */
-    public void findAllByFilter(com.grpcserver.GuestClientServer.ClientGuestRequestOutput request,
-        io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.ClientGuestrList> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(getFindAllByFilterMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -423,13 +369,6 @@ public final class ClientGuestGrpc {
 
     /**
      */
-    public com.grpcserver.GuestClientServer.ClientGuestrList findAllByFilter(com.grpcserver.GuestClientServer.ClientGuestRequestOutput request) {
-      return blockingUnaryCall(
-          getChannel(), getFindAllByFilterMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
     public com.grpcserver.GuestClientServer.APIResponse insert(com.grpcserver.GuestClientServer.ClientGuestRequest request) {
       return blockingUnaryCall(
           getChannel(), getInsertMethod(), getCallOptions(), request);
@@ -485,14 +424,6 @@ public final class ClientGuestGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.grpcserver.GuestClientServer.ClientGuestrList> findAllByFilter(
-        com.grpcserver.GuestClientServer.ClientGuestRequestOutput request) {
-      return futureUnaryCall(
-          getChannel().newCall(getFindAllByFilterMethod(), getCallOptions()), request);
-    }
-
-    /**
-     */
     public com.google.common.util.concurrent.ListenableFuture<com.grpcserver.GuestClientServer.APIResponse> insert(
         com.grpcserver.GuestClientServer.ClientGuestRequest request) {
       return futureUnaryCall(
@@ -524,12 +455,11 @@ public final class ClientGuestGrpc {
     }
   }
 
-  private static final int METHODID_FIND_ALL_BY_FILTER = 0;
-  private static final int METHODID_INSERT = 1;
-  private static final int METHODID_FIND_ALL = 2;
-  private static final int METHODID_DELETE_BY_ID = 3;
-  private static final int METHODID_FIND_BY_ID = 4;
-  private static final int METHODID_UPDATE = 5;
+  private static final int METHODID_INSERT = 0;
+  private static final int METHODID_FIND_ALL = 1;
+  private static final int METHODID_DELETE_BY_ID = 2;
+  private static final int METHODID_FIND_BY_ID = 3;
+  private static final int METHODID_UPDATE = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -548,10 +478,6 @@ public final class ClientGuestGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_FIND_ALL_BY_FILTER:
-          serviceImpl.findAllByFilter((com.grpcserver.GuestClientServer.ClientGuestRequestOutput) request,
-              (io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.ClientGuestrList>) responseObserver);
-          break;
         case METHODID_INSERT:
           serviceImpl.insert((com.grpcserver.GuestClientServer.ClientGuestRequest) request,
               (io.grpc.stub.StreamObserver<com.grpcserver.GuestClientServer.APIResponse>) responseObserver);
@@ -633,7 +559,6 @@ public final class ClientGuestGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new ClientGuestFileDescriptorSupplier())
-              .addMethod(getFindAllByFilterMethod())
               .addMethod(getInsertMethod())
               .addMethod(getFindAllMethod())
               .addMethod(getDeleteByIdMethod())

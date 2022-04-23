@@ -14,7 +14,7 @@ public class ClientGuestDTO {
    private Integer client_guest_id;
 	private String client_guest_name;
 	private String client_guest_email;
-	private Integer purchase_item;
+
 	
 	public ClientGuestRequest toGuest() {
 		
@@ -22,7 +22,7 @@ public class ClientGuestDTO {
 				.setClientGuestId(getClient_guest_id())
 				.setClientGuestName(getClient_guest_name())
 				.setClientGuestEmail(getClient_guest_email())
-				.setPurchaseItem(getPurchase_item())
+			
 				.build();
 				
 	}
@@ -50,7 +50,7 @@ public class ClientGuestDTO {
 		clientGuestDTO .setClient_guest_id(responce.getClientGuestId());
 		clientGuestDTO .setClient_guest_name(responce.getClientGuestName());
 		clientGuestDTO .setClient_guest_email(responce.getClientGuestEmail());
-		clientGuestDTO.setClient_guest_id(responce.getClientGuestId());
+	
 		
 		return clientGuestDTO;
 		

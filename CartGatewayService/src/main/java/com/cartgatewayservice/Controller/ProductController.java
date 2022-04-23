@@ -1,53 +1,38 @@
 package com.cartgatewayservice.Controller;
 
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
-import com.cartgatewayservice.Model.ProductToCart;
-import com.cartgatewayservice.RestURL.ProductRestURL;
+import com.cartgatewayservice.Model.GuestClient;
+import com.cartgatewayservice.Service.ProductService;
+import com.grpcserver.product.ProductServer.Product;
+
 
 
 
 @RestController
-@RequestMapping(value = "/buy")
+@RequestMapping(value = "/product")
 public class ProductController {
 	
-	
-	
 	@Autowired
-	private  RestTemplate restTemplate;
+	private ProductService productService;
 	
-	@Autowired
-	private ProductRestURL productRestURL;
+//    @PostMapping("/add")
+//    public String addClient( @RequestBody Product guestClient) {
+////     return  grpcClientGuestService.inserdata(guestClient);
+//    	
+//    	return productService.inserdata(guestClient);
+//        
+//        
+//    }
 	
 	
-	@GetMapping("/productavailable")
-	public  List<Object> getProduct(){
-		Object[] product = restTemplate.getForObject(productRestURL.getGET_ALL_PRODUCT_LIST(), Object[].class);
-		return Arrays.asList(product);
-		
-	}
 	
-	@GetMapping("/productview/{productid}")
-	public ProductToCart getProductData(@PathVariable long productid) {
-		
-		Map<String, Long> responce = new HashMap<String, Long>();
-		responce.put("productid",  productid);
-		ProductToCart productToCart =  restTemplate.getForObject(productRestURL.getGET_PRODUCT_DETAILS(), ProductToCart.class, responce );
-		  
-		  return productToCart;
-	}
-	
+
 
 
 

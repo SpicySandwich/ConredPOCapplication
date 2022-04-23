@@ -11,16 +11,15 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class ProductToCart {
+public class ProductEntity {
 	
-    private Long productid;
+    private  Integer purchase_item;
     private String productname;
     private String productbrand;
     private Double productprice;
     private String productdescription;
     private Integer productquantity;
-    private Date productcurrentdate;
-    private Date productexpirationdate;
+    private String productexpirationdate;
     
 
     

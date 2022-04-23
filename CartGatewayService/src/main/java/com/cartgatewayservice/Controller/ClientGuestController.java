@@ -18,7 +18,7 @@ public class ClientGuestController {
 
    
 	@Autowired
-	GRPCClientGuestService grpcClientGuestService;
+	private GRPCClientGuestService grpcClientGuestService;
  
 	
      @PostMapping("/clientGuest")

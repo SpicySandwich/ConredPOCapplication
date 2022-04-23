@@ -6,6 +6,8 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.product.Entity.ClientGuest;
 import com.product.Entity.Product;
 
 @Repository
@@ -69,6 +71,38 @@ public class ProductDAOImpl  implements ProductDAO{
 		session.close();
 		return newProduct;
 	}
+	
+	
+	//test
+	
+	public ClientGuest saveClient(ClientGuest product) {
+		Session session = entityManager.unwrap(Session.class);
+		    session.save(product);
+		    session.close();
+			return product;
+
+		
+	}
+	
+	public List<ClientGuest> getClientGuestt() {
+		
+		Session session = entityManager.unwrap(Session.class);
+		Query<ClientGuest> query = session.createQuery("FROM ClientGuest", ClientGuest.class);
+		List<ClientGuest>list = query.getResultList();
+		session.close();
+		return list;
+		
+	}
+	
+	public ClientGuest getPoductInfo2(Integer purchase_item) {
+		
+		Session session = entityManager.unwrap(Session.class);
+		ClientGuest productObj =	session.get(ClientGuest.class, purchase_item);
+	    session.close();
+	    return productObj;
+		
+	}
+
 
 	
 

@@ -29,8 +29,9 @@ import lombok.ToString;
 @DynamicUpdate
 public class Product  {
 
-      @Id
-      @GeneratedValue(strategy = GenerationType.IDENTITY)
+      
+     @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
       @Column
       private Integer purchase_item;
      
@@ -56,11 +57,7 @@ public class Product  {
       @NotNull
       @Column
       private Integer productquantity;
-      
-      @NotNull
-      @DateTimeFormat(pattern = "yyyy-MM-dd")
-      @Column(columnDefinition = "timestamp default current_timestamp", insertable = false, updatable = false)
-      private Date productcurrentdate;
+    
       
       @NotNull
       @Future

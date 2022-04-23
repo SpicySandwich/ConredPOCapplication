@@ -6,9 +6,10 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.cartservice.DAO.ClientDAO;
+
 import com.cartservice.DTO.ClientGuestDTO;
 import com.cartservice.Model.Client;
+import com.cartservice.Repository.ClientDAO;
 
 
 @Service
@@ -73,6 +74,15 @@ public class GuestClientServiceImpl implements GuestClientService{
     //convertClientGuestDTOtoClient(clientDAO.checkEmailExists(client_guest_email));
 		
 	}
+	
+	//test
+	
+//public void savewithProduct(Client client) {
+//		
+//		clientDAO.insert2(client);
+//		
+//	}
+//	
 
 
 	@Override

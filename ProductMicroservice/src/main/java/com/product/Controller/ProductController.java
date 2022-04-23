@@ -2,8 +2,12 @@ package com.product.Controller;
 
 
 import java.util.List;
+
+import com.product.DAO.ProductDAOImpl;
 import com.product.DTO.ProductDTO;
+import com.product.Entity.ClientGuest;
 import com.product.Entity.Product;
+import com.product.Entity.TestDTO;
 import com.product.KafkaProducer.ProductProducer;
 import com.product.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +33,9 @@ public class ProductController {
   	@Autowired
   	RestTemplate restTemplate;
   	
+  	@Autowired
+  	private ProductDAOImpl productDAOImpl;
+  	
   	
 
   	 @GetMapping("/productlist")
@@ -43,7 +50,7 @@ public class ProductController {
 		return "Successfully added the Product: " + product;
      }
   
-     @GetMapping("/productview/{productid}")
+     @GetMapping("/productview/{purchase_item}")
      public ProductDTO GetProductName(@PathVariable Integer purchase_item){
    	  return productService.getPoductInfo(purchase_item);
      }
@@ -62,8 +69,27 @@ public class ProductController {
 
 
      }
+     //test
+     @PostMapping("/client")
+     public void saveClient(@RequestBody TestDTO testDTO) {
+    	 
+    	//productDAOImpl.saveClient(clientGuest.getClientGuest());
+    	 productService.create(testDTO.getClientGuest());
+    	// productService.save(product);
+    	 
+     }
      
- 	
+     @GetMapping("/client")
+     public List<ClientGuest> findAllOrders(){
+         return productDAOImpl.getClientGuestt();
+     }
+     
+     @GetMapping("/client/{purchase_item}")
+     public ClientGuest GetProductName2(@PathVariable Integer purchase_item){
+   	  return productService.getById2(purchase_item);
+     }
+     
+   
 
 
 

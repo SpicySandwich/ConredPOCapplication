@@ -4,9 +4,11 @@ option java_package = "com.grpcserver";
 import "google/protobuf/wrappers.proto";
 import "google/protobuf/timestamp.proto";
 
+
 service ClientGuest{
 
-    rpc findAllByFilter(ClientGuestRequestOutput) returns (ClientGuestrList);
+
+   
     rpc insert(ClientGuestRequest) returns(APIResponse);
     rpc findAll(Empty) returns(stream ClientGuestRequest);
     rpc deleteById(ClientGuestRequest) returns(APIResponse);
@@ -24,15 +26,12 @@ message ClientGuestRequest{
        int32 client_guest_id = 1;
        string  client_guest_name = 2;
        string  client_guest_email = 3;
-       int32 purchase_item = 4;
+     
+   
 }
 
-message ClientGuestRequestOutput{
 
-    int32 client_guest_id = 1;
-    string  client_guest_name = 2;
-    string  client_guest_email = 3;
-}
+
 
 message ClientGuestrList {
      repeated ClientGuestRequest clientguestall = 1;

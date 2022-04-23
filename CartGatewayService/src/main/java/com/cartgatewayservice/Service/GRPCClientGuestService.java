@@ -4,15 +4,11 @@ package com.cartgatewayservice.Service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException.NotFound;
-
 import com.cartgatewayservice.Model.GuestClient;
 import com.cartgatewayservice.RestModelException.EXISTING_EMAIL_EXCEPTION;
 import com.cartgatewayservice.RestModelException.ID_NOT_FOUND;
 import com.google.protobuf.Int32Value;
-import com.google.protobuf.util.FieldMaskUtil;
 import com.grpcserver.ClientGuestGrpc;
-import com.grpcserver.ClientGuestGrpc.ClientGuestFutureStub;
 import com.grpcserver.GuestClientServer.APIResponse;
 import com.grpcserver.GuestClientServer.ClientGuestRequest;
 import com.grpcserver.GuestClientServer.ClientGuestrList;
@@ -40,7 +36,7 @@ public class GRPCClientGuestService {
 			.setClientGuestId(0)
 			.setClientGuestName(guestClient.getClient_guest_name())
 			.setClientGuestEmail(guestClient.getClient_guest_email())
-			.setPurchaseItem(guestClient.getClient_guest_id())
+	
 			.build());
 	return response.getResponsemessage();
 	
@@ -75,7 +71,7 @@ public class GRPCClientGuestService {
 			.setClientGuestId(guestClient.getClient_guest_id())
 			.setClientGuestName(guestClient.getClient_guest_name())
 			.setClientGuestEmail(guestClient.getClient_guest_email())
-			.setPurchaseItem(guestClient.getClient_guest_id())
+		
 			.build());
 	
 	return response.getResponsemessage();
@@ -95,7 +91,7 @@ public class GRPCClientGuestService {
 				guestClient.setClient_guest_id(clientGuestRequest.getClientGuestId());
 				guestClient.setClient_guest_name(clientGuestRequest.getClientGuestName());
 				guestClient.setClient_guest_email(clientGuestRequest.getClientGuestEmail());
-				guestClient.setPurchase_item(clientGuestRequest.getPurchaseItem());
+			
 				
 				
 			} catch (Exception e) {

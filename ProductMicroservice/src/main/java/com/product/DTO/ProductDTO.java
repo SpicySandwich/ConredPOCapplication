@@ -15,7 +15,6 @@ public class ProductDTO {
       private Double productprice;
       private String productdescription;
       private Integer productquantity;
-      private Date productcurrentdate;
       private Date productexpirationdate;
       
 

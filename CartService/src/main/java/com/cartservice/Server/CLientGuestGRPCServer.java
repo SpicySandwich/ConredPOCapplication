@@ -21,7 +21,7 @@ import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
 
 @GrpcService
-public class GRPCServer  extends ClientGuestImplBase{
+public class CLientGuestGRPCServer  extends ClientGuestImplBase{
 	
 @Autowired
 private ClientGuestValidation clientGuestValidation;
@@ -30,7 +30,7 @@ private ClientGuestValidation clientGuestValidation;
 private GuestClientServiceImpl guestClientServiceImpl;
 
 
-private static final Logger log = LoggerFactory.getLogger(GRPCServer.class);
+private static final Logger log = LoggerFactory.getLogger(CLientGuestGRPCServer.class);
 
 	@Override
 	public void insert(ClientGuestRequest request, StreamObserver<APIResponse> responseObserver) {
@@ -40,18 +40,11 @@ private static final Logger log = LoggerFactory.getLogger(GRPCServer.class);
 	
 		try {
 			
+			client.setClient_guest_id(request.getClientGuestId());
 			client.setClient_guest_name(request.getClientGuestName());
 			client.setClient_guest_email(request.getClientGuestEmail());
-			client.setPurchase_item(request.getPurchaseItem());
-					
-			String name = null;
-				
-				if(request.getClientGuestName().equalsIgnoreCase(name) || request.getClientGuestName() == null) {
-					
-					clientGuestValidation.validation(client);
-					
-				}else {
-					
+
+		
 					guestClientServiceImpl.saveDataFromDTO(client);
 					
 					responce.setResponseCode(0).setResponsemessage("Succefull added to database " +client);
@@ -59,8 +52,7 @@ private static final Logger log = LoggerFactory.getLogger(GRPCServer.class);
 					responseObserver.onNext(responce.build());
 					responseObserver.onCompleted();	
 					
-				}
-			
+	
 		}catch (DuplicateKeyException e) {
 		
 			clientGuestValidation.EmailValidation(client);
@@ -141,8 +133,8 @@ private static final Logger log = LoggerFactory.getLogger(GRPCServer.class);
 
 		APIResponse.Builder  responce = APIResponse.newBuilder();
 			try {	
-		
 		guestClientServiceImpl.deleteDTO(request.getClientGuestId());
+		
 		
 		} catch (Exception e) {
 		
@@ -159,8 +151,22 @@ private static final Logger log = LoggerFactory.getLogger(GRPCServer.class);
 	
 	}
 
-	
 
+//	@Override
+//	public void insertAll(ClientGuestRequest request, StreamObserver<APIResponse> responseObserver) {
+//		Client client = new Client();
+//		Product product = new Product();
+//		
+//		client.setClient_guest_id(request.getClientGuestId());
+//		client.setClient_guest_name(request.getClientGuestName());
+//		client.setClient_guest_email(request.getClientGuestEmail());
+//	//	request.getPurchaseItemList().addproduct));
+//		
+//		guestClientServiceImpl.saveDataFromDTO(client);
+//		APIResponse.Builder  responce = APIResponse.newBuilder();
+//		responseObserver.onNext(responce.build());
+//		responseObserver.onCompleted();
+//	}
 	
 
 }
