@@ -1,13 +1,8 @@
 package com.cartgatewayservice.Service;
 
 import org.springframework.stereotype.Service;
-
-import com.cartgatewayservice.Model.GuestClient;
 import com.cartgatewayservice.Model.ProductEntity;
-import com.cartgatewayservice.RestModelException.EXISTING_EMAIL_EXCEPTION;
 import com.google.protobuf.Int32Value;
-import com.grpcserver.ClientGuestGrpc;
-import com.grpcserver.GuestClientServer.ClientGuestRequest;
 import com.grpcserver.product.ProductServer.APIResponse;
 import com.grpcserver.product.ProductServer.Product;
 import com.grpcserver.product.ProductServiceGrpc;
@@ -22,12 +17,12 @@ public class ProductService {
             .usePlaintext()
             .build();
 	
-	public String inserdata(Product product) {
+	public String inserdata(ProductEntity product) {
 		
 	
 	ProductServiceGrpc.ProductServiceBlockingStub stub = ProductServiceGrpc.newBlockingStub(channel);
 	APIResponse response = stub.insert(Product.newBuilder()
-			.setPurchaseItem(product.getPurchaseItem())
+			.setPurchaseItem(product.getPurchase_item())
 			.setProductname(product.getProductname())
 			.setProductbrand(product.getProductbrand())
 			.setProductprice(product.getProductprice())
@@ -41,7 +36,7 @@ public class ProductService {
 
 	}
 	
-	public com.cartgatewayservice.Model.ProductEntity findbyid(Integer purchase_item){
+	public ProductEntity findbyid(Integer purchase_item){
 		
 		ProductServiceGrpc.ProductServiceBlockingStub stub = ProductServiceGrpc.newBlockingStub(channel);
 		
@@ -57,7 +52,7 @@ public class ProductService {
 		productEntity.setProductquantity(product.getProductquantity());
 		productEntity.setProductexpirationdate(product.getProductexpirationdate());
 			
-		return null;
+		return productEntity;
 	}
 	
 	public String deletedata(Integer client_guest_id) {
@@ -81,7 +76,7 @@ ProductServiceGrpc.ProductServiceBlockingStub stub = ProductServiceGrpc.newBlock
 
 		ProductServiceGrpc.ProductServiceBlockingStub stub = ProductServiceGrpc.newBlockingStub(channel);
 		
-		APIResponse response = stub.insert(Product.newBuilder()
+		APIResponse response = stub.update(Product.newBuilder()
 				.setPurchaseItem(product.getPurchase_item())
 				.setProductname(product.getProductname())
 				.setProductbrand(product.getProductbrand())

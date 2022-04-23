@@ -5343,3 +5343,104 @@ java.util.concurrent.TimeoutException
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-23 17:49:25.967
 !MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.IzVkkvaw => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-23 20:28:40.397
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-23 20:28:40.399
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@36dae4b3[org.springframework.tooling.boot.ls:1.32.0.202203131529(id=1057)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-23 20:28:40.399
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-23 20:28:45.770
+!MESSAGE Boot LS startup time from start to initialized: 5370ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-23 20:28:45.847
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.aGraDpjIisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-23 20:28:45.849
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-23 20:28:45.850
+!MESSAGE Scheduling initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-23 20:28:45.850
+!MESSAGE Scheduling initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-23 20:28:45.851
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-23 20:28:45.851
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.aGraDpjI => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-23 20:28:45.857
+!MESSAGE classpath=98 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-23 20:28:45.860
+!MESSAGE buffering callback sts4.classpath.aGraDpjI CartGatewayService false 98
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-23 20:28:45.862
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-23 20:28:45.866
+!MESSAGE classpath=98 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-23 20:28:45.869
+!MESSAGE buffering callback sts4.classpath.aGraDpjI CartService false 98
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-23 20:28:45.869
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-23 20:28:45.873
+!MESSAGE classpath=66 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-23 20:28:45.877
+!MESSAGE buffering callback sts4.classpath.aGraDpjI KongAPIgateway false 66
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-23 20:28:45.878
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-23 20:28:45.884
+!MESSAGE classpath=139 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-23 20:28:45.889
+!MESSAGE buffering callback sts4.classpath.aGraDpjI LoggerMicroservice false 139
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-23 20:28:45.890
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-23 20:28:45.900
+!MESSAGE classpath=176 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-23 20:28:45.905
+!MESSAGE buffering callback sts4.classpath.aGraDpjI ProductMicroservice false 176
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-23 20:28:45.907
+!MESSAGE executing callback sts4.classpath.aGraDpjI 5 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-23 20:28:47.911
+!MESSAGE executing callback sts4.classpath.aGraDpjI FAILED
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 4 0 2022-04-23 20:28:47.912
+!MESSAGE TimeoutException
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1886)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2021)
+	at org.springframework.tooling.ls.eclipse.commons.LSP4ECommandExecutor.executeClientCommand(LSP4ECommandExecutor.java:37)
+	at org.springframework.tooling.jdt.ls.commons.classpath.SendClasspathNotificationsJob.flush(SendClasspathNotificationsJob.java:178)
+	at org.springframework.tooling.jdt.ls.commons.classpath.SendClasspathNotificationsJob.run(SendClasspathNotificationsJob.java:149)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.lsp4e 2 0 2022-04-23 20:32:40.210
+!MESSAGE Timeout waiting for data to generate LS hover
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1886)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2021)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:70)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
