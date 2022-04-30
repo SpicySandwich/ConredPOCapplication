@@ -1,6 +1,9 @@
 package com.cartgatewayservice.Controller;
 
 
+import java.util.List;
+import java.util.concurrent.CountDownLatch;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,9 +12,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.cartgatewayservice.Model.EntityTest;
 import com.cartgatewayservice.Model.ProductEntity;
 import com.cartgatewayservice.Service.ProductService;
+import com.grpcserver.product.ProductServer.Product;
+
+import io.grpc.stub.StreamObserver;
+
 
 
 @RestController
@@ -20,6 +30,17 @@ public class ProductController {
 	
 	@Autowired
 	private ProductService productService;
+	
+	
+	
+	 @GetMapping("/list")
+     public List<ProductEntity> GetProductList( ){
+		 
+           return productService.list();
+           
+           
+  	 }
+
 	
     @PostMapping
     public String addProduct( @RequestBody ProductEntity productEntity) {
@@ -52,9 +73,6 @@ public class ProductController {
       
     }
 	
-	
-	
-
 
 
 

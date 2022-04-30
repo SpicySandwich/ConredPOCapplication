@@ -1,15 +1,19 @@
 package com.cartservice.Server;
 
-import org.springframework.beans.factory.annotation.Autowired;
 
-import com.cartservice.DTO.ClientGuestDTO;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import com.cartservice.DTO.ProductDTO;
 import com.cartservice.Model.ProductEntity;
+import com.cartservice.Repository.ProductDAO;
 import com.cartservice.Service.ProductServiceImpl;
 import com.google.protobuf.Int32Value;
+import com.google.protobuf.Int64Value;
 import com.grpcserver.product.ProductServer.APIResponse;
-import com.grpcserver.product.ProductServer.Empty;
 import com.grpcserver.product.ProductServer.Product;
+import com.grpcserver.product.ProductServer.ProductList;
 import com.grpcserver.product.ProductServiceGrpc.ProductServiceImplBase;
 
 import io.grpc.stub.StreamObserver;
@@ -20,10 +24,13 @@ public class ProductGRPCserver  extends ProductServiceImplBase{
 	
 	@Autowired
 	private ProductServiceImpl productServiceImpl;
+	
+	@Autowired
+	private ProductDAO productDAO;
 
 	@Override
 	public void insert(Product request, StreamObserver<APIResponse> responseObserver) {
-		com.cartservice.Model.ProductEntity productEntity = new com.cartservice.Model.ProductEntity();
+		ProductEntity productEntity = new ProductEntity();
 		
 		productEntity.setPurchase_item(request.getPurchaseItem());
 		productEntity.setProductname(request.getProductname());
@@ -42,12 +49,10 @@ public class ProductGRPCserver  extends ProductServiceImplBase{
 		responseObserver.onCompleted();	
 	
 	}
+	
 
-	@Override
-	public void findAll(Empty request, StreamObserver<Product> responseObserver) {
-		// TODO Auto-generated method stub
-		super.findAll(request, responseObserver);
-	}
+
+
 
 	@Override
 	public void deleteById(Product request, StreamObserver<APIResponse> responseObserver) {
@@ -94,7 +99,33 @@ public class ProductGRPCserver  extends ProductServiceImplBase{
 		responseObserver.onCompleted();
 		
 	}
+
+
+
+	@Override
+	public void findAllRepeated(Product request, StreamObserver<ProductList> responseObserver) {
+	
+		List<ProductDTO> list = productServiceImpl.getAllPpoduct();
+		
+		List<Product> products = list.stream().map(ProductDTO::toProduct).collect(Collectors.toList());
+		ProductList productList = ProductList.newBuilder().addAllProduct(products)
+				.setResultCount(Int64Value.newBuilder().setValue(list.size()).build()).build();
+		responseObserver.onNext(productList);
+        responseObserver.onCompleted();
+		
+	}
+
+
+
+
+
+
+
+
+	
+
 	
 	
+
 
 }

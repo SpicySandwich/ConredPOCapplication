@@ -1,13 +1,13 @@
 package com.cartservice.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.cartservice.DTO.ClientGuestDTO;
 import com.cartservice.DTO.ProductDTO;
-import com.cartservice.Model.Client;
 import com.cartservice.Model.ProductEntity;
 import com.cartservice.Repository.ProductDAO;
 
@@ -28,6 +28,15 @@ public class ProductServiceImpl {
 		return productdto;
 		
 	}	
+	
+	public List<ProductDTO> getAllPpoduct() {
+		
+
+		return productDAO.findAll()
+				.stream()
+                .map(this::convertProductDTOtoProduct)
+                .collect(Collectors.toList());	
+}
 	
 	public ProductDTO saveDataFromDTO(ProductEntity  productEntity) {
 		

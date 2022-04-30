@@ -2,24 +2,25 @@ syntax = "proto3";
 
 option java_package = "com.grpcserver.product";
 import "google/protobuf/wrappers.proto";
-import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
 
 
 
 service ProductService{
+ 
+ rpc findAllRepeated(Product) returns(ProductList);
 
    rpc insert(Product) returns(APIResponse);
-    rpc findAll(Empty) returns(stream Product);
+
     rpc deleteById(Product) returns(APIResponse);
     rpc findById(google.protobuf.Int32Value) returns(Product);
     rpc update(Product) returns(APIResponse);
 
    
 
+   
+
 }
-
-message Empty {}
-
 
 
 message Product{
@@ -33,6 +34,14 @@ message Product{
    string productexpirationdate = 8;
 
 
+
+}
+
+message ProductList {
+   
+ repeated Product product = 1;
+ google.protobuf.Int64Value resultCount=2;
+   
 
 }
 

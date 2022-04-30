@@ -6,17 +6,32 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import com.cartservice.Model.Client;
 import com.cartservice.Model.ProductEntity;
+import com.grpcserver.product.ProductServer.Product;
 
 @Mapper
 public interface ProductDAO {
 	
 	@Select("select * from tb_product")
+	@Results({
+		@Result(property = "purchase_item", column = "purchase_item"),
+	    @Result(property = "productname", column = "productname"),
+		@Result(property = "productbrand", column = "productbrand"),
+		@Result(property = "productprice", column = "productprice"),
+		@Result(property = "productdescription", column = "productdescription"),
+		@Result(property = "productquantity", column = "productquantity"),
+		@Result(property = "productexpirationdate", column = "productexpirationdate")
+	})
     public  List <ProductEntity> findAll();
+	
+	@Select("select * from tb_product")
+    public  List <Product> findAll2();
 	
 	@Insert("INSERT INTO tb_product(purchase_item,  productname, productbrand,productprice,productdescription,productquantity,productexpirationdate) " +
 		      " VALUES (#{purchase_item}, #{productname}, #{productbrand}, #{productprice}, #{productdescription}, #{productquantity}, #{productexpirationdate} )")

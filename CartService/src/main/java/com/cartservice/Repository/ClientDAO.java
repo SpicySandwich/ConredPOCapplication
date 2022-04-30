@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import com.cartservice.Model.Client;
@@ -14,6 +16,11 @@ import com.cartservice.Model.Client;
 public interface ClientDAO {
 	
 	@Select("select * from tb_client")
+	@Results({
+		@Result(property = "client_guest_id", column = "client_guest_id"),
+	    @Result(property = "client_guest_name", column = "client_guest_name"),
+		@Result(property = "client_guest_email", column = "client_guest_email")
+	})
     public  List <Client> findAll();
 	
 	@Insert("INSERT INTO tb_client(client_guest_id, client_guest_name, client_guest_email) " +

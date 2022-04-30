@@ -107,7 +107,7 @@ public class GRPCClientGuestService {
 	
 	
 	public ClientGuestrList list(List<ClientGuestRequest> clientlist) {
-		
+		ClientGuestGrpc.ClientGuestBlockingStub stub = ClientGuestGrpc.newBlockingStub(channel);
 		ClientGuestrList.Builder reBuilder = ClientGuestrList.newBuilder();
 		clientlist.forEach(reBuilder::addClientguestall);
 		

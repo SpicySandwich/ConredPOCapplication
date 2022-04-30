@@ -92,9 +92,9 @@ private static final Logger log = LoggerFactory.getLogger(CLientGuestGRPCServer.
 
 	@Override
 	public void findAll(Empty request, StreamObserver<ClientGuestRequest> responseObserver) {
-		List<Client> list = guestClientServiceImpl.getAll();
+		List<ClientGuestDTO> list = guestClientServiceImpl.getClient();
 		
-	for(Client client : list) {
+	for(ClientGuestDTO client : list) {
 		
 		responseObserver.onNext(client.toGuest());
 		
@@ -119,14 +119,9 @@ private static final Logger log = LoggerFactory.getLogger(CLientGuestGRPCServer.
 		
 			clientGuestValidation.validateID(request.getValue());	
 			
-		}
-	
-						
+		}					
 	
 	}
-
-
-	
 
 	@Override
 	public void deleteById(ClientGuestRequest request, StreamObserver<APIResponse> responseObserver) {
@@ -148,25 +143,6 @@ private static final Logger log = LoggerFactory.getLogger(CLientGuestGRPCServer.
 			
 				responseObserver.onNext(responce.build());
 				responseObserver.onCompleted();
-	
+
 	}
-
-
-//	@Override
-//	public void insertAll(ClientGuestRequest request, StreamObserver<APIResponse> responseObserver) {
-//		Client client = new Client();
-//		Product product = new Product();
-//		
-//		client.setClient_guest_id(request.getClientGuestId());
-//		client.setClient_guest_name(request.getClientGuestName());
-//		client.setClient_guest_email(request.getClientGuestEmail());
-//	//	request.getPurchaseItemList().addproduct));
-//		
-//		guestClientServiceImpl.saveDataFromDTO(client);
-//		APIResponse.Builder  responce = APIResponse.newBuilder();
-//		responseObserver.onNext(responce.build());
-//		responseObserver.onCompleted();
-//	}
-	
-
 }

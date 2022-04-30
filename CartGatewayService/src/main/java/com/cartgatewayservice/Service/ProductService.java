@@ -1,27 +1,56 @@
 package com.cartgatewayservice.Service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
+import com.cartgatewayservice.Model.EntityTest;
 import com.cartgatewayservice.Model.ProductEntity;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.google.common.collect.Lists;
+import com.google.protobuf.Empty;
 import com.google.protobuf.Int32Value;
 import com.grpcserver.product.ProductServer.APIResponse;
 import com.grpcserver.product.ProductServer.Product;
+import com.grpcserver.product.ProductServer.ProductList;
 import com.grpcserver.product.ProductServiceGrpc;
-
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
+
 @Service
-public class ProductService {
+public class ProductService   {
 	
-	ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 9090)
-            .usePlaintext()
-            .build();
+	 private ManagedChannel channel;
+	 private  ProductServiceGrpc.ProductServiceStub productServiceStub;
+	 private ProductServiceGrpc.ProductServiceBlockingStub productServiceBlockingStub;
+
+    private void initializeStub() {
+        channel = ManagedChannelBuilder.forAddress("localhost", 9090).usePlaintext().build();
+        productServiceBlockingStub = ProductServiceGrpc.newBlockingStub(channel);
+        productServiceStub = ProductServiceGrpc.newStub(channel);
+    }
+    
+
+    
+
+	
+	  public ProductService() {
+	        initializeStub();
+	    }
+	  
+	 
+
 	
 	public String inserdata(ProductEntity product) {
 		
 	
-	ProductServiceGrpc.ProductServiceBlockingStub stub = ProductServiceGrpc.newBlockingStub(channel);
-	APIResponse response = stub.insert(Product.newBuilder()
+	APIResponse response = productServiceBlockingStub.insert(Product.newBuilder()
 			.setPurchaseItem(product.getPurchase_item())
 			.setProductname(product.getProductname())
 			.setProductbrand(product.getProductbrand())
@@ -36,13 +65,18 @@ public class ProductService {
 
 	}
 	
+	
+
+	
+	
+
+	
 	public ProductEntity findbyid(Integer purchase_item){
 		
-		ProductServiceGrpc.ProductServiceBlockingStub stub = ProductServiceGrpc.newBlockingStub(channel);
 		
 		ProductEntity productEntity = new ProductEntity();
 		
-		Product product = stub.findById(Int32Value.of(purchase_item));
+		Product product = productServiceBlockingStub.findById(Int32Value.of(purchase_item));
 		
 		productEntity.setPurchase_item(product.getPurchaseItem());
 		productEntity.setProductname(product.getProductname());
@@ -57,14 +91,13 @@ public class ProductService {
 	
 	public String deletedata(Integer client_guest_id) {
 
-ProductServiceGrpc.ProductServiceBlockingStub stub = ProductServiceGrpc.newBlockingStub(channel);
 		
 		ProductEntity productEntity = new ProductEntity();
 		
 		productEntity.setPurchase_item(client_guest_id);
 		
 		
-		APIResponse response = stub.deleteById(Product.newBuilder()
+		APIResponse response = productServiceBlockingStub.deleteById(Product.newBuilder()
 				.setPurchaseItem(productEntity.getPurchase_item())
 				.build()
 				);
@@ -74,9 +107,7 @@ ProductServiceGrpc.ProductServiceBlockingStub stub = ProductServiceGrpc.newBlock
 	
 	public String updatedata(ProductEntity product) {
 
-		ProductServiceGrpc.ProductServiceBlockingStub stub = ProductServiceGrpc.newBlockingStub(channel);
-		
-		APIResponse response = stub.update(Product.newBuilder()
+		APIResponse response = productServiceBlockingStub.update(Product.newBuilder()
 				.setPurchaseItem(product.getPurchase_item())
 				.setProductname(product.getProductname())
 				.setProductbrand(product.getProductbrand())
@@ -88,6 +119,42 @@ ProductServiceGrpc.ProductServiceBlockingStub stub = ProductServiceGrpc.newBlock
 	
 	return response.getResponsemessage();
 			
+	
 	}
+	
+
+
+
+public List<ProductEntity> list(){
+
+	 Product pBuilder = Product.newBuilder().build();
+	ProductList productList =	productServiceBlockingStub.findAllRepeated(pBuilder);
+	 List<Product> products2 = productList.getProductList();
+ 
+	 List<ProductEntity> list = new ArrayList<>();
+		for (Iterator iterator = products2.iterator(); iterator.hasNext();) {
+			Product product = (Product) iterator.next();
+			
+			 ProductEntity productEntity2 = (ProductEntity.builder()
+			  			.purchase_item( product.getPurchaseItem())
+			  			.productname(product.getProductname())
+			  			.productbrand(product.getProductbrand())
+			  			.productprice(product.getProductprice())
+			  			.productdescription(product.getProductdescription())
+			  			.productquantity(product.getProductquantity())
+			  			.productexpirationdate(product.getProductexpirationdate())
+			  			.build()
+			  			);
+				
+			 list.add(productEntity2);
+			 	
+		}
+		
+		 return list;
+		
+}
+
+
+
 
 }

@@ -1,6 +1,7 @@
 package com.cartservice.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -29,8 +30,18 @@ public class GuestClientServiceImpl implements GuestClientService{
 		clientdto = modelMapper.map(client, ClientGuestDTO.class);
 		return clientdto;
 		
-	}	
+	}
 	
+	//DTO List
+	
+	public List<ClientGuestDTO> getClient() {
+		
+
+			return clientDAO.findAll()
+					.stream()
+	                .map(this::convertClientGuestDTOtoClient)
+	                .collect(Collectors.toList());	
+	}
 	//DTO add data
 	
 	public ClientGuestDTO saveDataFromDTO(Client client) {

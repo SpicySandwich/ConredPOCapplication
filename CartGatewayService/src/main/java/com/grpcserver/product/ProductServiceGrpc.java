@@ -28,6 +28,38 @@ public final class ProductServiceGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<com.grpcserver.product.ProductServer.Product,
+      com.grpcserver.product.ProductServer.ProductList> getFindAllRepeatedMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "findAllRepeated",
+      requestType = com.grpcserver.product.ProductServer.Product.class,
+      responseType = com.grpcserver.product.ProductServer.ProductList.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.grpcserver.product.ProductServer.Product,
+      com.grpcserver.product.ProductServer.ProductList> getFindAllRepeatedMethod() {
+    io.grpc.MethodDescriptor<com.grpcserver.product.ProductServer.Product, com.grpcserver.product.ProductServer.ProductList> getFindAllRepeatedMethod;
+    if ((getFindAllRepeatedMethod = ProductServiceGrpc.getFindAllRepeatedMethod) == null) {
+      synchronized (ProductServiceGrpc.class) {
+        if ((getFindAllRepeatedMethod = ProductServiceGrpc.getFindAllRepeatedMethod) == null) {
+          ProductServiceGrpc.getFindAllRepeatedMethod = getFindAllRepeatedMethod = 
+              io.grpc.MethodDescriptor.<com.grpcserver.product.ProductServer.Product, com.grpcserver.product.ProductServer.ProductList>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "ProductService", "findAllRepeated"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.grpcserver.product.ProductServer.Product.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.grpcserver.product.ProductServer.ProductList.getDefaultInstance()))
+                  .setSchemaDescriptor(new ProductServiceMethodDescriptorSupplier("findAllRepeated"))
+                  .build();
+          }
+        }
+     }
+     return getFindAllRepeatedMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.grpcserver.product.ProductServer.Product,
       com.grpcserver.product.ProductServer.APIResponse> getInsertMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
@@ -57,38 +89,6 @@ public final class ProductServiceGrpc {
         }
      }
      return getInsertMethod;
-  }
-
-  private static volatile io.grpc.MethodDescriptor<com.grpcserver.product.ProductServer.Empty,
-      com.grpcserver.product.ProductServer.Product> getFindAllMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "findAll",
-      requestType = com.grpcserver.product.ProductServer.Empty.class,
-      responseType = com.grpcserver.product.ProductServer.Product.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
-  public static io.grpc.MethodDescriptor<com.grpcserver.product.ProductServer.Empty,
-      com.grpcserver.product.ProductServer.Product> getFindAllMethod() {
-    io.grpc.MethodDescriptor<com.grpcserver.product.ProductServer.Empty, com.grpcserver.product.ProductServer.Product> getFindAllMethod;
-    if ((getFindAllMethod = ProductServiceGrpc.getFindAllMethod) == null) {
-      synchronized (ProductServiceGrpc.class) {
-        if ((getFindAllMethod = ProductServiceGrpc.getFindAllMethod) == null) {
-          ProductServiceGrpc.getFindAllMethod = getFindAllMethod = 
-              io.grpc.MethodDescriptor.<com.grpcserver.product.ProductServer.Empty, com.grpcserver.product.ProductServer.Product>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
-              .setFullMethodName(generateFullMethodName(
-                  "ProductService", "findAll"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.grpcserver.product.ProductServer.Empty.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.grpcserver.product.ProductServer.Product.getDefaultInstance()))
-                  .setSchemaDescriptor(new ProductServiceMethodDescriptorSupplier("findAll"))
-                  .build();
-          }
-        }
-     }
-     return getFindAllMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<com.grpcserver.product.ProductServer.Product,
@@ -216,16 +216,16 @@ public final class ProductServiceGrpc {
 
     /**
      */
-    public void insert(com.grpcserver.product.ProductServer.Product request,
-        io.grpc.stub.StreamObserver<com.grpcserver.product.ProductServer.APIResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getInsertMethod(), responseObserver);
+    public void findAllRepeated(com.grpcserver.product.ProductServer.Product request,
+        io.grpc.stub.StreamObserver<com.grpcserver.product.ProductServer.ProductList> responseObserver) {
+      asyncUnimplementedUnaryCall(getFindAllRepeatedMethod(), responseObserver);
     }
 
     /**
      */
-    public void findAll(com.grpcserver.product.ProductServer.Empty request,
-        io.grpc.stub.StreamObserver<com.grpcserver.product.ProductServer.Product> responseObserver) {
-      asyncUnimplementedUnaryCall(getFindAllMethod(), responseObserver);
+    public void insert(com.grpcserver.product.ProductServer.Product request,
+        io.grpc.stub.StreamObserver<com.grpcserver.product.ProductServer.APIResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getInsertMethod(), responseObserver);
     }
 
     /**
@@ -252,19 +252,19 @@ public final class ProductServiceGrpc {
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
+            getFindAllRepeatedMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.grpcserver.product.ProductServer.Product,
+                com.grpcserver.product.ProductServer.ProductList>(
+                  this, METHODID_FIND_ALL_REPEATED)))
+          .addMethod(
             getInsertMethod(),
             asyncUnaryCall(
               new MethodHandlers<
                 com.grpcserver.product.ProductServer.Product,
                 com.grpcserver.product.ProductServer.APIResponse>(
                   this, METHODID_INSERT)))
-          .addMethod(
-            getFindAllMethod(),
-            asyncServerStreamingCall(
-              new MethodHandlers<
-                com.grpcserver.product.ProductServer.Empty,
-                com.grpcserver.product.ProductServer.Product>(
-                  this, METHODID_FIND_ALL)))
           .addMethod(
             getDeleteByIdMethod(),
             asyncUnaryCall(
@@ -310,18 +310,18 @@ public final class ProductServiceGrpc {
 
     /**
      */
-    public void insert(com.grpcserver.product.ProductServer.Product request,
-        io.grpc.stub.StreamObserver<com.grpcserver.product.ProductServer.APIResponse> responseObserver) {
+    public void findAllRepeated(com.grpcserver.product.ProductServer.Product request,
+        io.grpc.stub.StreamObserver<com.grpcserver.product.ProductServer.ProductList> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getInsertMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getFindAllRepeatedMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void findAll(com.grpcserver.product.ProductServer.Empty request,
-        io.grpc.stub.StreamObserver<com.grpcserver.product.ProductServer.Product> responseObserver) {
-      asyncServerStreamingCall(
-          getChannel().newCall(getFindAllMethod(), getCallOptions()), request, responseObserver);
+    public void insert(com.grpcserver.product.ProductServer.Product request,
+        io.grpc.stub.StreamObserver<com.grpcserver.product.ProductServer.APIResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getInsertMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -369,17 +369,16 @@ public final class ProductServiceGrpc {
 
     /**
      */
-    public com.grpcserver.product.ProductServer.APIResponse insert(com.grpcserver.product.ProductServer.Product request) {
+    public com.grpcserver.product.ProductServer.ProductList findAllRepeated(com.grpcserver.product.ProductServer.Product request) {
       return blockingUnaryCall(
-          getChannel(), getInsertMethod(), getCallOptions(), request);
+          getChannel(), getFindAllRepeatedMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public java.util.Iterator<com.grpcserver.product.ProductServer.Product> findAll(
-        com.grpcserver.product.ProductServer.Empty request) {
-      return blockingServerStreamingCall(
-          getChannel(), getFindAllMethod(), getCallOptions(), request);
+    public com.grpcserver.product.ProductServer.APIResponse insert(com.grpcserver.product.ProductServer.Product request) {
+      return blockingUnaryCall(
+          getChannel(), getInsertMethod(), getCallOptions(), request);
     }
 
     /**
@@ -424,6 +423,14 @@ public final class ProductServiceGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<com.grpcserver.product.ProductServer.ProductList> findAllRepeated(
+        com.grpcserver.product.ProductServer.Product request) {
+      return futureUnaryCall(
+          getChannel().newCall(getFindAllRepeatedMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<com.grpcserver.product.ProductServer.APIResponse> insert(
         com.grpcserver.product.ProductServer.Product request) {
       return futureUnaryCall(
@@ -455,8 +462,8 @@ public final class ProductServiceGrpc {
     }
   }
 
-  private static final int METHODID_INSERT = 0;
-  private static final int METHODID_FIND_ALL = 1;
+  private static final int METHODID_FIND_ALL_REPEATED = 0;
+  private static final int METHODID_INSERT = 1;
   private static final int METHODID_DELETE_BY_ID = 2;
   private static final int METHODID_FIND_BY_ID = 3;
   private static final int METHODID_UPDATE = 4;
@@ -478,13 +485,13 @@ public final class ProductServiceGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
+        case METHODID_FIND_ALL_REPEATED:
+          serviceImpl.findAllRepeated((com.grpcserver.product.ProductServer.Product) request,
+              (io.grpc.stub.StreamObserver<com.grpcserver.product.ProductServer.ProductList>) responseObserver);
+          break;
         case METHODID_INSERT:
           serviceImpl.insert((com.grpcserver.product.ProductServer.Product) request,
               (io.grpc.stub.StreamObserver<com.grpcserver.product.ProductServer.APIResponse>) responseObserver);
-          break;
-        case METHODID_FIND_ALL:
-          serviceImpl.findAll((com.grpcserver.product.ProductServer.Empty) request,
-              (io.grpc.stub.StreamObserver<com.grpcserver.product.ProductServer.Product>) responseObserver);
           break;
         case METHODID_DELETE_BY_ID:
           serviceImpl.deleteById((com.grpcserver.product.ProductServer.Product) request,
@@ -559,8 +566,8 @@ public final class ProductServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new ProductServiceFileDescriptorSupplier())
+              .addMethod(getFindAllRepeatedMethod())
               .addMethod(getInsertMethod())
-              .addMethod(getFindAllMethod())
               .addMethod(getDeleteByIdMethod())
               .addMethod(getFindByIdMethod())
               .addMethod(getUpdateMethod())
