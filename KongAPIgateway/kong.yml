@@ -64,8 +64,75 @@ services:
     paths:
     - /product/list
     strip_path: true
-    
-#   -------- Cart Host --------
+  
+#  ------ Cart Product host -------
+
+# Cart Product List product
+   
+- host: host.docker.internal
+  port: 8094
+  name: cart-product-list-service
+  path: /product/list
+  routes:
+  - name: cart-product-list-service
+    paths:
+    - cart/product/list
+    strip_path: true
+
+
+# Cart Product add product
+   
+- host: host.docker.internal
+  port: 8094
+  name: cart-product-add-service
+  path: /product
+  routes:
+  - name: cart-product-add-service
+    paths:
+    - cart/product/add
+    strip_path: true
+
+
+# Cart Product delete product
+   
+- host: host.docker.internal
+  port: 8094
+  name: cart-product-delete-service
+  path: /product
+  routes:
+  - name: cart-product-delete-service
+    paths:
+    - cart/product/delete
+    strip_path: true
+
+
+# Cart Product findbyId product
+   
+- host: host.docker.internal
+  port: 8094
+  name: cart-product-findbyId-service
+  path: /product
+  routes:
+  - name: cart-product-findbyId-service
+    paths:
+    - cart/product/findbyId
+    strip_path: true
+
+ 
+# Cart Product update product
+   
+- host: host.docker.internal
+  port: 8094
+  name: cart-product-update-service
+  path: /product
+  routes:
+  - name: cart-product-update-service
+    paths:
+    - cart/product/update
+    strip_path: true
+
+   
+#   -------- Cart Client --------
 
 #Cart add
 
@@ -76,7 +143,7 @@ services:
   routes:
   - name: cart-add-service
     paths:
-    - /cart/add
+    - /cart/client/add
     strip_path: true
 
 #Cart delete
@@ -88,7 +155,7 @@ services:
   routes:
   - name: cart-delete-service
     paths:
-    - /cart/delete
+    - /cart/client/delete
     strip_path: true
 
 #Cart find
@@ -100,7 +167,7 @@ services:
   routes:
   - name: cart-find-service
     paths:
-    - /cart/find
+    - /cart/client/find
     strip_path: true
 
 #Cart update
@@ -112,5 +179,5 @@ services:
   routes:
   - name: cart-update-service
     paths:
-    - /cart/update
+    - /cart/client/update
     strip_path: true

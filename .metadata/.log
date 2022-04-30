@@ -7646,3 +7646,105 @@ java.util.concurrent.TimeoutException
 
 !ENTRY org.eclipse.ui 2 2 2022-04-30 19:40:17.200
 !MESSAGE Invalid property category path: org.springframework.ide.eclipse.beans.ui.properties.ProjectPropertyPage (bundle: org.springframework.ide.eclipse.xml.namespaces, propertyPage: org.springframework.ide.eclipse.beans.ui.namespaces.projectPropertyPage)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 19:46:23.430
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.ZtSQtuME
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 19:46:23.432
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.ZtSQtuME
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 19:46:23.432
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 19:46:23.434
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.ZtSQtuME => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 19:46:38.644
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 19:46:38.646
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@2ddb9249[org.springframework.tooling.boot.ls:1.32.0.202203131529(id=1057)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 19:46:38.647
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 19:46:40.875
+!MESSAGE Boot LS startup time from start to initialized: 2226ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 19:46:40.964
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.MPhHiWPsisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 19:46:40.965
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 19:46:40.966
+!MESSAGE Scheduling initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 19:46:40.967
+!MESSAGE Scheduling initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 19:46:40.968
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 19:46:40.969
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.MPhHiWPs => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 19:46:40.975
+!MESSAGE classpath=110 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 19:46:40.980
+!MESSAGE buffering callback sts4.classpath.MPhHiWPs CartGatewayService false 110
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 19:46:40.981
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 19:46:40.986
+!MESSAGE classpath=98 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 19:46:40.991
+!MESSAGE buffering callback sts4.classpath.MPhHiWPs CartService false 98
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 19:46:40.992
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 19:46:40.995
+!MESSAGE classpath=66 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 19:46:40.998
+!MESSAGE buffering callback sts4.classpath.MPhHiWPs KongAPIgateway false 66
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 19:46:40.999
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 19:46:41.008
+!MESSAGE classpath=139 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 19:46:41.013
+!MESSAGE buffering callback sts4.classpath.MPhHiWPs LoggerMicroservice false 139
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 19:46:41.014
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 19:46:41.021
+!MESSAGE classpath=176 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 19:46:41.027
+!MESSAGE buffering callback sts4.classpath.MPhHiWPs ProductMicroservice false 176
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 19:46:41.028
+!MESSAGE executing callback sts4.classpath.MPhHiWPs 5 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 19:46:41.601
+!MESSAGE executing callback sts4.classpath.MPhHiWPs SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 22:06:03.902
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.MPhHiWPs
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 22:06:03.903
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.MPhHiWPs
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 22:06:03.905
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-04-30 22:06:03.906
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.MPhHiWPs => OK
