@@ -1,4 +1,4 @@
 FROM openjdk:8
-ADD target/KongAPIgateway.jar app.jar
-ENTRYPOINT ["java","-jar","app.jar"]
-
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]

@@ -8,12 +8,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import com.cartservice.Model.Client;
+import com.cartservice.Model.ProductEntity;
 
 
 
 @SpringBootApplication
-@MappedTypes(Client.class)
-@MapperScan("com.cartservice.DAO")
+@MappedTypes({Client.class,ProductEntity.class})
+@MapperScan("com.cartservice.Repository")
 public class CartServiceApplication {
 
 	

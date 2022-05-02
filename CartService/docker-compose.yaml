@@ -1,0 +1,41 @@
+version: '3.8'
+
+networks:
+    cartservice-net:
+      driver: bridge
+
+services:
+
+  cartservice:
+    image: cartservice:latest
+    container_name: cartservice
+    depends_on:
+      - cart-mysqldb
+    restart: always
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    networks:
+      - cartservice-net
+    ports: 
+      - "9090:9090"
+    environment:
+      MYSQL_HOST: cart-mysqldb
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_PORT: 3306
+      GRPC-SERVER-PORT: 9090
+
+  cart-mysqldb:
+    image: mysql:8.0.28
+    restart: unless-stopped
+    container_name: cart-mysqldb
+    ports: 
+      - "3307:3306"
+    networks:
+      - cartservice-net
+    cap_add:
+      - SYS_NICE
+    environment:
+      MYSQL_DATABASE: dbpoc
+      MYSQL_ROOT_PASSWORD: root 

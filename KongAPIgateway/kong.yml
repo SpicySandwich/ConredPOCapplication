@@ -76,7 +76,7 @@ services:
   routes:
   - name: cart-product-list-service
     paths:
-    - cart/product/list
+    - /cart/product/list
     strip_path: true
 
 
@@ -89,7 +89,7 @@ services:
   routes:
   - name: cart-product-add-service
     paths:
-    - cart/product/add
+    - /cart/product/add
     strip_path: true
 
 
@@ -102,7 +102,7 @@ services:
   routes:
   - name: cart-product-delete-service
     paths:
-    - cart/product/delete
+    - /cart/product/delete
     strip_path: true
 
 
@@ -115,7 +115,7 @@ services:
   routes:
   - name: cart-product-findbyId-service
     paths:
-    - cart/product/findbyId
+    - /cart/product/findbyId
     strip_path: true
 
  
@@ -128,7 +128,7 @@ services:
   routes:
   - name: cart-product-update-service
     paths:
-    - cart/product/update
+    - /cart/product/update
     strip_path: true
 
    

@@ -170,6 +170,8 @@
         <artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 </plugins>
+
+<finalName>cartgatewayservice</finalName>
 </build>
   
 </project>

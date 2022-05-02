@@ -38,6 +38,8 @@ services:
     environment:
       MYSQL_DATABASE: dbpoc
       MYSQL_ROOT_PASSWORD: root  
+      
+      
   zookeeper:
     image: wurstmeister/zookeeper:latest
     container_name: zookeeper
