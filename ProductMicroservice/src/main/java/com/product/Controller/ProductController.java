@@ -30,8 +30,7 @@ public class ProductController {
       @Autowired
       private ProductService productService;
      
-  	@Autowired
-  	RestTemplate restTemplate;
+  	
   	
   	@Autowired
   	private ProductDAOImpl productDAOImpl;

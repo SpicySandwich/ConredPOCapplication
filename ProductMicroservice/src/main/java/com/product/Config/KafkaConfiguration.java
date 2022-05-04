@@ -2,8 +2,12 @@ package com.product.Config;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
@@ -24,10 +28,17 @@ import com.product.ModeException.ProductInternalError;
 
 public class KafkaConfiguration {
 	
+	
+	
+	@Value("${product.kafkaServer}")
+	private String Bootstrapserver;
+	
+	
 	@Bean
 	public ProducerFactory<String, Product> producerFactory() {
 		Map<String, Object> config = new HashMap<>();
-		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, Bootstrapserver);
+		
 		config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 
@@ -42,7 +53,8 @@ public class KafkaConfiguration {
 	@Bean
 	public ProducerFactory<String, ProductDTO> producerFactoryDTO() {
 		Map<String, Object> config = new HashMap<>();
-		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"localhost:9092");
+		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,Bootstrapserver);
+		
 		config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 		return new DefaultKafkaProducerFactory<>(config);
@@ -59,7 +71,8 @@ public class KafkaConfiguration {
 	@Bean
 	public ProducerFactory<String, String> stringProducerFactory() {
 		Map<String, Object> config = new HashMap<>();
-		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"localhost:9092");
+		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,Bootstrapserver);
+		
 		config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		return new DefaultKafkaProducerFactory<>(config);
@@ -74,7 +87,8 @@ public class KafkaConfiguration {
 	@Bean
 	public ProducerFactory<String, ProductInternalError> producerProductException() {
 		Map<String, Object> config = new HashMap<>();
-		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, Bootstrapserver);
+	
 		config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 		return new DefaultKafkaProducerFactory<>(config);

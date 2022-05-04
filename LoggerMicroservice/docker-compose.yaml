@@ -1,9 +1,19 @@
 version: '3.8'
 
 services:
-   
+
+  loggermicroservice:
+     image: loggermicroservice
+     container_name: loggermicroservice
+     build:
+      context: ./
+      dockerfile: Dockerfile
+     ports:
+      - 8082:8082
+     depends_on:
+      - mongodb
   mongodb:
-       image: mongo
+       image: mongo:latest
        container_name: mongodb
        ports:
          - 27018:27017
@@ -14,7 +24,7 @@ services:
           MONGO_INITDB_ROOT_PASSWORD: root
  
   mongo-express:
-       image: mongo-express
+       image: mongo-express:latest
        container_name: mongo-express 
        restart: always
        ports:
@@ -24,13 +34,7 @@ services:
             ME_CONFIG_MONGODB_ADMINPASSWORD: root
             ME_CONFIG_MONGODB_SERVER: mongodb
             
-  LoggerMicroservice:
-     image: loggermicroservice
-     build: .
-     ports:
-      - 8082:8082
-     links:
-      - mongodb
+
    
 
 
