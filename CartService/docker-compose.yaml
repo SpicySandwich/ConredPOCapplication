@@ -1,8 +1,11 @@
 version: '3.8'
 
+
 networks:
-    cartservice-net:
-      driver: bridge
+  default:
+    name: product-poc-project-net
+    external: true
+
 
 services:
 
@@ -15,8 +18,7 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    networks:
-      - cartservice-net
+    
     ports: 
       - "9090:9090"
     environment:
@@ -32,8 +34,7 @@ services:
     container_name: cart-mysqldb
     ports: 
       - "3307:3306"
-    networks:
-      - cartservice-net
+    
     cap_add:
       - SYS_NICE
     environment:

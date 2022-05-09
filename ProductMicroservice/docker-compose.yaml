@@ -1,17 +1,18 @@
-version: '3'
+version: '3.8'
 
 networks:
-    product-net:
-      driver: bridge 
-      
+  default:
+    name: product-poc-project-net
+    external: true
+    
 services: 
 #----------------------------------------------------------------  
   productmicroservice:
     image: productmicroservice:latest
     container_name: productmicroservice
     depends_on:
-      - product-mysqldb
-      - kafka
+      - cart-mysqldb
+     
     restart: always
     build:
       context: ./
@@ -21,28 +22,30 @@ services:
     
     environment:
     
-      - MYSQL_HOST=product-mysqldb
+      - MYSQL_HOST=cart-mysqldb
       - MYSQL_USER=oot
       - MYSQL_PASSWORD=root
       - MYSQL_PORT=3306
       
       - "SPRING_PROFILES_ACTIVE=${ACTIVE_PROFILE}"
+    
       
     
 #----------------------------------------------------------------      
 
-  product-mysqldb:
-    image: mysql:8.0.28
-    restart: unless-stopped
-    container_name: product-mysqldb
-    ports: 
-      - "3307:3306"
+#   product-mysqldb:
+ #    image: mysql:8.0.28
+  #   restart: unless-stopped
+  #   container_name: product-mysqldb
+  #   ports: 
+   #    - "3307:3306"
     
-    cap_add:
-      - SYS_NICE
-    environment:
-      MYSQL_DATABASE: dbpoc
-      MYSQL_ROOT_PASSWORD: root
+   #  cap_add:
+   #    - SYS_NICE
+   #  environment:
+   #    MYSQL_DATABASE: dbpoc
+   #   MYSQL_ROOT_PASSWORD: root
+    
       
 #----------------------------------------------------------------   
 

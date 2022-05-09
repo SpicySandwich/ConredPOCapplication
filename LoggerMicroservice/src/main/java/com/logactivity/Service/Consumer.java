@@ -17,7 +17,7 @@ public class Consumer {
 	@Autowired(required = false) 
 	private LogsRecord record;
 	
-	@KafkaListener(topics = "${topic.name}", containerFactory = "kafkaListenerContainerFactory")
+	@KafkaListener(topics = "${spring.kafka.template.default-topic}", containerFactory = "kafkaListenerContainerFactory", groupId = "${group.id}")
 	@Transactional
 	  LogsRecord  listen(String alllogs){
 		  record.setRecords(alllogs);
