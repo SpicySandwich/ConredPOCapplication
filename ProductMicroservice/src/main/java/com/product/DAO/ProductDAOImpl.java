@@ -53,10 +53,10 @@ public class ProductDAOImpl  implements ProductDAO{
 		
 		Session session = entityManager.unwrap(Session.class);	
 		String hql = "DELETE FROM Product "  + 
-	             "WHERE productid = :productid";
+	             "WHERE purchase_item = :purchase_item";
 		Product productObj = session.get(Product.class, purchase_item);
 	Query query = session.createQuery(hql);
-	query.setParameter("productid",purchase_item);
+	query.setParameter("purchase_item",purchase_item);
 	query.executeUpdate();
 
 	return productObj ;

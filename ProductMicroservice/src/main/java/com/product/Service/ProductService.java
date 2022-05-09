@@ -103,20 +103,20 @@ try {
 	public ProductDTO save( Product product) {
 	
 	
-	//	try {
+		try {
 				
 			productDAO.save(product);
 			 productProducer.sendMessageDTO("Added a product : " +product);
 			 return convertProductDTOtoProduct(product);
 	
 			 
-//		} 	
-//		catch (Exception e) {
-//			
-//			productProducer.sendMessageException(new ProductInternalError("Internal error for adding product will send to kafka topic"+product));
-//		throw new ProductExecption("Please fill up all the field ");
-//			 
-//		}
+		} 	
+		catch (Exception e) {
+			
+			productProducer.sendMessageException(new ProductInternalError("Internal error for adding product will send to kafka topic"+product));
+		throw new ProductExecption("Please fill up all the field ");
+			 
+		}
 		
 
 	}

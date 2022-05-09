@@ -1,0 +1,40 @@
+_format_version: "1.1"
+services:
+  - name: product
+    url: http://product:8095/kong
+    plugins: []
+    routes:
+      - tags:
+          - OAS3_import
+        name: productbackend-path-get
+        methods:
+          - GET
+        paths:
+          - /productlist
+        strip_path: false
+      - tags:
+          - OAS3_import
+        name: productbackend-path_1-post
+        methods:
+          - POST
+        paths:
+          - /productadd
+        strip_path: false
+    
+      - tags:
+          - OAS3_import
+        name: productbackend-path_2-delete
+        methods:
+          - DELETE
+        paths:
+          - /productdelete/(?<purchase_item>\S+)$
+        strip_path: false
+     
+    tags:
+      - OAS3_import
+upstreams:
+  - name: productbackend
+    targets:
+      - target: http://product:8095/kong
+    tags:
+      - OAS3_import

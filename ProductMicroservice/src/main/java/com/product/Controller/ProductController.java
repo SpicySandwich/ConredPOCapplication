@@ -37,31 +37,31 @@ public class ProductController {
   	
   	
 
-  	 @GetMapping("/productlist")
+  	 @GetMapping
      public List<ProductDTO> GetProductName(){
            return productService.getProduct();
            
   	 }
        
-     @PostMapping("/addproduct")
+     @PostMapping
      public String PostProduct(@RequestBody Product product) {
     	 productService.save(product);
 		return "Successfully added the Product: " + product;
      }
   
-     @GetMapping("/productview/{purchase_item}")
+     @GetMapping("/{purchase_item}")
      public ProductDTO GetProductName(@PathVariable Integer purchase_item){
    	  return productService.getPoductInfo(purchase_item);
      }
     
-     @PutMapping("/productupdate")
+     @PutMapping
      public String PutProduct(@RequestBody ProductDTO product){
         productService.updateProduct(product);
 		return "Successfully update the product: " + product;
       
      }
 
-     @DeleteMapping("/productdelete/{productid}")
+     @DeleteMapping("/productdelete/{purchase_item}")
      public String DeteleProduct(@PathVariable Integer purchase_item,@RequestBody ProductDTO product){
    	  productService.delete(purchase_item);
            return "Succesfully deleted id:" +  purchase_item;
