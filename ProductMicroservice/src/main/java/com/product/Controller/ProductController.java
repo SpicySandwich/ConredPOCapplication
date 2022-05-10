@@ -44,9 +44,9 @@ public class ProductController {
   	 }
        
      @PostMapping
-     public String PostProduct(@RequestBody Product product) {
+     public void PostProduct(@RequestBody Product product) {
     	 productService.save(product);
-		return "Successfully added the Product: " + product;
+		
      }
   
      @GetMapping("/{purchase_item}")
@@ -55,16 +55,16 @@ public class ProductController {
      }
     
      @PutMapping
-     public String PutProduct(@RequestBody ProductDTO product){
+     public void PutProduct(@RequestBody ProductDTO product){
         productService.updateProduct(product);
-		return "Successfully update the product: " + product;
+		
       
      }
 
-     @DeleteMapping("/productdelete/{purchase_item}")
-     public String DeteleProduct(@PathVariable Integer purchase_item,@RequestBody ProductDTO product){
+     @DeleteMapping("/{purchase_item}")
+     public void DeteleProduct(@PathVariable Integer purchase_item,@RequestBody ProductDTO product){
    	  productService.delete(purchase_item);
-           return "Succesfully deleted id:" +  purchase_item;
+      
 
 
      }

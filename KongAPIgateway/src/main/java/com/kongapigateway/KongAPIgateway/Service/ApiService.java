@@ -16,6 +16,7 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -23,19 +24,23 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 
 @Service
-@Transactional
 public class ApiService {
+	
+	RestTemplate restTemplate = new RestTemplate();
 	
 	private static final String GET_ALL_PRODUCLIST = "http://localhost:9001/product";
 	private static final String POST_ADD_PRODUCT = "http://localhost:9001/product";
 	private static final String PUT_UPDATE_PRODUCT= "http://localhost:9001/product";
-	private static final String DELETE_PRODUCT = "http://localhost:9001/product";
+	private static final String DELETE_PRODUCT = "http://localhost:9001/product/{purchase_item}";
 	private static final String GET_PRODUCT_BYID = "http://localhost:9001/product/{purchase_item}";
 	
-	String url = "http://localhost:9001/product";
+  
+	public void RestServiceProduct() {
+		
+		
+	}
 	
-	@Autowired
-    private static RestTemplate restTemplate;
+    
 	
 	 public List<Product> getInfo() {
 
@@ -53,55 +58,42 @@ public class ApiService {
 	        return userList;
 	    }
 	 
-	   public Product saveData(Product requestUser) {
-
-	        
-
-	        ResponseEntity<Product> result = restTemplate.postForEntity(POST_ADD_PRODUCT, requestUser, Product.class);
-
-	        
-	        
-//	        Product product = new Product();
-//	        
-//	        product.setPurchase_item(result.getBody().getPurchase_item());
-//	        product.setProductname(result.getBody().getProductname());
-//	        product.setProductbrand(result.getBody().getProductbrand());
-//	        product.setProductprice(result.getBody().getProductprice());
-//	        product.setProductdescription(result.getBody().getProductdescription());
-//	        product.setProductquantity(result.getBody().getProductquantity());
-//	        product.setProductexpirationdate(result.getBody().getProductexpirationdate());
-	      
-
-	        return result.getBody();
+	   public ResponseEntity<Product>  saveData(Product product) {
+		 
+		   return    restTemplate.postForEntity(POST_ADD_PRODUCT, product, Product.class);
+	
+     
 	    }
 	   
-//	   
+
 	   public void deleteData(Integer purchase_item) {
+		   Map<String, Integer> proMap = new HashMap<String, Integer>();
+		   proMap.put("purchase_item", purchase_item);
+		   Product product = new Product();
+		   HttpEntity<Product> requestEntity = new HttpEntity<Product>(product);
+		   ResponseEntity<Product> responseEntity = restTemplate.exchange(DELETE_PRODUCT, HttpMethod.DELETE, requestEntity, Product.class, proMap);
+          responseEntity.getBody();
+		   
+//		   Map<String, Integer> proMap = new HashMap<String, Integer>();
+//		   proMap.put("purchase_item", purchase_item);
+//	      restTemplate.delete(DELETE_PRODUCT,proMap);
+	     
 
-
-
-	        try{
-	            restTemplate.delete(DELETE_PRODUCT);
-	        }catch (Exception e){
-	            e.getMessage();
-	        }
 	    }
 	   
 	   public Product findbyid(Integer purchase_item) {
-		   Map<String, Integer> proMap = new HashMap<>();
+		   Map<String, Integer> proMap = new HashMap<String, Integer>();
 		   proMap.put("purchase_item", purchase_item);
 		   
-		   Product product = restTemplate.getForObject(GET_PRODUCT_BYID, Product.class,proMap);
+		   return restTemplate.getForObject(GET_PRODUCT_BYID, Product.class,proMap);
+
 		   
-		   product.getPurchase_item();
-		   product.getProductname();
-		   product.getProductbrand();
-		   product.getProductprice();
-		   product.getProductdescription();
-		   product.getProductquantity();
-		   product.getProductexpirationdate();
+		
 		   
-		return product;
+	   }
+	   
+	   public void updateProductr(Product product) {
+		  restTemplate.put(PUT_UPDATE_PRODUCT, product);
 		   
 	   }
 
