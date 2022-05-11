@@ -1,18 +1,19 @@
 version: '3.8'
 
 
+networks:
+  default:
+    name: product-poc-project-net
+    external: true
+
 services:
   cartgatewayservice:
     image: cartgatewayservice:latest
     container_name: cartgatewayservice
-    restart: always
+    restart: unless-stopped
     build:
       context: ./
       dockerfile: Dockerfile
     ports:
-      - 9000:8094
-    environment:
-      SERVER_PORT: 8094
-      GRPC-SERVER-PORT: 9090
-      GRPC-SERVER_HOST: cartservice
-     
+      - "9009:8094"
+    

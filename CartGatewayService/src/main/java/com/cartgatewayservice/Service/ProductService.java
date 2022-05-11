@@ -26,12 +26,14 @@ import io.grpc.ManagedChannelBuilder;
 @Service
 public class ProductService   {
 	
+
+	
 	 private ManagedChannel channel;
 	 private  ProductServiceGrpc.ProductServiceStub productServiceStub;
 	 private ProductServiceGrpc.ProductServiceBlockingStub productServiceBlockingStub;
 
     private void initializeStub() {
-        channel = ManagedChannelBuilder.forAddress("localhost", 9090).usePlaintext().build();
+        channel = ManagedChannelBuilder.forAddress("cartservice", 9090).usePlaintext().build();
         productServiceBlockingStub = ProductServiceGrpc.newBlockingStub(channel);
         productServiceStub = ProductServiceGrpc.newStub(channel);
     }
@@ -43,6 +45,7 @@ public class ProductService   {
 	  public ProductService() {
 	        initializeStub();
 	    }
+	  
 	  
 	 
 
@@ -62,12 +65,7 @@ public class ProductService   {
 	return response.getResponsemessage();
 	
 
-
 	}
-	
-	
-
-	
 	
 
 	

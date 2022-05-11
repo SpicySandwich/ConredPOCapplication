@@ -25,7 +25,7 @@ import io.grpc.stub.StreamObserver;
 
 
 @RestController
-@RequestMapping(value = "/product")
+@RequestMapping(value = "/cart")
 public class ProductController {
 	
 	@Autowired
@@ -33,15 +33,14 @@ public class ProductController {
 	
 	
 	
-	 @GetMapping("/list")
+	 @GetMapping
      public List<ProductEntity> GetProductList( ){
 		 
            return productService.list();
-           
+      
            
   	 }
 
-	
     @PostMapping
     public String addProduct( @RequestBody ProductEntity productEntity) {
 
