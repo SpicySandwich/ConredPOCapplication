@@ -23,17 +23,13 @@ public class CartService {
 
 	RestTemplate restTemplate = new RestTemplate();
 	
-	private static final String GET_ALL_CARTLIST = "http://localhost:9009/product";
-	private static final String POST_ADD_CART = "http://localhost:9009/product";
-	private static final String PUT_UPDATE_CART= "http://localhost:9009/product";
-	private static final String DELETE_CART= "http://localhost:9009/product/{purchase_item}";
-	private static final String GET_CART_BYID = "http://localhost:9009/product/{purchase_item}";
+	private static final String GET_ALL_CARTLIST = "http://localhost:9009/cart";
+	private static final String POST_ADD_CART = "http://localhost:9009/cart";
+	private static final String PUT_UPDATE_CART= "http://localhost:9009/cart";
+	private static final String DELETE_CART= "http://localhost:9009/cart/{purchase_item}";
+	private static final String GET_CART_BYID = "http://localhost:9009/cart/{purchase_item}";
 	
   
-	public void RestServiceProduct() {
-		
-		
-	}
 	
     
 	
@@ -53,10 +49,10 @@ public class CartService {
 	        return cartList ;
 	    }
 	 
-	   public String  saveData(Cart cart) {
+	   public Cart saveData(Cart cart) {
 		 
 		    restTemplate.postForEntity(POST_ADD_CART, cart, Cart.class);
-		    return  "Succefully added the product " + cart;
+		    return   cart;
      
 	    }
 	   
@@ -78,7 +74,6 @@ public class CartService {
 		   
 		   return restTemplate.getForObject(GET_CART_BYID, Cart.class,proMap);
 	
-		   
 	   }
 	   
 	   public void updateProductr(Cart cart) {

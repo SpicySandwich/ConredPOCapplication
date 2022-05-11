@@ -35,10 +35,7 @@ public class ProductService {
 	private static final String GET_PRODUCT_BYID = "http://localhost:9001/product/{purchase_item}";
 	
   
-	public void RestServiceProduct() {
-		
-		
-	}
+
 	
     
 	

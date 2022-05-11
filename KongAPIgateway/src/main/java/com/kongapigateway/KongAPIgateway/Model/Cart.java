@@ -1,6 +1,5 @@
 package com.kongapigateway.KongAPIgateway.Model;
 
-import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,11 +12,12 @@ import lombok.ToString;
 @ToString
 public class Cart {
 	
+	private Integer purchase_item;
 	private String productname;
     private String productbrand;
    private Double productprice;
     private String productdescription;
     private Integer productquantity;
-    private Date productexpirationdate;
+    private String productexpirationdate;
 
 }

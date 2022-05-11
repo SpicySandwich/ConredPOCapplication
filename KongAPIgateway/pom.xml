@@ -51,12 +51,15 @@
     <artifactId>spring-tx</artifactId>
     <version>5.2.1.RELEASE</version><!--$NO-MVN-MAN-VER$-->
 </dependency>
+
+<dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-ui</artifactId>
+      <version>1.6.6</version>
+   </dependency>
+	
 		
-		<dependency>
-    <groupId>org.springdoc</groupId>
-    <artifactId>springdoc-openapi-ui</artifactId>
-    <version>1.4.8</version>
-</dependency>
+	
 		
 	</dependencies>
 

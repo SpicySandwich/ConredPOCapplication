@@ -50,7 +50,7 @@ public class ProductService   {
 	 
 
 	
-	public String inserdata(ProductEntity product) {
+	public ProductEntity inserdata(ProductEntity product) {
 		
 	
 	APIResponse response = productServiceBlockingStub.insert(Product.newBuilder()
@@ -62,9 +62,9 @@ public class ProductService   {
 			.setProductquantity(product.getProductquantity())
 		.setProductexpirationdate(product.getProductexpirationdate())
 			.build());
-	return response.getResponsemessage();
+	 response.getResponsemessage();
 	
-
+	 return product;
 	}
 	
 

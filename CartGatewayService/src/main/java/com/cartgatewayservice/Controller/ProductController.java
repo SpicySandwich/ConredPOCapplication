@@ -42,10 +42,10 @@ public class ProductController {
   	 }
 
     @PostMapping
-    public String addProduct( @RequestBody ProductEntity productEntity) {
+    public ProductEntity addProduct( @RequestBody ProductEntity productEntity) {
 
-    	return productService.inserdata(productEntity);
-        
+    	productService.inserdata(productEntity);
+    	return productEntity;
         
     }
     
@@ -66,9 +66,9 @@ public class ProductController {
 }
     
     @PutMapping
-    public String updateProduct(@RequestBody ProductEntity productEntity){
+    public void updateProduct(@RequestBody ProductEntity productEntity){
     	productService.updatedata(productEntity);
-		return "Successfully update the product: " +productEntity;
+	
       
     }
 	

@@ -22,36 +22,38 @@ import org.springframework.web.bind.annotation.RestController;
 public class CartController {
 	
 	 @Autowired
-	    private CartService productService;
+	    private CartService cartService;
 
 	    @GetMapping
 	    public List<Cart> getData(){
-	        return productService.getInfo();
+	        return cartService.getInfo();
 	    }
 
 	    @PostMapping
-	    public String postData(@RequestBody Cart cart){
-	        return productService.saveData(cart);
+	    public Cart postData(@RequestBody Cart cart){
+	         cartService.saveData(cart);
+	         return cart;
 	        
 	    }
 
 
 	    @DeleteMapping("/{purchase_item}")
 	    public String deleteData(@PathVariable Integer purchase_item, @RequestBody Cart cart){
-	        productService.deleteData(purchase_item);
+	    	cartService.deleteData(purchase_item);
 			return "Succesfully delete id: " + purchase_item;
 	    }
 
 	    @GetMapping("/{purchase_item}")
-	    public Cart findProduct(@PathVariable Integer purchase_item) {
+	    public Cart findProduct(@PathVariable Integer purchase_item, @RequestBody Cart cart) {
 	    	
-	    	return	productService.findbyid(purchase_item);
+	    		cartService.findbyid(purchase_item);
+	    		return cart;
 	    }
 	    
 	    
 	    @PutMapping
 	    public String  updateProduct(@RequestBody Cart cart){
-	         productService.updateProductr(cart);
+	    	cartService.updateProductr(cart);
 			return "Succesfully updated " + cart;
 	    }
 
