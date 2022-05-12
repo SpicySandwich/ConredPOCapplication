@@ -54,10 +54,9 @@ public class ProductServiceImpl {
 		
 	}
 	
-public ProductDTO deleteDTO(Integer client_guest_id) {
+public  void deleteDTO(Integer client_guest_id) {
 		
-		
-	return convertProductDTOtoProduct(productDAO.deleteById(client_guest_id));
+	productDAO.deleteById(client_guest_id);
 	}
 public ProductDTO updatebyDTO(ProductEntity  productEntity) {
 	productDAO.update(productEntity);

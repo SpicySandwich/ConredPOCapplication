@@ -29,9 +29,7 @@ public interface ProductDAO {
 		@Result(property = "productexpirationdate", column = "productexpirationdate")
 	})
     public  List <ProductEntity> findAll();
-	
-	@Select("select * from tb_product")
-    public  List <Product> findAll2();
+
 	
 	@Insert("INSERT INTO tb_product(purchase_item,  productname, productbrand,productprice,productdescription,productquantity,productexpirationdate) " +
 		      " VALUES (#{purchase_item}, #{productname}, #{productbrand}, #{productprice}, #{productdescription}, #{productquantity}, #{productexpirationdate} )")
@@ -39,7 +37,7 @@ public interface ProductDAO {
 	public int insert(ProductEntity  productEntity);
 	
 	@Delete("DELETE FROM tb_product WHERE purchase_item = #{purchase_item}")
-	public ProductEntity deleteById(Integer client_guest_id);
+	public int deleteById(Integer client_guest_id);
 	
 	@Select("SELECT * FROM tb_product  WHERE purchase_item = #{purchase_item}")
 	 public ProductEntity findById(Integer client_guest_id);

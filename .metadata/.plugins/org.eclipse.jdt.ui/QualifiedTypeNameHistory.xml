@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest"/>
-    <fullyQualifiedTypeName name="org.junit.jupiter.api.extension.ExtendWith"/>
-    <fullyQualifiedTypeName name="org.springframework.test.context.junit.jupiter.SpringExtension"/>
     <fullyQualifiedTypeName name="org.junit.jupiter.api.DisplayName"/>
     <fullyQualifiedTypeName name="com.mongodb.BasicDBObjectBuilder"/>
     <fullyQualifiedTypeName name="org.springframework.data.mongodb.core.MongoTemplate"/>
@@ -21,7 +18,6 @@
     <fullyQualifiedTypeName name="io.swagger.v3.oas.annotations.OpenAPIDefinition"/>
     <fullyQualifiedTypeName name="io.swagger.v3.oas.annotations.servers.Server"/>
     <fullyQualifiedTypeName name="io.swagger.v3.oas.annotations.info.Info"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
     <fullyQualifiedTypeName name="org.springframework.boot.web.client.RestTemplateBuilder"/>
     <fullyQualifiedTypeName name="org.springframework.http.HttpMethod"/>
@@ -60,4 +56,8 @@
     <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
     <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
     <fullyQualifiedTypeName name="lombok.ToString"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="com.kongapigateway.KongAPIgateway.Model.Cart"/>
+    <fullyQualifiedTypeName name="com.kongapigateway.KongAPIgateway.Service.CartService"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Value"/>
 </qualifiedTypeNameHistroy>

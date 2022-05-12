@@ -1,19 +1,15 @@
 package com.cartgatewayservice.Service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collectors;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.cartgatewayservice.Model.EntityTest;
+
+import com.cartgatewayservice.DTO.ProductDTO;
 import com.cartgatewayservice.Model.ProductEntity;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.google.common.collect.Lists;
-import com.google.protobuf.Empty;
 import com.google.protobuf.Int32Value;
 import com.grpcserver.product.ProductServer.APIResponse;
 import com.grpcserver.product.ProductServer.Product;
@@ -32,23 +28,35 @@ public class ProductService   {
 	 private  ProductServiceGrpc.ProductServiceStub productServiceStub;
 	 private ProductServiceGrpc.ProductServiceBlockingStub productServiceBlockingStub;
 
+	 
+	 
+	 
     private void initializeStub() {
         channel = ManagedChannelBuilder.forAddress("cartservice", 9090).usePlaintext().build();
         productServiceBlockingStub = ProductServiceGrpc.newBlockingStub(channel);
         productServiceStub = ProductServiceGrpc.newStub(channel);
     }
     
+    @Autowired
+	private ModelMapper modelMapper;
+	
+	private ProductDTO convertProductDTOtoProduct (String  productEntity) {
 
+		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
+		ProductDTO productdto = new ProductDTO();
+		productdto = modelMapper.map(productEntity, ProductDTO.class);
+		return productdto;
+		
+	}	
     
+
 
 	
 	  public ProductService() {
 	        initializeStub();
 	    }
 	  
-	  
 	 
-
 	
 	public ProductEntity inserdata(ProductEntity product) {
 		
@@ -87,7 +95,7 @@ public class ProductService   {
 		return productEntity;
 	}
 	
-	public String deletedata(Integer client_guest_id) {
+	public void  deletedata(Integer client_guest_id) {
 
 		
 		ProductEntity productEntity = new ProductEntity();
@@ -99,8 +107,8 @@ public class ProductService   {
 				.setPurchaseItem(productEntity.getPurchase_item())
 				.build()
 				);
-		
-		return response.getResponsemessage();
+	convertProductDTOtoProduct(response.getResponsemessage());
+	
 }
 	
 	public String updatedata(ProductEntity product) {

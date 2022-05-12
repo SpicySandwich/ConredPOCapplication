@@ -7,6 +7,8 @@ spring:
     testWhileIdle: true
     validationQuery: SELECT 1
   
+  jackson:
+    default-property-inclusion:  NON_NULL
          
   sql:
     init:
