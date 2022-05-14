@@ -1,5 +1,9 @@
 version: '3.8'
 
+networks:
+  default:
+    name: product-poc-project-net
+    external: true
 
 services:
   kongapigateway:
@@ -14,6 +18,8 @@ services:
       
   kong:
     image: kong:latest
+    container_name: kong
+    restart: always
     volumes:
       - ./kong.yml:/usr/local/kong/declarative/kong.yml
     environment:
@@ -29,4 +35,4 @@ services:
       - "8443:8443"
       - "127.0.0.1:8001:8001"
       - "127.0.0.1:8444:8444"
-    restart: on-failure
+    

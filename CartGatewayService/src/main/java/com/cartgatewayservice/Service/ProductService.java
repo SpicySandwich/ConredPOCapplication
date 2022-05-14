@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cartgatewayservice.DTO.ProductDTO;
+import com.cartgatewayservice.DateConverter.DateConvert;
 import com.cartgatewayservice.Model.ProductEntity;
 import com.google.protobuf.Int32Value;
 import com.grpcserver.product.ProductServer.APIResponse;
@@ -22,14 +23,14 @@ import io.grpc.ManagedChannelBuilder;
 @Service
 public class ProductService   {
 	
-
+	@Autowired
+	private DateConvert dateConvert;
+	
 	
 	 private ManagedChannel channel;
 	 private  ProductServiceGrpc.ProductServiceStub productServiceStub;
 	 private ProductServiceGrpc.ProductServiceBlockingStub productServiceBlockingStub;
 
-	 
-	 
 	 
     private void initializeStub() {
         channel = ManagedChannelBuilder.forAddress("cartservice", 9090).usePlaintext().build();
@@ -49,14 +50,10 @@ public class ProductService   {
 		
 	}	
     
-
-
-	
 	  public ProductService() {
 	        initializeStub();
 	    }
 	  
-	 
 	
 	public ProductEntity inserdata(ProductEntity product) {
 		
@@ -68,7 +65,7 @@ public class ProductService   {
 			.setProductprice(product.getProductprice())
 			.setProductdescription(product.getProductdescription())
 			.setProductquantity(product.getProductquantity())
-		.setProductexpirationdate(product.getProductexpirationdate())
+		.setProductexpirationdate(dateConvert.getDateFromDateProtoEntity(product.getProductexpirationdate()) )
 			.build());
 	 response.getResponsemessage();
 	
@@ -90,7 +87,7 @@ public class ProductService   {
 		productEntity.setProductprice(product.getProductprice());
 		productEntity.setProductdescription(product.getProductdescription());
 		productEntity.setProductquantity(product.getProductquantity());
-		productEntity.setProductexpirationdate(product.getProductexpirationdate());
+		productEntity.setProductexpirationdate(dateConvert.getDateFromDateProto(product.getProductexpirationdate()));
 			
 		return productEntity;
 	}
@@ -120,7 +117,7 @@ public class ProductService   {
 				.setProductprice(product.getProductprice())
 				.setProductdescription(product.getProductdescription())
 				.setProductquantity(product.getProductquantity())
-			.setProductexpirationdate(product.getProductexpirationdate())
+			.setProductexpirationdate(dateConvert.getDateFromDateProtoEntity(product.getProductexpirationdate()))
 				.build());
 	
 	return response.getResponsemessage();
@@ -148,7 +145,7 @@ public List<ProductEntity> list(){
 			  			.productprice(product.getProductprice())
 			  			.productdescription(product.getProductdescription())
 			  			.productquantity(product.getProductquantity())
-			  			.productexpirationdate(product.getProductexpirationdate())
+			  			.productexpirationdate(dateConvert.getDateFromDateProto(product.getProductexpirationdate()) )
 			  			.build()
 			  			);
 				

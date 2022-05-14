@@ -1,0 +1,134 @@
+_format_version: "2.1"
+_transform: true
+
+services:
+    
+#  ------ Product host -------
+
+#Product add product
+ 
+- host: host.docker.internal
+  port: 8099
+  name: product-add-service
+  path: /product/add
+  routes:
+  - name: product-add-service
+    paths:
+    - /product/add
+    strip_path: true
+    
+ #Product delete product
+    
+- host: host.docker.internal
+  port: 8099
+  name: product-delete-service
+  path: /product/delete
+  routes:
+  - name: product-delete-service
+    paths:
+    - /product/delete
+    strip_path: true
+    
+#Product update product
+
+- host: host.docker.internal
+  port: 8099
+  name: product-update-service
+  path: /product/update
+  routes:
+  - name: product-update-service
+    paths:
+    - /product/update
+    strip_path: true
+    
+#Product findbyId product 
+   
+- host: host.docker.internal
+  port: 8099
+  name: product-find-service
+  path: /product/find
+  routes:
+  - name: product-find-service
+    paths:
+    - /product/find
+    strip_path: true
+    
+#Product List product 
+   
+- host: host.docker.internal
+  port: 8099
+  name: product-list-service
+  path: /product/list
+  routes:
+  - name: product-list-service
+    paths:
+    - /product/list
+    strip_path: true
+  
+#  ------ Cart Product host -------
+
+# Cart Product List product
+   
+- host: host.docker.internal
+  port: 8099
+  name: cart-product-list-service
+  path: /cart/list
+  routes:
+  - name: cart-product-list-service
+    paths:
+    - /cart/list
+    strip_path: true
+
+
+# Cart Product add product
+   
+- host: host.docker.internal
+  port: 8099
+  name: cart-product-add-service
+  path: /cart/add
+  routes:
+  - name: cart-product-add-service
+    paths:
+    - /cart/add
+    strip_path: true
+
+
+# Cart Product delete product
+   
+- host: host.docker.internal
+  port: 8099
+  name: cart-product-delete-service
+  path: /cart/delete
+  routes:
+  - name: cart-product-delete-service
+    paths:
+    - /cart/delete
+    strip_path: true
+
+
+# Cart Product findbyId product
+   
+- host: host.docker.internal
+  port: 8099
+  name: cart-product-findbyId-service
+  path: /cart/find
+  routes:
+  - name: cart-product-findbyId-service
+    paths:
+    - /cart/find
+    strip_path: true
+
+ 
+# Cart Product update product
+   
+- host: host.docker.internal
+  port: 8099
+  name: cart-product-update-service
+  path: /cart/update
+  routes:
+  - name: cart-product-update-service
+    paths:
+    - /cart/update
+    strip_path: true
+
+   

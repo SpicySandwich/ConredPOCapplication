@@ -1,6 +1,8 @@
 package com.cartgatewayservice.DTO;
 
 
+import java.util.Date;
+
 import com.grpcserver.product.ProductServer.Product;
 
 import lombok.AllArgsConstructor;
@@ -22,21 +24,8 @@ public class ProductDTO {
     private Double productprice;
     private String productdescription;
     private Integer productquantity;
-    private String productexpirationdate;
+    private Date productexpirationdate;
     
     
-    
-    public Product toProduct(){
-    	
-    	return Product.newBuilder()
-    			.setPurchaseItem(getPurchase_item())
-    			.setProductname(getProductname())
-    			.setProductbrand(getProductbrand())
-    			.setProductprice(getProductprice())
-    			.setProductdescription(getProductdescription())
-    			.setProductquantity(getProductquantity())
-    			.setProductexpirationdate(getProductexpirationdate())
-    			.build();
-    }
 
 }

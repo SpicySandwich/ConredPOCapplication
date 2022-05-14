@@ -31,14 +31,14 @@ public class ProductService {
 	
 	RestTemplate restTemplate = new RestTemplate();
 	
-	private static final String GET_ALL_PRODUCLIST = "http://localhost:9001/product";
-	private static final String POST_ADD_PRODUCT = "http://localhost:9001/product";
-	private static final String PUT_UPDATE_PRODUCT= "http://localhost:9001/product";
-	private static final String DELETE_PRODUCT = "http://localhost:9001/product/{purchase_item}";
-	private static final String GET_PRODUCT_BYID = "http://localhost:9001/product/{purchase_item}";
+	private static final String GET_ALL_PRODUCLIST = "http://productmicroservice:8091/product";
+	private static final String POST_ADD_PRODUCT = "http://productmicroservice:8091/product";
+	private static final String PUT_UPDATE_PRODUCT= "http://productmicroservice:8091/product";
+	private static final String DELETE_PRODUCT = "http://productmicroservice:8091/product/{purchase_item}";
+	private static final String GET_PRODUCT_BYID = "http://productmicroservice:8091/product/{purchase_item}";
 	
   
-  @Autowired
+
 	
     
 	

@@ -26,11 +26,11 @@ public class CartService {
 
 	RestTemplate restTemplate = new RestTemplate();
 	
-	private static final String GET_ALL_CARTLIST = "http://localhost:9009/cart";
-	private static final String POST_ADD_CART = "http://localhost:9009/cart";
-	private static final String PUT_UPDATE_CART= "http://localhost:9009/cart";
-	private static final String DELETE_CART= "http://localhost:9009/cart/{purchase_item}";
-	private static final String GET_CART_BYID = "http://localhost:9009/cart/{purchase_item}";
+	private static final String GET_ALL_CARTLIST = "http://cartgatewayservice:8094/cart";
+	private static final String POST_ADD_CART = "http://cartgatewayservice:8094/cart";
+	private static final String PUT_UPDATE_CART= "http://cartgatewayservice:8094/cart";
+	private static final String DELETE_CART= "http://cartgatewayservice:8094/cart/{purchase_item}";
+	private static final String GET_CART_BYID = "http://cartgatewayservice:8094/cart/{purchase_item}";
 	
   
 	

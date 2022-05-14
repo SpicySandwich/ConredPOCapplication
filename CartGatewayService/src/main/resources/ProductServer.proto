@@ -3,6 +3,7 @@ syntax = "proto3";
 option java_package = "com.grpcserver.product";
 import "google/protobuf/wrappers.proto";
 import "google/protobuf/empty.proto";
+import "date.proto";
 
 
 
@@ -31,7 +32,7 @@ message Product{
     double productprice = 4;
     string productdescription = 5;
     int32 productquantity = 6;
-   string productexpirationdate = 8;
+   .google.type.Date productexpirationdate = 7;
 
 
 

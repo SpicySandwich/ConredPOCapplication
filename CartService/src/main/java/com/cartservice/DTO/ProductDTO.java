@@ -1,7 +1,10 @@
 package com.cartservice.DTO;
 
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import com.grpcserver.product.ProductServer.Product;
 
@@ -23,39 +26,11 @@ public class ProductDTO {
     private Double productprice;
     private String productdescription;
     private Integer productquantity;
-    private String  productexpirationdate;
+    private Date  productexpirationdate;
 
     
-    public List<Product> GetProductList() {
-    	ProductDTO productEntity = new ProductDTO();
-        return List.of(
-      		  Product.newBuilder()
-      		  .setPurchaseItem(productEntity.getPurchase_item())
-      		  .setProductname(productEntity.getProductname())
-      		  .setProductbrand(productEntity.getProductbrand())
-      		  .setProductprice(productEntity.getProductprice())
-      		  .setProductdescription(productEntity.getProductdescription())
-      		  .setProductquantity(productEntity.getProductquantity())
-      		  .setProductexpirationdate(productEntity.getProductexpirationdate())
-      		  .build()
-      		  );
-         
-  	 }
-    public List<Product> toProduct2(){
-    	
-    	return List.of( Product.newBuilder()
-    			.setPurchaseItem(getPurchase_item())
-    			.setProductname(getProductbrand())
-    			.setProductbrand(getProductbrand())
-    			.setProductprice(getProductprice())
-    			.setProductdescription(getProductdescription())
-    			.setProductquantity(getProductquantity())
-    			.setProductexpirationdate(getProductexpirationdate())
-    			.build());
-    }  
-    
     public Product toProduct(){
-    	
+
     	return Product.newBuilder()
     			.setPurchaseItem(getPurchase_item())
     			.setProductname(getProductbrand())
@@ -63,19 +38,26 @@ public class ProductDTO {
     			.setProductprice(getProductprice())
     			.setProductdescription(getProductdescription())
     			.setProductquantity(getProductquantity())
-    			.setProductexpirationdate(getProductexpirationdate())
+    			.setProductexpirationdate(getDateFromDateProto(getProductexpirationdate()))
     			.build();
     }
     
-//    public ProductList toProductList() {
-//    	
-//    	List<Product> products = new ArrayList<Product>();
-//    	
-//    	return ProductList.newBuilder()
-//    			.addAllProduct(products).build();
-//    	
-//    } 
+	public static com.google.type.Date getDateFromDateProto(Date date) {
+		
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		int year = calendar.get(Calendar.YEAR);
+		int month = calendar.get(Calendar.MONTH);
+		int day = calendar.get(Calendar.DAY_OF_MONTH);
+		
+
+		
+		com.google.type.Date datess = com.google.type.Date.newBuilder().setYear(year).setMonth(month).setDay(day).build();
+		
+        return datess ;
+    }
     
+
    
     
 

@@ -24,12 +24,12 @@ public class CartController {
 	 @Autowired
 	    private CartService cartService;
 
-	    @GetMapping
+	    @GetMapping("/list")
 	    public List<Cart> getData(){
 	        return cartService.getInfo();
 	    }
 
-	    @PostMapping
+	    @PostMapping("/add")
 	    public Cart postData(@RequestBody Cart cart){
 	         cartService.saveData(cart);
 	         return cart;
@@ -37,13 +37,13 @@ public class CartController {
 	    }
 
 
-	    @DeleteMapping("/{purchase_item}")
+	    @DeleteMapping("/delete/{purchase_item}")
 	    public String deleteData(@PathVariable Integer purchase_item, @RequestBody Cart cart){
 	    	cartService.deleteData(purchase_item);
 			return "Succesfully delete id: " + purchase_item;
 	    }
 
-	    @GetMapping("/{purchase_item}")
+	    @GetMapping("/find/{purchase_item}")
 	    public Cart findProduct(@PathVariable Integer purchase_item, @RequestBody Cart cart) {
 	    	
 	    		cartService.findbyid(purchase_item);
@@ -51,7 +51,7 @@ public class CartController {
 	    }
 	    
 	    
-	    @PutMapping
+	    @PutMapping("/update")
 	    public String  updateProduct(@RequestBody Cart cart){
 	    	cartService.updateProductr(cart);
 			return "Succesfully updated " + cart;

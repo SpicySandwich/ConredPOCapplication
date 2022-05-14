@@ -23,32 +23,32 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @GetMapping
+    @GetMapping("/list")
     public List<Product> getData(){
         return productService.getInfo();
     }
 
-    @PostMapping
+    @PostMapping("/add")
     public String postData(@RequestBody Product product){
         return productService.saveData(product);
         
     }
 
 
-    @DeleteMapping("/{purchase_item}")
+    @DeleteMapping("/delete/{purchase_item}")
     public String deleteData(@PathVariable Integer purchase_item, @RequestBody Product product ){
         productService.deleteData(purchase_item);
 		return "Succesfully delete id: " + purchase_item;
     }
 
-    @GetMapping("/{purchase_item}")
+    @GetMapping("/find/{purchase_item}")
     public Product findProduct(@PathVariable Integer purchase_item) {
     	
     	return	productService.findbyid(purchase_item);
     }
     
     
-    @PutMapping
+    @PutMapping("/update")
     public String  updateProduct(@RequestBody Product product){
          productService.updateProductr(product);
 		return "Succesfully updated " + product;

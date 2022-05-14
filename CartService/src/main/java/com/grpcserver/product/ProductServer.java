@@ -64,14 +64,17 @@ public final class ProductServer {
     int getProductquantity();
 
     /**
-     * <code>optional string productexpirationdate = 8;</code>
+     * <code>optional .google.type.Date productexpirationdate = 7;</code>
      */
-    java.lang.String getProductexpirationdate();
+    boolean hasProductexpirationdate();
     /**
-     * <code>optional string productexpirationdate = 8;</code>
+     * <code>optional .google.type.Date productexpirationdate = 7;</code>
      */
-    com.google.protobuf.ByteString
-        getProductexpirationdateBytes();
+    com.google.type.Date getProductexpirationdate();
+    /**
+     * <code>optional .google.type.Date productexpirationdate = 7;</code>
+     */
+    com.google.type.DateOrBuilder getProductexpirationdateOrBuilder();
   }
   /**
    * Protobuf type {@code Product}
@@ -91,7 +94,6 @@ public final class ProductServer {
       productprice_ = 0D;
       productdescription_ = "";
       productquantity_ = 0;
-      productexpirationdate_ = "";
     }
 
     @java.lang.Override
@@ -152,10 +154,17 @@ public final class ProductServer {
               productquantity_ = input.readInt32();
               break;
             }
-            case 66: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 58: {
+              com.google.type.Date.Builder subBuilder = null;
+              if (productexpirationdate_ != null) {
+                subBuilder = productexpirationdate_.toBuilder();
+              }
+              productexpirationdate_ = input.readMessage(com.google.type.Date.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(productexpirationdate_);
+                productexpirationdate_ = subBuilder.buildPartial();
+              }
 
-              productexpirationdate_ = s;
               break;
             }
           }
@@ -310,38 +319,25 @@ public final class ProductServer {
       return productquantity_;
     }
 
-    public static final int PRODUCTEXPIRATIONDATE_FIELD_NUMBER = 8;
-    private volatile java.lang.Object productexpirationdate_;
+    public static final int PRODUCTEXPIRATIONDATE_FIELD_NUMBER = 7;
+    private com.google.type.Date productexpirationdate_;
     /**
-     * <code>optional string productexpirationdate = 8;</code>
+     * <code>optional .google.type.Date productexpirationdate = 7;</code>
      */
-    public java.lang.String getProductexpirationdate() {
-      java.lang.Object ref = productexpirationdate_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        productexpirationdate_ = s;
-        return s;
-      }
+    public boolean hasProductexpirationdate() {
+      return productexpirationdate_ != null;
     }
     /**
-     * <code>optional string productexpirationdate = 8;</code>
+     * <code>optional .google.type.Date productexpirationdate = 7;</code>
      */
-    public com.google.protobuf.ByteString
-        getProductexpirationdateBytes() {
-      java.lang.Object ref = productexpirationdate_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        productexpirationdate_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public com.google.type.Date getProductexpirationdate() {
+      return productexpirationdate_ == null ? com.google.type.Date.getDefaultInstance() : productexpirationdate_;
+    }
+    /**
+     * <code>optional .google.type.Date productexpirationdate = 7;</code>
+     */
+    public com.google.type.DateOrBuilder getProductexpirationdateOrBuilder() {
+      return getProductexpirationdate();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -374,8 +370,8 @@ public final class ProductServer {
       if (productquantity_ != 0) {
         output.writeInt32(6, productquantity_);
       }
-      if (!getProductexpirationdateBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, productexpirationdate_);
+      if (productexpirationdate_ != null) {
+        output.writeMessage(7, getProductexpirationdate());
       }
     }
 
@@ -405,8 +401,9 @@ public final class ProductServer {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(6, productquantity_);
       }
-      if (!getProductexpirationdateBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, productexpirationdate_);
+      if (productexpirationdate_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, getProductexpirationdate());
       }
       memoizedSize = size;
       return size;
@@ -438,8 +435,11 @@ public final class ProductServer {
           .equals(other.getProductdescription());
       result = result && (getProductquantity()
           == other.getProductquantity());
-      result = result && getProductexpirationdate()
-          .equals(other.getProductexpirationdate());
+      result = result && (hasProductexpirationdate() == other.hasProductexpirationdate());
+      if (hasProductexpirationdate()) {
+        result = result && getProductexpirationdate()
+            .equals(other.getProductexpirationdate());
+      }
       return result;
     }
 
@@ -463,8 +463,10 @@ public final class ProductServer {
       hash = (53 * hash) + getProductdescription().hashCode();
       hash = (37 * hash) + PRODUCTQUANTITY_FIELD_NUMBER;
       hash = (53 * hash) + getProductquantity();
-      hash = (37 * hash) + PRODUCTEXPIRATIONDATE_FIELD_NUMBER;
-      hash = (53 * hash) + getProductexpirationdate().hashCode();
+      if (hasProductexpirationdate()) {
+        hash = (37 * hash) + PRODUCTEXPIRATIONDATE_FIELD_NUMBER;
+        hash = (53 * hash) + getProductexpirationdate().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -595,8 +597,12 @@ public final class ProductServer {
 
         productquantity_ = 0;
 
-        productexpirationdate_ = "";
-
+        if (productexpirationdateBuilder_ == null) {
+          productexpirationdate_ = null;
+        } else {
+          productexpirationdate_ = null;
+          productexpirationdateBuilder_ = null;
+        }
         return this;
       }
 
@@ -625,7 +631,11 @@ public final class ProductServer {
         result.productprice_ = productprice_;
         result.productdescription_ = productdescription_;
         result.productquantity_ = productquantity_;
-        result.productexpirationdate_ = productexpirationdate_;
+        if (productexpirationdateBuilder_ == null) {
+          result.productexpirationdate_ = productexpirationdate_;
+        } else {
+          result.productexpirationdate_ = productexpirationdateBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -688,9 +698,8 @@ public final class ProductServer {
         if (other.getProductquantity() != 0) {
           setProductquantity(other.getProductquantity());
         }
-        if (!other.getProductexpirationdate().isEmpty()) {
-          productexpirationdate_ = other.productexpirationdate_;
-          onChanged();
+        if (other.hasProductexpirationdate()) {
+          mergeProductexpirationdate(other.getProductexpirationdate());
         }
         onChanged();
         return this;
@@ -1003,73 +1012,121 @@ public final class ProductServer {
         return this;
       }
 
-      private java.lang.Object productexpirationdate_ = "";
+      private com.google.type.Date productexpirationdate_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.type.Date, com.google.type.Date.Builder, com.google.type.DateOrBuilder> productexpirationdateBuilder_;
       /**
-       * <code>optional string productexpirationdate = 8;</code>
+       * <code>optional .google.type.Date productexpirationdate = 7;</code>
        */
-      public java.lang.String getProductexpirationdate() {
-        java.lang.Object ref = productexpirationdate_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          productexpirationdate_ = s;
-          return s;
+      public boolean hasProductexpirationdate() {
+        return productexpirationdateBuilder_ != null || productexpirationdate_ != null;
+      }
+      /**
+       * <code>optional .google.type.Date productexpirationdate = 7;</code>
+       */
+      public com.google.type.Date getProductexpirationdate() {
+        if (productexpirationdateBuilder_ == null) {
+          return productexpirationdate_ == null ? com.google.type.Date.getDefaultInstance() : productexpirationdate_;
         } else {
-          return (java.lang.String) ref;
+          return productexpirationdateBuilder_.getMessage();
         }
       }
       /**
-       * <code>optional string productexpirationdate = 8;</code>
+       * <code>optional .google.type.Date productexpirationdate = 7;</code>
        */
-      public com.google.protobuf.ByteString
-          getProductexpirationdateBytes() {
-        java.lang.Object ref = productexpirationdate_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          productexpirationdate_ = b;
-          return b;
+      public Builder setProductexpirationdate(com.google.type.Date value) {
+        if (productexpirationdateBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          productexpirationdate_ = value;
+          onChanged();
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          productexpirationdateBuilder_.setMessage(value);
         }
+
+        return this;
       }
       /**
-       * <code>optional string productexpirationdate = 8;</code>
+       * <code>optional .google.type.Date productexpirationdate = 7;</code>
        */
       public Builder setProductexpirationdate(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        productexpirationdate_ = value;
-        onChanged();
+          com.google.type.Date.Builder builderForValue) {
+        if (productexpirationdateBuilder_ == null) {
+          productexpirationdate_ = builderForValue.build();
+          onChanged();
+        } else {
+          productexpirationdateBuilder_.setMessage(builderForValue.build());
+        }
+
         return this;
       }
       /**
-       * <code>optional string productexpirationdate = 8;</code>
+       * <code>optional .google.type.Date productexpirationdate = 7;</code>
+       */
+      public Builder mergeProductexpirationdate(com.google.type.Date value) {
+        if (productexpirationdateBuilder_ == null) {
+          if (productexpirationdate_ != null) {
+            productexpirationdate_ =
+              com.google.type.Date.newBuilder(productexpirationdate_).mergeFrom(value).buildPartial();
+          } else {
+            productexpirationdate_ = value;
+          }
+          onChanged();
+        } else {
+          productexpirationdateBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .google.type.Date productexpirationdate = 7;</code>
        */
       public Builder clearProductexpirationdate() {
-        
-        productexpirationdate_ = getDefaultInstance().getProductexpirationdate();
-        onChanged();
+        if (productexpirationdateBuilder_ == null) {
+          productexpirationdate_ = null;
+          onChanged();
+        } else {
+          productexpirationdate_ = null;
+          productexpirationdateBuilder_ = null;
+        }
+
         return this;
       }
       /**
-       * <code>optional string productexpirationdate = 8;</code>
+       * <code>optional .google.type.Date productexpirationdate = 7;</code>
        */
-      public Builder setProductexpirationdateBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      public com.google.type.Date.Builder getProductexpirationdateBuilder() {
         
-        productexpirationdate_ = value;
         onChanged();
-        return this;
+        return getProductexpirationdateFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .google.type.Date productexpirationdate = 7;</code>
+       */
+      public com.google.type.DateOrBuilder getProductexpirationdateOrBuilder() {
+        if (productexpirationdateBuilder_ != null) {
+          return productexpirationdateBuilder_.getMessageOrBuilder();
+        } else {
+          return productexpirationdate_ == null ?
+              com.google.type.Date.getDefaultInstance() : productexpirationdate_;
+        }
+      }
+      /**
+       * <code>optional .google.type.Date productexpirationdate = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.type.Date, com.google.type.Date.Builder, com.google.type.DateOrBuilder> 
+          getProductexpirationdateFieldBuilder() {
+        if (productexpirationdateBuilder_ == null) {
+          productexpirationdateBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.type.Date, com.google.type.Date.Builder, com.google.type.DateOrBuilder>(
+                  getProductexpirationdate(),
+                  getParentForChildren(),
+                  isClean());
+          productexpirationdate_ = null;
+        }
+        return productexpirationdateBuilder_;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2644,21 +2701,23 @@ public final class ProductServer {
     java.lang.String[] descriptorData = {
       "\n\023ProductServer.proto\032\036google/protobuf/w" +
       "rappers.proto\032\033google/protobuf/empty.pro" +
-      "to\"\265\001\n\007Product\022\025\n\rpurchase_item\030\001 \001(\005\022\023\n" +
-      "\013productname\030\002 \001(\t\022\024\n\014productbrand\030\003 \001(\t" +
-      "\022\024\n\014productprice\030\004 \001(\001\022\032\n\022productdescrip" +
-      "tion\030\005 \001(\t\022\027\n\017productquantity\030\006 \001(\005\022\035\n\025p" +
-      "roductexpirationdate\030\010 \001(\t\"Z\n\013ProductLis" +
-      "t\022\031\n\007product\030\001 \003(\0132\010.Product\0220\n\013resultCo" +
-      "unt\030\002 \001(\0132\033.google.protobuf.Int64Value\"<" +
-      "\n\013APIResponse\022\027\n\017responsemessage\030\001 \001(\t\022\024",
-      "\n\014responseCode\030\002 \001(\0052\330\001\n\016ProductService\022" +
-      ")\n\017findAllRepeated\022\010.Product\032\014.ProductLi" +
-      "st\022 \n\006insert\022\010.Product\032\014.APIResponse\022$\n\n" +
-      "deleteById\022\010.Product\032\014.APIResponse\0221\n\010fi" +
-      "ndById\022\033.google.protobuf.Int32Value\032\010.Pr" +
-      "oduct\022 \n\006update\022\010.Product\032\014.APIResponseB" +
-      "\030\n\026com.grpcserver.productb\006proto3"
+      "to\032\037google/protobuf/timestamp.proto\032\ndat" +
+      "e.proto\"\310\001\n\007Product\022\025\n\rpurchase_item\030\001 \001" +
+      "(\005\022\023\n\013productname\030\002 \001(\t\022\024\n\014productbrand\030" +
+      "\003 \001(\t\022\024\n\014productprice\030\004 \001(\001\022\032\n\022productde" +
+      "scription\030\005 \001(\t\022\027\n\017productquantity\030\006 \001(\005" +
+      "\0220\n\025productexpirationdate\030\007 \001(\0132\021.google" +
+      ".type.Date\"Z\n\013ProductList\022\031\n\007product\030\001 \003" +
+      "(\0132\010.Product\0220\n\013resultCount\030\002 \001(\0132\033.goog",
+      "le.protobuf.Int64Value\"<\n\013APIResponse\022\027\n" +
+      "\017responsemessage\030\001 \001(\t\022\024\n\014responseCode\030\002" +
+      " \001(\0052\330\001\n\016ProductService\022)\n\017findAllRepeat" +
+      "ed\022\010.Product\032\014.ProductList\022 \n\006insert\022\010.P" +
+      "roduct\032\014.APIResponse\022$\n\ndeleteById\022\010.Pro" +
+      "duct\032\014.APIResponse\0221\n\010findById\022\033.google." +
+      "protobuf.Int32Value\032\010.Product\022 \n\006update\022" +
+      "\010.Product\032\014.APIResponseB\030\n\026com.grpcserve" +
+      "r.productb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2673,6 +2732,8 @@ public final class ProductServer {
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.WrappersProto.getDescriptor(),
           com.google.protobuf.EmptyProto.getDescriptor(),
+          com.google.protobuf.TimestampProto.getDescriptor(),
+          com.google.type.DateProto.getDescriptor(),
         }, assigner);
     internal_static_Product_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -2694,6 +2755,8 @@ public final class ProductServer {
         new java.lang.String[] { "Responsemessage", "ResponseCode", });
     com.google.protobuf.WrappersProto.getDescriptor();
     com.google.protobuf.EmptyProto.getDescriptor();
+    com.google.protobuf.TimestampProto.getDescriptor();
+    com.google.type.DateProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

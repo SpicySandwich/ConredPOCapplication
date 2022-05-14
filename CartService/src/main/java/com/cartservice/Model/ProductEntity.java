@@ -1,9 +1,10 @@
 package com.cartservice.Model;
 
+
+import java.util.Calendar;
 import java.util.Date;
 
-import com.google.protobuf.StringValue;
-import com.google.protobuf.Timestamp;
+import com.grpcserver.product.ProductServer.Product;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,20 +21,35 @@ public class ProductEntity {
     private Double productprice;
     private String productdescription;
     private Integer productquantity;
-    private String   productexpirationdate;
+    private Date  productexpirationdate;
     
-//    public static Product  fromProduct(com.grpcserver.GuestClientServer.Product product) {
-//    	Product product2 = new Product();
-//    	product2.setPurchase_item(product.getPurchaseItem());
-//    	product2.setProductname(product.getProductname());
-//    	product2.setProductbrand(product.getProductbrand());
-//    	product2.setProductprice(product.getProductprice());
-//    	product2.setProductdescription(product.getProductdescription());
-//    	product2.setProductcurrentdate(product.getProductcurrentdate());
-//    	product2.setProductexpirationdate(product.getProductexpirationdate());
-//    	
-//    	return product2;
-//    }
+    public Product toProduct(){
+
+    	return Product.newBuilder()
+    			.setPurchaseItem(getPurchase_item())
+    			.setProductname(getProductbrand())
+    			.setProductbrand(getProductbrand())
+    			.setProductprice(getProductprice())
+    			.setProductdescription(getProductdescription())
+    			.setProductquantity(getProductquantity())
+    			.setProductexpirationdate(getDateFromDateProto(getProductexpirationdate()))
+    			.build();
+    }
+    
+	public static com.google.type.Date getDateFromDateProto(Date date) {
+		
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		int year = calendar.get(Calendar.YEAR);
+		int month = calendar.get(Calendar.MONTH);
+		int day = calendar.get(Calendar.DAY_OF_MONTH);
+		
+		com.google.type.Date datess = com.google.type.Date.newBuilder().setYear(year).setMonth(month).setDay(day).build();
+		
+        return datess ;
+    }
+    
+
     
 
 }

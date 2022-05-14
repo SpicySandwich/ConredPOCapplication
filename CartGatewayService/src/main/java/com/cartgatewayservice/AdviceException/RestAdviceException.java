@@ -11,6 +11,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
+import com.cartgatewayservice.RestModelException.DATE_FORMAT_EXCEPTION;
 import com.cartgatewayservice.RestModelException.ERROR_DETAILS_EXCEPTION;
 import com.cartgatewayservice.RestModelException.EXISTING_EMAIL_EXCEPTION;
 import com.cartgatewayservice.RestModelException.ID_NOT_FOUND;
@@ -45,6 +46,13 @@ public class RestAdviceException extends ResponseEntityExceptionHandler {
 	@ExceptionHandler(ID_NOT_FOUND.class)
 	public ResponseEntity<Object> handleNoIDFoundException(ID_NOT_FOUND ex, WebRequest request) {
 		return new ResponseEntity<Object>(new ERROR_DETAILS_EXCEPTION(ex.getMessage(), HttpStatus.NOT_FOUND, LocalDateTime.now()),HttpStatus.NOT_FOUND);
+		
+	
+	}
+	
+	@ExceptionHandler(DATE_FORMAT_EXCEPTION.class)
+	public ResponseEntity<Object> handleNoIDFoundException(DATE_FORMAT_EXCEPTION ex, WebRequest request) {
+		return new ResponseEntity<Object>(new ERROR_DETAILS_EXCEPTION(ex.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY, LocalDateTime.now()),HttpStatus.NOT_FOUND);
 		
 	
 	}

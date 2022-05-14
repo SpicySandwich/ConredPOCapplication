@@ -15,14 +15,23 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
-		<inso.executable.path>inso</inso.executable.path>
+	
 	</properties>
 	<dependencies>
+	
 	<dependency>
-			<groupId>io.rest-assured</groupId>
-			<artifactId>rest-assured</artifactId>
-			<scope>test</scope>
-		</dependency>
+    <groupId>org.glassfish</groupId>
+    <artifactId>javax.el</artifactId>
+    <version>3.0.0</version>
+</dependency>
+
+<dependency>
+    <groupId>javax.el</groupId>
+    <artifactId>javax.el-api</artifactId>
+    <version>3.0.0</version>
+</dependency>
+	
+
 	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -52,11 +61,12 @@
     <version>5.2.1.RELEASE</version><!--$NO-MVN-MAN-VER$-->
 </dependency>
 
-<dependency>
+ <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-ui</artifactId>
       <version>1.6.6</version>
    </dependency>
+	
 	
 		
 	
@@ -65,68 +75,20 @@
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<executions>
-        <execution>
-            <id>pre-integration-test</id>
-            <goals>
-                <goal>start</goal>
-            </goals>
-        </execution>
-        <execution>
-            <id>post-integration-test</id>
-            <goals>
-                <goal>stop</goal>
-            </goals>
-        </execution>
-    </executions>
-				
+		<plugin>
+				   <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+         <configuration>
+          <excludes>
+            <exclude>
+              <groupId>org.projectlombok</groupId>
+              <artifactId>lombok</artifactId>
+            </exclude>
+          </excludes>
+        </configuration>
 			</plugin>
 			
 			
-			<plugin>
-    <groupId>org.springdoc</groupId>
-    <artifactId>springdoc-openapi-maven-plugin</artifactId>
-    <version>1.1</version>
-    <executions>
-        <execution>
-            <phase>integration-test</phase>
-            <goals>
-                <goal>generate</goal>
-            </goals>
-        </execution>
-    </executions>
-</plugin>
-
-
-<plugin>
-    <groupId>org.codehaus.mojo</groupId>
-    <artifactId>exec-maven-plugin</artifactId>
-    <version>3.0.0</version>
-    <executions>
-        <execution>
-            <id>execute-inso-cli</id>
-            <phase>verify</phase>
-            <goals>
-                <goal>exec</goal>
-            </goals>
-        </execution>
-    </executions>
-    <configuration>
-        <arguments>
-            <argument>generate</argument>
-            <argument>config</argument>
-            <argument>target/openapi.json</argument>
-            <argument>--output</argument>
-            <argument>../kong/kong.yml</argument>
-            <argument>--type</argument>
-            <argument>declarative</argument>
-            <argument>--verbose</argument>
-        </arguments>
-    </configuration>
-</plugin>
 			
 		</plugins>
 		
