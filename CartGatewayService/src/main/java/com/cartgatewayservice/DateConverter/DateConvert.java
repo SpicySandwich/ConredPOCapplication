@@ -47,8 +47,22 @@ LocalDate currentdate = LocalDate.now();
 	    }
 		com.google.type.Date datess = com.google.type.Date.newBuilder().setYear(year).setMonth(month).setDay(day).build();
 		
-		   
-		    
+  
+		
+        return datess ;
+    }
+	
+	public  com.google.type.Date getDateFromDateProtoForUpdate(Date date) {
+
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		int year = calendar.get(Calendar.YEAR);
+		int month = calendar.get(Calendar.MONTH);
+		int day = calendar.get(Calendar.DAY_OF_MONTH);
+		
+		com.google.type.Date datess = com.google.type.Date.newBuilder().setYear(year).setMonth(month).setDay(day).build();
+		
+  
 		
         return datess ;
     }

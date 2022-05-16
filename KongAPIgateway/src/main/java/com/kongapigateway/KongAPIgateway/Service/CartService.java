@@ -61,13 +61,13 @@ public class CartService {
 	 
 	   public Cart saveData(Cart cart) {
 		 
-		   try {
+	//	   try {
 			   restTemplate.postForEntity(POST_ADD_CART, cart, Cart.class);
 			    return   cart;
-		} catch (Exception e) {
-			throw new ProductValueNotNull("Kindly fill up all fields");
-		}
-		    
+//		} catch (Exception e) {
+//			throw new ProductValueNotNull("Kindly fill up all fields");
+//		}
+//		    
      
 	    }
 	   

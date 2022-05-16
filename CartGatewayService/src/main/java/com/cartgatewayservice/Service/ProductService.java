@@ -117,7 +117,7 @@ public class ProductService   {
 				.setProductprice(product.getProductprice())
 				.setProductdescription(product.getProductdescription())
 				.setProductquantity(product.getProductquantity())
-			.setProductexpirationdate(dateConvert.getDateFromDateProtoEntity(product.getProductexpirationdate()))
+			.setProductexpirationdate(dateConvert.getDateFromDateProtoForUpdate(product.getProductexpirationdate()))
 				.build());
 	
 	return response.getResponsemessage();

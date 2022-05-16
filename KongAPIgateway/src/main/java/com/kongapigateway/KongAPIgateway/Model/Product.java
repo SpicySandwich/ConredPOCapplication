@@ -22,5 +22,7 @@ private Integer purchase_item;
 	      private String productdescription;
 	      private Integer productquantity;
 	      private Date productexpirationdate;
+	      
+	      
 
 }
