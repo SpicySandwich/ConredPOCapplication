@@ -1,4 +1,4 @@
-/.metadata/
-/.sonarlint/
-/RemoteSystemsTempFiles/
-/ProductFrontEnd/
+metadata/
+sonarlint/
+RemoteSystemsTempFiles/
+ProductFrontEnd/
