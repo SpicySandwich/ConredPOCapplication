@@ -3,7 +3,6 @@ package com.cartservice.Model;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Objects;
 
 import com.google.protobuf.DoubleValue;
 import com.google.protobuf.Int32Value;
@@ -57,9 +56,6 @@ public class ProductEntity {
 		return Int32Value.of(integer);
     	
     }
-    
-    
-
     
 	public static com.google.type.Date getDateFromDateProto(Date date) {
 		

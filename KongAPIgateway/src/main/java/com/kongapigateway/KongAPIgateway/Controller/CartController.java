@@ -46,8 +46,8 @@ public class CartController {
 	    @GetMapping("/find/{purchase_item}")
 	    public Cart findProduct(@PathVariable Integer purchase_item, @RequestBody Cart cart) {
 	    	
-	    	return 	cartService.findbyid(purchase_item);
-	 
+	    		cartService.findbyid(purchase_item);
+	    		return cart;
 	    }
 	    
 	    

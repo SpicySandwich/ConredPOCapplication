@@ -2,7 +2,6 @@ package com.kongapigateway.KongAPIgateway.GlobalException;
 
 import java.time.LocalDateTime;
 
-import com.kongapigateway.KongAPIgateway.ModelException.DATE_FORMAT_EXCEPTION;
 import com.kongapigateway.KongAPIgateway.ModelException.ErrorDetail;
 import com.kongapigateway.KongAPIgateway.ModelException.ProductExecption;
 import com.kongapigateway.KongAPIgateway.ModelException.ProductIDnotFound;
@@ -48,13 +47,5 @@ public class ControllerExceptionViewer extends  ResponseEntityExceptionHandler {
 		return new ResponseEntity<Object>(new ErrorDetail(ex.getMessage(), HttpStatus.BAD_REQUEST, LocalDateTime.now()),HttpStatus.NOT_FOUND);
 		
 	}
-	
-	@ExceptionHandler(DATE_FORMAT_EXCEPTION.class)
-	public ResponseEntity<Object> handleNoIDFoundException(DATE_FORMAT_EXCEPTION ex, WebRequest request) {
-		return new ResponseEntity<Object>(new ErrorDetail(ex.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY, LocalDateTime.now()),HttpStatus.NOT_FOUND);
-		
-	
-	}
-	
 
 }

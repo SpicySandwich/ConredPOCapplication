@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 import com.kongapigateway.KongAPIgateway.Model.Cart;
 import com.kongapigateway.KongAPIgateway.ModelException.ProductExecption;
@@ -61,13 +60,6 @@ public class CartService {
 	    }
 	 
 	   public Cart saveData(Cart cart) {
-		   
-			 if( Objects.isNull( cart )) {
-					
-					throw new ProductValueNotNull("Please fill up all field");
-			
-			 
-		 }
 		 
 	//	   try {
 			   restTemplate.postForEntity(POST_ADD_CART, cart, Cart.class);
@@ -107,7 +99,7 @@ public class CartService {
 			   proMap.put("purchase_item", purchase_item);
 			   Cart cart = new Cart();
 			   HttpEntity<Cart> requestEntity = new HttpEntity<Cart>(cart);
-			  ResponseEntity<Cart> responseEntity2 = restTemplate.exchange(GET_CART_BYID, HttpMethod.GET, requestEntity, Cart.class, proMap);
+			  ResponseEntity<Cart> responseEntity2 = restTemplate.exchange(GET_CART_BYID, HttpMethod.DELETE, requestEntity, Cart.class, proMap);
 		          
 			  Cart cart2 = responseEntity2.getBody();
 			  
