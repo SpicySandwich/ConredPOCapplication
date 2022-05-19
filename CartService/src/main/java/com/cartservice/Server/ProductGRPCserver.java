@@ -1,30 +1,17 @@
 package com.cartservice.Server;
 
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import com.cartservice.ConvertParameters.BodyConvertParametrs;
 import com.cartservice.DTO.ProductDTO;
-import com.cartservice.DateProtoConvert.DateConvert;
-import com.cartservice.Model.ProductEntity;
-import com.cartservice.Repository.ProductDAO;
 import com.cartservice.Service.ProductServiceImpl;
 import com.google.protobuf.Int32Value;
 import com.google.protobuf.Int64Value;
-import com.google.protobuf.StringValue;
-import com.google.protobuf.Timestamp;
-import com.google.protobuf.util.Timestamps;
 import com.grpcserver.product.ProductServer.APIResponse;
 import com.grpcserver.product.ProductServer.Product;
 import com.grpcserver.product.ProductServer.ProductList;
@@ -39,48 +26,30 @@ public class ProductGRPCserver  extends ProductServiceImplBase{
 	@Autowired
 	private ProductServiceImpl productServiceImpl;
 	
-	
 	@Autowired
-	private DateConvert dateConvert;
+	private BodyConvertParametrs  bodyConvertParametrs;
 
 	@Override
 	public void insert(Product request, StreamObserver<APIResponse> responseObserver) {
 
-	
-	ProductEntity productEntity = new ProductEntity();
+		productServiceImpl.saveDataFromDTO(bodyConvertParametrs.bodyData(request));
 
-	
-	productEntity.setPurchase_item(request.getPurchaseItem());
-	productEntity.setProductname(request.getProductname());
-	productEntity.setProductbrand(request.getProductbrand());
-	productEntity.setProductprice(request.getProductprice());
-	productEntity.setProductdescription(request.getProductdescription());
-	productEntity.setProductquantity(request.getProductquantity());
-	productEntity.setProductexpirationdate(dateConvert.getDateFromDateProto(request.getProductexpirationdate()));
-
-
-	productServiceImpl.saveDataFromDTO(productEntity);
 	APIResponse.Builder  responce = APIResponse.newBuilder();
-	responce.setResponseCode(0).setResponsemessage("Succefull added to database " +productEntity);
+	responce.setResponseCode(0).setResponsemessage("Succefull added to database " );
 	
 	responseObserver.onNext(responce.build());
 	responseObserver.onCompleted();	
 		
-	
-	
-		
+
 	}
 	
-
-
-
 
 	@Override
 	public void deleteById(Product request, StreamObserver<APIResponse> responseObserver) {
 	
 		APIResponse.Builder  responce = APIResponse.newBuilder();
 		
-		productServiceImpl.deleteDTO(request.getPurchaseItem());
+		productServiceImpl.deleteDTO(bodyConvertParametrs.convertJavaInteger(request.getPurchaseItem()));
 		
 		responce.setResponseCode(0).setResponsemessage("Succesfuly deleted");
 		
@@ -102,17 +71,7 @@ public class ProductGRPCserver  extends ProductServiceImplBase{
 	@Override
 	public void update(Product request, StreamObserver<APIResponse> responseObserver) {
 	
-		ProductEntity productEntity = new ProductEntity();
-		
-		productEntity.setPurchase_item(request.getPurchaseItem());
-		productEntity.setProductname(request.getProductname());
-		productEntity.setProductbrand(request.getProductbrand());
-		productEntity.setProductprice(request.getProductprice());
-		productEntity.setProductdescription(request.getProductdescription());
-		productEntity.setProductquantity(request.getProductquantity());
-		productEntity.setProductexpirationdate(dateConvert.getDateFromDateProto(request.getProductexpirationdate()));
-		
-		productServiceImpl.updatebyDTO(productEntity);
+		productServiceImpl.updatebyDTO(bodyConvertParametrs.bodyData(request));
 		
 		APIResponse.Builder  responce = APIResponse.newBuilder();
 		
@@ -138,15 +97,6 @@ public class ProductGRPCserver  extends ProductServiceImplBase{
 
 
 
-
-
-
-
-
-	
-
-	
-	
 
 
 }

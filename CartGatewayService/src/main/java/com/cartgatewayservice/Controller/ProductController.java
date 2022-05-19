@@ -56,7 +56,7 @@ public class ProductController {
     }
     
     @GetMapping("/{purchase_item}")
-	 public ProductEntity  getGuestClientData(@PathVariable Integer purchase_item, @RequestBody ProductEntity productEntityt) {
+	 public ProductEntity  getGuestClientData(@PathVariable Integer purchase_item) {
     	
     	return productService.findbyid(purchase_item);
        

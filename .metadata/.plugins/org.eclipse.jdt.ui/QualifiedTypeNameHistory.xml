@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
-    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonProperty"/>
-    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnoreProperties"/>
-    <fullyQualifiedTypeName name="lombok.Getter"/>
-    <fullyQualifiedTypeName name="lombok.Setter"/>
-    <fullyQualifiedTypeName name="org.springframework.web.client.RestTemplate"/>
-    <fullyQualifiedTypeName name="com.kongapigateway.KongAPIgateway.Controller.KongController"/>
     <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
     <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
     <fullyQualifiedTypeName name="lombok.ToString"/>
@@ -18,12 +11,9 @@
     <fullyQualifiedTypeName name="com.kongapigateway.KongAPIgateway.ModelException.ProductExecption"/>
     <fullyQualifiedTypeName name="com.kongapigateway.KongAPIgateway.Service.ProductValueNotNull"/>
     <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonInclude"/>
-    <fullyQualifiedTypeName name="com.kongapigateway.KongAPIgateway.ModelException.ProductValueNotNull"/>
     <fullyQualifiedTypeName name="com.kongapigateway.KongAPIgateway.ModelException.ProductIDnotFound"/>
     <fullyQualifiedTypeName name="org.springframework.web.client.HttpClientErrorException.NotFound"/>
-    <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
     <fullyQualifiedTypeName name="com.kongapigateway.KongAPIgateway.Model.Cart"/>
-    <fullyQualifiedTypeName name="com.kongapigateway.KongAPIgateway.Model.Product"/>
     <fullyQualifiedTypeName name="lombok.Data"/>
     <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
     <fullyQualifiedTypeName name="com.google.type.DateTime"/>
@@ -49,15 +39,25 @@
     <fullyQualifiedTypeName name="com.google.type.Date.Builder"/>
     <fullyQualifiedTypeName name="com.google.type.Date"/>
     <fullyQualifiedTypeName name="com.cartservice.DateProtoConvert.DateConvert"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="com.cartgatewayservice.DateConverter.DateConvert"/>
-    <fullyQualifiedTypeName name="java.util.Date"/>
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="java.time.Year"/>
     <fullyQualifiedTypeName name="java.time.YearMonth"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
     <fullyQualifiedTypeName name="java.time.Month"/>
     <fullyQualifiedTypeName name="com.cartgatewayservice.RestModelException.DATE_FORMAT_EXCEPTION"/>
     <fullyQualifiedTypeName name="com.cartgatewayservice.Model.ProductEntity"/>
+    <fullyQualifiedTypeName name="com.kongapigateway.KongAPIgateway.ModelException.DATE_FORMAT_EXCEPTION"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.kongapigateway.KongAPIgateway.DateValidation"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.databind.introspect.TypeResolutionContext.Empty"/>
+    <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
+    <fullyQualifiedTypeName name="java.lang.Object"/>
+    <fullyQualifiedTypeName name="com.kongapigateway.KongAPIgateway.ModelException.ProductValueNotNull"/>
+    <fullyQualifiedTypeName name="java.lang.InternalError"/>
+    <fullyQualifiedTypeName name="java.lang.Double"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="com.kongapigateway.KongAPIgateway.Model.Product"/>
+    <fullyQualifiedTypeName name="java.util.Objects"/>
 </qualifiedTypeNameHistroy>

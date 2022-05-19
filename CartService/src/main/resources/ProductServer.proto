@@ -24,12 +24,12 @@ service ProductService{
 
 message Product{
 
-	int32 purchase_item = 1;
-    string productname = 2;
-    string productbrand = 3;
-    double productprice = 4;
-    string productdescription = 5;
-    int32 productquantity = 6;
+	google.protobuf.Int32Value purchase_item = 1;
+    google.protobuf.StringValue productname = 2;
+    google.protobuf.StringValue productbrand = 3;
+    google.protobuf.DoubleValue productprice = 4;
+    google.protobuf.StringValue productdescription = 5;
+    google.protobuf.Int32Value productquantity = 6;
   .google.type.Date productexpirationdate = 7;
 
 

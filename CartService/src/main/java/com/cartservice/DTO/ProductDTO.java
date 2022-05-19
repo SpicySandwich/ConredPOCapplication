@@ -6,6 +6,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
+import com.google.protobuf.DoubleValue;
+import com.google.protobuf.Int32Value;
+import com.google.protobuf.StringValue;
 import com.grpcserver.product.ProductServer.Product;
 
 import lombok.AllArgsConstructor;
@@ -32,15 +35,34 @@ public class ProductDTO {
     public Product toProduct(){
 
     	return Product.newBuilder()
-    			.setPurchaseItem(getPurchase_item())
-    			.setProductname(getProductbrand())
-    			.setProductbrand(getProductbrand())
-    			.setProductprice(getProductprice())
-    			.setProductdescription(getProductdescription())
-    			.setProductquantity(getProductquantity())
+    			.setPurchaseItem(convertToint32value(getPurchase_item() ))
+    			.setProductname(convertStringValue(getProductbrand()))
+    			.setProductbrand(convertStringValue(getProductbrand()))
+    			.setProductprice(convertDoubleValue(getProductprice()))
+    			.setProductdescription(convertStringValue(getProductdescription()))
+    			.setProductquantity(convertToint32value(getProductquantity()))
     			.setProductexpirationdate(getDateFromDateProto(getProductexpirationdate()))
     			.build();
     }
+    
+    public DoubleValue convertDoubleValue(Double double1) {
+
+    	return DoubleValue.of(double1);
+    }
+    
+    public StringValue convertStringValue(String string) {
+    	
+
+    	return StringValue.of(string);
+    	
+    }
+   
+    public Int32Value convertToint32value(Integer integer) {
+
+		return Int32Value.of(integer);
+    	
+    }
+    
     
 	public static com.google.type.Date getDateFromDateProto(Date date) {
 		

@@ -5,9 +5,11 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import javax.print.attribute.standard.Media;
 
+import com.kongapigateway.KongAPIgateway.DateValidation;
 import com.kongapigateway.KongAPIgateway.Model.Product;
 import com.kongapigateway.KongAPIgateway.ModelException.ProductExecption;
 import com.kongapigateway.KongAPIgateway.ModelException.ProductIDnotFound;
@@ -29,6 +31,9 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class ProductService {
 	
+	@Autowired
+	private DateValidation dateValidation;
+	
 	RestTemplate restTemplate = new RestTemplate();
 	
 	private static final String GET_ALL_PRODUCLIST = "http://productmicroservice:8091/product";
@@ -38,9 +43,6 @@ public class ProductService {
 	private static final String GET_PRODUCT_BYID = "http://productmicroservice:8091/product/{purchase_item}";
 	
   
-
-	
-    
 	
 	 public List<Product> getInfo() {
 	   try {
@@ -62,58 +64,104 @@ public class ProductService {
        } catch (Exception e) {
 	
 	       throw new ProductExecption("Product list is not available at the moment");
+	      
 
      }
 	     
 	    }
 	 
+	 public void Error(Product product) {
+		 
+		 
+		  String product2 = saveData(product);
+		    
+			 
+			 if( Objects.isNull( product2 )) {
+		
+					throw new ProductValueNotNull("Please fill up all field");
+			
+			 
+		 }
+		 
+	 }
+	 
 	   public String  saveData(Product product) {
 		   
-		  try {
+		//  try {
+		   
+		   
 			  
+			  
+			  
+			  product.setPurchase_item(product.getPurchase_item());
+			  product.setProductname(product.getProductname());
+			  product.setProductbrand(product.getProductbrand());
+			  product.setProductprice(product.getProductprice());
+			  product.setProductdescription(product.getProductdescription());
+			  product.setProductquantity(product.getProductquantity());
+			  product.setProductexpirationdate(dateValidation.dateValidation(product.getProductexpirationdate()));
+	
+					 
+					if(product.getProductname() == null) {
+						throw new ProductValueNotNull("Please fill up all field");
+						
+					}
+					   
 			    restTemplate.postForEntity(POST_ADD_PRODUCT, product, Product.class);
+			      
 			    return  "Succefully added the product " + product;
 			
-		} catch (Exception e) {
-		
-		throw new ProductValueNotNull("Kindly fill up all fields");
-		}
+//		} catch (Exception e) {
+//		
+//		throw new ProductValueNotNull("Kindly fill up all fields");
+//		}
 		 
 	    }
 	   
 
 	   public void deleteData(Integer purchase_item) {
-	try {
+//	try {
 		
 		   Map<String, Integer> proMap = new HashMap<String, Integer>();
 		   proMap.put("purchase_item", purchase_item);
 		   Product product = new Product();
 		   HttpEntity<Product> requestEntity = new HttpEntity<Product>(product);
 		   ResponseEntity<Product> responseEntity = restTemplate.exchange(DELETE_PRODUCT, HttpMethod.DELETE, requestEntity, Product.class, proMap);
-          responseEntity.getBody();
+        
+	
+		   responseEntity.getBody();
           
-	}     catch (Exception e) {
-		
-		throw new ProductIDnotFound("Product id: " + purchase_item + " not found");
-        		
-      	}  
+          
+          
+//	}     catch (Exception e) {
+//		
+//		throw new ProductIDnotFound("Product id: " + purchase_item + " not found");
+//        		
+//      	}  
 
 	    }
 	   
 	   public Product findbyid(Integer purchase_item) {
 		   
-		try {
+//		try {
 		
 		   Map<String, Integer> proMap = new HashMap<String, Integer>();
 		   proMap.put("purchase_item", purchase_item);
 		   
+			 if( Objects.isNull( proMap)) {
+					
+					throw new ProductValueNotNull("Please fill up all field");
+			
+			 
+		 }
+		   
 		   return restTemplate.getForObject(GET_PRODUCT_BYID, Product.class,proMap);
 			
-		} catch (Exception e) {
-			
-			throw new ProductIDnotFound("Product id: " + purchase_item + " not found");
-			
-		}
+//		} catch (Exception e) {
+//			
+//			throw new ProductIDnotFound("Product id: " + purchase_item + " not found");
+//			
+//		}
 		
 		    
 	   }
