@@ -29,11 +29,6 @@ public class DateConvert {
 	
 	public  com.google.type.Date getDateFromDateProtoEntity(Date date) {
 		
-LocalDate currentdate = LocalDate.now();
-		
-		int currentDay = currentdate.getDayOfMonth();
-		int currentYear = currentdate.getYear();
-		int currentMonth = currentdate.getMonthValue();
 		
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(date);
@@ -41,10 +36,7 @@ LocalDate currentdate = LocalDate.now();
 		int month = calendar.get(Calendar.MONTH);
 		int day = calendar.get(Calendar.DAY_OF_MONTH);
 		
-		if(year < currentYear && month < currentMonth && day > currentDay) {
-	    	
-	    	throw new DATE_FORMAT_EXCEPTION("Wrong date format for " + year+ "-" + month + "-"+ day+". And date must not lower to current date "  + currentdate);
-	    }
+	
 		com.google.type.Date datess = com.google.type.Date.newBuilder().setYear(year).setMonth(month).setDay(day).build();
 		
   
