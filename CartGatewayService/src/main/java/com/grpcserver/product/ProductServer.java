@@ -19,49 +19,82 @@ public final class ProductServer {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 purchase_item = 1;</code>
+     * <code>.google.protobuf.Int32Value purchase_item = 1;</code>
      */
-    int getPurchaseItem();
+    boolean hasPurchaseItem();
+    /**
+     * <code>.google.protobuf.Int32Value purchase_item = 1;</code>
+     */
+    com.google.protobuf.Int32Value getPurchaseItem();
+    /**
+     * <code>.google.protobuf.Int32Value purchase_item = 1;</code>
+     */
+    com.google.protobuf.Int32ValueOrBuilder getPurchaseItemOrBuilder();
 
     /**
-     * <code>string productname = 2;</code>
+     * <code>.google.protobuf.StringValue productname = 2;</code>
      */
-    java.lang.String getProductname();
+    boolean hasProductname();
     /**
-     * <code>string productname = 2;</code>
+     * <code>.google.protobuf.StringValue productname = 2;</code>
      */
-    com.google.protobuf.ByteString
-        getProductnameBytes();
+    com.google.protobuf.StringValue getProductname();
+    /**
+     * <code>.google.protobuf.StringValue productname = 2;</code>
+     */
+    com.google.protobuf.StringValueOrBuilder getProductnameOrBuilder();
 
     /**
-     * <code>string productbrand = 3;</code>
+     * <code>.google.protobuf.StringValue productbrand = 3;</code>
      */
-    java.lang.String getProductbrand();
+    boolean hasProductbrand();
     /**
-     * <code>string productbrand = 3;</code>
+     * <code>.google.protobuf.StringValue productbrand = 3;</code>
      */
-    com.google.protobuf.ByteString
-        getProductbrandBytes();
+    com.google.protobuf.StringValue getProductbrand();
+    /**
+     * <code>.google.protobuf.StringValue productbrand = 3;</code>
+     */
+    com.google.protobuf.StringValueOrBuilder getProductbrandOrBuilder();
 
     /**
-     * <code>double productprice = 4;</code>
+     * <code>.google.protobuf.DoubleValue productprice = 4;</code>
      */
-    double getProductprice();
+    boolean hasProductprice();
+    /**
+     * <code>.google.protobuf.DoubleValue productprice = 4;</code>
+     */
+    com.google.protobuf.DoubleValue getProductprice();
+    /**
+     * <code>.google.protobuf.DoubleValue productprice = 4;</code>
+     */
+    com.google.protobuf.DoubleValueOrBuilder getProductpriceOrBuilder();
 
     /**
-     * <code>string productdescription = 5;</code>
+     * <code>.google.protobuf.StringValue productdescription = 5;</code>
      */
-    java.lang.String getProductdescription();
+    boolean hasProductdescription();
     /**
-     * <code>string productdescription = 5;</code>
+     * <code>.google.protobuf.StringValue productdescription = 5;</code>
      */
-    com.google.protobuf.ByteString
-        getProductdescriptionBytes();
+    com.google.protobuf.StringValue getProductdescription();
+    /**
+     * <code>.google.protobuf.StringValue productdescription = 5;</code>
+     */
+    com.google.protobuf.StringValueOrBuilder getProductdescriptionOrBuilder();
 
     /**
-     * <code>int32 productquantity = 6;</code>
+     * <code>.google.protobuf.Int32Value productquantity = 6;</code>
      */
-    int getProductquantity();
+    boolean hasProductquantity();
+    /**
+     * <code>.google.protobuf.Int32Value productquantity = 6;</code>
+     */
+    com.google.protobuf.Int32Value getProductquantity();
+    /**
+     * <code>.google.protobuf.Int32Value productquantity = 6;</code>
+     */
+    com.google.protobuf.Int32ValueOrBuilder getProductquantityOrBuilder();
 
     /**
      * <code>.google.type.Date productexpirationdate = 7;</code>
@@ -89,12 +122,6 @@ public final class ProductServer {
       super(builder);
     }
     private Product() {
-      purchaseItem_ = 0;
-      productname_ = "";
-      productbrand_ = "";
-      productprice_ = 0D;
-      productdescription_ = "";
-      productquantity_ = 0;
     }
 
     @java.lang.Override
@@ -121,37 +148,82 @@ public final class ProductServer {
             case 0:
               done = true;
               break;
-            case 8: {
+            case 10: {
+              com.google.protobuf.Int32Value.Builder subBuilder = null;
+              if (purchaseItem_ != null) {
+                subBuilder = purchaseItem_.toBuilder();
+              }
+              purchaseItem_ = input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(purchaseItem_);
+                purchaseItem_ = subBuilder.buildPartial();
+              }
 
-              purchaseItem_ = input.readInt32();
               break;
             }
             case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
+              com.google.protobuf.StringValue.Builder subBuilder = null;
+              if (productname_ != null) {
+                subBuilder = productname_.toBuilder();
+              }
+              productname_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(productname_);
+                productname_ = subBuilder.buildPartial();
+              }
 
-              productname_ = s;
               break;
             }
             case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
+              com.google.protobuf.StringValue.Builder subBuilder = null;
+              if (productbrand_ != null) {
+                subBuilder = productbrand_.toBuilder();
+              }
+              productbrand_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(productbrand_);
+                productbrand_ = subBuilder.buildPartial();
+              }
 
-              productbrand_ = s;
               break;
             }
-            case 33: {
+            case 34: {
+              com.google.protobuf.DoubleValue.Builder subBuilder = null;
+              if (productprice_ != null) {
+                subBuilder = productprice_.toBuilder();
+              }
+              productprice_ = input.readMessage(com.google.protobuf.DoubleValue.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(productprice_);
+                productprice_ = subBuilder.buildPartial();
+              }
 
-              productprice_ = input.readDouble();
               break;
             }
             case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
+              com.google.protobuf.StringValue.Builder subBuilder = null;
+              if (productdescription_ != null) {
+                subBuilder = productdescription_.toBuilder();
+              }
+              productdescription_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(productdescription_);
+                productdescription_ = subBuilder.buildPartial();
+              }
 
-              productdescription_ = s;
               break;
             }
-            case 48: {
+            case 50: {
+              com.google.protobuf.Int32Value.Builder subBuilder = null;
+              if (productquantity_ != null) {
+                subBuilder = productquantity_.toBuilder();
+              }
+              productquantity_ = input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(productquantity_);
+                productquantity_ = subBuilder.buildPartial();
+              }
 
-              productquantity_ = input.readInt32();
               break;
             }
             case 58: {
@@ -200,132 +272,129 @@ public final class ProductServer {
     }
 
     public static final int PURCHASE_ITEM_FIELD_NUMBER = 1;
-    private int purchaseItem_;
+    private com.google.protobuf.Int32Value purchaseItem_;
     /**
-     * <code>int32 purchase_item = 1;</code>
+     * <code>.google.protobuf.Int32Value purchase_item = 1;</code>
      */
-    public int getPurchaseItem() {
-      return purchaseItem_;
+    public boolean hasPurchaseItem() {
+      return purchaseItem_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Int32Value purchase_item = 1;</code>
+     */
+    public com.google.protobuf.Int32Value getPurchaseItem() {
+      return purchaseItem_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : purchaseItem_;
+    }
+    /**
+     * <code>.google.protobuf.Int32Value purchase_item = 1;</code>
+     */
+    public com.google.protobuf.Int32ValueOrBuilder getPurchaseItemOrBuilder() {
+      return getPurchaseItem();
     }
 
     public static final int PRODUCTNAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object productname_;
+    private com.google.protobuf.StringValue productname_;
     /**
-     * <code>string productname = 2;</code>
+     * <code>.google.protobuf.StringValue productname = 2;</code>
      */
-    public java.lang.String getProductname() {
-      java.lang.Object ref = productname_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        productname_ = s;
-        return s;
-      }
+    public boolean hasProductname() {
+      return productname_ != null;
     }
     /**
-     * <code>string productname = 2;</code>
+     * <code>.google.protobuf.StringValue productname = 2;</code>
      */
-    public com.google.protobuf.ByteString
-        getProductnameBytes() {
-      java.lang.Object ref = productname_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        productname_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public com.google.protobuf.StringValue getProductname() {
+      return productname_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : productname_;
+    }
+    /**
+     * <code>.google.protobuf.StringValue productname = 2;</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getProductnameOrBuilder() {
+      return getProductname();
     }
 
     public static final int PRODUCTBRAND_FIELD_NUMBER = 3;
-    private volatile java.lang.Object productbrand_;
+    private com.google.protobuf.StringValue productbrand_;
     /**
-     * <code>string productbrand = 3;</code>
+     * <code>.google.protobuf.StringValue productbrand = 3;</code>
      */
-    public java.lang.String getProductbrand() {
-      java.lang.Object ref = productbrand_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        productbrand_ = s;
-        return s;
-      }
+    public boolean hasProductbrand() {
+      return productbrand_ != null;
     }
     /**
-     * <code>string productbrand = 3;</code>
+     * <code>.google.protobuf.StringValue productbrand = 3;</code>
      */
-    public com.google.protobuf.ByteString
-        getProductbrandBytes() {
-      java.lang.Object ref = productbrand_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        productbrand_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public com.google.protobuf.StringValue getProductbrand() {
+      return productbrand_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : productbrand_;
+    }
+    /**
+     * <code>.google.protobuf.StringValue productbrand = 3;</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getProductbrandOrBuilder() {
+      return getProductbrand();
     }
 
     public static final int PRODUCTPRICE_FIELD_NUMBER = 4;
-    private double productprice_;
+    private com.google.protobuf.DoubleValue productprice_;
     /**
-     * <code>double productprice = 4;</code>
+     * <code>.google.protobuf.DoubleValue productprice = 4;</code>
      */
-    public double getProductprice() {
-      return productprice_;
+    public boolean hasProductprice() {
+      return productprice_ != null;
+    }
+    /**
+     * <code>.google.protobuf.DoubleValue productprice = 4;</code>
+     */
+    public com.google.protobuf.DoubleValue getProductprice() {
+      return productprice_ == null ? com.google.protobuf.DoubleValue.getDefaultInstance() : productprice_;
+    }
+    /**
+     * <code>.google.protobuf.DoubleValue productprice = 4;</code>
+     */
+    public com.google.protobuf.DoubleValueOrBuilder getProductpriceOrBuilder() {
+      return getProductprice();
     }
 
     public static final int PRODUCTDESCRIPTION_FIELD_NUMBER = 5;
-    private volatile java.lang.Object productdescription_;
+    private com.google.protobuf.StringValue productdescription_;
     /**
-     * <code>string productdescription = 5;</code>
+     * <code>.google.protobuf.StringValue productdescription = 5;</code>
      */
-    public java.lang.String getProductdescription() {
-      java.lang.Object ref = productdescription_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        productdescription_ = s;
-        return s;
-      }
+    public boolean hasProductdescription() {
+      return productdescription_ != null;
     }
     /**
-     * <code>string productdescription = 5;</code>
+     * <code>.google.protobuf.StringValue productdescription = 5;</code>
      */
-    public com.google.protobuf.ByteString
-        getProductdescriptionBytes() {
-      java.lang.Object ref = productdescription_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        productdescription_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public com.google.protobuf.StringValue getProductdescription() {
+      return productdescription_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : productdescription_;
+    }
+    /**
+     * <code>.google.protobuf.StringValue productdescription = 5;</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getProductdescriptionOrBuilder() {
+      return getProductdescription();
     }
 
     public static final int PRODUCTQUANTITY_FIELD_NUMBER = 6;
-    private int productquantity_;
+    private com.google.protobuf.Int32Value productquantity_;
     /**
-     * <code>int32 productquantity = 6;</code>
+     * <code>.google.protobuf.Int32Value productquantity = 6;</code>
      */
-    public int getProductquantity() {
-      return productquantity_;
+    public boolean hasProductquantity() {
+      return productquantity_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Int32Value productquantity = 6;</code>
+     */
+    public com.google.protobuf.Int32Value getProductquantity() {
+      return productquantity_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : productquantity_;
+    }
+    /**
+     * <code>.google.protobuf.Int32Value productquantity = 6;</code>
+     */
+    public com.google.protobuf.Int32ValueOrBuilder getProductquantityOrBuilder() {
+      return getProductquantity();
     }
 
     public static final int PRODUCTEXPIRATIONDATE_FIELD_NUMBER = 7;
@@ -363,23 +432,23 @@ public final class ProductServer {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (purchaseItem_ != 0) {
-        output.writeInt32(1, purchaseItem_);
+      if (purchaseItem_ != null) {
+        output.writeMessage(1, getPurchaseItem());
       }
-      if (!getProductnameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, productname_);
+      if (productname_ != null) {
+        output.writeMessage(2, getProductname());
       }
-      if (!getProductbrandBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, productbrand_);
+      if (productbrand_ != null) {
+        output.writeMessage(3, getProductbrand());
       }
-      if (productprice_ != 0D) {
-        output.writeDouble(4, productprice_);
+      if (productprice_ != null) {
+        output.writeMessage(4, getProductprice());
       }
-      if (!getProductdescriptionBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, productdescription_);
+      if (productdescription_ != null) {
+        output.writeMessage(5, getProductdescription());
       }
-      if (productquantity_ != 0) {
-        output.writeInt32(6, productquantity_);
+      if (productquantity_ != null) {
+        output.writeMessage(6, getProductquantity());
       }
       if (productexpirationdate_ != null) {
         output.writeMessage(7, getProductexpirationdate());
@@ -393,26 +462,29 @@ public final class ProductServer {
       if (size != -1) return size;
 
       size = 0;
-      if (purchaseItem_ != 0) {
+      if (purchaseItem_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, purchaseItem_);
+          .computeMessageSize(1, getPurchaseItem());
       }
-      if (!getProductnameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, productname_);
-      }
-      if (!getProductbrandBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, productbrand_);
-      }
-      if (productprice_ != 0D) {
+      if (productname_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(4, productprice_);
+          .computeMessageSize(2, getProductname());
       }
-      if (!getProductdescriptionBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, productdescription_);
-      }
-      if (productquantity_ != 0) {
+      if (productbrand_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(6, productquantity_);
+          .computeMessageSize(3, getProductbrand());
+      }
+      if (productprice_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getProductprice());
+      }
+      if (productdescription_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, getProductdescription());
+      }
+      if (productquantity_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, getProductquantity());
       }
       if (productexpirationdate_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -434,20 +506,36 @@ public final class ProductServer {
       com.grpcserver.product.ProductServer.Product other = (com.grpcserver.product.ProductServer.Product) obj;
 
       boolean result = true;
-      result = result && (getPurchaseItem()
-          == other.getPurchaseItem());
-      result = result && getProductname()
-          .equals(other.getProductname());
-      result = result && getProductbrand()
-          .equals(other.getProductbrand());
-      result = result && (
-          java.lang.Double.doubleToLongBits(getProductprice())
-          == java.lang.Double.doubleToLongBits(
-              other.getProductprice()));
-      result = result && getProductdescription()
-          .equals(other.getProductdescription());
-      result = result && (getProductquantity()
-          == other.getProductquantity());
+      result = result && (hasPurchaseItem() == other.hasPurchaseItem());
+      if (hasPurchaseItem()) {
+        result = result && getPurchaseItem()
+            .equals(other.getPurchaseItem());
+      }
+      result = result && (hasProductname() == other.hasProductname());
+      if (hasProductname()) {
+        result = result && getProductname()
+            .equals(other.getProductname());
+      }
+      result = result && (hasProductbrand() == other.hasProductbrand());
+      if (hasProductbrand()) {
+        result = result && getProductbrand()
+            .equals(other.getProductbrand());
+      }
+      result = result && (hasProductprice() == other.hasProductprice());
+      if (hasProductprice()) {
+        result = result && getProductprice()
+            .equals(other.getProductprice());
+      }
+      result = result && (hasProductdescription() == other.hasProductdescription());
+      if (hasProductdescription()) {
+        result = result && getProductdescription()
+            .equals(other.getProductdescription());
+      }
+      result = result && (hasProductquantity() == other.hasProductquantity());
+      if (hasProductquantity()) {
+        result = result && getProductquantity()
+            .equals(other.getProductquantity());
+      }
       result = result && (hasProductexpirationdate() == other.hasProductexpirationdate());
       if (hasProductexpirationdate()) {
         result = result && getProductexpirationdate()
@@ -464,19 +552,30 @@ public final class ProductServer {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + PURCHASE_ITEM_FIELD_NUMBER;
-      hash = (53 * hash) + getPurchaseItem();
-      hash = (37 * hash) + PRODUCTNAME_FIELD_NUMBER;
-      hash = (53 * hash) + getProductname().hashCode();
-      hash = (37 * hash) + PRODUCTBRAND_FIELD_NUMBER;
-      hash = (53 * hash) + getProductbrand().hashCode();
-      hash = (37 * hash) + PRODUCTPRICE_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          java.lang.Double.doubleToLongBits(getProductprice()));
-      hash = (37 * hash) + PRODUCTDESCRIPTION_FIELD_NUMBER;
-      hash = (53 * hash) + getProductdescription().hashCode();
-      hash = (37 * hash) + PRODUCTQUANTITY_FIELD_NUMBER;
-      hash = (53 * hash) + getProductquantity();
+      if (hasPurchaseItem()) {
+        hash = (37 * hash) + PURCHASE_ITEM_FIELD_NUMBER;
+        hash = (53 * hash) + getPurchaseItem().hashCode();
+      }
+      if (hasProductname()) {
+        hash = (37 * hash) + PRODUCTNAME_FIELD_NUMBER;
+        hash = (53 * hash) + getProductname().hashCode();
+      }
+      if (hasProductbrand()) {
+        hash = (37 * hash) + PRODUCTBRAND_FIELD_NUMBER;
+        hash = (53 * hash) + getProductbrand().hashCode();
+      }
+      if (hasProductprice()) {
+        hash = (37 * hash) + PRODUCTPRICE_FIELD_NUMBER;
+        hash = (53 * hash) + getProductprice().hashCode();
+      }
+      if (hasProductdescription()) {
+        hash = (37 * hash) + PRODUCTDESCRIPTION_FIELD_NUMBER;
+        hash = (53 * hash) + getProductdescription().hashCode();
+      }
+      if (hasProductquantity()) {
+        hash = (37 * hash) + PRODUCTQUANTITY_FIELD_NUMBER;
+        hash = (53 * hash) + getProductquantity().hashCode();
+      }
       if (hasProductexpirationdate()) {
         hash = (37 * hash) + PRODUCTEXPIRATIONDATE_FIELD_NUMBER;
         hash = (53 * hash) + getProductexpirationdate().hashCode();
@@ -614,18 +713,42 @@ public final class ProductServer {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        purchaseItem_ = 0;
-
-        productname_ = "";
-
-        productbrand_ = "";
-
-        productprice_ = 0D;
-
-        productdescription_ = "";
-
-        productquantity_ = 0;
-
+        if (purchaseItemBuilder_ == null) {
+          purchaseItem_ = null;
+        } else {
+          purchaseItem_ = null;
+          purchaseItemBuilder_ = null;
+        }
+        if (productnameBuilder_ == null) {
+          productname_ = null;
+        } else {
+          productname_ = null;
+          productnameBuilder_ = null;
+        }
+        if (productbrandBuilder_ == null) {
+          productbrand_ = null;
+        } else {
+          productbrand_ = null;
+          productbrandBuilder_ = null;
+        }
+        if (productpriceBuilder_ == null) {
+          productprice_ = null;
+        } else {
+          productprice_ = null;
+          productpriceBuilder_ = null;
+        }
+        if (productdescriptionBuilder_ == null) {
+          productdescription_ = null;
+        } else {
+          productdescription_ = null;
+          productdescriptionBuilder_ = null;
+        }
+        if (productquantityBuilder_ == null) {
+          productquantity_ = null;
+        } else {
+          productquantity_ = null;
+          productquantityBuilder_ = null;
+        }
         if (productexpirationdateBuilder_ == null) {
           productexpirationdate_ = null;
         } else {
@@ -658,12 +781,36 @@ public final class ProductServer {
       @java.lang.Override
       public com.grpcserver.product.ProductServer.Product buildPartial() {
         com.grpcserver.product.ProductServer.Product result = new com.grpcserver.product.ProductServer.Product(this);
-        result.purchaseItem_ = purchaseItem_;
-        result.productname_ = productname_;
-        result.productbrand_ = productbrand_;
-        result.productprice_ = productprice_;
-        result.productdescription_ = productdescription_;
-        result.productquantity_ = productquantity_;
+        if (purchaseItemBuilder_ == null) {
+          result.purchaseItem_ = purchaseItem_;
+        } else {
+          result.purchaseItem_ = purchaseItemBuilder_.build();
+        }
+        if (productnameBuilder_ == null) {
+          result.productname_ = productname_;
+        } else {
+          result.productname_ = productnameBuilder_.build();
+        }
+        if (productbrandBuilder_ == null) {
+          result.productbrand_ = productbrand_;
+        } else {
+          result.productbrand_ = productbrandBuilder_.build();
+        }
+        if (productpriceBuilder_ == null) {
+          result.productprice_ = productprice_;
+        } else {
+          result.productprice_ = productpriceBuilder_.build();
+        }
+        if (productdescriptionBuilder_ == null) {
+          result.productdescription_ = productdescription_;
+        } else {
+          result.productdescription_ = productdescriptionBuilder_.build();
+        }
+        if (productquantityBuilder_ == null) {
+          result.productquantity_ = productquantity_;
+        } else {
+          result.productquantity_ = productquantityBuilder_.build();
+        }
         if (productexpirationdateBuilder_ == null) {
           result.productexpirationdate_ = productexpirationdate_;
         } else {
@@ -717,26 +864,23 @@ public final class ProductServer {
 
       public Builder mergeFrom(com.grpcserver.product.ProductServer.Product other) {
         if (other == com.grpcserver.product.ProductServer.Product.getDefaultInstance()) return this;
-        if (other.getPurchaseItem() != 0) {
-          setPurchaseItem(other.getPurchaseItem());
+        if (other.hasPurchaseItem()) {
+          mergePurchaseItem(other.getPurchaseItem());
         }
-        if (!other.getProductname().isEmpty()) {
-          productname_ = other.productname_;
-          onChanged();
+        if (other.hasProductname()) {
+          mergeProductname(other.getProductname());
         }
-        if (!other.getProductbrand().isEmpty()) {
-          productbrand_ = other.productbrand_;
-          onChanged();
+        if (other.hasProductbrand()) {
+          mergeProductbrand(other.getProductbrand());
         }
-        if (other.getProductprice() != 0D) {
-          setProductprice(other.getProductprice());
+        if (other.hasProductprice()) {
+          mergeProductprice(other.getProductprice());
         }
-        if (!other.getProductdescription().isEmpty()) {
-          productdescription_ = other.productdescription_;
-          onChanged();
+        if (other.hasProductdescription()) {
+          mergeProductdescription(other.getProductdescription());
         }
-        if (other.getProductquantity() != 0) {
-          setProductquantity(other.getProductquantity());
+        if (other.hasProductquantity()) {
+          mergeProductquantity(other.getProductquantity());
         }
         if (other.hasProductexpirationdate()) {
           mergeProductexpirationdate(other.getProductexpirationdate());
@@ -770,289 +914,706 @@ public final class ProductServer {
         return this;
       }
 
-      private int purchaseItem_ ;
+      private com.google.protobuf.Int32Value purchaseItem_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> purchaseItemBuilder_;
       /**
-       * <code>int32 purchase_item = 1;</code>
+       * <code>.google.protobuf.Int32Value purchase_item = 1;</code>
        */
-      public int getPurchaseItem() {
-        return purchaseItem_;
+      public boolean hasPurchaseItem() {
+        return purchaseItemBuilder_ != null || purchaseItem_ != null;
       }
       /**
-       * <code>int32 purchase_item = 1;</code>
+       * <code>.google.protobuf.Int32Value purchase_item = 1;</code>
        */
-      public Builder setPurchaseItem(int value) {
-        
-        purchaseItem_ = value;
-        onChanged();
+      public com.google.protobuf.Int32Value getPurchaseItem() {
+        if (purchaseItemBuilder_ == null) {
+          return purchaseItem_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : purchaseItem_;
+        } else {
+          return purchaseItemBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.Int32Value purchase_item = 1;</code>
+       */
+      public Builder setPurchaseItem(com.google.protobuf.Int32Value value) {
+        if (purchaseItemBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          purchaseItem_ = value;
+          onChanged();
+        } else {
+          purchaseItemBuilder_.setMessage(value);
+        }
+
         return this;
       }
       /**
-       * <code>int32 purchase_item = 1;</code>
+       * <code>.google.protobuf.Int32Value purchase_item = 1;</code>
+       */
+      public Builder setPurchaseItem(
+          com.google.protobuf.Int32Value.Builder builderForValue) {
+        if (purchaseItemBuilder_ == null) {
+          purchaseItem_ = builderForValue.build();
+          onChanged();
+        } else {
+          purchaseItemBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Int32Value purchase_item = 1;</code>
+       */
+      public Builder mergePurchaseItem(com.google.protobuf.Int32Value value) {
+        if (purchaseItemBuilder_ == null) {
+          if (purchaseItem_ != null) {
+            purchaseItem_ =
+              com.google.protobuf.Int32Value.newBuilder(purchaseItem_).mergeFrom(value).buildPartial();
+          } else {
+            purchaseItem_ = value;
+          }
+          onChanged();
+        } else {
+          purchaseItemBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Int32Value purchase_item = 1;</code>
        */
       public Builder clearPurchaseItem() {
-        
-        purchaseItem_ = 0;
-        onChanged();
+        if (purchaseItemBuilder_ == null) {
+          purchaseItem_ = null;
+          onChanged();
+        } else {
+          purchaseItem_ = null;
+          purchaseItemBuilder_ = null;
+        }
+
         return this;
       }
+      /**
+       * <code>.google.protobuf.Int32Value purchase_item = 1;</code>
+       */
+      public com.google.protobuf.Int32Value.Builder getPurchaseItemBuilder() {
+        
+        onChanged();
+        return getPurchaseItemFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.Int32Value purchase_item = 1;</code>
+       */
+      public com.google.protobuf.Int32ValueOrBuilder getPurchaseItemOrBuilder() {
+        if (purchaseItemBuilder_ != null) {
+          return purchaseItemBuilder_.getMessageOrBuilder();
+        } else {
+          return purchaseItem_ == null ?
+              com.google.protobuf.Int32Value.getDefaultInstance() : purchaseItem_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.Int32Value purchase_item = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> 
+          getPurchaseItemFieldBuilder() {
+        if (purchaseItemBuilder_ == null) {
+          purchaseItemBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder>(
+                  getPurchaseItem(),
+                  getParentForChildren(),
+                  isClean());
+          purchaseItem_ = null;
+        }
+        return purchaseItemBuilder_;
+      }
 
-      private java.lang.Object productname_ = "";
+      private com.google.protobuf.StringValue productname_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> productnameBuilder_;
       /**
-       * <code>string productname = 2;</code>
+       * <code>.google.protobuf.StringValue productname = 2;</code>
        */
-      public java.lang.String getProductname() {
-        java.lang.Object ref = productname_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          productname_ = s;
-          return s;
+      public boolean hasProductname() {
+        return productnameBuilder_ != null || productname_ != null;
+      }
+      /**
+       * <code>.google.protobuf.StringValue productname = 2;</code>
+       */
+      public com.google.protobuf.StringValue getProductname() {
+        if (productnameBuilder_ == null) {
+          return productname_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : productname_;
         } else {
-          return (java.lang.String) ref;
+          return productnameBuilder_.getMessage();
         }
       }
       /**
-       * <code>string productname = 2;</code>
+       * <code>.google.protobuf.StringValue productname = 2;</code>
        */
-      public com.google.protobuf.ByteString
-          getProductnameBytes() {
-        java.lang.Object ref = productname_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          productname_ = b;
-          return b;
+      public Builder setProductname(com.google.protobuf.StringValue value) {
+        if (productnameBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          productname_ = value;
+          onChanged();
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          productnameBuilder_.setMessage(value);
         }
+
+        return this;
       }
       /**
-       * <code>string productname = 2;</code>
+       * <code>.google.protobuf.StringValue productname = 2;</code>
        */
       public Builder setProductname(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        productname_ = value;
-        onChanged();
+          com.google.protobuf.StringValue.Builder builderForValue) {
+        if (productnameBuilder_ == null) {
+          productname_ = builderForValue.build();
+          onChanged();
+        } else {
+          productnameBuilder_.setMessage(builderForValue.build());
+        }
+
         return this;
       }
       /**
-       * <code>string productname = 2;</code>
+       * <code>.google.protobuf.StringValue productname = 2;</code>
+       */
+      public Builder mergeProductname(com.google.protobuf.StringValue value) {
+        if (productnameBuilder_ == null) {
+          if (productname_ != null) {
+            productname_ =
+              com.google.protobuf.StringValue.newBuilder(productname_).mergeFrom(value).buildPartial();
+          } else {
+            productname_ = value;
+          }
+          onChanged();
+        } else {
+          productnameBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.StringValue productname = 2;</code>
        */
       public Builder clearProductname() {
-        
-        productname_ = getDefaultInstance().getProductname();
-        onChanged();
+        if (productnameBuilder_ == null) {
+          productname_ = null;
+          onChanged();
+        } else {
+          productname_ = null;
+          productnameBuilder_ = null;
+        }
+
         return this;
       }
       /**
-       * <code>string productname = 2;</code>
+       * <code>.google.protobuf.StringValue productname = 2;</code>
        */
-      public Builder setProductnameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      public com.google.protobuf.StringValue.Builder getProductnameBuilder() {
         
-        productname_ = value;
         onChanged();
-        return this;
+        return getProductnameFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.StringValue productname = 2;</code>
+       */
+      public com.google.protobuf.StringValueOrBuilder getProductnameOrBuilder() {
+        if (productnameBuilder_ != null) {
+          return productnameBuilder_.getMessageOrBuilder();
+        } else {
+          return productname_ == null ?
+              com.google.protobuf.StringValue.getDefaultInstance() : productname_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.StringValue productname = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+          getProductnameFieldBuilder() {
+        if (productnameBuilder_ == null) {
+          productnameBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                  getProductname(),
+                  getParentForChildren(),
+                  isClean());
+          productname_ = null;
+        }
+        return productnameBuilder_;
       }
 
-      private java.lang.Object productbrand_ = "";
+      private com.google.protobuf.StringValue productbrand_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> productbrandBuilder_;
       /**
-       * <code>string productbrand = 3;</code>
+       * <code>.google.protobuf.StringValue productbrand = 3;</code>
        */
-      public java.lang.String getProductbrand() {
-        java.lang.Object ref = productbrand_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          productbrand_ = s;
-          return s;
+      public boolean hasProductbrand() {
+        return productbrandBuilder_ != null || productbrand_ != null;
+      }
+      /**
+       * <code>.google.protobuf.StringValue productbrand = 3;</code>
+       */
+      public com.google.protobuf.StringValue getProductbrand() {
+        if (productbrandBuilder_ == null) {
+          return productbrand_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : productbrand_;
         } else {
-          return (java.lang.String) ref;
+          return productbrandBuilder_.getMessage();
         }
       }
       /**
-       * <code>string productbrand = 3;</code>
+       * <code>.google.protobuf.StringValue productbrand = 3;</code>
        */
-      public com.google.protobuf.ByteString
-          getProductbrandBytes() {
-        java.lang.Object ref = productbrand_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          productbrand_ = b;
-          return b;
+      public Builder setProductbrand(com.google.protobuf.StringValue value) {
+        if (productbrandBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          productbrand_ = value;
+          onChanged();
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          productbrandBuilder_.setMessage(value);
         }
+
+        return this;
       }
       /**
-       * <code>string productbrand = 3;</code>
+       * <code>.google.protobuf.StringValue productbrand = 3;</code>
        */
       public Builder setProductbrand(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        productbrand_ = value;
-        onChanged();
+          com.google.protobuf.StringValue.Builder builderForValue) {
+        if (productbrandBuilder_ == null) {
+          productbrand_ = builderForValue.build();
+          onChanged();
+        } else {
+          productbrandBuilder_.setMessage(builderForValue.build());
+        }
+
         return this;
       }
       /**
-       * <code>string productbrand = 3;</code>
+       * <code>.google.protobuf.StringValue productbrand = 3;</code>
+       */
+      public Builder mergeProductbrand(com.google.protobuf.StringValue value) {
+        if (productbrandBuilder_ == null) {
+          if (productbrand_ != null) {
+            productbrand_ =
+              com.google.protobuf.StringValue.newBuilder(productbrand_).mergeFrom(value).buildPartial();
+          } else {
+            productbrand_ = value;
+          }
+          onChanged();
+        } else {
+          productbrandBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.StringValue productbrand = 3;</code>
        */
       public Builder clearProductbrand() {
-        
-        productbrand_ = getDefaultInstance().getProductbrand();
-        onChanged();
+        if (productbrandBuilder_ == null) {
+          productbrand_ = null;
+          onChanged();
+        } else {
+          productbrand_ = null;
+          productbrandBuilder_ = null;
+        }
+
         return this;
       }
       /**
-       * <code>string productbrand = 3;</code>
+       * <code>.google.protobuf.StringValue productbrand = 3;</code>
        */
-      public Builder setProductbrandBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      public com.google.protobuf.StringValue.Builder getProductbrandBuilder() {
         
-        productbrand_ = value;
         onChanged();
-        return this;
+        return getProductbrandFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.StringValue productbrand = 3;</code>
+       */
+      public com.google.protobuf.StringValueOrBuilder getProductbrandOrBuilder() {
+        if (productbrandBuilder_ != null) {
+          return productbrandBuilder_.getMessageOrBuilder();
+        } else {
+          return productbrand_ == null ?
+              com.google.protobuf.StringValue.getDefaultInstance() : productbrand_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.StringValue productbrand = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+          getProductbrandFieldBuilder() {
+        if (productbrandBuilder_ == null) {
+          productbrandBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                  getProductbrand(),
+                  getParentForChildren(),
+                  isClean());
+          productbrand_ = null;
+        }
+        return productbrandBuilder_;
       }
 
-      private double productprice_ ;
+      private com.google.protobuf.DoubleValue productprice_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder> productpriceBuilder_;
       /**
-       * <code>double productprice = 4;</code>
+       * <code>.google.protobuf.DoubleValue productprice = 4;</code>
        */
-      public double getProductprice() {
-        return productprice_;
+      public boolean hasProductprice() {
+        return productpriceBuilder_ != null || productprice_ != null;
       }
       /**
-       * <code>double productprice = 4;</code>
+       * <code>.google.protobuf.DoubleValue productprice = 4;</code>
        */
-      public Builder setProductprice(double value) {
-        
-        productprice_ = value;
-        onChanged();
+      public com.google.protobuf.DoubleValue getProductprice() {
+        if (productpriceBuilder_ == null) {
+          return productprice_ == null ? com.google.protobuf.DoubleValue.getDefaultInstance() : productprice_;
+        } else {
+          return productpriceBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.DoubleValue productprice = 4;</code>
+       */
+      public Builder setProductprice(com.google.protobuf.DoubleValue value) {
+        if (productpriceBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          productprice_ = value;
+          onChanged();
+        } else {
+          productpriceBuilder_.setMessage(value);
+        }
+
         return this;
       }
       /**
-       * <code>double productprice = 4;</code>
+       * <code>.google.protobuf.DoubleValue productprice = 4;</code>
+       */
+      public Builder setProductprice(
+          com.google.protobuf.DoubleValue.Builder builderForValue) {
+        if (productpriceBuilder_ == null) {
+          productprice_ = builderForValue.build();
+          onChanged();
+        } else {
+          productpriceBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.DoubleValue productprice = 4;</code>
+       */
+      public Builder mergeProductprice(com.google.protobuf.DoubleValue value) {
+        if (productpriceBuilder_ == null) {
+          if (productprice_ != null) {
+            productprice_ =
+              com.google.protobuf.DoubleValue.newBuilder(productprice_).mergeFrom(value).buildPartial();
+          } else {
+            productprice_ = value;
+          }
+          onChanged();
+        } else {
+          productpriceBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.DoubleValue productprice = 4;</code>
        */
       public Builder clearProductprice() {
-        
-        productprice_ = 0D;
-        onChanged();
+        if (productpriceBuilder_ == null) {
+          productprice_ = null;
+          onChanged();
+        } else {
+          productprice_ = null;
+          productpriceBuilder_ = null;
+        }
+
         return this;
       }
+      /**
+       * <code>.google.protobuf.DoubleValue productprice = 4;</code>
+       */
+      public com.google.protobuf.DoubleValue.Builder getProductpriceBuilder() {
+        
+        onChanged();
+        return getProductpriceFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.DoubleValue productprice = 4;</code>
+       */
+      public com.google.protobuf.DoubleValueOrBuilder getProductpriceOrBuilder() {
+        if (productpriceBuilder_ != null) {
+          return productpriceBuilder_.getMessageOrBuilder();
+        } else {
+          return productprice_ == null ?
+              com.google.protobuf.DoubleValue.getDefaultInstance() : productprice_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.DoubleValue productprice = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder> 
+          getProductpriceFieldBuilder() {
+        if (productpriceBuilder_ == null) {
+          productpriceBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder>(
+                  getProductprice(),
+                  getParentForChildren(),
+                  isClean());
+          productprice_ = null;
+        }
+        return productpriceBuilder_;
+      }
 
-      private java.lang.Object productdescription_ = "";
+      private com.google.protobuf.StringValue productdescription_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> productdescriptionBuilder_;
       /**
-       * <code>string productdescription = 5;</code>
+       * <code>.google.protobuf.StringValue productdescription = 5;</code>
        */
-      public java.lang.String getProductdescription() {
-        java.lang.Object ref = productdescription_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          productdescription_ = s;
-          return s;
+      public boolean hasProductdescription() {
+        return productdescriptionBuilder_ != null || productdescription_ != null;
+      }
+      /**
+       * <code>.google.protobuf.StringValue productdescription = 5;</code>
+       */
+      public com.google.protobuf.StringValue getProductdescription() {
+        if (productdescriptionBuilder_ == null) {
+          return productdescription_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : productdescription_;
         } else {
-          return (java.lang.String) ref;
+          return productdescriptionBuilder_.getMessage();
         }
       }
       /**
-       * <code>string productdescription = 5;</code>
+       * <code>.google.protobuf.StringValue productdescription = 5;</code>
        */
-      public com.google.protobuf.ByteString
-          getProductdescriptionBytes() {
-        java.lang.Object ref = productdescription_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          productdescription_ = b;
-          return b;
+      public Builder setProductdescription(com.google.protobuf.StringValue value) {
+        if (productdescriptionBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          productdescription_ = value;
+          onChanged();
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          productdescriptionBuilder_.setMessage(value);
         }
+
+        return this;
       }
       /**
-       * <code>string productdescription = 5;</code>
+       * <code>.google.protobuf.StringValue productdescription = 5;</code>
        */
       public Builder setProductdescription(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        productdescription_ = value;
-        onChanged();
+          com.google.protobuf.StringValue.Builder builderForValue) {
+        if (productdescriptionBuilder_ == null) {
+          productdescription_ = builderForValue.build();
+          onChanged();
+        } else {
+          productdescriptionBuilder_.setMessage(builderForValue.build());
+        }
+
         return this;
       }
       /**
-       * <code>string productdescription = 5;</code>
+       * <code>.google.protobuf.StringValue productdescription = 5;</code>
+       */
+      public Builder mergeProductdescription(com.google.protobuf.StringValue value) {
+        if (productdescriptionBuilder_ == null) {
+          if (productdescription_ != null) {
+            productdescription_ =
+              com.google.protobuf.StringValue.newBuilder(productdescription_).mergeFrom(value).buildPartial();
+          } else {
+            productdescription_ = value;
+          }
+          onChanged();
+        } else {
+          productdescriptionBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.StringValue productdescription = 5;</code>
        */
       public Builder clearProductdescription() {
-        
-        productdescription_ = getDefaultInstance().getProductdescription();
-        onChanged();
+        if (productdescriptionBuilder_ == null) {
+          productdescription_ = null;
+          onChanged();
+        } else {
+          productdescription_ = null;
+          productdescriptionBuilder_ = null;
+        }
+
         return this;
       }
       /**
-       * <code>string productdescription = 5;</code>
+       * <code>.google.protobuf.StringValue productdescription = 5;</code>
        */
-      public Builder setProductdescriptionBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      public com.google.protobuf.StringValue.Builder getProductdescriptionBuilder() {
         
-        productdescription_ = value;
         onChanged();
-        return this;
+        return getProductdescriptionFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.StringValue productdescription = 5;</code>
+       */
+      public com.google.protobuf.StringValueOrBuilder getProductdescriptionOrBuilder() {
+        if (productdescriptionBuilder_ != null) {
+          return productdescriptionBuilder_.getMessageOrBuilder();
+        } else {
+          return productdescription_ == null ?
+              com.google.protobuf.StringValue.getDefaultInstance() : productdescription_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.StringValue productdescription = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+          getProductdescriptionFieldBuilder() {
+        if (productdescriptionBuilder_ == null) {
+          productdescriptionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                  getProductdescription(),
+                  getParentForChildren(),
+                  isClean());
+          productdescription_ = null;
+        }
+        return productdescriptionBuilder_;
       }
 
-      private int productquantity_ ;
+      private com.google.protobuf.Int32Value productquantity_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> productquantityBuilder_;
       /**
-       * <code>int32 productquantity = 6;</code>
+       * <code>.google.protobuf.Int32Value productquantity = 6;</code>
        */
-      public int getProductquantity() {
-        return productquantity_;
+      public boolean hasProductquantity() {
+        return productquantityBuilder_ != null || productquantity_ != null;
       }
       /**
-       * <code>int32 productquantity = 6;</code>
+       * <code>.google.protobuf.Int32Value productquantity = 6;</code>
        */
-      public Builder setProductquantity(int value) {
-        
-        productquantity_ = value;
-        onChanged();
+      public com.google.protobuf.Int32Value getProductquantity() {
+        if (productquantityBuilder_ == null) {
+          return productquantity_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : productquantity_;
+        } else {
+          return productquantityBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.Int32Value productquantity = 6;</code>
+       */
+      public Builder setProductquantity(com.google.protobuf.Int32Value value) {
+        if (productquantityBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          productquantity_ = value;
+          onChanged();
+        } else {
+          productquantityBuilder_.setMessage(value);
+        }
+
         return this;
       }
       /**
-       * <code>int32 productquantity = 6;</code>
+       * <code>.google.protobuf.Int32Value productquantity = 6;</code>
+       */
+      public Builder setProductquantity(
+          com.google.protobuf.Int32Value.Builder builderForValue) {
+        if (productquantityBuilder_ == null) {
+          productquantity_ = builderForValue.build();
+          onChanged();
+        } else {
+          productquantityBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Int32Value productquantity = 6;</code>
+       */
+      public Builder mergeProductquantity(com.google.protobuf.Int32Value value) {
+        if (productquantityBuilder_ == null) {
+          if (productquantity_ != null) {
+            productquantity_ =
+              com.google.protobuf.Int32Value.newBuilder(productquantity_).mergeFrom(value).buildPartial();
+          } else {
+            productquantity_ = value;
+          }
+          onChanged();
+        } else {
+          productquantityBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Int32Value productquantity = 6;</code>
        */
       public Builder clearProductquantity() {
-        
-        productquantity_ = 0;
-        onChanged();
+        if (productquantityBuilder_ == null) {
+          productquantity_ = null;
+          onChanged();
+        } else {
+          productquantity_ = null;
+          productquantityBuilder_ = null;
+        }
+
         return this;
+      }
+      /**
+       * <code>.google.protobuf.Int32Value productquantity = 6;</code>
+       */
+      public com.google.protobuf.Int32Value.Builder getProductquantityBuilder() {
+        
+        onChanged();
+        return getProductquantityFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.Int32Value productquantity = 6;</code>
+       */
+      public com.google.protobuf.Int32ValueOrBuilder getProductquantityOrBuilder() {
+        if (productquantityBuilder_ != null) {
+          return productquantityBuilder_.getMessageOrBuilder();
+        } else {
+          return productquantity_ == null ?
+              com.google.protobuf.Int32Value.getDefaultInstance() : productquantity_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.Int32Value productquantity = 6;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> 
+          getProductquantityFieldBuilder() {
+        if (productquantityBuilder_ == null) {
+          productquantityBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder>(
+                  getProductquantity(),
+                  getParentForChildren(),
+                  isClean());
+          productquantity_ = null;
+        }
+        return productquantityBuilder_;
       }
 
       private com.google.type.Date productexpirationdate_ = null;
@@ -2842,22 +3403,27 @@ public final class ProductServer {
     java.lang.String[] descriptorData = {
       "\n\023ProductServer.proto\032\036google/protobuf/w" +
       "rappers.proto\032\033google/protobuf/empty.pro" +
-      "to\032\ndate.proto\"\310\001\n\007Product\022\025\n\rpurchase_i" +
-      "tem\030\001 \001(\005\022\023\n\013productname\030\002 \001(\t\022\024\n\014produc" +
-      "tbrand\030\003 \001(\t\022\024\n\014productprice\030\004 \001(\001\022\032\n\022pr" +
-      "oductdescription\030\005 \001(\t\022\027\n\017productquantit" +
-      "y\030\006 \001(\005\0220\n\025productexpirationdate\030\007 \001(\0132\021" +
-      ".google.type.Date\"Z\n\013ProductList\022\031\n\007prod" +
-      "uct\030\001 \003(\0132\010.Product\0220\n\013resultCount\030\002 \001(\013" +
-      "2\033.google.protobuf.Int64Value\"<\n\013APIResp" +
-      "onse\022\027\n\017responsemessage\030\001 \001(\t\022\024\n\014respons" +
-      "eCode\030\002 \001(\0052\330\001\n\016ProductService\022)\n\017findAl" +
-      "lRepeated\022\010.Product\032\014.ProductList\022 \n\006ins" +
-      "ert\022\010.Product\032\014.APIResponse\022$\n\ndeleteByI" +
-      "d\022\010.Product\032\014.APIResponse\0221\n\010findById\022\033." +
-      "google.protobuf.Int32Value\032\010.Product\022 \n\006" +
-      "update\022\010.Product\032\014.APIResponseB\030\n\026com.gr" +
-      "pcserver.productb\006proto3"
+      "to\032\ndate.proto\"\372\002\n\007Product\0222\n\rpurchase_i" +
+      "tem\030\001 \001(\0132\033.google.protobuf.Int32Value\0221" +
+      "\n\013productname\030\002 \001(\0132\034.google.protobuf.St" +
+      "ringValue\0222\n\014productbrand\030\003 \001(\0132\034.google" +
+      ".protobuf.StringValue\0222\n\014productprice\030\004 " +
+      "\001(\0132\034.google.protobuf.DoubleValue\0228\n\022pro" +
+      "ductdescription\030\005 \001(\0132\034.google.protobuf." +
+      "StringValue\0224\n\017productquantity\030\006 \001(\0132\033.g" +
+      "oogle.protobuf.Int32Value\0220\n\025productexpi" +
+      "rationdate\030\007 \001(\0132\021.google.type.Date\"Z\n\013P" +
+      "roductList\022\031\n\007product\030\001 \003(\0132\010.Product\0220\n" +
+      "\013resultCount\030\002 \001(\0132\033.google.protobuf.Int" +
+      "64Value\"<\n\013APIResponse\022\027\n\017responsemessag" +
+      "e\030\001 \001(\t\022\024\n\014responseCode\030\002 \001(\0052\330\001\n\016Produc" +
+      "tService\022)\n\017findAllRepeated\022\010.Product\032\014." +
+      "ProductList\022 \n\006insert\022\010.Product\032\014.APIRes" +
+      "ponse\022$\n\ndeleteById\022\010.Product\032\014.APIRespo" +
+      "nse\0221\n\010findById\022\033.google.protobuf.Int32V" +
+      "alue\032\010.Product\022 \n\006update\022\010.Product\032\014.API" +
+      "ResponseB\030\n\026com.grpcserver.productb\006prot" +
+      "o3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

@@ -8,9 +8,11 @@ import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cartgatewayservice.BodyConvertParameters.ConvertParameters;
 import com.cartgatewayservice.DTO.ProductDTO;
 import com.cartgatewayservice.DateConverter.DateConvert;
 import com.cartgatewayservice.Model.ProductEntity;
+import com.cartgatewayservice.Validation.InputValidation;
 import com.google.protobuf.Int32Value;
 import com.grpcserver.product.ProductServer.APIResponse;
 import com.grpcserver.product.ProductServer.Product;
@@ -26,16 +28,22 @@ public class ProductService   {
 	@Autowired
 	private DateConvert dateConvert;
 	
+	@Autowired
+	private ConvertParameters convertParameters;
+	@Autowired
+	private InputValidation inputValidation;
 	
 	 private ManagedChannel channel;
 	 private  ProductServiceGrpc.ProductServiceStub productServiceStub;
 	 private ProductServiceGrpc.ProductServiceBlockingStub productServiceBlockingStub;
 
-	 
+	
     private void initializeStub() {
         channel = ManagedChannelBuilder.forAddress("cartservice", 9090).usePlaintext().build();
         productServiceBlockingStub = ProductServiceGrpc.newBlockingStub(channel);
         productServiceStub = ProductServiceGrpc.newStub(channel);
+        
+        
     }
     
     @Autowired
@@ -59,13 +67,13 @@ public class ProductService   {
 		
 	
 	APIResponse response = productServiceBlockingStub.insert(Product.newBuilder()
-			.setPurchaseItem(product.getPurchase_item())
-			.setProductname(product.getProductname())
-			.setProductbrand(product.getProductbrand())
-			.setProductprice(product.getProductprice())
-			.setProductdescription(product.getProductdescription())
-			.setProductquantity(product.getProductquantity())
-		.setProductexpirationdate(dateConvert.getDateFromDateProtoEntity(product.getProductexpirationdate()) )
+			.setPurchaseItem(convertParameters.convertToint32value(product.getPurchase_item()))
+			.setProductname(convertParameters.convertStringValue(product.getProductname()))
+			.setProductbrand(convertParameters.convertStringValue(product.getProductbrand()))
+			.setProductprice(convertParameters.convertDoubleValue(product.getProductprice()))
+			.setProductdescription(convertParameters.convertStringValue(product.getProductdescription()))
+			.setProductquantity(convertParameters.convertToint32value(product.getProductquantity()))
+		.setProductexpirationdate(  dateConvert.getDateFromDateProtoForUpdate(product.getProductexpirationdate()))
 			.build());
 	 response.getResponsemessage();
 	
@@ -75,21 +83,9 @@ public class ProductService   {
 
 	
 	public ProductEntity findbyid(Integer purchase_item){
-		
-		
-		ProductEntity productEntity = new ProductEntity();
-		
 		Product product = productServiceBlockingStub.findById(Int32Value.of(purchase_item));
+		return convertParameters.bodyData(product);
 		
-		productEntity.setPurchase_item(product.getPurchaseItem());
-		productEntity.setProductname(product.getProductname());
-		productEntity.setProductbrand(product.getProductbrand());
-		productEntity.setProductprice(product.getProductprice());
-		productEntity.setProductdescription(product.getProductdescription());
-		productEntity.setProductquantity(product.getProductquantity());
-		productEntity.setProductexpirationdate(dateConvert.getDateFromDateProto(product.getProductexpirationdate()));
-			
-		return productEntity;
 	}
 	
 	public void  deletedata(Integer client_guest_id) {
@@ -101,7 +97,7 @@ public class ProductService   {
 		
 		
 		APIResponse response = productServiceBlockingStub.deleteById(Product.newBuilder()
-				.setPurchaseItem(productEntity.getPurchase_item())
+				.setPurchaseItem(convertParameters.convertToint32value(productEntity.getPurchase_item()) )
 				.build()
 				);
 	convertProductDTOtoProduct(response.getResponsemessage());
@@ -110,23 +106,21 @@ public class ProductService   {
 	
 	public String updatedata(ProductEntity product) {
 
+	
 		APIResponse response = productServiceBlockingStub.update(Product.newBuilder()
-				.setPurchaseItem(product.getPurchase_item())
-				.setProductname(product.getProductname())
-				.setProductbrand(product.getProductbrand())
-				.setProductprice(product.getProductprice())
-				.setProductdescription(product.getProductdescription())
-				.setProductquantity(product.getProductquantity())
-			.setProductexpirationdate(dateConvert.getDateFromDateProtoForUpdate(product.getProductexpirationdate()))
+				.setPurchaseItem(convertParameters.convertToint32value(product.getPurchase_item()))
+				.setProductname(convertParameters.convertStringValue(product.getProductname()))
+				.setProductbrand(convertParameters.convertStringValue(product.getProductbrand()))
+				.setProductprice(convertParameters.convertDoubleValue(product.getProductprice()))
+				.setProductdescription(convertParameters.convertStringValue(product.getProductdescription()))
+				.setProductquantity(convertParameters.convertToint32value(product.getProductquantity()))
+			.setProductexpirationdate(  dateConvert.getDateFromDateProtoForUpdate(product.getProductexpirationdate()))
 				.build());
 	
 	return response.getResponsemessage();
 			
 	
 	}
-	
-
-
 
 public List<ProductEntity> list(){
 
@@ -138,16 +132,7 @@ public List<ProductEntity> list(){
 		for (Iterator iterator = products2.iterator(); iterator.hasNext();) {
 			Product product = (Product) iterator.next();
 			
-			 ProductEntity productEntity2 = (ProductEntity.builder()
-			  			.purchase_item( product.getPurchaseItem())
-			  			.productname(product.getProductname())
-			  			.productbrand(product.getProductbrand())
-			  			.productprice(product.getProductprice())
-			  			.productdescription(product.getProductdescription())
-			  			.productquantity(product.getProductquantity())
-			  			.productexpirationdate(dateConvert.getDateFromDateProto(product.getProductexpirationdate()) )
-			  			.build()
-			  			);
+			 ProductEntity productEntity2 = convertParameters.forList(product);
 				
 			 list.add(productEntity2);
 			 	

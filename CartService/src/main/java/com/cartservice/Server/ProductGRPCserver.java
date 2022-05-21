@@ -11,6 +11,7 @@ import com.cartservice.ConvertParameters.BodyConvertParametrs;
 import com.cartservice.DTO.ProductDTO;
 
 import com.cartservice.Service.ProductServiceImpl;
+import com.cartservice.Validation.InputValidation;
 import com.google.protobuf.Int32Value;
 import com.google.protobuf.Int64Value;
 import com.grpcserver.product.ProductServer.APIResponse;
@@ -29,15 +30,17 @@ public class ProductGRPCserver  extends ProductServiceImplBase{
 	
 	@Autowired
 	private BodyConvertParametrs  bodyConvertParametrs;
+	
+	@Autowired
+	private InputValidation inputValidation;
 
 	@Override
 	public void insert(Product request, StreamObserver<APIResponse> responseObserver) {
 
+		
 		productServiceImpl.saveDataFromDTO(bodyConvertParametrs.bodyData(request));
-
 	APIResponse.Builder  responce = APIResponse.newBuilder();
 	responce.setResponseCode(0).setResponsemessage("Succefull added to database " );
-	
 	responseObserver.onNext(responce.build());
 	responseObserver.onCompleted();	
 		

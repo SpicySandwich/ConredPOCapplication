@@ -11,6 +11,7 @@ import com.grpcserver.product.ProductServer.Product;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Data
@@ -26,6 +27,12 @@ public class ProductEntity {
     private Integer productquantity;
     private Date  productexpirationdate;
     
+    
+    
+    
+    
+   
+
     public Product toProduct(){
 
     	return Product.newBuilder()
@@ -41,11 +48,17 @@ public class ProductEntity {
     
     public DoubleValue convertDoubleValue(Double double1) {
 
+
     	return DoubleValue.of(double1);
     }
     
     public StringValue convertStringValue(String string) {
     	
+    	
+    	if (string == null) {
+    		
+    		throw new NullPointerException();
+		}
 
     	return StringValue.of(string);
     	
@@ -53,6 +66,10 @@ public class ProductEntity {
    
     public Int32Value convertToint32value(Integer integer) {
 
+	if ( integer == null) {
+    		
+    		throw new NullPointerException();
+		}
 		return Int32Value.of(integer);
     	
     }
@@ -69,8 +86,5 @@ public class ProductEntity {
 		
         return datess ;
     }
-    
-
-    
 
 }

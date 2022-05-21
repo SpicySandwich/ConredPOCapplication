@@ -5,4 +5,8 @@ grpc:
   server:
     port: ${GRPC-SERVER-PORT:9099} 
     
+spring:
+  main:
+    allow-circular-references: true
+    
 
