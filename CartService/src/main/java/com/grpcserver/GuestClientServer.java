@@ -121,22 +121,111 @@ public final class GuestClientServer {
     // @@protoc_insertion_point(enum_scope:ClientGuestErrorCode)
   }
 
-  public interface EmptyOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Empty)
+  public interface ClientGuestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ClientGuest)
       com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional .google.protobuf.Int32Value client_guest_id = 1;</code>
+     */
+    boolean hasClientGuestId();
+    /**
+     * <code>optional .google.protobuf.Int32Value client_guest_id = 1;</code>
+     */
+    com.google.protobuf.Int32Value getClientGuestId();
+    /**
+     * <code>optional .google.protobuf.Int32Value client_guest_id = 1;</code>
+     */
+    com.google.protobuf.Int32ValueOrBuilder getClientGuestIdOrBuilder();
+
+    /**
+     * <code>optional .google.protobuf.StringValue client_guest_name = 2;</code>
+     */
+    boolean hasClientGuestName();
+    /**
+     * <code>optional .google.protobuf.StringValue client_guest_name = 2;</code>
+     */
+    com.google.protobuf.StringValue getClientGuestName();
+    /**
+     * <code>optional .google.protobuf.StringValue client_guest_name = 2;</code>
+     */
+    com.google.protobuf.StringValueOrBuilder getClientGuestNameOrBuilder();
+
+    /**
+     * <code>optional .google.protobuf.StringValue client_guest_email = 3;</code>
+     */
+    boolean hasClientGuestEmail();
+    /**
+     * <code>optional .google.protobuf.StringValue client_guest_email = 3;</code>
+     */
+    com.google.protobuf.StringValue getClientGuestEmail();
+    /**
+     * <code>optional .google.protobuf.StringValue client_guest_email = 3;</code>
+     */
+    com.google.protobuf.StringValueOrBuilder getClientGuestEmailOrBuilder();
+
+    /**
+     * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
+     */
+    java.util.List<com.google.protobuf.Int32Value> 
+        getPurchaseItemCartList();
+    /**
+     * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
+     */
+    com.google.protobuf.Int32Value getPurchaseItemCart(int index);
+    /**
+     * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
+     */
+    int getPurchaseItemCartCount();
+    /**
+     * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
+     */
+    java.util.List<? extends com.google.protobuf.Int32ValueOrBuilder> 
+        getPurchaseItemCartOrBuilderList();
+    /**
+     * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
+     */
+    com.google.protobuf.Int32ValueOrBuilder getPurchaseItemCartOrBuilder(
+        int index);
+
+    /**
+     * <code>repeated .product.service.Product cart_list = 5;</code>
+     */
+    java.util.List<com.grpcserver.product.ProductServer.Product> 
+        getCartListList();
+    /**
+     * <code>repeated .product.service.Product cart_list = 5;</code>
+     */
+    com.grpcserver.product.ProductServer.Product getCartList(int index);
+    /**
+     * <code>repeated .product.service.Product cart_list = 5;</code>
+     */
+    int getCartListCount();
+    /**
+     * <code>repeated .product.service.Product cart_list = 5;</code>
+     */
+    java.util.List<? extends com.grpcserver.product.ProductServer.ProductOrBuilder> 
+        getCartListOrBuilderList();
+    /**
+     * <code>repeated .product.service.Product cart_list = 5;</code>
+     */
+    com.grpcserver.product.ProductServer.ProductOrBuilder getCartListOrBuilder(
+        int index);
   }
   /**
-   * Protobuf type {@code Empty}
+   * Protobuf type {@code ClientGuest}
    */
-  public  static final class Empty extends
+  public  static final class ClientGuest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:Empty)
-      EmptyOrBuilder {
-    // Use Empty.newBuilder() to construct.
-    private Empty(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      // @@protoc_insertion_point(message_implements:ClientGuest)
+      ClientGuestOrBuilder {
+    // Use ClientGuest.newBuilder() to construct.
+    private ClientGuest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private Empty() {
+    private ClientGuest() {
+      purchaseItemCart_ = java.util.Collections.emptyList();
+      cartList_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -144,400 +233,7 @@ public final class GuestClientServer {
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
-    private Empty(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.grpcserver.GuestClientServer.internal_static_Empty_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.grpcserver.GuestClientServer.internal_static_Empty_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.grpcserver.GuestClientServer.Empty.class, com.grpcserver.GuestClientServer.Empty.Builder.class);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-    }
-
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      memoizedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.grpcserver.GuestClientServer.Empty)) {
-        return super.equals(obj);
-      }
-      com.grpcserver.GuestClientServer.Empty other = (com.grpcserver.GuestClientServer.Empty) obj;
-
-      boolean result = true;
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.grpcserver.GuestClientServer.Empty parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.grpcserver.GuestClientServer.Empty parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.grpcserver.GuestClientServer.Empty parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.grpcserver.GuestClientServer.Empty parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.grpcserver.GuestClientServer.Empty parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.grpcserver.GuestClientServer.Empty parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.grpcserver.GuestClientServer.Empty parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.grpcserver.GuestClientServer.Empty parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.grpcserver.GuestClientServer.Empty parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.grpcserver.GuestClientServer.Empty parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.grpcserver.GuestClientServer.Empty prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code Empty}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Empty)
-        com.grpcserver.GuestClientServer.EmptyOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.grpcserver.GuestClientServer.internal_static_Empty_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.grpcserver.GuestClientServer.internal_static_Empty_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.grpcserver.GuestClientServer.Empty.class, com.grpcserver.GuestClientServer.Empty.Builder.class);
-      }
-
-      // Construct using com.grpcserver.GuestClientServer.Empty.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      public Builder clear() {
-        super.clear();
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.grpcserver.GuestClientServer.internal_static_Empty_descriptor;
-      }
-
-      public com.grpcserver.GuestClientServer.Empty getDefaultInstanceForType() {
-        return com.grpcserver.GuestClientServer.Empty.getDefaultInstance();
-      }
-
-      public com.grpcserver.GuestClientServer.Empty build() {
-        com.grpcserver.GuestClientServer.Empty result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public com.grpcserver.GuestClientServer.Empty buildPartial() {
-        com.grpcserver.GuestClientServer.Empty result = new com.grpcserver.GuestClientServer.Empty(this);
-        onBuilt();
-        return result;
-      }
-
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.grpcserver.GuestClientServer.Empty) {
-          return mergeFrom((com.grpcserver.GuestClientServer.Empty)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.grpcserver.GuestClientServer.Empty other) {
-        if (other == com.grpcserver.GuestClientServer.Empty.getDefaultInstance()) return this;
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.grpcserver.GuestClientServer.Empty parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.grpcserver.GuestClientServer.Empty) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:Empty)
-    }
-
-    // @@protoc_insertion_point(class_scope:Empty)
-    private static final com.grpcserver.GuestClientServer.Empty DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.grpcserver.GuestClientServer.Empty();
-    }
-
-    public static com.grpcserver.GuestClientServer.Empty getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<Empty>
-        PARSER = new com.google.protobuf.AbstractParser<Empty>() {
-      public Empty parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Empty(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<Empty> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Empty> getParserForType() {
-      return PARSER;
-    }
-
-    public com.grpcserver.GuestClientServer.Empty getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface ClientGuestRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:ClientGuestRequest)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>optional int32 client_guest_id = 1;</code>
-     */
-    int getClientGuestId();
-
-    /**
-     * <code>optional string client_guest_name = 2;</code>
-     */
-    java.lang.String getClientGuestName();
-    /**
-     * <code>optional string client_guest_name = 2;</code>
-     */
-    com.google.protobuf.ByteString
-        getClientGuestNameBytes();
-
-    /**
-     * <code>optional string client_guest_email = 3;</code>
-     */
-    java.lang.String getClientGuestEmail();
-    /**
-     * <code>optional string client_guest_email = 3;</code>
-     */
-    com.google.protobuf.ByteString
-        getClientGuestEmailBytes();
-  }
-  /**
-   * Protobuf type {@code ClientGuestRequest}
-   */
-  public  static final class ClientGuestRequest extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:ClientGuestRequest)
-      ClientGuestRequestOrBuilder {
-    // Use ClientGuestRequest.newBuilder() to construct.
-    private ClientGuestRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private ClientGuestRequest() {
-      clientGuestId_ = 0;
-      clientGuestName_ = "";
-      clientGuestEmail_ = "";
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
-    }
-    private ClientGuestRequest(
+    private ClientGuest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -557,21 +253,61 @@ public final class GuestClientServer {
               }
               break;
             }
-            case 8: {
+            case 10: {
+              com.google.protobuf.Int32Value.Builder subBuilder = null;
+              if (clientGuestId_ != null) {
+                subBuilder = clientGuestId_.toBuilder();
+              }
+              clientGuestId_ = input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(clientGuestId_);
+                clientGuestId_ = subBuilder.buildPartial();
+              }
 
-              clientGuestId_ = input.readInt32();
               break;
             }
             case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
+              com.google.protobuf.StringValue.Builder subBuilder = null;
+              if (clientGuestName_ != null) {
+                subBuilder = clientGuestName_.toBuilder();
+              }
+              clientGuestName_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(clientGuestName_);
+                clientGuestName_ = subBuilder.buildPartial();
+              }
 
-              clientGuestName_ = s;
               break;
             }
             case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
+              com.google.protobuf.StringValue.Builder subBuilder = null;
+              if (clientGuestEmail_ != null) {
+                subBuilder = clientGuestEmail_.toBuilder();
+              }
+              clientGuestEmail_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(clientGuestEmail_);
+                clientGuestEmail_ = subBuilder.buildPartial();
+              }
 
-              clientGuestEmail_ = s;
+              break;
+            }
+            case 34: {
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                purchaseItemCart_ = new java.util.ArrayList<com.google.protobuf.Int32Value>();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              purchaseItemCart_.add(
+                  input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry));
+              break;
+            }
+            case 42: {
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                cartList_ = new java.util.ArrayList<com.grpcserver.product.ProductServer.Product>();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              cartList_.add(
+                  input.readMessage(com.grpcserver.product.ProductServer.Product.parser(), extensionRegistry));
               break;
             }
           }
@@ -582,96 +318,159 @@ public final class GuestClientServer {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+          purchaseItemCart_ = java.util.Collections.unmodifiableList(purchaseItemCart_);
+        }
+        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+          cartList_ = java.util.Collections.unmodifiableList(cartList_);
+        }
         makeExtensionsImmutable();
       }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.grpcserver.GuestClientServer.internal_static_ClientGuestRequest_descriptor;
+      return com.grpcserver.GuestClientServer.internal_static_ClientGuest_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.grpcserver.GuestClientServer.internal_static_ClientGuestRequest_fieldAccessorTable
+      return com.grpcserver.GuestClientServer.internal_static_ClientGuest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.grpcserver.GuestClientServer.ClientGuestRequest.class, com.grpcserver.GuestClientServer.ClientGuestRequest.Builder.class);
+              com.grpcserver.GuestClientServer.ClientGuest.class, com.grpcserver.GuestClientServer.ClientGuest.Builder.class);
     }
 
+    private int bitField0_;
     public static final int CLIENT_GUEST_ID_FIELD_NUMBER = 1;
-    private int clientGuestId_;
+    private com.google.protobuf.Int32Value clientGuestId_;
     /**
-     * <code>optional int32 client_guest_id = 1;</code>
+     * <code>optional .google.protobuf.Int32Value client_guest_id = 1;</code>
      */
-    public int getClientGuestId() {
-      return clientGuestId_;
+    public boolean hasClientGuestId() {
+      return clientGuestId_ != null;
+    }
+    /**
+     * <code>optional .google.protobuf.Int32Value client_guest_id = 1;</code>
+     */
+    public com.google.protobuf.Int32Value getClientGuestId() {
+      return clientGuestId_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : clientGuestId_;
+    }
+    /**
+     * <code>optional .google.protobuf.Int32Value client_guest_id = 1;</code>
+     */
+    public com.google.protobuf.Int32ValueOrBuilder getClientGuestIdOrBuilder() {
+      return getClientGuestId();
     }
 
     public static final int CLIENT_GUEST_NAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object clientGuestName_;
+    private com.google.protobuf.StringValue clientGuestName_;
     /**
-     * <code>optional string client_guest_name = 2;</code>
+     * <code>optional .google.protobuf.StringValue client_guest_name = 2;</code>
      */
-    public java.lang.String getClientGuestName() {
-      java.lang.Object ref = clientGuestName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        clientGuestName_ = s;
-        return s;
-      }
+    public boolean hasClientGuestName() {
+      return clientGuestName_ != null;
     }
     /**
-     * <code>optional string client_guest_name = 2;</code>
+     * <code>optional .google.protobuf.StringValue client_guest_name = 2;</code>
      */
-    public com.google.protobuf.ByteString
-        getClientGuestNameBytes() {
-      java.lang.Object ref = clientGuestName_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        clientGuestName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public com.google.protobuf.StringValue getClientGuestName() {
+      return clientGuestName_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : clientGuestName_;
+    }
+    /**
+     * <code>optional .google.protobuf.StringValue client_guest_name = 2;</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getClientGuestNameOrBuilder() {
+      return getClientGuestName();
     }
 
     public static final int CLIENT_GUEST_EMAIL_FIELD_NUMBER = 3;
-    private volatile java.lang.Object clientGuestEmail_;
+    private com.google.protobuf.StringValue clientGuestEmail_;
     /**
-     * <code>optional string client_guest_email = 3;</code>
+     * <code>optional .google.protobuf.StringValue client_guest_email = 3;</code>
      */
-    public java.lang.String getClientGuestEmail() {
-      java.lang.Object ref = clientGuestEmail_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        clientGuestEmail_ = s;
-        return s;
-      }
+    public boolean hasClientGuestEmail() {
+      return clientGuestEmail_ != null;
     }
     /**
-     * <code>optional string client_guest_email = 3;</code>
+     * <code>optional .google.protobuf.StringValue client_guest_email = 3;</code>
      */
-    public com.google.protobuf.ByteString
-        getClientGuestEmailBytes() {
-      java.lang.Object ref = clientGuestEmail_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        clientGuestEmail_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public com.google.protobuf.StringValue getClientGuestEmail() {
+      return clientGuestEmail_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : clientGuestEmail_;
+    }
+    /**
+     * <code>optional .google.protobuf.StringValue client_guest_email = 3;</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getClientGuestEmailOrBuilder() {
+      return getClientGuestEmail();
+    }
+
+    public static final int PURCHASE_ITEM_CART_FIELD_NUMBER = 4;
+    private java.util.List<com.google.protobuf.Int32Value> purchaseItemCart_;
+    /**
+     * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
+     */
+    public java.util.List<com.google.protobuf.Int32Value> getPurchaseItemCartList() {
+      return purchaseItemCart_;
+    }
+    /**
+     * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
+     */
+    public java.util.List<? extends com.google.protobuf.Int32ValueOrBuilder> 
+        getPurchaseItemCartOrBuilderList() {
+      return purchaseItemCart_;
+    }
+    /**
+     * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
+     */
+    public int getPurchaseItemCartCount() {
+      return purchaseItemCart_.size();
+    }
+    /**
+     * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
+     */
+    public com.google.protobuf.Int32Value getPurchaseItemCart(int index) {
+      return purchaseItemCart_.get(index);
+    }
+    /**
+     * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
+     */
+    public com.google.protobuf.Int32ValueOrBuilder getPurchaseItemCartOrBuilder(
+        int index) {
+      return purchaseItemCart_.get(index);
+    }
+
+    public static final int CART_LIST_FIELD_NUMBER = 5;
+    private java.util.List<com.grpcserver.product.ProductServer.Product> cartList_;
+    /**
+     * <code>repeated .product.service.Product cart_list = 5;</code>
+     */
+    public java.util.List<com.grpcserver.product.ProductServer.Product> getCartListList() {
+      return cartList_;
+    }
+    /**
+     * <code>repeated .product.service.Product cart_list = 5;</code>
+     */
+    public java.util.List<? extends com.grpcserver.product.ProductServer.ProductOrBuilder> 
+        getCartListOrBuilderList() {
+      return cartList_;
+    }
+    /**
+     * <code>repeated .product.service.Product cart_list = 5;</code>
+     */
+    public int getCartListCount() {
+      return cartList_.size();
+    }
+    /**
+     * <code>repeated .product.service.Product cart_list = 5;</code>
+     */
+    public com.grpcserver.product.ProductServer.Product getCartList(int index) {
+      return cartList_.get(index);
+    }
+    /**
+     * <code>repeated .product.service.Product cart_list = 5;</code>
+     */
+    public com.grpcserver.product.ProductServer.ProductOrBuilder getCartListOrBuilder(
+        int index) {
+      return cartList_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -686,14 +485,20 @@ public final class GuestClientServer {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (clientGuestId_ != 0) {
-        output.writeInt32(1, clientGuestId_);
+      if (clientGuestId_ != null) {
+        output.writeMessage(1, getClientGuestId());
       }
-      if (!getClientGuestNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, clientGuestName_);
+      if (clientGuestName_ != null) {
+        output.writeMessage(2, getClientGuestName());
       }
-      if (!getClientGuestEmailBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, clientGuestEmail_);
+      if (clientGuestEmail_ != null) {
+        output.writeMessage(3, getClientGuestEmail());
+      }
+      for (int i = 0; i < purchaseItemCart_.size(); i++) {
+        output.writeMessage(4, purchaseItemCart_.get(i));
+      }
+      for (int i = 0; i < cartList_.size(); i++) {
+        output.writeMessage(5, cartList_.get(i));
       }
     }
 
@@ -702,15 +507,25 @@ public final class GuestClientServer {
       if (size != -1) return size;
 
       size = 0;
-      if (clientGuestId_ != 0) {
+      if (clientGuestId_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, clientGuestId_);
+          .computeMessageSize(1, getClientGuestId());
       }
-      if (!getClientGuestNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, clientGuestName_);
+      if (clientGuestName_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getClientGuestName());
       }
-      if (!getClientGuestEmailBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, clientGuestEmail_);
+      if (clientGuestEmail_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getClientGuestEmail());
+      }
+      for (int i = 0; i < purchaseItemCart_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, purchaseItemCart_.get(i));
+      }
+      for (int i = 0; i < cartList_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, cartList_.get(i));
       }
       memoizedSize = size;
       return size;
@@ -722,18 +537,31 @@ public final class GuestClientServer {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.grpcserver.GuestClientServer.ClientGuestRequest)) {
+      if (!(obj instanceof com.grpcserver.GuestClientServer.ClientGuest)) {
         return super.equals(obj);
       }
-      com.grpcserver.GuestClientServer.ClientGuestRequest other = (com.grpcserver.GuestClientServer.ClientGuestRequest) obj;
+      com.grpcserver.GuestClientServer.ClientGuest other = (com.grpcserver.GuestClientServer.ClientGuest) obj;
 
       boolean result = true;
-      result = result && (getClientGuestId()
-          == other.getClientGuestId());
-      result = result && getClientGuestName()
-          .equals(other.getClientGuestName());
-      result = result && getClientGuestEmail()
-          .equals(other.getClientGuestEmail());
+      result = result && (hasClientGuestId() == other.hasClientGuestId());
+      if (hasClientGuestId()) {
+        result = result && getClientGuestId()
+            .equals(other.getClientGuestId());
+      }
+      result = result && (hasClientGuestName() == other.hasClientGuestName());
+      if (hasClientGuestName()) {
+        result = result && getClientGuestName()
+            .equals(other.getClientGuestName());
+      }
+      result = result && (hasClientGuestEmail() == other.hasClientGuestEmail());
+      if (hasClientGuestEmail()) {
+        result = result && getClientGuestEmail()
+            .equals(other.getClientGuestEmail());
+      }
+      result = result && getPurchaseItemCartList()
+          .equals(other.getPurchaseItemCartList());
+      result = result && getCartListList()
+          .equals(other.getCartListList());
       return result;
     }
 
@@ -744,69 +572,83 @@ public final class GuestClientServer {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptorForType().hashCode();
-      hash = (37 * hash) + CLIENT_GUEST_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getClientGuestId();
-      hash = (37 * hash) + CLIENT_GUEST_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getClientGuestName().hashCode();
-      hash = (37 * hash) + CLIENT_GUEST_EMAIL_FIELD_NUMBER;
-      hash = (53 * hash) + getClientGuestEmail().hashCode();
+      if (hasClientGuestId()) {
+        hash = (37 * hash) + CLIENT_GUEST_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getClientGuestId().hashCode();
+      }
+      if (hasClientGuestName()) {
+        hash = (37 * hash) + CLIENT_GUEST_NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getClientGuestName().hashCode();
+      }
+      if (hasClientGuestEmail()) {
+        hash = (37 * hash) + CLIENT_GUEST_EMAIL_FIELD_NUMBER;
+        hash = (53 * hash) + getClientGuestEmail().hashCode();
+      }
+      if (getPurchaseItemCartCount() > 0) {
+        hash = (37 * hash) + PURCHASE_ITEM_CART_FIELD_NUMBER;
+        hash = (53 * hash) + getPurchaseItemCartList().hashCode();
+      }
+      if (getCartListCount() > 0) {
+        hash = (37 * hash) + CART_LIST_FIELD_NUMBER;
+        hash = (53 * hash) + getCartListList().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.grpcserver.GuestClientServer.ClientGuestRequest parseFrom(
+    public static com.grpcserver.GuestClientServer.ClientGuest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.grpcserver.GuestClientServer.ClientGuestRequest parseFrom(
+    public static com.grpcserver.GuestClientServer.ClientGuest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.grpcserver.GuestClientServer.ClientGuestRequest parseFrom(byte[] data)
+    public static com.grpcserver.GuestClientServer.ClientGuest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.grpcserver.GuestClientServer.ClientGuestRequest parseFrom(
+    public static com.grpcserver.GuestClientServer.ClientGuest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.grpcserver.GuestClientServer.ClientGuestRequest parseFrom(java.io.InputStream input)
+    public static com.grpcserver.GuestClientServer.ClientGuest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.grpcserver.GuestClientServer.ClientGuestRequest parseFrom(
+    public static com.grpcserver.GuestClientServer.ClientGuest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.grpcserver.GuestClientServer.ClientGuestRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.grpcserver.GuestClientServer.ClientGuest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.grpcserver.GuestClientServer.ClientGuestRequest parseDelimitedFrom(
+    public static com.grpcserver.GuestClientServer.ClientGuest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.grpcserver.GuestClientServer.ClientGuestRequest parseFrom(
+    public static com.grpcserver.GuestClientServer.ClientGuest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.grpcserver.GuestClientServer.ClientGuestRequest parseFrom(
+    public static com.grpcserver.GuestClientServer.ClientGuest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -818,7 +660,7 @@ public final class GuestClientServer {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.grpcserver.GuestClientServer.ClientGuestRequest prototype) {
+    public static Builder newBuilder(com.grpcserver.GuestClientServer.ClientGuest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -833,25 +675,25 @@ public final class GuestClientServer {
       return builder;
     }
     /**
-     * Protobuf type {@code ClientGuestRequest}
+     * Protobuf type {@code ClientGuest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:ClientGuestRequest)
-        com.grpcserver.GuestClientServer.ClientGuestRequestOrBuilder {
+        // @@protoc_insertion_point(builder_implements:ClientGuest)
+        com.grpcserver.GuestClientServer.ClientGuestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.grpcserver.GuestClientServer.internal_static_ClientGuestRequest_descriptor;
+        return com.grpcserver.GuestClientServer.internal_static_ClientGuest_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.grpcserver.GuestClientServer.internal_static_ClientGuestRequest_fieldAccessorTable
+        return com.grpcserver.GuestClientServer.internal_static_ClientGuest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.grpcserver.GuestClientServer.ClientGuestRequest.class, com.grpcserver.GuestClientServer.ClientGuestRequest.Builder.class);
+                com.grpcserver.GuestClientServer.ClientGuest.class, com.grpcserver.GuestClientServer.ClientGuest.Builder.class);
       }
 
-      // Construct using com.grpcserver.GuestClientServer.ClientGuestRequest.newBuilder()
+      // Construct using com.grpcserver.GuestClientServer.ClientGuest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -864,41 +706,100 @@ public final class GuestClientServer {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getPurchaseItemCartFieldBuilder();
+          getCartListFieldBuilder();
         }
       }
       public Builder clear() {
         super.clear();
-        clientGuestId_ = 0;
-
-        clientGuestName_ = "";
-
-        clientGuestEmail_ = "";
-
+        if (clientGuestIdBuilder_ == null) {
+          clientGuestId_ = null;
+        } else {
+          clientGuestId_ = null;
+          clientGuestIdBuilder_ = null;
+        }
+        if (clientGuestNameBuilder_ == null) {
+          clientGuestName_ = null;
+        } else {
+          clientGuestName_ = null;
+          clientGuestNameBuilder_ = null;
+        }
+        if (clientGuestEmailBuilder_ == null) {
+          clientGuestEmail_ = null;
+        } else {
+          clientGuestEmail_ = null;
+          clientGuestEmailBuilder_ = null;
+        }
+        if (purchaseItemCartBuilder_ == null) {
+          purchaseItemCart_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        } else {
+          purchaseItemCartBuilder_.clear();
+        }
+        if (cartListBuilder_ == null) {
+          cartList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000010);
+        } else {
+          cartListBuilder_.clear();
+        }
         return this;
       }
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.grpcserver.GuestClientServer.internal_static_ClientGuestRequest_descriptor;
+        return com.grpcserver.GuestClientServer.internal_static_ClientGuest_descriptor;
       }
 
-      public com.grpcserver.GuestClientServer.ClientGuestRequest getDefaultInstanceForType() {
-        return com.grpcserver.GuestClientServer.ClientGuestRequest.getDefaultInstance();
+      public com.grpcserver.GuestClientServer.ClientGuest getDefaultInstanceForType() {
+        return com.grpcserver.GuestClientServer.ClientGuest.getDefaultInstance();
       }
 
-      public com.grpcserver.GuestClientServer.ClientGuestRequest build() {
-        com.grpcserver.GuestClientServer.ClientGuestRequest result = buildPartial();
+      public com.grpcserver.GuestClientServer.ClientGuest build() {
+        com.grpcserver.GuestClientServer.ClientGuest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.grpcserver.GuestClientServer.ClientGuestRequest buildPartial() {
-        com.grpcserver.GuestClientServer.ClientGuestRequest result = new com.grpcserver.GuestClientServer.ClientGuestRequest(this);
-        result.clientGuestId_ = clientGuestId_;
-        result.clientGuestName_ = clientGuestName_;
-        result.clientGuestEmail_ = clientGuestEmail_;
+      public com.grpcserver.GuestClientServer.ClientGuest buildPartial() {
+        com.grpcserver.GuestClientServer.ClientGuest result = new com.grpcserver.GuestClientServer.ClientGuest(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (clientGuestIdBuilder_ == null) {
+          result.clientGuestId_ = clientGuestId_;
+        } else {
+          result.clientGuestId_ = clientGuestIdBuilder_.build();
+        }
+        if (clientGuestNameBuilder_ == null) {
+          result.clientGuestName_ = clientGuestName_;
+        } else {
+          result.clientGuestName_ = clientGuestNameBuilder_.build();
+        }
+        if (clientGuestEmailBuilder_ == null) {
+          result.clientGuestEmail_ = clientGuestEmail_;
+        } else {
+          result.clientGuestEmail_ = clientGuestEmailBuilder_.build();
+        }
+        if (purchaseItemCartBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) == 0x00000008)) {
+            purchaseItemCart_ = java.util.Collections.unmodifiableList(purchaseItemCart_);
+            bitField0_ = (bitField0_ & ~0x00000008);
+          }
+          result.purchaseItemCart_ = purchaseItemCart_;
+        } else {
+          result.purchaseItemCart_ = purchaseItemCartBuilder_.build();
+        }
+        if (cartListBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) == 0x00000010)) {
+            cartList_ = java.util.Collections.unmodifiableList(cartList_);
+            bitField0_ = (bitField0_ & ~0x00000010);
+          }
+          result.cartList_ = cartList_;
+        } else {
+          result.cartList_ = cartListBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -930,26 +831,76 @@ public final class GuestClientServer {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.grpcserver.GuestClientServer.ClientGuestRequest) {
-          return mergeFrom((com.grpcserver.GuestClientServer.ClientGuestRequest)other);
+        if (other instanceof com.grpcserver.GuestClientServer.ClientGuest) {
+          return mergeFrom((com.grpcserver.GuestClientServer.ClientGuest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.grpcserver.GuestClientServer.ClientGuestRequest other) {
-        if (other == com.grpcserver.GuestClientServer.ClientGuestRequest.getDefaultInstance()) return this;
-        if (other.getClientGuestId() != 0) {
-          setClientGuestId(other.getClientGuestId());
+      public Builder mergeFrom(com.grpcserver.GuestClientServer.ClientGuest other) {
+        if (other == com.grpcserver.GuestClientServer.ClientGuest.getDefaultInstance()) return this;
+        if (other.hasClientGuestId()) {
+          mergeClientGuestId(other.getClientGuestId());
         }
-        if (!other.getClientGuestName().isEmpty()) {
-          clientGuestName_ = other.clientGuestName_;
-          onChanged();
+        if (other.hasClientGuestName()) {
+          mergeClientGuestName(other.getClientGuestName());
         }
-        if (!other.getClientGuestEmail().isEmpty()) {
-          clientGuestEmail_ = other.clientGuestEmail_;
-          onChanged();
+        if (other.hasClientGuestEmail()) {
+          mergeClientGuestEmail(other.getClientGuestEmail());
+        }
+        if (purchaseItemCartBuilder_ == null) {
+          if (!other.purchaseItemCart_.isEmpty()) {
+            if (purchaseItemCart_.isEmpty()) {
+              purchaseItemCart_ = other.purchaseItemCart_;
+              bitField0_ = (bitField0_ & ~0x00000008);
+            } else {
+              ensurePurchaseItemCartIsMutable();
+              purchaseItemCart_.addAll(other.purchaseItemCart_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.purchaseItemCart_.isEmpty()) {
+            if (purchaseItemCartBuilder_.isEmpty()) {
+              purchaseItemCartBuilder_.dispose();
+              purchaseItemCartBuilder_ = null;
+              purchaseItemCart_ = other.purchaseItemCart_;
+              bitField0_ = (bitField0_ & ~0x00000008);
+              purchaseItemCartBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getPurchaseItemCartFieldBuilder() : null;
+            } else {
+              purchaseItemCartBuilder_.addAllMessages(other.purchaseItemCart_);
+            }
+          }
+        }
+        if (cartListBuilder_ == null) {
+          if (!other.cartList_.isEmpty()) {
+            if (cartList_.isEmpty()) {
+              cartList_ = other.cartList_;
+              bitField0_ = (bitField0_ & ~0x00000010);
+            } else {
+              ensureCartListIsMutable();
+              cartList_.addAll(other.cartList_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.cartList_.isEmpty()) {
+            if (cartListBuilder_.isEmpty()) {
+              cartListBuilder_.dispose();
+              cartListBuilder_ = null;
+              cartList_ = other.cartList_;
+              bitField0_ = (bitField0_ & ~0x00000010);
+              cartListBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getCartListFieldBuilder() : null;
+            } else {
+              cartListBuilder_.addAllMessages(other.cartList_);
+            }
+          }
         }
         onChanged();
         return this;
@@ -963,11 +914,11 @@ public final class GuestClientServer {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.grpcserver.GuestClientServer.ClientGuestRequest parsedMessage = null;
+        com.grpcserver.GuestClientServer.ClientGuest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.grpcserver.GuestClientServer.ClientGuestRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.grpcserver.GuestClientServer.ClientGuest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -976,169 +927,837 @@ public final class GuestClientServer {
         }
         return this;
       }
+      private int bitField0_;
 
-      private int clientGuestId_ ;
+      private com.google.protobuf.Int32Value clientGuestId_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> clientGuestIdBuilder_;
       /**
-       * <code>optional int32 client_guest_id = 1;</code>
+       * <code>optional .google.protobuf.Int32Value client_guest_id = 1;</code>
        */
-      public int getClientGuestId() {
-        return clientGuestId_;
+      public boolean hasClientGuestId() {
+        return clientGuestIdBuilder_ != null || clientGuestId_ != null;
       }
       /**
-       * <code>optional int32 client_guest_id = 1;</code>
+       * <code>optional .google.protobuf.Int32Value client_guest_id = 1;</code>
        */
-      public Builder setClientGuestId(int value) {
-        
-        clientGuestId_ = value;
-        onChanged();
+      public com.google.protobuf.Int32Value getClientGuestId() {
+        if (clientGuestIdBuilder_ == null) {
+          return clientGuestId_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : clientGuestId_;
+        } else {
+          return clientGuestIdBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .google.protobuf.Int32Value client_guest_id = 1;</code>
+       */
+      public Builder setClientGuestId(com.google.protobuf.Int32Value value) {
+        if (clientGuestIdBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          clientGuestId_ = value;
+          onChanged();
+        } else {
+          clientGuestIdBuilder_.setMessage(value);
+        }
+
         return this;
       }
       /**
-       * <code>optional int32 client_guest_id = 1;</code>
+       * <code>optional .google.protobuf.Int32Value client_guest_id = 1;</code>
+       */
+      public Builder setClientGuestId(
+          com.google.protobuf.Int32Value.Builder builderForValue) {
+        if (clientGuestIdBuilder_ == null) {
+          clientGuestId_ = builderForValue.build();
+          onChanged();
+        } else {
+          clientGuestIdBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .google.protobuf.Int32Value client_guest_id = 1;</code>
+       */
+      public Builder mergeClientGuestId(com.google.protobuf.Int32Value value) {
+        if (clientGuestIdBuilder_ == null) {
+          if (clientGuestId_ != null) {
+            clientGuestId_ =
+              com.google.protobuf.Int32Value.newBuilder(clientGuestId_).mergeFrom(value).buildPartial();
+          } else {
+            clientGuestId_ = value;
+          }
+          onChanged();
+        } else {
+          clientGuestIdBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .google.protobuf.Int32Value client_guest_id = 1;</code>
        */
       public Builder clearClientGuestId() {
-        
-        clientGuestId_ = 0;
-        onChanged();
+        if (clientGuestIdBuilder_ == null) {
+          clientGuestId_ = null;
+          onChanged();
+        } else {
+          clientGuestId_ = null;
+          clientGuestIdBuilder_ = null;
+        }
+
         return this;
       }
+      /**
+       * <code>optional .google.protobuf.Int32Value client_guest_id = 1;</code>
+       */
+      public com.google.protobuf.Int32Value.Builder getClientGuestIdBuilder() {
+        
+        onChanged();
+        return getClientGuestIdFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .google.protobuf.Int32Value client_guest_id = 1;</code>
+       */
+      public com.google.protobuf.Int32ValueOrBuilder getClientGuestIdOrBuilder() {
+        if (clientGuestIdBuilder_ != null) {
+          return clientGuestIdBuilder_.getMessageOrBuilder();
+        } else {
+          return clientGuestId_ == null ?
+              com.google.protobuf.Int32Value.getDefaultInstance() : clientGuestId_;
+        }
+      }
+      /**
+       * <code>optional .google.protobuf.Int32Value client_guest_id = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> 
+          getClientGuestIdFieldBuilder() {
+        if (clientGuestIdBuilder_ == null) {
+          clientGuestIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder>(
+                  getClientGuestId(),
+                  getParentForChildren(),
+                  isClean());
+          clientGuestId_ = null;
+        }
+        return clientGuestIdBuilder_;
+      }
 
-      private java.lang.Object clientGuestName_ = "";
+      private com.google.protobuf.StringValue clientGuestName_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> clientGuestNameBuilder_;
       /**
-       * <code>optional string client_guest_name = 2;</code>
+       * <code>optional .google.protobuf.StringValue client_guest_name = 2;</code>
        */
-      public java.lang.String getClientGuestName() {
-        java.lang.Object ref = clientGuestName_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          clientGuestName_ = s;
-          return s;
+      public boolean hasClientGuestName() {
+        return clientGuestNameBuilder_ != null || clientGuestName_ != null;
+      }
+      /**
+       * <code>optional .google.protobuf.StringValue client_guest_name = 2;</code>
+       */
+      public com.google.protobuf.StringValue getClientGuestName() {
+        if (clientGuestNameBuilder_ == null) {
+          return clientGuestName_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : clientGuestName_;
         } else {
-          return (java.lang.String) ref;
+          return clientGuestNameBuilder_.getMessage();
         }
       }
       /**
-       * <code>optional string client_guest_name = 2;</code>
+       * <code>optional .google.protobuf.StringValue client_guest_name = 2;</code>
        */
-      public com.google.protobuf.ByteString
-          getClientGuestNameBytes() {
-        java.lang.Object ref = clientGuestName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          clientGuestName_ = b;
-          return b;
+      public Builder setClientGuestName(com.google.protobuf.StringValue value) {
+        if (clientGuestNameBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          clientGuestName_ = value;
+          onChanged();
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          clientGuestNameBuilder_.setMessage(value);
         }
+
+        return this;
       }
       /**
-       * <code>optional string client_guest_name = 2;</code>
+       * <code>optional .google.protobuf.StringValue client_guest_name = 2;</code>
        */
       public Builder setClientGuestName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        clientGuestName_ = value;
-        onChanged();
+          com.google.protobuf.StringValue.Builder builderForValue) {
+        if (clientGuestNameBuilder_ == null) {
+          clientGuestName_ = builderForValue.build();
+          onChanged();
+        } else {
+          clientGuestNameBuilder_.setMessage(builderForValue.build());
+        }
+
         return this;
       }
       /**
-       * <code>optional string client_guest_name = 2;</code>
+       * <code>optional .google.protobuf.StringValue client_guest_name = 2;</code>
+       */
+      public Builder mergeClientGuestName(com.google.protobuf.StringValue value) {
+        if (clientGuestNameBuilder_ == null) {
+          if (clientGuestName_ != null) {
+            clientGuestName_ =
+              com.google.protobuf.StringValue.newBuilder(clientGuestName_).mergeFrom(value).buildPartial();
+          } else {
+            clientGuestName_ = value;
+          }
+          onChanged();
+        } else {
+          clientGuestNameBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .google.protobuf.StringValue client_guest_name = 2;</code>
        */
       public Builder clearClientGuestName() {
-        
-        clientGuestName_ = getDefaultInstance().getClientGuestName();
-        onChanged();
+        if (clientGuestNameBuilder_ == null) {
+          clientGuestName_ = null;
+          onChanged();
+        } else {
+          clientGuestName_ = null;
+          clientGuestNameBuilder_ = null;
+        }
+
         return this;
       }
       /**
-       * <code>optional string client_guest_name = 2;</code>
+       * <code>optional .google.protobuf.StringValue client_guest_name = 2;</code>
        */
-      public Builder setClientGuestNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      public com.google.protobuf.StringValue.Builder getClientGuestNameBuilder() {
         
-        clientGuestName_ = value;
         onChanged();
-        return this;
+        return getClientGuestNameFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .google.protobuf.StringValue client_guest_name = 2;</code>
+       */
+      public com.google.protobuf.StringValueOrBuilder getClientGuestNameOrBuilder() {
+        if (clientGuestNameBuilder_ != null) {
+          return clientGuestNameBuilder_.getMessageOrBuilder();
+        } else {
+          return clientGuestName_ == null ?
+              com.google.protobuf.StringValue.getDefaultInstance() : clientGuestName_;
+        }
+      }
+      /**
+       * <code>optional .google.protobuf.StringValue client_guest_name = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+          getClientGuestNameFieldBuilder() {
+        if (clientGuestNameBuilder_ == null) {
+          clientGuestNameBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                  getClientGuestName(),
+                  getParentForChildren(),
+                  isClean());
+          clientGuestName_ = null;
+        }
+        return clientGuestNameBuilder_;
       }
 
-      private java.lang.Object clientGuestEmail_ = "";
+      private com.google.protobuf.StringValue clientGuestEmail_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> clientGuestEmailBuilder_;
       /**
-       * <code>optional string client_guest_email = 3;</code>
+       * <code>optional .google.protobuf.StringValue client_guest_email = 3;</code>
        */
-      public java.lang.String getClientGuestEmail() {
-        java.lang.Object ref = clientGuestEmail_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          clientGuestEmail_ = s;
-          return s;
+      public boolean hasClientGuestEmail() {
+        return clientGuestEmailBuilder_ != null || clientGuestEmail_ != null;
+      }
+      /**
+       * <code>optional .google.protobuf.StringValue client_guest_email = 3;</code>
+       */
+      public com.google.protobuf.StringValue getClientGuestEmail() {
+        if (clientGuestEmailBuilder_ == null) {
+          return clientGuestEmail_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : clientGuestEmail_;
         } else {
-          return (java.lang.String) ref;
+          return clientGuestEmailBuilder_.getMessage();
         }
       }
       /**
-       * <code>optional string client_guest_email = 3;</code>
+       * <code>optional .google.protobuf.StringValue client_guest_email = 3;</code>
        */
-      public com.google.protobuf.ByteString
-          getClientGuestEmailBytes() {
-        java.lang.Object ref = clientGuestEmail_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          clientGuestEmail_ = b;
-          return b;
+      public Builder setClientGuestEmail(com.google.protobuf.StringValue value) {
+        if (clientGuestEmailBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          clientGuestEmail_ = value;
+          onChanged();
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          clientGuestEmailBuilder_.setMessage(value);
         }
+
+        return this;
       }
       /**
-       * <code>optional string client_guest_email = 3;</code>
+       * <code>optional .google.protobuf.StringValue client_guest_email = 3;</code>
        */
       public Builder setClientGuestEmail(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        clientGuestEmail_ = value;
-        onChanged();
+          com.google.protobuf.StringValue.Builder builderForValue) {
+        if (clientGuestEmailBuilder_ == null) {
+          clientGuestEmail_ = builderForValue.build();
+          onChanged();
+        } else {
+          clientGuestEmailBuilder_.setMessage(builderForValue.build());
+        }
+
         return this;
       }
       /**
-       * <code>optional string client_guest_email = 3;</code>
+       * <code>optional .google.protobuf.StringValue client_guest_email = 3;</code>
+       */
+      public Builder mergeClientGuestEmail(com.google.protobuf.StringValue value) {
+        if (clientGuestEmailBuilder_ == null) {
+          if (clientGuestEmail_ != null) {
+            clientGuestEmail_ =
+              com.google.protobuf.StringValue.newBuilder(clientGuestEmail_).mergeFrom(value).buildPartial();
+          } else {
+            clientGuestEmail_ = value;
+          }
+          onChanged();
+        } else {
+          clientGuestEmailBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .google.protobuf.StringValue client_guest_email = 3;</code>
        */
       public Builder clearClientGuestEmail() {
-        
-        clientGuestEmail_ = getDefaultInstance().getClientGuestEmail();
-        onChanged();
+        if (clientGuestEmailBuilder_ == null) {
+          clientGuestEmail_ = null;
+          onChanged();
+        } else {
+          clientGuestEmail_ = null;
+          clientGuestEmailBuilder_ = null;
+        }
+
         return this;
       }
       /**
-       * <code>optional string client_guest_email = 3;</code>
+       * <code>optional .google.protobuf.StringValue client_guest_email = 3;</code>
        */
-      public Builder setClientGuestEmailBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      public com.google.protobuf.StringValue.Builder getClientGuestEmailBuilder() {
         
-        clientGuestEmail_ = value;
         onChanged();
+        return getClientGuestEmailFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .google.protobuf.StringValue client_guest_email = 3;</code>
+       */
+      public com.google.protobuf.StringValueOrBuilder getClientGuestEmailOrBuilder() {
+        if (clientGuestEmailBuilder_ != null) {
+          return clientGuestEmailBuilder_.getMessageOrBuilder();
+        } else {
+          return clientGuestEmail_ == null ?
+              com.google.protobuf.StringValue.getDefaultInstance() : clientGuestEmail_;
+        }
+      }
+      /**
+       * <code>optional .google.protobuf.StringValue client_guest_email = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+          getClientGuestEmailFieldBuilder() {
+        if (clientGuestEmailBuilder_ == null) {
+          clientGuestEmailBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                  getClientGuestEmail(),
+                  getParentForChildren(),
+                  isClean());
+          clientGuestEmail_ = null;
+        }
+        return clientGuestEmailBuilder_;
+      }
+
+      private java.util.List<com.google.protobuf.Int32Value> purchaseItemCart_ =
+        java.util.Collections.emptyList();
+      private void ensurePurchaseItemCartIsMutable() {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+          purchaseItemCart_ = new java.util.ArrayList<com.google.protobuf.Int32Value>(purchaseItemCart_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> purchaseItemCartBuilder_;
+
+      /**
+       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
+       */
+      public java.util.List<com.google.protobuf.Int32Value> getPurchaseItemCartList() {
+        if (purchaseItemCartBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(purchaseItemCart_);
+        } else {
+          return purchaseItemCartBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
+       */
+      public int getPurchaseItemCartCount() {
+        if (purchaseItemCartBuilder_ == null) {
+          return purchaseItemCart_.size();
+        } else {
+          return purchaseItemCartBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
+       */
+      public com.google.protobuf.Int32Value getPurchaseItemCart(int index) {
+        if (purchaseItemCartBuilder_ == null) {
+          return purchaseItemCart_.get(index);
+        } else {
+          return purchaseItemCartBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
+       */
+      public Builder setPurchaseItemCart(
+          int index, com.google.protobuf.Int32Value value) {
+        if (purchaseItemCartBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePurchaseItemCartIsMutable();
+          purchaseItemCart_.set(index, value);
+          onChanged();
+        } else {
+          purchaseItemCartBuilder_.setMessage(index, value);
+        }
         return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
+       */
+      public Builder setPurchaseItemCart(
+          int index, com.google.protobuf.Int32Value.Builder builderForValue) {
+        if (purchaseItemCartBuilder_ == null) {
+          ensurePurchaseItemCartIsMutable();
+          purchaseItemCart_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          purchaseItemCartBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
+       */
+      public Builder addPurchaseItemCart(com.google.protobuf.Int32Value value) {
+        if (purchaseItemCartBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePurchaseItemCartIsMutable();
+          purchaseItemCart_.add(value);
+          onChanged();
+        } else {
+          purchaseItemCartBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
+       */
+      public Builder addPurchaseItemCart(
+          int index, com.google.protobuf.Int32Value value) {
+        if (purchaseItemCartBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePurchaseItemCartIsMutable();
+          purchaseItemCart_.add(index, value);
+          onChanged();
+        } else {
+          purchaseItemCartBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
+       */
+      public Builder addPurchaseItemCart(
+          com.google.protobuf.Int32Value.Builder builderForValue) {
+        if (purchaseItemCartBuilder_ == null) {
+          ensurePurchaseItemCartIsMutable();
+          purchaseItemCart_.add(builderForValue.build());
+          onChanged();
+        } else {
+          purchaseItemCartBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
+       */
+      public Builder addPurchaseItemCart(
+          int index, com.google.protobuf.Int32Value.Builder builderForValue) {
+        if (purchaseItemCartBuilder_ == null) {
+          ensurePurchaseItemCartIsMutable();
+          purchaseItemCart_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          purchaseItemCartBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
+       */
+      public Builder addAllPurchaseItemCart(
+          java.lang.Iterable<? extends com.google.protobuf.Int32Value> values) {
+        if (purchaseItemCartBuilder_ == null) {
+          ensurePurchaseItemCartIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, purchaseItemCart_);
+          onChanged();
+        } else {
+          purchaseItemCartBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
+       */
+      public Builder clearPurchaseItemCart() {
+        if (purchaseItemCartBuilder_ == null) {
+          purchaseItemCart_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000008);
+          onChanged();
+        } else {
+          purchaseItemCartBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
+       */
+      public Builder removePurchaseItemCart(int index) {
+        if (purchaseItemCartBuilder_ == null) {
+          ensurePurchaseItemCartIsMutable();
+          purchaseItemCart_.remove(index);
+          onChanged();
+        } else {
+          purchaseItemCartBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
+       */
+      public com.google.protobuf.Int32Value.Builder getPurchaseItemCartBuilder(
+          int index) {
+        return getPurchaseItemCartFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
+       */
+      public com.google.protobuf.Int32ValueOrBuilder getPurchaseItemCartOrBuilder(
+          int index) {
+        if (purchaseItemCartBuilder_ == null) {
+          return purchaseItemCart_.get(index);  } else {
+          return purchaseItemCartBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
+       */
+      public java.util.List<? extends com.google.protobuf.Int32ValueOrBuilder> 
+           getPurchaseItemCartOrBuilderList() {
+        if (purchaseItemCartBuilder_ != null) {
+          return purchaseItemCartBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(purchaseItemCart_);
+        }
+      }
+      /**
+       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
+       */
+      public com.google.protobuf.Int32Value.Builder addPurchaseItemCartBuilder() {
+        return getPurchaseItemCartFieldBuilder().addBuilder(
+            com.google.protobuf.Int32Value.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
+       */
+      public com.google.protobuf.Int32Value.Builder addPurchaseItemCartBuilder(
+          int index) {
+        return getPurchaseItemCartFieldBuilder().addBuilder(
+            index, com.google.protobuf.Int32Value.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
+       */
+      public java.util.List<com.google.protobuf.Int32Value.Builder> 
+           getPurchaseItemCartBuilderList() {
+        return getPurchaseItemCartFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> 
+          getPurchaseItemCartFieldBuilder() {
+        if (purchaseItemCartBuilder_ == null) {
+          purchaseItemCartBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder>(
+                  purchaseItemCart_,
+                  ((bitField0_ & 0x00000008) == 0x00000008),
+                  getParentForChildren(),
+                  isClean());
+          purchaseItemCart_ = null;
+        }
+        return purchaseItemCartBuilder_;
+      }
+
+      private java.util.List<com.grpcserver.product.ProductServer.Product> cartList_ =
+        java.util.Collections.emptyList();
+      private void ensureCartListIsMutable() {
+        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+          cartList_ = new java.util.ArrayList<com.grpcserver.product.ProductServer.Product>(cartList_);
+          bitField0_ |= 0x00000010;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.grpcserver.product.ProductServer.Product, com.grpcserver.product.ProductServer.Product.Builder, com.grpcserver.product.ProductServer.ProductOrBuilder> cartListBuilder_;
+
+      /**
+       * <code>repeated .product.service.Product cart_list = 5;</code>
+       */
+      public java.util.List<com.grpcserver.product.ProductServer.Product> getCartListList() {
+        if (cartListBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(cartList_);
+        } else {
+          return cartListBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .product.service.Product cart_list = 5;</code>
+       */
+      public int getCartListCount() {
+        if (cartListBuilder_ == null) {
+          return cartList_.size();
+        } else {
+          return cartListBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .product.service.Product cart_list = 5;</code>
+       */
+      public com.grpcserver.product.ProductServer.Product getCartList(int index) {
+        if (cartListBuilder_ == null) {
+          return cartList_.get(index);
+        } else {
+          return cartListBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .product.service.Product cart_list = 5;</code>
+       */
+      public Builder setCartList(
+          int index, com.grpcserver.product.ProductServer.Product value) {
+        if (cartListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCartListIsMutable();
+          cartList_.set(index, value);
+          onChanged();
+        } else {
+          cartListBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .product.service.Product cart_list = 5;</code>
+       */
+      public Builder setCartList(
+          int index, com.grpcserver.product.ProductServer.Product.Builder builderForValue) {
+        if (cartListBuilder_ == null) {
+          ensureCartListIsMutable();
+          cartList_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          cartListBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .product.service.Product cart_list = 5;</code>
+       */
+      public Builder addCartList(com.grpcserver.product.ProductServer.Product value) {
+        if (cartListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCartListIsMutable();
+          cartList_.add(value);
+          onChanged();
+        } else {
+          cartListBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .product.service.Product cart_list = 5;</code>
+       */
+      public Builder addCartList(
+          int index, com.grpcserver.product.ProductServer.Product value) {
+        if (cartListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCartListIsMutable();
+          cartList_.add(index, value);
+          onChanged();
+        } else {
+          cartListBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .product.service.Product cart_list = 5;</code>
+       */
+      public Builder addCartList(
+          com.grpcserver.product.ProductServer.Product.Builder builderForValue) {
+        if (cartListBuilder_ == null) {
+          ensureCartListIsMutable();
+          cartList_.add(builderForValue.build());
+          onChanged();
+        } else {
+          cartListBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .product.service.Product cart_list = 5;</code>
+       */
+      public Builder addCartList(
+          int index, com.grpcserver.product.ProductServer.Product.Builder builderForValue) {
+        if (cartListBuilder_ == null) {
+          ensureCartListIsMutable();
+          cartList_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          cartListBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .product.service.Product cart_list = 5;</code>
+       */
+      public Builder addAllCartList(
+          java.lang.Iterable<? extends com.grpcserver.product.ProductServer.Product> values) {
+        if (cartListBuilder_ == null) {
+          ensureCartListIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, cartList_);
+          onChanged();
+        } else {
+          cartListBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .product.service.Product cart_list = 5;</code>
+       */
+      public Builder clearCartList() {
+        if (cartListBuilder_ == null) {
+          cartList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000010);
+          onChanged();
+        } else {
+          cartListBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .product.service.Product cart_list = 5;</code>
+       */
+      public Builder removeCartList(int index) {
+        if (cartListBuilder_ == null) {
+          ensureCartListIsMutable();
+          cartList_.remove(index);
+          onChanged();
+        } else {
+          cartListBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .product.service.Product cart_list = 5;</code>
+       */
+      public com.grpcserver.product.ProductServer.Product.Builder getCartListBuilder(
+          int index) {
+        return getCartListFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .product.service.Product cart_list = 5;</code>
+       */
+      public com.grpcserver.product.ProductServer.ProductOrBuilder getCartListOrBuilder(
+          int index) {
+        if (cartListBuilder_ == null) {
+          return cartList_.get(index);  } else {
+          return cartListBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .product.service.Product cart_list = 5;</code>
+       */
+      public java.util.List<? extends com.grpcserver.product.ProductServer.ProductOrBuilder> 
+           getCartListOrBuilderList() {
+        if (cartListBuilder_ != null) {
+          return cartListBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(cartList_);
+        }
+      }
+      /**
+       * <code>repeated .product.service.Product cart_list = 5;</code>
+       */
+      public com.grpcserver.product.ProductServer.Product.Builder addCartListBuilder() {
+        return getCartListFieldBuilder().addBuilder(
+            com.grpcserver.product.ProductServer.Product.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .product.service.Product cart_list = 5;</code>
+       */
+      public com.grpcserver.product.ProductServer.Product.Builder addCartListBuilder(
+          int index) {
+        return getCartListFieldBuilder().addBuilder(
+            index, com.grpcserver.product.ProductServer.Product.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .product.service.Product cart_list = 5;</code>
+       */
+      public java.util.List<com.grpcserver.product.ProductServer.Product.Builder> 
+           getCartListBuilderList() {
+        return getCartListFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.grpcserver.product.ProductServer.Product, com.grpcserver.product.ProductServer.Product.Builder, com.grpcserver.product.ProductServer.ProductOrBuilder> 
+          getCartListFieldBuilder() {
+        if (cartListBuilder_ == null) {
+          cartListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.grpcserver.product.ProductServer.Product, com.grpcserver.product.ProductServer.Product.Builder, com.grpcserver.product.ProductServer.ProductOrBuilder>(
+                  cartList_,
+                  ((bitField0_ & 0x00000010) == 0x00000010),
+                  getParentForChildren(),
+                  isClean());
+          cartList_ = null;
+        }
+        return cartListBuilder_;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1151,39 +1770,39 @@ public final class GuestClientServer {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:ClientGuestRequest)
+      // @@protoc_insertion_point(builder_scope:ClientGuest)
     }
 
-    // @@protoc_insertion_point(class_scope:ClientGuestRequest)
-    private static final com.grpcserver.GuestClientServer.ClientGuestRequest DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:ClientGuest)
+    private static final com.grpcserver.GuestClientServer.ClientGuest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.grpcserver.GuestClientServer.ClientGuestRequest();
+      DEFAULT_INSTANCE = new com.grpcserver.GuestClientServer.ClientGuest();
     }
 
-    public static com.grpcserver.GuestClientServer.ClientGuestRequest getDefaultInstance() {
+    public static com.grpcserver.GuestClientServer.ClientGuest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<ClientGuestRequest>
-        PARSER = new com.google.protobuf.AbstractParser<ClientGuestRequest>() {
-      public ClientGuestRequest parsePartialFrom(
+    private static final com.google.protobuf.Parser<ClientGuest>
+        PARSER = new com.google.protobuf.AbstractParser<ClientGuest>() {
+      public ClientGuest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ClientGuestRequest(input, extensionRegistry);
+          return new ClientGuest(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<ClientGuestRequest> parser() {
+    public static com.google.protobuf.Parser<ClientGuest> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ClientGuestRequest> getParserForType() {
+    public com.google.protobuf.Parser<ClientGuest> getParserForType() {
       return PARSER;
     }
 
-    public com.grpcserver.GuestClientServer.ClientGuestRequest getDefaultInstanceForType() {
+    public com.grpcserver.GuestClientServer.ClientGuest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1194,27 +1813,27 @@ public final class GuestClientServer {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .ClientGuestRequest clientguestall = 1;</code>
+     * <code>repeated .ClientGuest clientguestall = 1;</code>
      */
-    java.util.List<com.grpcserver.GuestClientServer.ClientGuestRequest> 
+    java.util.List<com.grpcserver.GuestClientServer.ClientGuest> 
         getClientguestallList();
     /**
-     * <code>repeated .ClientGuestRequest clientguestall = 1;</code>
+     * <code>repeated .ClientGuest clientguestall = 1;</code>
      */
-    com.grpcserver.GuestClientServer.ClientGuestRequest getClientguestall(int index);
+    com.grpcserver.GuestClientServer.ClientGuest getClientguestall(int index);
     /**
-     * <code>repeated .ClientGuestRequest clientguestall = 1;</code>
+     * <code>repeated .ClientGuest clientguestall = 1;</code>
      */
     int getClientguestallCount();
     /**
-     * <code>repeated .ClientGuestRequest clientguestall = 1;</code>
+     * <code>repeated .ClientGuest clientguestall = 1;</code>
      */
-    java.util.List<? extends com.grpcserver.GuestClientServer.ClientGuestRequestOrBuilder> 
+    java.util.List<? extends com.grpcserver.GuestClientServer.ClientGuestOrBuilder> 
         getClientguestallOrBuilderList();
     /**
-     * <code>repeated .ClientGuestRequest clientguestall = 1;</code>
+     * <code>repeated .ClientGuest clientguestall = 1;</code>
      */
-    com.grpcserver.GuestClientServer.ClientGuestRequestOrBuilder getClientguestallOrBuilder(
+    com.grpcserver.GuestClientServer.ClientGuestOrBuilder getClientguestallOrBuilder(
         int index);
 
     /**
@@ -1265,11 +1884,11 @@ public final class GuestClientServer {
             }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                clientguestall_ = new java.util.ArrayList<com.grpcserver.GuestClientServer.ClientGuestRequest>();
+                clientguestall_ = new java.util.ArrayList<com.grpcserver.GuestClientServer.ClientGuest>();
                 mutable_bitField0_ |= 0x00000001;
               }
               clientguestall_.add(
-                  input.readMessage(com.grpcserver.GuestClientServer.ClientGuestRequest.parser(), extensionRegistry));
+                  input.readMessage(com.grpcserver.GuestClientServer.ClientGuest.parser(), extensionRegistry));
               break;
             }
             case 16: {
@@ -1305,36 +1924,36 @@ public final class GuestClientServer {
 
     private int bitField0_;
     public static final int CLIENTGUESTALL_FIELD_NUMBER = 1;
-    private java.util.List<com.grpcserver.GuestClientServer.ClientGuestRequest> clientguestall_;
+    private java.util.List<com.grpcserver.GuestClientServer.ClientGuest> clientguestall_;
     /**
-     * <code>repeated .ClientGuestRequest clientguestall = 1;</code>
+     * <code>repeated .ClientGuest clientguestall = 1;</code>
      */
-    public java.util.List<com.grpcserver.GuestClientServer.ClientGuestRequest> getClientguestallList() {
+    public java.util.List<com.grpcserver.GuestClientServer.ClientGuest> getClientguestallList() {
       return clientguestall_;
     }
     /**
-     * <code>repeated .ClientGuestRequest clientguestall = 1;</code>
+     * <code>repeated .ClientGuest clientguestall = 1;</code>
      */
-    public java.util.List<? extends com.grpcserver.GuestClientServer.ClientGuestRequestOrBuilder> 
+    public java.util.List<? extends com.grpcserver.GuestClientServer.ClientGuestOrBuilder> 
         getClientguestallOrBuilderList() {
       return clientguestall_;
     }
     /**
-     * <code>repeated .ClientGuestRequest clientguestall = 1;</code>
+     * <code>repeated .ClientGuest clientguestall = 1;</code>
      */
     public int getClientguestallCount() {
       return clientguestall_.size();
     }
     /**
-     * <code>repeated .ClientGuestRequest clientguestall = 1;</code>
+     * <code>repeated .ClientGuest clientguestall = 1;</code>
      */
-    public com.grpcserver.GuestClientServer.ClientGuestRequest getClientguestall(int index) {
+    public com.grpcserver.GuestClientServer.ClientGuest getClientguestall(int index) {
       return clientguestall_.get(index);
     }
     /**
-     * <code>repeated .ClientGuestRequest clientguestall = 1;</code>
+     * <code>repeated .ClientGuest clientguestall = 1;</code>
      */
-    public com.grpcserver.GuestClientServer.ClientGuestRequestOrBuilder getClientguestallOrBuilder(
+    public com.grpcserver.GuestClientServer.ClientGuestOrBuilder getClientguestallOrBuilder(
         int index) {
       return clientguestall_.get(index);
     }
@@ -1677,22 +2296,22 @@ public final class GuestClientServer {
       }
       private int bitField0_;
 
-      private java.util.List<com.grpcserver.GuestClientServer.ClientGuestRequest> clientguestall_ =
+      private java.util.List<com.grpcserver.GuestClientServer.ClientGuest> clientguestall_ =
         java.util.Collections.emptyList();
       private void ensureClientguestallIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          clientguestall_ = new java.util.ArrayList<com.grpcserver.GuestClientServer.ClientGuestRequest>(clientguestall_);
+          clientguestall_ = new java.util.ArrayList<com.grpcserver.GuestClientServer.ClientGuest>(clientguestall_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.grpcserver.GuestClientServer.ClientGuestRequest, com.grpcserver.GuestClientServer.ClientGuestRequest.Builder, com.grpcserver.GuestClientServer.ClientGuestRequestOrBuilder> clientguestallBuilder_;
+          com.grpcserver.GuestClientServer.ClientGuest, com.grpcserver.GuestClientServer.ClientGuest.Builder, com.grpcserver.GuestClientServer.ClientGuestOrBuilder> clientguestallBuilder_;
 
       /**
-       * <code>repeated .ClientGuestRequest clientguestall = 1;</code>
+       * <code>repeated .ClientGuest clientguestall = 1;</code>
        */
-      public java.util.List<com.grpcserver.GuestClientServer.ClientGuestRequest> getClientguestallList() {
+      public java.util.List<com.grpcserver.GuestClientServer.ClientGuest> getClientguestallList() {
         if (clientguestallBuilder_ == null) {
           return java.util.Collections.unmodifiableList(clientguestall_);
         } else {
@@ -1700,7 +2319,7 @@ public final class GuestClientServer {
         }
       }
       /**
-       * <code>repeated .ClientGuestRequest clientguestall = 1;</code>
+       * <code>repeated .ClientGuest clientguestall = 1;</code>
        */
       public int getClientguestallCount() {
         if (clientguestallBuilder_ == null) {
@@ -1710,9 +2329,9 @@ public final class GuestClientServer {
         }
       }
       /**
-       * <code>repeated .ClientGuestRequest clientguestall = 1;</code>
+       * <code>repeated .ClientGuest clientguestall = 1;</code>
        */
-      public com.grpcserver.GuestClientServer.ClientGuestRequest getClientguestall(int index) {
+      public com.grpcserver.GuestClientServer.ClientGuest getClientguestall(int index) {
         if (clientguestallBuilder_ == null) {
           return clientguestall_.get(index);
         } else {
@@ -1720,10 +2339,10 @@ public final class GuestClientServer {
         }
       }
       /**
-       * <code>repeated .ClientGuestRequest clientguestall = 1;</code>
+       * <code>repeated .ClientGuest clientguestall = 1;</code>
        */
       public Builder setClientguestall(
-          int index, com.grpcserver.GuestClientServer.ClientGuestRequest value) {
+          int index, com.grpcserver.GuestClientServer.ClientGuest value) {
         if (clientguestallBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1737,10 +2356,10 @@ public final class GuestClientServer {
         return this;
       }
       /**
-       * <code>repeated .ClientGuestRequest clientguestall = 1;</code>
+       * <code>repeated .ClientGuest clientguestall = 1;</code>
        */
       public Builder setClientguestall(
-          int index, com.grpcserver.GuestClientServer.ClientGuestRequest.Builder builderForValue) {
+          int index, com.grpcserver.GuestClientServer.ClientGuest.Builder builderForValue) {
         if (clientguestallBuilder_ == null) {
           ensureClientguestallIsMutable();
           clientguestall_.set(index, builderForValue.build());
@@ -1751,9 +2370,9 @@ public final class GuestClientServer {
         return this;
       }
       /**
-       * <code>repeated .ClientGuestRequest clientguestall = 1;</code>
+       * <code>repeated .ClientGuest clientguestall = 1;</code>
        */
-      public Builder addClientguestall(com.grpcserver.GuestClientServer.ClientGuestRequest value) {
+      public Builder addClientguestall(com.grpcserver.GuestClientServer.ClientGuest value) {
         if (clientguestallBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1767,10 +2386,10 @@ public final class GuestClientServer {
         return this;
       }
       /**
-       * <code>repeated .ClientGuestRequest clientguestall = 1;</code>
+       * <code>repeated .ClientGuest clientguestall = 1;</code>
        */
       public Builder addClientguestall(
-          int index, com.grpcserver.GuestClientServer.ClientGuestRequest value) {
+          int index, com.grpcserver.GuestClientServer.ClientGuest value) {
         if (clientguestallBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1784,10 +2403,10 @@ public final class GuestClientServer {
         return this;
       }
       /**
-       * <code>repeated .ClientGuestRequest clientguestall = 1;</code>
+       * <code>repeated .ClientGuest clientguestall = 1;</code>
        */
       public Builder addClientguestall(
-          com.grpcserver.GuestClientServer.ClientGuestRequest.Builder builderForValue) {
+          com.grpcserver.GuestClientServer.ClientGuest.Builder builderForValue) {
         if (clientguestallBuilder_ == null) {
           ensureClientguestallIsMutable();
           clientguestall_.add(builderForValue.build());
@@ -1798,10 +2417,10 @@ public final class GuestClientServer {
         return this;
       }
       /**
-       * <code>repeated .ClientGuestRequest clientguestall = 1;</code>
+       * <code>repeated .ClientGuest clientguestall = 1;</code>
        */
       public Builder addClientguestall(
-          int index, com.grpcserver.GuestClientServer.ClientGuestRequest.Builder builderForValue) {
+          int index, com.grpcserver.GuestClientServer.ClientGuest.Builder builderForValue) {
         if (clientguestallBuilder_ == null) {
           ensureClientguestallIsMutable();
           clientguestall_.add(index, builderForValue.build());
@@ -1812,10 +2431,10 @@ public final class GuestClientServer {
         return this;
       }
       /**
-       * <code>repeated .ClientGuestRequest clientguestall = 1;</code>
+       * <code>repeated .ClientGuest clientguestall = 1;</code>
        */
       public Builder addAllClientguestall(
-          java.lang.Iterable<? extends com.grpcserver.GuestClientServer.ClientGuestRequest> values) {
+          java.lang.Iterable<? extends com.grpcserver.GuestClientServer.ClientGuest> values) {
         if (clientguestallBuilder_ == null) {
           ensureClientguestallIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -1827,7 +2446,7 @@ public final class GuestClientServer {
         return this;
       }
       /**
-       * <code>repeated .ClientGuestRequest clientguestall = 1;</code>
+       * <code>repeated .ClientGuest clientguestall = 1;</code>
        */
       public Builder clearClientguestall() {
         if (clientguestallBuilder_ == null) {
@@ -1840,7 +2459,7 @@ public final class GuestClientServer {
         return this;
       }
       /**
-       * <code>repeated .ClientGuestRequest clientguestall = 1;</code>
+       * <code>repeated .ClientGuest clientguestall = 1;</code>
        */
       public Builder removeClientguestall(int index) {
         if (clientguestallBuilder_ == null) {
@@ -1853,16 +2472,16 @@ public final class GuestClientServer {
         return this;
       }
       /**
-       * <code>repeated .ClientGuestRequest clientguestall = 1;</code>
+       * <code>repeated .ClientGuest clientguestall = 1;</code>
        */
-      public com.grpcserver.GuestClientServer.ClientGuestRequest.Builder getClientguestallBuilder(
+      public com.grpcserver.GuestClientServer.ClientGuest.Builder getClientguestallBuilder(
           int index) {
         return getClientguestallFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .ClientGuestRequest clientguestall = 1;</code>
+       * <code>repeated .ClientGuest clientguestall = 1;</code>
        */
-      public com.grpcserver.GuestClientServer.ClientGuestRequestOrBuilder getClientguestallOrBuilder(
+      public com.grpcserver.GuestClientServer.ClientGuestOrBuilder getClientguestallOrBuilder(
           int index) {
         if (clientguestallBuilder_ == null) {
           return clientguestall_.get(index);  } else {
@@ -1870,9 +2489,9 @@ public final class GuestClientServer {
         }
       }
       /**
-       * <code>repeated .ClientGuestRequest clientguestall = 1;</code>
+       * <code>repeated .ClientGuest clientguestall = 1;</code>
        */
-      public java.util.List<? extends com.grpcserver.GuestClientServer.ClientGuestRequestOrBuilder> 
+      public java.util.List<? extends com.grpcserver.GuestClientServer.ClientGuestOrBuilder> 
            getClientguestallOrBuilderList() {
         if (clientguestallBuilder_ != null) {
           return clientguestallBuilder_.getMessageOrBuilderList();
@@ -1881,33 +2500,33 @@ public final class GuestClientServer {
         }
       }
       /**
-       * <code>repeated .ClientGuestRequest clientguestall = 1;</code>
+       * <code>repeated .ClientGuest clientguestall = 1;</code>
        */
-      public com.grpcserver.GuestClientServer.ClientGuestRequest.Builder addClientguestallBuilder() {
+      public com.grpcserver.GuestClientServer.ClientGuest.Builder addClientguestallBuilder() {
         return getClientguestallFieldBuilder().addBuilder(
-            com.grpcserver.GuestClientServer.ClientGuestRequest.getDefaultInstance());
+            com.grpcserver.GuestClientServer.ClientGuest.getDefaultInstance());
       }
       /**
-       * <code>repeated .ClientGuestRequest clientguestall = 1;</code>
+       * <code>repeated .ClientGuest clientguestall = 1;</code>
        */
-      public com.grpcserver.GuestClientServer.ClientGuestRequest.Builder addClientguestallBuilder(
+      public com.grpcserver.GuestClientServer.ClientGuest.Builder addClientguestallBuilder(
           int index) {
         return getClientguestallFieldBuilder().addBuilder(
-            index, com.grpcserver.GuestClientServer.ClientGuestRequest.getDefaultInstance());
+            index, com.grpcserver.GuestClientServer.ClientGuest.getDefaultInstance());
       }
       /**
-       * <code>repeated .ClientGuestRequest clientguestall = 1;</code>
+       * <code>repeated .ClientGuest clientguestall = 1;</code>
        */
-      public java.util.List<com.grpcserver.GuestClientServer.ClientGuestRequest.Builder> 
+      public java.util.List<com.grpcserver.GuestClientServer.ClientGuest.Builder> 
            getClientguestallBuilderList() {
         return getClientguestallFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.grpcserver.GuestClientServer.ClientGuestRequest, com.grpcserver.GuestClientServer.ClientGuestRequest.Builder, com.grpcserver.GuestClientServer.ClientGuestRequestOrBuilder> 
+          com.grpcserver.GuestClientServer.ClientGuest, com.grpcserver.GuestClientServer.ClientGuest.Builder, com.grpcserver.GuestClientServer.ClientGuestOrBuilder> 
           getClientguestallFieldBuilder() {
         if (clientguestallBuilder_ == null) {
           clientguestallBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              com.grpcserver.GuestClientServer.ClientGuestRequest, com.grpcserver.GuestClientServer.ClientGuestRequest.Builder, com.grpcserver.GuestClientServer.ClientGuestRequestOrBuilder>(
+              com.grpcserver.GuestClientServer.ClientGuest, com.grpcserver.GuestClientServer.ClientGuest.Builder, com.grpcserver.GuestClientServer.ClientGuestOrBuilder>(
                   clientguestall_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
@@ -3210,15 +3829,10 @@ public final class GuestClientServer {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Empty_descriptor;
+    internal_static_ClientGuest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Empty_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ClientGuestRequest_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ClientGuestRequest_fieldAccessorTable;
+      internal_static_ClientGuest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ClientGuestrList_descriptor;
   private static final 
@@ -3245,27 +3859,31 @@ public final class GuestClientServer {
     java.lang.String[] descriptorData = {
       "\n\027GuestClientServer.proto\032\036google/protob" +
       "uf/wrappers.proto\032\037google/protobuf/times" +
-      "tamp.proto\"\007\n\005Empty\"d\n\022ClientGuestReques" +
-      "t\022\027\n\017client_guest_id\030\001 \001(\005\022\031\n\021client_gue" +
-      "st_name\030\002 \001(\t\022\032\n\022client_guest_email\030\003 \001(" +
-      "\t\"Y\n\020ClientGuestrList\022+\n\016clientguestall\030" +
-      "\001 \003(\0132\023.ClientGuestRequest\022\030\n\020clientgues" +
-      "tcount\030\002 \001(\003\"<\n\013APIResponse\022\027\n\017responsem" +
-      "essage\030\001 \001(\t\022\024\n\014responseCode\030\002 \001(\005\"x\n\034Cl" +
-      "ientGuestExceptionResponse\022-\n\ttimestamp\030",
-      "\001 \001(\0132\032.google.protobuf.Timestamp\022)\n\nerr" +
-      "or_code\030\002 \001(\0162\025.ClientGuestErrorCode*{\n\024" +
-      "ClientGuestErrorCode\022\032\n\026CLIENT_GUEST_NOT" +
-      "_FOUND\020\000\022%\n!CLIENT_GUEST_VALUE_CANNOT_BE" +
-      "_NULL\020\001\022 \n\034CLIENT_GUEST_EMAIL_DUPLICATE\020" +
-      "\0022\200\002\n\013ClientGuest\022+\n\006insert\022\023.ClientGues" +
-      "tRequest\032\014.APIResponse\022(\n\007findAll\022\006.Empt" +
-      "y\032\023.ClientGuestRequest0\001\022/\n\ndeleteById\022\023" +
-      ".ClientGuestRequest\032\014.APIResponse\022<\n\010fin" +
-      "dById\022\033.google.protobuf.Int32Value\032\023.Cli",
-      "entGuestRequest\022+\n\006update\022\023.ClientGuestR" +
-      "equest\032\014.APIResponseB\020\n\016com.grpcserverb\006" +
-      "proto3"
+      "tamp.proto\032\023ProductServer.proto\"\234\002\n\013Clie" +
+      "ntGuest\0224\n\017client_guest_id\030\001 \001(\0132\033.googl" +
+      "e.protobuf.Int32Value\0227\n\021client_guest_na" +
+      "me\030\002 \001(\0132\034.google.protobuf.StringValue\0228" +
+      "\n\022client_guest_email\030\003 \001(\0132\034.google.prot" +
+      "obuf.StringValue\0227\n\022purchase_item_cart\030\004" +
+      " \003(\0132\033.google.protobuf.Int32Value\022+\n\tcar" +
+      "t_list\030\005 \003(\0132\030.product.service.Product\"R",
+      "\n\020ClientGuestrList\022$\n\016clientguestall\030\001 \003" +
+      "(\0132\014.ClientGuest\022\030\n\020clientguestcount\030\002 \001" +
+      "(\003\"<\n\013APIResponse\022\027\n\017responsemessage\030\001 \001" +
+      "(\t\022\024\n\014responseCode\030\002 \001(\005\"x\n\034ClientGuestE" +
+      "xceptionResponse\022-\n\ttimestamp\030\001 \001(\0132\032.go" +
+      "ogle.protobuf.Timestamp\022)\n\nerror_code\030\002 " +
+      "\001(\0162\025.ClientGuestErrorCode*{\n\024ClientGues" +
+      "tErrorCode\022\032\n\026CLIENT_GUEST_NOT_FOUND\020\000\022%" +
+      "\n!CLIENT_GUEST_VALUE_CANNOT_BE_NULL\020\001\022 \n" +
+      "\034CLIENT_GUEST_EMAIL_DUPLICATE\020\0022\355\001\n\022Clie",
+      "ntGuestService\022$\n\006insert\022\014.ClientGuest\032\014" +
+      ".APIResponse\022*\n\007findAll\022\014.ClientGuest\032\021." +
+      "ClientGuestrList\022(\n\ndeleteById\022\014.ClientG" +
+      "uest\032\014.APIResponse\0225\n\010findById\022\033.google." +
+      "protobuf.Int32Value\032\014.ClientGuest\022$\n\006upd" +
+      "ate\022\014.ClientGuest\032\014.APIResponseB\020\n\016com.g" +
+      "rpcserverb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -3280,39 +3898,35 @@ public final class GuestClientServer {
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.WrappersProto.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
+          com.grpcserver.product.ProductServer.getDescriptor(),
         }, assigner);
-    internal_static_Empty_descriptor =
+    internal_static_ClientGuest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_Empty_fieldAccessorTable = new
+    internal_static_ClientGuest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Empty_descriptor,
-        new java.lang.String[] { });
-    internal_static_ClientGuestRequest_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_ClientGuestRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ClientGuestRequest_descriptor,
-        new java.lang.String[] { "ClientGuestId", "ClientGuestName", "ClientGuestEmail", });
+        internal_static_ClientGuest_descriptor,
+        new java.lang.String[] { "ClientGuestId", "ClientGuestName", "ClientGuestEmail", "PurchaseItemCart", "CartList", });
     internal_static_ClientGuestrList_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(1);
     internal_static_ClientGuestrList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ClientGuestrList_descriptor,
         new java.lang.String[] { "Clientguestall", "Clientguestcount", });
     internal_static_APIResponse_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_APIResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_APIResponse_descriptor,
         new java.lang.String[] { "Responsemessage", "ResponseCode", });
     internal_static_ClientGuestExceptionResponse_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_ClientGuestExceptionResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ClientGuestExceptionResponse_descriptor,
         new java.lang.String[] { "Timestamp", "ErrorCode", });
     com.google.protobuf.WrappersProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
+    com.grpcserver.product.ProductServer.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -1,6 +1,9 @@
 syntax = "proto3";
 
 option java_package = "com.grpcserver.product";
+package product.service;
+
+
 import "google/protobuf/wrappers.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";

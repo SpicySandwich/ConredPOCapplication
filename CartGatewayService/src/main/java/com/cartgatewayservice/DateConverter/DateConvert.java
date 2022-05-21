@@ -18,7 +18,6 @@ public class DateConvert {
 		Integer days = date.getDay();
 		
 		Calendar calendar = Calendar.getInstance();
-		calendar.clear();
 		calendar.set(Calendar.YEAR, year);
 		calendar.set(Calendar.MONTH, month);
 		calendar.set(Calendar.DATE, days);

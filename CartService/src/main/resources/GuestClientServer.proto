@@ -3,30 +3,31 @@ syntax = "proto3";
 option java_package = "com.grpcserver";
 import "google/protobuf/wrappers.proto";
 import "google/protobuf/timestamp.proto";
+import "ProductServer.proto";
 
 
-service ClientGuest{
+service ClientGuestService{
 
 
    
-    rpc insert(ClientGuestRequest) returns(APIResponse);
-    rpc findAll(Empty) returns(stream ClientGuestRequest);
-    rpc deleteById(ClientGuestRequest) returns(APIResponse);
-    rpc findById(google.protobuf.Int32Value) returns(ClientGuestRequest);
-    rpc update(ClientGuestRequest) returns(APIResponse);
+    rpc insert(ClientGuest) returns(APIResponse);
+    rpc findAll(ClientGuest) returns(ClientGuestrList);
+    rpc deleteById(ClientGuest) returns(APIResponse);
+    rpc findById(google.protobuf.Int32Value) returns(ClientGuest);
+    rpc update(ClientGuest) returns(APIResponse);
 
    
 
 }
 
-message Empty {}
 
-message ClientGuestRequest{
+message ClientGuest{
 
-       int32 client_guest_id = 1;
-       string  client_guest_name = 2;
-       string  client_guest_email = 3;
-     
+       google.protobuf.Int32Value client_guest_id = 1;
+       google.protobuf.StringValue  client_guest_name = 2;
+       google.protobuf.StringValue  client_guest_email = 3;
+       repeated google.protobuf.Int32Value purchase_item_cart = 4;
+       repeated .product.service.Product cart_list = 5;
    
 }
 
@@ -34,7 +35,7 @@ message ClientGuestRequest{
 
 
 message ClientGuestrList {
-     repeated ClientGuestRequest clientguestall = 1;
+     repeated ClientGuest clientguestall = 1;
      int64 clientguestcount = 2;
 }
 

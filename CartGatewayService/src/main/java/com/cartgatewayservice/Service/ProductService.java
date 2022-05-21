@@ -12,7 +12,6 @@ import com.cartgatewayservice.BodyConvertParameters.ConvertParameters;
 import com.cartgatewayservice.DTO.ProductDTO;
 import com.cartgatewayservice.DateConverter.DateConvert;
 import com.cartgatewayservice.Model.ProductEntity;
-import com.cartgatewayservice.Validation.InputValidation;
 import com.google.protobuf.Int32Value;
 import com.grpcserver.product.ProductServer.APIResponse;
 import com.grpcserver.product.ProductServer.Product;
@@ -30,8 +29,7 @@ public class ProductService   {
 	
 	@Autowired
 	private ConvertParameters convertParameters;
-	@Autowired
-	private InputValidation inputValidation;
+	
 	
 	 private ManagedChannel channel;
 	 private  ProductServiceGrpc.ProductServiceStub productServiceStub;

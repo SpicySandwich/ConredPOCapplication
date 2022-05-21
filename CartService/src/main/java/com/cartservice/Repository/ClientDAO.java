@@ -20,11 +20,12 @@ public interface ClientDAO {
 		@Result(property = "client_guest_id", column = "client_guest_id"),
 	    @Result(property = "client_guest_name", column = "client_guest_name"),
 		@Result(property = "client_guest_email", column = "client_guest_email")
+		
 	})
     public  List <Client> findAll();
 	
-	@Insert("INSERT INTO tb_client(client_guest_id, client_guest_name, client_guest_email) " +
-		      " VALUES (#{client_guest_id}, #{client_guest_name}, #{client_guest_email} )")
+	@Insert("INSERT INTO tb_client(client_guest_id, client_guest_name, client_guest_email,purchase_item_cart) " +
+		      " VALUES (#{client_guest_id}, #{client_guest_name}, #{client_guest_email},#{purchase_item_cart} )")
   @Options(useGeneratedKeys = true, keyColumn = "client_guest_id", keyProperty = "client_guest_id")
 	public int insert(Client clientGuestRequest);
 

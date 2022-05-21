@@ -1,6 +1,7 @@
 package com.cartservice.Model;
 
-import com.grpcserver.GuestClientServer.ClientGuestRequest;
+
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,34 +16,36 @@ public class Client {
 
 	private String client_guest_name;
 	private String client_guest_email;
+    private List<Integer> purchase_item_cart;
+    private ProductEntity productEntity;
 	
 	
-	public int toDeleteTest() {
-		
-		return ClientGuestRequest.newBuilder()
-				.getClientGuestId();
-	
-	}
-	
-	
-	public ClientGuestRequest toGuest() {
-		
-		return ClientGuestRequest.newBuilder()
-				.setClientGuestId(getClient_guest_id())
-				.setClientGuestName(getClient_guest_name())
-				.setClientGuestEmail(getClient_guest_email())
-
-				.build();
-				
-	}
-	
-	public ClientGuestRequest byID() {
-		
-		return ClientGuestRequest.newBuilder()
-				.setClientGuestId(getClient_guest_id())
-				.build();
-				
-	}
+//	public int toDeleteTest() {
+//		
+//		return ClientGuestRequest.newBuilder()
+//				.getClientGuestId();
+//	
+//	}
+//	
+//	
+//	public ClientGuestRequest toGuest() {
+//		
+//		return ClientGuestRequest.newBuilder()
+//				.setClientGuestId(getClient_guest_id())
+//				.setClientGuestName(getClient_guest_name())
+//				.setClientGuestEmail(getClient_guest_email())
+//
+//				.build();
+//				
+//	}
+//	
+//	public ClientGuestRequest byID() {
+//		
+//		return ClientGuestRequest.newBuilder()
+//				.setClientGuestId(getClient_guest_id())
+//				.build();
+//				
+//	}
 	
 //	public static Client fromClient(ClientGuestRequest clientGuestRequest) {
 //		
