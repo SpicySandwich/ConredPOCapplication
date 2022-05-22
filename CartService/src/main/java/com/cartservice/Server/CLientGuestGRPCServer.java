@@ -2,6 +2,7 @@ package com.cartservice.Server;
 
 
 
+import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,11 +13,14 @@ import com.cartservice.ConvertParameters.BodyConvertParametrs;
 import com.cartservice.DTO.ClientGuestDTO;
 import com.cartservice.Model.Client;
 import com.cartservice.Service.GuestClientServiceImpl;
+import com.cartservice.Service.ProductServiceImpl;
 import com.cartservice.Validation.ClientGuestValidation;
 import com.google.protobuf.Int32Value;
 import com.grpcserver.ClientGuestServiceGrpc.ClientGuestServiceImplBase;
 import com.grpcserver.GuestClientServer.APIResponse;
 import com.grpcserver.GuestClientServer.ClientGuest;
+import com.grpcserver.GuestClientServer.ClientGuest.Builder;
+import com.grpcserver.product.ProductServer.Product;
 
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
@@ -36,12 +40,14 @@ private GuestClientServiceImpl guestClientServiceImpl;
 @Autowired
 private  BodyConvertParametrs bodyConvertParameters;
 
-
-
 @Override
 public void insert(ClientGuest request, StreamObserver<APIResponse> responseObserver) {
 	
-					guestClientServiceImpl.saveDataFromDTO(bodyConvertParameters.insertClient(request));
+
+
+					guestClientServiceImpl.saveGuestClientInfo(bodyConvertParameters.insertClient(request));
+					
+				
 					APIResponse.Builder  responce = APIResponse.newBuilder();
 					responce.setResponseCode(0).setResponsemessage("Succefull added to database ");
 					responseObserver.onNext(responce.build());

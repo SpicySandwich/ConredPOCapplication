@@ -26,6 +26,7 @@ public class ProductEntity {
     private String productdescription;
     private Integer productquantity;
     private Date  productexpirationdate;
+
     
     
     
@@ -43,6 +44,7 @@ public class ProductEntity {
     			.setProductdescription(convertStringValue(getProductdescription()))
     			.setProductquantity(convertToint32value(getProductquantity()))
     			.setProductexpirationdate(getDateFromDateProto(getProductexpirationdate()))
+    	//		.setClientguestPurchaseItemId(convertToint32value(getClientguest_purchase_item_id()))
     			.build();
     }
     

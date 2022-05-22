@@ -1,11 +1,7 @@
 package com.cartgatewayservice.DateConverter;
 
-import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
-
-import com.cartgatewayservice.RestModelException.DATE_FORMAT_EXCEPTION;
-
 import org.springframework.stereotype.Service;
 
 @Service

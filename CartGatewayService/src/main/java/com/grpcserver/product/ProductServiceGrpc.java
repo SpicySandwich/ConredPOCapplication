@@ -24,7 +24,7 @@ public final class ProductServiceGrpc {
 
   private ProductServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "ProductService";
+  public static final String SERVICE_NAME = "product.service.ProductService";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<com.grpcserver.product.ProductServer.Product,
@@ -45,7 +45,7 @@ public final class ProductServiceGrpc {
               io.grpc.MethodDescriptor.<com.grpcserver.product.ProductServer.Product, com.grpcserver.product.ProductServer.ProductList>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "ProductService", "findAllRepeated"))
+                  "product.service.ProductService", "findAllRepeated"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.grpcserver.product.ProductServer.Product.getDefaultInstance()))
@@ -77,7 +77,7 @@ public final class ProductServiceGrpc {
               io.grpc.MethodDescriptor.<com.grpcserver.product.ProductServer.Product, com.grpcserver.product.ProductServer.APIResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "ProductService", "insert"))
+                  "product.service.ProductService", "insert"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.grpcserver.product.ProductServer.Product.getDefaultInstance()))
@@ -109,7 +109,7 @@ public final class ProductServiceGrpc {
               io.grpc.MethodDescriptor.<com.grpcserver.product.ProductServer.Product, com.grpcserver.product.ProductServer.APIResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "ProductService", "deleteById"))
+                  "product.service.ProductService", "deleteById"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.grpcserver.product.ProductServer.Product.getDefaultInstance()))
@@ -141,7 +141,7 @@ public final class ProductServiceGrpc {
               io.grpc.MethodDescriptor.<com.google.protobuf.Int32Value, com.grpcserver.product.ProductServer.Product>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "ProductService", "findById"))
+                  "product.service.ProductService", "findById"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.google.protobuf.Int32Value.getDefaultInstance()))
@@ -173,7 +173,7 @@ public final class ProductServiceGrpc {
               io.grpc.MethodDescriptor.<com.grpcserver.product.ProductServer.Product, com.grpcserver.product.ProductServer.APIResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "ProductService", "update"))
+                  "product.service.ProductService", "update"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.grpcserver.product.ProductServer.Product.getDefaultInstance()))

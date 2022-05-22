@@ -18,7 +18,6 @@ public class ClientGuestDTO {
    private Integer client_guest_id;
 	private String client_guest_name;
 	private String client_guest_email;
-	private List<Integer> purchase_item_cart;
     private ProductEntity productEntity;
 
 	

@@ -26,10 +26,10 @@ public class ClientGuestValidation {
 		
 	}
 	
-	public void EmailValidation(Client client) {
-		DuplicateEmail(client);
-	}
-	
+//	public void EmailValidation(Client client) {
+//		DuplicateEmail(client);
+//	}
+//	
 	public void validateID(Integer client_guest_id) {
 		
 		NotFound(client_guest_id);
@@ -62,17 +62,17 @@ public class ClientGuestValidation {
 		
 	}
 	
-	private void DuplicateEmail(Client client) {
-
-     String name = client.getClient_guest_email();
-		    	
-		    	if( guestClientServiceImpl.chechEmail(name)) {
-					
-					throw new ClientGuestDuplicateEmail(ClientGuestErrorCode.CLIENT_GUEST_EMAIL_DUPLICATE);
-				}
-	
-		
-	}
+//	private void DuplicateEmail(Client client) {
+//
+//     String name = client.getClient_guest_email();
+//		    	
+//		    	if( guestClientServiceImpl.chechEmail(name)) {
+//					
+//					throw new ClientGuestDuplicateEmail(ClientGuestErrorCode.CLIENT_GUEST_EMAIL_DUPLICATE);
+//				}
+//	
+//		
+//	}
 
 	
 	

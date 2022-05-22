@@ -3,15 +3,17 @@ package com.cartgatewayservice.Service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.cartgatewayservice.BodyConvertParameters.ConvertParameters;
 import com.cartgatewayservice.Model.GuestClient;
 import com.cartgatewayservice.RestModelException.EXISTING_EMAIL_EXCEPTION;
 import com.cartgatewayservice.RestModelException.ID_NOT_FOUND;
 import com.google.protobuf.Int32Value;
-import com.grpcserver.ClientGuestGrpc;
+import com.grpcserver.ClientGuestServiceGrpc;
 import com.grpcserver.GuestClientServer.APIResponse;
-import com.grpcserver.GuestClientServer.ClientGuestRequest;
-import com.grpcserver.GuestClientServer.ClientGuestrList;
+import com.grpcserver.GuestClientServer.ClientGuest;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
@@ -19,7 +21,8 @@ import io.grpc.ManagedChannelBuilder;
 @Service
 public class GRPCClientGuestService {
 
-
+@Autowired
+private ConvertParameters convertParameters;
 	
 		
 	ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 9090)
@@ -29,14 +32,13 @@ public class GRPCClientGuestService {
 	public String inserdata(GuestClient guestClient) {
 		
 		try {
-	ClientGuestGrpc.ClientGuestBlockingStub stub = ClientGuestGrpc.newBlockingStub(channel);
-
+			
+			ClientGuestServiceGrpc.ClientGuestServiceBlockingStub stub = ClientGuestServiceGrpc.newBlockingStub(channel);
 	
-	APIResponse response = stub.insert(ClientGuestRequest.newBuilder()
-			.setClientGuestId(0)
-			.setClientGuestName(guestClient.getClient_guest_name())
-			.setClientGuestEmail(guestClient.getClient_guest_email())
-	
+	APIResponse response = stub.insert(ClientGuest.newBuilder()
+			.setClientGuestId(convertParameters.convertToint32value(guestClient.getClient_guest_id()))
+			.setClientGuestName(convertParameters.convertStringValue(guestClient.getClient_guest_name()))
+			.setClientGuestEmail(convertParameters.convertStringValue(guestClient.getClient_guest_email()))
 			.build());
 	return response.getResponsemessage();
 	
@@ -50,14 +52,14 @@ public class GRPCClientGuestService {
 	
 	public String deletedata(Integer client_guest_id) {
 
-		ClientGuestGrpc.ClientGuestBlockingStub stub = ClientGuestGrpc.newBlockingStub(channel);
 
+		ClientGuestServiceGrpc.ClientGuestServiceBlockingStub stub = ClientGuestServiceGrpc.newBlockingStub(channel);
 		GuestClient guestClient = new GuestClient();
 		
 		guestClient.setClient_guest_id(client_guest_id);
 		
-		APIResponse response = stub.deleteById(ClientGuestRequest.newBuilder()
-				.setClientGuestId(guestClient.getClient_guest_id())
+		APIResponse response = stub.deleteById(ClientGuest.newBuilder()
+				.setClientGuestId(convertParameters.convertToint32value(guestClient.getClient_guest_id()))
 				.build());
 	
 		return response.getResponsemessage();
@@ -65,12 +67,12 @@ public class GRPCClientGuestService {
 	
 	public String updatedata(GuestClient guestClient) {
 
-	ClientGuestGrpc.ClientGuestBlockingStub stub = ClientGuestGrpc.newBlockingStub(channel);
 
-	APIResponse response = stub.update(ClientGuestRequest.newBuilder()
-			.setClientGuestId(guestClient.getClient_guest_id())
-			.setClientGuestName(guestClient.getClient_guest_name())
-			.setClientGuestEmail(guestClient.getClient_guest_email())
+	ClientGuestServiceGrpc.ClientGuestServiceBlockingStub stub = ClientGuestServiceGrpc.newBlockingStub(channel);
+	APIResponse response = stub.update(ClientGuest.newBuilder()
+			.setClientGuestId(convertParameters.convertToint32value(guestClient.getClient_guest_id()))
+			.setClientGuestName(convertParameters.convertStringValue(guestClient.getClient_guest_name()))
+			.setClientGuestEmail(convertParameters.convertStringValue(guestClient.getClient_guest_email()))
 		
 			.build());
 	
@@ -80,17 +82,16 @@ public class GRPCClientGuestService {
 	
 
 	public GuestClient findClient (Integer client_guest_id) {
-		
-		ClientGuestGrpc.ClientGuestBlockingStub stub = ClientGuestGrpc.newBlockingStub(channel);
+		ClientGuestServiceGrpc.ClientGuestServiceBlockingStub stub = ClientGuestServiceGrpc.newBlockingStub(channel);
 		GuestClient guestClient = new GuestClient();
 		
 			try {
 				
-				ClientGuestRequest clientGuestRequest = stub.findById(Int32Value.of(client_guest_id));
+				ClientGuest clientGuestRequest = stub.findById(Int32Value.of(client_guest_id));
 				
-				guestClient.setClient_guest_id(clientGuestRequest.getClientGuestId());
-				guestClient.setClient_guest_name(clientGuestRequest.getClientGuestName());
-				guestClient.setClient_guest_email(clientGuestRequest.getClientGuestEmail());
+				guestClient.setClient_guest_id(convertParameters.convertJavaInteger(clientGuestRequest.getClientGuestId()));
+				guestClient.setClient_guest_name(convertParameters.convertJavaString(clientGuestRequest.getClientGuestName()));
+				guestClient.setClient_guest_email(convertParameters.convertJavaString(clientGuestRequest.getClientGuestEmail()));
 			
 				
 				
@@ -106,16 +107,17 @@ public class GRPCClientGuestService {
 	}
 	
 	
-	public ClientGuestrList list(List<ClientGuestRequest> clientlist) {
-		ClientGuestGrpc.ClientGuestBlockingStub stub = ClientGuestGrpc.newBlockingStub(channel);
-		ClientGuestrList.Builder reBuilder = ClientGuestrList.newBuilder();
-		clientlist.forEach(reBuilder::addClientguestall);
-		
-		ClientGuestrList reClientGuestrList = reBuilder.build();
-		
-		return reClientGuestrList;
-		
-	}
+//	public ClientGuestrList list(List<ClientGuest> clientlist) {
+//		ClientGuestServiceGrpc.ClientGuestServiceBlockingStub stub = ClientGuestServiceGrpc.newBlockingStub(channel);
+//		//ClientGuestGrpc.ClientGuestBlockingStub stub = ClientGuestGrpc.newBlockingStub(channel);
+//		ClientGuestrList.Builder reBuilder = ClientGuestrList.newBuilder();
+//		clientlist.forEach(reBuilder::addClientguestall);
+//		
+//		ClientGuestrList reClientGuestrList = reBuilder.build();
+//		
+//		return reClientGuestrList;
+//		
+//	}
 	
 
 

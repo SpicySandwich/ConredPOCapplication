@@ -1,10 +1,8 @@
 package com.cartgatewayservice.BodyConvertParameters;
 
 
-import com.cartgatewayservice.DTO.ProductDTO;
 import com.cartgatewayservice.DateConverter.DateConvert;
 import com.cartgatewayservice.Model.ProductEntity;
-import com.cartgatewayservice.Validation.InputValidation;
 import com.google.protobuf.DoubleValue;
 import com.google.protobuf.Int32Value;
 import com.google.protobuf.StringValue;
@@ -19,10 +17,6 @@ public class ConvertParameters {
 	@Autowired
 	private DateConvert dateConvert;
 	
-	
-
-	
-
 	
 	public ProductEntity forList (Product request){
 	 ProductEntity productEntity2 = (ProductEntity.builder()
@@ -48,6 +42,7 @@ public class ConvertParameters {
 				convertJavaString(request.getProductdescription()) ,
 				convertJavaInteger(request.getProductquantity()),
 				dateConvert.getDateFromDateProto(request.getProductexpirationdate())
+			
 				);
 		
 		return productEntity;

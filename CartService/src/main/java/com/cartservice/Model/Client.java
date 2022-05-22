@@ -3,21 +3,32 @@ package com.cartservice.Model;
 
 import java.util.List;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 
 @Data
+@Builder
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class Client {
 	
 	private Integer client_guest_id;
-
 	private String client_guest_name;
 	private String client_guest_email;
-    private List<Integer> purchase_item_cart;
     private ProductEntity productEntity;
+    
+    
+    
+    
+    
 	
 	
 //	public int toDeleteTest() {

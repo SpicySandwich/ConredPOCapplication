@@ -33,58 +33,58 @@ public class GuestClientServiceImpl implements GuestClientService{
 	}
 	
 	//DTO List
-	
-	public List<ClientGuestDTO> getClient() {
-		
-
-			return clientDAO.findAll()
-					.stream()
-	                .map(this::convertClientGuestDTOtoClient)
-	                .collect(Collectors.toList());	
-	}
+//	
+//	public List<ClientGuestDTO> getClient() {
+//		
+//
+//			return clientDAO.findAll()
+//					.stream()
+//	                .map(this::convertClientGuestDTOtoClient)
+//	                .collect(Collectors.toList());	
+//	}
 	//DTO add data
 	
-	public ClientGuestDTO saveDataFromDTO(Client client) {
-		
-		
-		clientDAO.insert(client);
-		
-		return convertClientGuestDTOtoClient(client);
-		
-	}
-	
-	//DTO FindByID
-	
-	public ClientGuestDTO getDataByDTO(Integer client_guest_id) {
-		
-		return  convertClientGuestDTOtoClient(clientDAO.findById(client_guest_id));
-	}
-	
-	//DTO Delete
-	
-	public ClientGuestDTO deleteDTO(Integer client_guest_id) {
-		
-		
-		return   convertClientGuestDTOtoClient ( clientDAO.deleteById(client_guest_id));
-	}
-	
-	//DTO update
-	
-	public ClientGuestDTO updatebyDTO(Client client) {
-		clientDAO.update(client);
-	return convertClientGuestDTOtoClient( client);
-		
-	}
-	
-	//Validate Duplicate Email
-	
-	public boolean chechEmail(String client_guest_email) {
-		
-		return clientDAO.checkEmailExists(client_guest_email);
-		
-    //convertClientGuestDTOtoClient(clientDAO.checkEmailExists(client_guest_email));
-		
-	}
+//	public ClientGuestDTO saveDataFromDTO(Client client) {
+//		
+//		
+//		clientDAO.insert(client);
+//		
+//		return convertClientGuestDTOtoClient(client);
+//		
+//	}
+//	
+//	//DTO FindByID
+//	
+//	public ClientGuestDTO getDataByDTO(Integer client_guest_id) {
+//		
+//		return  convertClientGuestDTOtoClient(clientDAO.findById(client_guest_id));
+//	}
+//	
+//	//DTO Delete
+//	
+//	public ClientGuestDTO deleteDTO(Integer client_guest_id) {
+//		
+//		
+//		return   convertClientGuestDTOtoClient ( clientDAO.deleteById(client_guest_id));
+//	}
+//	
+//	//DTO update
+//	
+//	public ClientGuestDTO updatebyDTO(Client client) {
+//		clientDAO.update(client);
+//	return convertClientGuestDTOtoClient( client);
+//		
+//	}
+//	
+//	//Validate Duplicate Email
+//	
+//	public boolean chechEmail(String client_guest_email) {
+//		
+//		return clientDAO.checkEmailExists(client_guest_email);
+//		
+//    //convertClientGuestDTOtoClient(clientDAO.checkEmailExists(client_guest_email));
+//		
+//	}
 	
 	//test
 	
@@ -95,38 +95,38 @@ public class GuestClientServiceImpl implements GuestClientService{
 //	}
 //	
 
-
-	@Override
-	public List<Client> getAll() {
-
-		return clientDAO.findAll();
-	}
-
-	@Override
-	public Client getGuestClientInfo(Integer client_guest_id) {
-		
-		return clientDAO.findById(client_guest_id);
-	}
-
+//
+//	@Override
+//	public List<Client> getAll() {
+//
+//		return clientDAO.findAll();
+//	}
+//
+//	@Override
+//	public Client getGuestClientInfo(Integer client_guest_id) {
+//		
+//		return clientDAO.findById(client_guest_id);
+//	}
+//
 	@Override
 	public void saveGuestClientInfo(Client client) {
 		
 		clientDAO.insert(client);
 		
 	}
-
-	@Override
-	public void deleteGuestClientInfo(Integer client_guest_id) {
-	
-		clientDAO.deleteById(client_guest_id);
-	}
-
-	@Override
-	public void updateGuestClientInfo(Client client) {
-	
-		clientDAO.update(client);
-		
-	}
+//
+//	@Override
+//	public void deleteGuestClientInfo(Integer client_guest_id) {
+//	
+//		clientDAO.deleteById(client_guest_id);
+//	}
+//
+//	@Override
+//	public void updateGuestClientInfo(Client client) {
+//	
+//		clientDAO.update(client);
+//		
+//	}
 
 
 

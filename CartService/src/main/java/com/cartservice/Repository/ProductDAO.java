@@ -19,15 +19,6 @@ import com.grpcserver.product.ProductServer.Product;
 public interface ProductDAO {
 	
 	@Select("select * from tb_product")
-	@Results({
-		@Result(property = "purchase_item", column = "purchase_item"),
-	    @Result(property = "productname", column = "productname"),
-		@Result(property = "productbrand", column = "productbrand"),
-		@Result(property = "productprice", column = "productprice"),
-		@Result(property = "productdescription", column = "productdescription"),
-		@Result(property = "productquantity", column = "productquantity"),
-		@Result(property = "productexpirationdate", column = "productexpirationdate")
-	})
     public  List <ProductEntity> findAll();
 
 	
@@ -42,8 +33,13 @@ public interface ProductDAO {
 	@Select("SELECT * FROM tb_product  WHERE purchase_item = #{purchase_item}")
 	 public ProductEntity findById(Integer client_guest_id);
 	
-	 @Update("Update tb_product set productname=#{productname}, " +
-		        "productbrand=#{productbrand}, productprice=#{productprice}, productdescription=#{productdescription}, productquantity=#{productquantity}, productexpirationdate=#{productexpirationdate}"
+	 @Update("Update tb_product set "
+	 		+ "productname=#{productname}, " +
+		        "productbrand=#{productbrand},"
+		        + " productprice=#{productprice},"
+		        + " productdescription=#{productdescription},"
+		        + " productquantity=#{productquantity},"
+		        + " productexpirationdate=#{productexpirationdate}"
 		        + "where purchase_item = #{purchase_item} ")
 		   void update(ProductEntity  productEntity);
 

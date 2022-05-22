@@ -3,7 +3,7 @@ syntax = "proto3";
 option java_package = "com.grpcserver";
 import "google/protobuf/wrappers.proto";
 import "google/protobuf/timestamp.proto";
-import "ProductServer.proto";
+
 
 
 service ClientGuestService{
@@ -26,8 +26,7 @@ message ClientGuest{
        google.protobuf.Int32Value client_guest_id = 1;
        google.protobuf.StringValue  client_guest_name = 2;
        google.protobuf.StringValue  client_guest_email = 3;
-       repeated google.protobuf.Int32Value purchase_item_cart = 4;
-       repeated .product.service.Product cart_list = 5;
+    
    
 }
 

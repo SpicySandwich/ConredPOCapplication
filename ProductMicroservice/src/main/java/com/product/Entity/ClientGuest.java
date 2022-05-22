@@ -28,7 +28,7 @@ public class ClientGuest {
     private String client_guest_email;
     
     @OneToMany(targetEntity = Product.class,cascade = CascadeType.ALL)
-    @JoinColumn(name ="fk_clientguestproduct",referencedColumnName = "client_guest_id")
+    @JoinColumn(name ="clientguest_purchase_item_id",referencedColumnName = "client_guest_id")
     private List<Product> purchase_item;
 
 }

@@ -1,12 +1,13 @@
 DROP TABLE IF EXISTS `dbpoc`.`tb_client` ;
 
-
-CREATE TABLE  IF NOT EXISTS `dbpoc`.`tb_client` (
+CREATE TABLE  IF NOT EXISTS `dbpoc`.`tb_client`  (
   `client_guest_id` int NOT NULL AUTO_INCREMENT,
   `client_guest_email` varchar(255) DEFAULT NULL,
   `client_guest_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`client_guest_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB;
+
+
 
 DROP TABLE IF EXISTS `dbpoc`.`tb_product` ;
 
@@ -18,8 +19,8 @@ CREATE TABLE  IF NOT EXISTS `dbpoc`.`tb_product` (
   `productname` varchar(255) NOT NULL,
   `productprice` double NOT NULL,
   `productquantity` int NOT NULL,
-  `fk_clientguestproduct` int DEFAULT NULL,
+  `clientguest_purchase_item_id` int DEFAULT NULL,
   PRIMARY KEY (`purchase_item`),
-  KEY `FKb2buub936y2nk94ptlvwsgdp2` (`fk_clientguestproduct`),
-  CONSTRAINT `FKb2buub936y2nk94ptlvwsgdp2` FOREIGN KEY (`fk_clientguestproduct`) REFERENCES `tb_client` (`client_guest_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+  KEY `FK15dvpp5f1ql6s2jnu6c4pg54i` (`clientguest_purchase_item_id`),
+  CONSTRAINT `FK15dvpp5f1ql6s2jnu6c4pg54i` FOREIGN KEY (`clientguest_purchase_item_id`) REFERENCES `tb_client` (`client_guest_id`)
+) ENGINE=InnoDB;

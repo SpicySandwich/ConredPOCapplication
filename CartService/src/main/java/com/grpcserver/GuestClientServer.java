@@ -163,54 +163,6 @@ public final class GuestClientServer {
      * <code>optional .google.protobuf.StringValue client_guest_email = 3;</code>
      */
     com.google.protobuf.StringValueOrBuilder getClientGuestEmailOrBuilder();
-
-    /**
-     * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
-     */
-    java.util.List<com.google.protobuf.Int32Value> 
-        getPurchaseItemCartList();
-    /**
-     * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
-     */
-    com.google.protobuf.Int32Value getPurchaseItemCart(int index);
-    /**
-     * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
-     */
-    int getPurchaseItemCartCount();
-    /**
-     * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
-     */
-    java.util.List<? extends com.google.protobuf.Int32ValueOrBuilder> 
-        getPurchaseItemCartOrBuilderList();
-    /**
-     * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
-     */
-    com.google.protobuf.Int32ValueOrBuilder getPurchaseItemCartOrBuilder(
-        int index);
-
-    /**
-     * <code>repeated .product.service.Product cart_list = 5;</code>
-     */
-    java.util.List<com.grpcserver.product.ProductServer.Product> 
-        getCartListList();
-    /**
-     * <code>repeated .product.service.Product cart_list = 5;</code>
-     */
-    com.grpcserver.product.ProductServer.Product getCartList(int index);
-    /**
-     * <code>repeated .product.service.Product cart_list = 5;</code>
-     */
-    int getCartListCount();
-    /**
-     * <code>repeated .product.service.Product cart_list = 5;</code>
-     */
-    java.util.List<? extends com.grpcserver.product.ProductServer.ProductOrBuilder> 
-        getCartListOrBuilderList();
-    /**
-     * <code>repeated .product.service.Product cart_list = 5;</code>
-     */
-    com.grpcserver.product.ProductServer.ProductOrBuilder getCartListOrBuilder(
-        int index);
   }
   /**
    * Protobuf type {@code ClientGuest}
@@ -224,8 +176,6 @@ public final class GuestClientServer {
       super(builder);
     }
     private ClientGuest() {
-      purchaseItemCart_ = java.util.Collections.emptyList();
-      cartList_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -292,24 +242,6 @@ public final class GuestClientServer {
 
               break;
             }
-            case 34: {
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                purchaseItemCart_ = new java.util.ArrayList<com.google.protobuf.Int32Value>();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              purchaseItemCart_.add(
-                  input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry));
-              break;
-            }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                cartList_ = new java.util.ArrayList<com.grpcserver.product.ProductServer.Product>();
-                mutable_bitField0_ |= 0x00000010;
-              }
-              cartList_.add(
-                  input.readMessage(com.grpcserver.product.ProductServer.Product.parser(), extensionRegistry));
-              break;
-            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -318,12 +250,6 @@ public final class GuestClientServer {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-          purchaseItemCart_ = java.util.Collections.unmodifiableList(purchaseItemCart_);
-        }
-        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-          cartList_ = java.util.Collections.unmodifiableList(cartList_);
-        }
         makeExtensionsImmutable();
       }
     }
@@ -339,7 +265,6 @@ public final class GuestClientServer {
               com.grpcserver.GuestClientServer.ClientGuest.class, com.grpcserver.GuestClientServer.ClientGuest.Builder.class);
     }
 
-    private int bitField0_;
     public static final int CLIENT_GUEST_ID_FIELD_NUMBER = 1;
     private com.google.protobuf.Int32Value clientGuestId_;
     /**
@@ -403,76 +328,6 @@ public final class GuestClientServer {
       return getClientGuestEmail();
     }
 
-    public static final int PURCHASE_ITEM_CART_FIELD_NUMBER = 4;
-    private java.util.List<com.google.protobuf.Int32Value> purchaseItemCart_;
-    /**
-     * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
-     */
-    public java.util.List<com.google.protobuf.Int32Value> getPurchaseItemCartList() {
-      return purchaseItemCart_;
-    }
-    /**
-     * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
-     */
-    public java.util.List<? extends com.google.protobuf.Int32ValueOrBuilder> 
-        getPurchaseItemCartOrBuilderList() {
-      return purchaseItemCart_;
-    }
-    /**
-     * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
-     */
-    public int getPurchaseItemCartCount() {
-      return purchaseItemCart_.size();
-    }
-    /**
-     * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
-     */
-    public com.google.protobuf.Int32Value getPurchaseItemCart(int index) {
-      return purchaseItemCart_.get(index);
-    }
-    /**
-     * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
-     */
-    public com.google.protobuf.Int32ValueOrBuilder getPurchaseItemCartOrBuilder(
-        int index) {
-      return purchaseItemCart_.get(index);
-    }
-
-    public static final int CART_LIST_FIELD_NUMBER = 5;
-    private java.util.List<com.grpcserver.product.ProductServer.Product> cartList_;
-    /**
-     * <code>repeated .product.service.Product cart_list = 5;</code>
-     */
-    public java.util.List<com.grpcserver.product.ProductServer.Product> getCartListList() {
-      return cartList_;
-    }
-    /**
-     * <code>repeated .product.service.Product cart_list = 5;</code>
-     */
-    public java.util.List<? extends com.grpcserver.product.ProductServer.ProductOrBuilder> 
-        getCartListOrBuilderList() {
-      return cartList_;
-    }
-    /**
-     * <code>repeated .product.service.Product cart_list = 5;</code>
-     */
-    public int getCartListCount() {
-      return cartList_.size();
-    }
-    /**
-     * <code>repeated .product.service.Product cart_list = 5;</code>
-     */
-    public com.grpcserver.product.ProductServer.Product getCartList(int index) {
-      return cartList_.get(index);
-    }
-    /**
-     * <code>repeated .product.service.Product cart_list = 5;</code>
-     */
-    public com.grpcserver.product.ProductServer.ProductOrBuilder getCartListOrBuilder(
-        int index) {
-      return cartList_.get(index);
-    }
-
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -494,12 +349,6 @@ public final class GuestClientServer {
       if (clientGuestEmail_ != null) {
         output.writeMessage(3, getClientGuestEmail());
       }
-      for (int i = 0; i < purchaseItemCart_.size(); i++) {
-        output.writeMessage(4, purchaseItemCart_.get(i));
-      }
-      for (int i = 0; i < cartList_.size(); i++) {
-        output.writeMessage(5, cartList_.get(i));
-      }
     }
 
     public int getSerializedSize() {
@@ -518,14 +367,6 @@ public final class GuestClientServer {
       if (clientGuestEmail_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getClientGuestEmail());
-      }
-      for (int i = 0; i < purchaseItemCart_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, purchaseItemCart_.get(i));
-      }
-      for (int i = 0; i < cartList_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, cartList_.get(i));
       }
       memoizedSize = size;
       return size;
@@ -558,10 +399,6 @@ public final class GuestClientServer {
         result = result && getClientGuestEmail()
             .equals(other.getClientGuestEmail());
       }
-      result = result && getPurchaseItemCartList()
-          .equals(other.getPurchaseItemCartList());
-      result = result && getCartListList()
-          .equals(other.getCartListList());
       return result;
     }
 
@@ -583,14 +420,6 @@ public final class GuestClientServer {
       if (hasClientGuestEmail()) {
         hash = (37 * hash) + CLIENT_GUEST_EMAIL_FIELD_NUMBER;
         hash = (53 * hash) + getClientGuestEmail().hashCode();
-      }
-      if (getPurchaseItemCartCount() > 0) {
-        hash = (37 * hash) + PURCHASE_ITEM_CART_FIELD_NUMBER;
-        hash = (53 * hash) + getPurchaseItemCartList().hashCode();
-      }
-      if (getCartListCount() > 0) {
-        hash = (37 * hash) + CART_LIST_FIELD_NUMBER;
-        hash = (53 * hash) + getCartListList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -706,8 +535,6 @@ public final class GuestClientServer {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getPurchaseItemCartFieldBuilder();
-          getCartListFieldBuilder();
         }
       }
       public Builder clear() {
@@ -729,18 +556,6 @@ public final class GuestClientServer {
         } else {
           clientGuestEmail_ = null;
           clientGuestEmailBuilder_ = null;
-        }
-        if (purchaseItemCartBuilder_ == null) {
-          purchaseItemCart_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
-        } else {
-          purchaseItemCartBuilder_.clear();
-        }
-        if (cartListBuilder_ == null) {
-          cartList_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000010);
-        } else {
-          cartListBuilder_.clear();
         }
         return this;
       }
@@ -764,8 +579,6 @@ public final class GuestClientServer {
 
       public com.grpcserver.GuestClientServer.ClientGuest buildPartial() {
         com.grpcserver.GuestClientServer.ClientGuest result = new com.grpcserver.GuestClientServer.ClientGuest(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         if (clientGuestIdBuilder_ == null) {
           result.clientGuestId_ = clientGuestId_;
         } else {
@@ -781,25 +594,6 @@ public final class GuestClientServer {
         } else {
           result.clientGuestEmail_ = clientGuestEmailBuilder_.build();
         }
-        if (purchaseItemCartBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) == 0x00000008)) {
-            purchaseItemCart_ = java.util.Collections.unmodifiableList(purchaseItemCart_);
-            bitField0_ = (bitField0_ & ~0x00000008);
-          }
-          result.purchaseItemCart_ = purchaseItemCart_;
-        } else {
-          result.purchaseItemCart_ = purchaseItemCartBuilder_.build();
-        }
-        if (cartListBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) == 0x00000010)) {
-            cartList_ = java.util.Collections.unmodifiableList(cartList_);
-            bitField0_ = (bitField0_ & ~0x00000010);
-          }
-          result.cartList_ = cartList_;
-        } else {
-          result.cartList_ = cartListBuilder_.build();
-        }
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -850,58 +644,6 @@ public final class GuestClientServer {
         if (other.hasClientGuestEmail()) {
           mergeClientGuestEmail(other.getClientGuestEmail());
         }
-        if (purchaseItemCartBuilder_ == null) {
-          if (!other.purchaseItemCart_.isEmpty()) {
-            if (purchaseItemCart_.isEmpty()) {
-              purchaseItemCart_ = other.purchaseItemCart_;
-              bitField0_ = (bitField0_ & ~0x00000008);
-            } else {
-              ensurePurchaseItemCartIsMutable();
-              purchaseItemCart_.addAll(other.purchaseItemCart_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.purchaseItemCart_.isEmpty()) {
-            if (purchaseItemCartBuilder_.isEmpty()) {
-              purchaseItemCartBuilder_.dispose();
-              purchaseItemCartBuilder_ = null;
-              purchaseItemCart_ = other.purchaseItemCart_;
-              bitField0_ = (bitField0_ & ~0x00000008);
-              purchaseItemCartBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getPurchaseItemCartFieldBuilder() : null;
-            } else {
-              purchaseItemCartBuilder_.addAllMessages(other.purchaseItemCart_);
-            }
-          }
-        }
-        if (cartListBuilder_ == null) {
-          if (!other.cartList_.isEmpty()) {
-            if (cartList_.isEmpty()) {
-              cartList_ = other.cartList_;
-              bitField0_ = (bitField0_ & ~0x00000010);
-            } else {
-              ensureCartListIsMutable();
-              cartList_.addAll(other.cartList_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.cartList_.isEmpty()) {
-            if (cartListBuilder_.isEmpty()) {
-              cartListBuilder_.dispose();
-              cartListBuilder_ = null;
-              cartList_ = other.cartList_;
-              bitField0_ = (bitField0_ & ~0x00000010);
-              cartListBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getCartListFieldBuilder() : null;
-            } else {
-              cartListBuilder_.addAllMessages(other.cartList_);
-            }
-          }
-        }
         onChanged();
         return this;
       }
@@ -927,7 +669,6 @@ public final class GuestClientServer {
         }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.Int32Value clientGuestId_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -1278,486 +1019,6 @@ public final class GuestClientServer {
           clientGuestEmail_ = null;
         }
         return clientGuestEmailBuilder_;
-      }
-
-      private java.util.List<com.google.protobuf.Int32Value> purchaseItemCart_ =
-        java.util.Collections.emptyList();
-      private void ensurePurchaseItemCartIsMutable() {
-        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-          purchaseItemCart_ = new java.util.ArrayList<com.google.protobuf.Int32Value>(purchaseItemCart_);
-          bitField0_ |= 0x00000008;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> purchaseItemCartBuilder_;
-
-      /**
-       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
-       */
-      public java.util.List<com.google.protobuf.Int32Value> getPurchaseItemCartList() {
-        if (purchaseItemCartBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(purchaseItemCart_);
-        } else {
-          return purchaseItemCartBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
-       */
-      public int getPurchaseItemCartCount() {
-        if (purchaseItemCartBuilder_ == null) {
-          return purchaseItemCart_.size();
-        } else {
-          return purchaseItemCartBuilder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
-       */
-      public com.google.protobuf.Int32Value getPurchaseItemCart(int index) {
-        if (purchaseItemCartBuilder_ == null) {
-          return purchaseItemCart_.get(index);
-        } else {
-          return purchaseItemCartBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
-       */
-      public Builder setPurchaseItemCart(
-          int index, com.google.protobuf.Int32Value value) {
-        if (purchaseItemCartBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensurePurchaseItemCartIsMutable();
-          purchaseItemCart_.set(index, value);
-          onChanged();
-        } else {
-          purchaseItemCartBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
-       */
-      public Builder setPurchaseItemCart(
-          int index, com.google.protobuf.Int32Value.Builder builderForValue) {
-        if (purchaseItemCartBuilder_ == null) {
-          ensurePurchaseItemCartIsMutable();
-          purchaseItemCart_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          purchaseItemCartBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
-       */
-      public Builder addPurchaseItemCart(com.google.protobuf.Int32Value value) {
-        if (purchaseItemCartBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensurePurchaseItemCartIsMutable();
-          purchaseItemCart_.add(value);
-          onChanged();
-        } else {
-          purchaseItemCartBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
-       */
-      public Builder addPurchaseItemCart(
-          int index, com.google.protobuf.Int32Value value) {
-        if (purchaseItemCartBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensurePurchaseItemCartIsMutable();
-          purchaseItemCart_.add(index, value);
-          onChanged();
-        } else {
-          purchaseItemCartBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
-       */
-      public Builder addPurchaseItemCart(
-          com.google.protobuf.Int32Value.Builder builderForValue) {
-        if (purchaseItemCartBuilder_ == null) {
-          ensurePurchaseItemCartIsMutable();
-          purchaseItemCart_.add(builderForValue.build());
-          onChanged();
-        } else {
-          purchaseItemCartBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
-       */
-      public Builder addPurchaseItemCart(
-          int index, com.google.protobuf.Int32Value.Builder builderForValue) {
-        if (purchaseItemCartBuilder_ == null) {
-          ensurePurchaseItemCartIsMutable();
-          purchaseItemCart_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          purchaseItemCartBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
-       */
-      public Builder addAllPurchaseItemCart(
-          java.lang.Iterable<? extends com.google.protobuf.Int32Value> values) {
-        if (purchaseItemCartBuilder_ == null) {
-          ensurePurchaseItemCartIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, purchaseItemCart_);
-          onChanged();
-        } else {
-          purchaseItemCartBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
-       */
-      public Builder clearPurchaseItemCart() {
-        if (purchaseItemCartBuilder_ == null) {
-          purchaseItemCart_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
-          onChanged();
-        } else {
-          purchaseItemCartBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
-       */
-      public Builder removePurchaseItemCart(int index) {
-        if (purchaseItemCartBuilder_ == null) {
-          ensurePurchaseItemCartIsMutable();
-          purchaseItemCart_.remove(index);
-          onChanged();
-        } else {
-          purchaseItemCartBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
-       */
-      public com.google.protobuf.Int32Value.Builder getPurchaseItemCartBuilder(
-          int index) {
-        return getPurchaseItemCartFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
-       */
-      public com.google.protobuf.Int32ValueOrBuilder getPurchaseItemCartOrBuilder(
-          int index) {
-        if (purchaseItemCartBuilder_ == null) {
-          return purchaseItemCart_.get(index);  } else {
-          return purchaseItemCartBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
-       */
-      public java.util.List<? extends com.google.protobuf.Int32ValueOrBuilder> 
-           getPurchaseItemCartOrBuilderList() {
-        if (purchaseItemCartBuilder_ != null) {
-          return purchaseItemCartBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(purchaseItemCart_);
-        }
-      }
-      /**
-       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
-       */
-      public com.google.protobuf.Int32Value.Builder addPurchaseItemCartBuilder() {
-        return getPurchaseItemCartFieldBuilder().addBuilder(
-            com.google.protobuf.Int32Value.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
-       */
-      public com.google.protobuf.Int32Value.Builder addPurchaseItemCartBuilder(
-          int index) {
-        return getPurchaseItemCartFieldBuilder().addBuilder(
-            index, com.google.protobuf.Int32Value.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .google.protobuf.Int32Value purchase_item_cart = 4;</code>
-       */
-      public java.util.List<com.google.protobuf.Int32Value.Builder> 
-           getPurchaseItemCartBuilderList() {
-        return getPurchaseItemCartFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> 
-          getPurchaseItemCartFieldBuilder() {
-        if (purchaseItemCartBuilder_ == null) {
-          purchaseItemCartBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder>(
-                  purchaseItemCart_,
-                  ((bitField0_ & 0x00000008) == 0x00000008),
-                  getParentForChildren(),
-                  isClean());
-          purchaseItemCart_ = null;
-        }
-        return purchaseItemCartBuilder_;
-      }
-
-      private java.util.List<com.grpcserver.product.ProductServer.Product> cartList_ =
-        java.util.Collections.emptyList();
-      private void ensureCartListIsMutable() {
-        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
-          cartList_ = new java.util.ArrayList<com.grpcserver.product.ProductServer.Product>(cartList_);
-          bitField0_ |= 0x00000010;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.grpcserver.product.ProductServer.Product, com.grpcserver.product.ProductServer.Product.Builder, com.grpcserver.product.ProductServer.ProductOrBuilder> cartListBuilder_;
-
-      /**
-       * <code>repeated .product.service.Product cart_list = 5;</code>
-       */
-      public java.util.List<com.grpcserver.product.ProductServer.Product> getCartListList() {
-        if (cartListBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(cartList_);
-        } else {
-          return cartListBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <code>repeated .product.service.Product cart_list = 5;</code>
-       */
-      public int getCartListCount() {
-        if (cartListBuilder_ == null) {
-          return cartList_.size();
-        } else {
-          return cartListBuilder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .product.service.Product cart_list = 5;</code>
-       */
-      public com.grpcserver.product.ProductServer.Product getCartList(int index) {
-        if (cartListBuilder_ == null) {
-          return cartList_.get(index);
-        } else {
-          return cartListBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .product.service.Product cart_list = 5;</code>
-       */
-      public Builder setCartList(
-          int index, com.grpcserver.product.ProductServer.Product value) {
-        if (cartListBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureCartListIsMutable();
-          cartList_.set(index, value);
-          onChanged();
-        } else {
-          cartListBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .product.service.Product cart_list = 5;</code>
-       */
-      public Builder setCartList(
-          int index, com.grpcserver.product.ProductServer.Product.Builder builderForValue) {
-        if (cartListBuilder_ == null) {
-          ensureCartListIsMutable();
-          cartList_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          cartListBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .product.service.Product cart_list = 5;</code>
-       */
-      public Builder addCartList(com.grpcserver.product.ProductServer.Product value) {
-        if (cartListBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureCartListIsMutable();
-          cartList_.add(value);
-          onChanged();
-        } else {
-          cartListBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .product.service.Product cart_list = 5;</code>
-       */
-      public Builder addCartList(
-          int index, com.grpcserver.product.ProductServer.Product value) {
-        if (cartListBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureCartListIsMutable();
-          cartList_.add(index, value);
-          onChanged();
-        } else {
-          cartListBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .product.service.Product cart_list = 5;</code>
-       */
-      public Builder addCartList(
-          com.grpcserver.product.ProductServer.Product.Builder builderForValue) {
-        if (cartListBuilder_ == null) {
-          ensureCartListIsMutable();
-          cartList_.add(builderForValue.build());
-          onChanged();
-        } else {
-          cartListBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .product.service.Product cart_list = 5;</code>
-       */
-      public Builder addCartList(
-          int index, com.grpcserver.product.ProductServer.Product.Builder builderForValue) {
-        if (cartListBuilder_ == null) {
-          ensureCartListIsMutable();
-          cartList_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          cartListBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .product.service.Product cart_list = 5;</code>
-       */
-      public Builder addAllCartList(
-          java.lang.Iterable<? extends com.grpcserver.product.ProductServer.Product> values) {
-        if (cartListBuilder_ == null) {
-          ensureCartListIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, cartList_);
-          onChanged();
-        } else {
-          cartListBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .product.service.Product cart_list = 5;</code>
-       */
-      public Builder clearCartList() {
-        if (cartListBuilder_ == null) {
-          cartList_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000010);
-          onChanged();
-        } else {
-          cartListBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .product.service.Product cart_list = 5;</code>
-       */
-      public Builder removeCartList(int index) {
-        if (cartListBuilder_ == null) {
-          ensureCartListIsMutable();
-          cartList_.remove(index);
-          onChanged();
-        } else {
-          cartListBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .product.service.Product cart_list = 5;</code>
-       */
-      public com.grpcserver.product.ProductServer.Product.Builder getCartListBuilder(
-          int index) {
-        return getCartListFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .product.service.Product cart_list = 5;</code>
-       */
-      public com.grpcserver.product.ProductServer.ProductOrBuilder getCartListOrBuilder(
-          int index) {
-        if (cartListBuilder_ == null) {
-          return cartList_.get(index);  } else {
-          return cartListBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .product.service.Product cart_list = 5;</code>
-       */
-      public java.util.List<? extends com.grpcserver.product.ProductServer.ProductOrBuilder> 
-           getCartListOrBuilderList() {
-        if (cartListBuilder_ != null) {
-          return cartListBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(cartList_);
-        }
-      }
-      /**
-       * <code>repeated .product.service.Product cart_list = 5;</code>
-       */
-      public com.grpcserver.product.ProductServer.Product.Builder addCartListBuilder() {
-        return getCartListFieldBuilder().addBuilder(
-            com.grpcserver.product.ProductServer.Product.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .product.service.Product cart_list = 5;</code>
-       */
-      public com.grpcserver.product.ProductServer.Product.Builder addCartListBuilder(
-          int index) {
-        return getCartListFieldBuilder().addBuilder(
-            index, com.grpcserver.product.ProductServer.Product.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .product.service.Product cart_list = 5;</code>
-       */
-      public java.util.List<com.grpcserver.product.ProductServer.Product.Builder> 
-           getCartListBuilderList() {
-        return getCartListFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.grpcserver.product.ProductServer.Product, com.grpcserver.product.ProductServer.Product.Builder, com.grpcserver.product.ProductServer.ProductOrBuilder> 
-          getCartListFieldBuilder() {
-        if (cartListBuilder_ == null) {
-          cartListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              com.grpcserver.product.ProductServer.Product, com.grpcserver.product.ProductServer.Product.Builder, com.grpcserver.product.ProductServer.ProductOrBuilder>(
-                  cartList_,
-                  ((bitField0_ & 0x00000010) == 0x00000010),
-                  getParentForChildren(),
-                  isClean());
-          cartList_ = null;
-        }
-        return cartListBuilder_;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -3859,31 +3120,28 @@ public final class GuestClientServer {
     java.lang.String[] descriptorData = {
       "\n\027GuestClientServer.proto\032\036google/protob" +
       "uf/wrappers.proto\032\037google/protobuf/times" +
-      "tamp.proto\032\023ProductServer.proto\"\234\002\n\013Clie" +
-      "ntGuest\0224\n\017client_guest_id\030\001 \001(\0132\033.googl" +
-      "e.protobuf.Int32Value\0227\n\021client_guest_na" +
-      "me\030\002 \001(\0132\034.google.protobuf.StringValue\0228" +
-      "\n\022client_guest_email\030\003 \001(\0132\034.google.prot" +
-      "obuf.StringValue\0227\n\022purchase_item_cart\030\004" +
-      " \003(\0132\033.google.protobuf.Int32Value\022+\n\tcar" +
-      "t_list\030\005 \003(\0132\030.product.service.Product\"R",
-      "\n\020ClientGuestrList\022$\n\016clientguestall\030\001 \003" +
-      "(\0132\014.ClientGuest\022\030\n\020clientguestcount\030\002 \001" +
-      "(\003\"<\n\013APIResponse\022\027\n\017responsemessage\030\001 \001" +
-      "(\t\022\024\n\014responseCode\030\002 \001(\005\"x\n\034ClientGuestE" +
-      "xceptionResponse\022-\n\ttimestamp\030\001 \001(\0132\032.go" +
-      "ogle.protobuf.Timestamp\022)\n\nerror_code\030\002 " +
-      "\001(\0162\025.ClientGuestErrorCode*{\n\024ClientGues" +
-      "tErrorCode\022\032\n\026CLIENT_GUEST_NOT_FOUND\020\000\022%" +
-      "\n!CLIENT_GUEST_VALUE_CANNOT_BE_NULL\020\001\022 \n" +
-      "\034CLIENT_GUEST_EMAIL_DUPLICATE\020\0022\355\001\n\022Clie",
-      "ntGuestService\022$\n\006insert\022\014.ClientGuest\032\014" +
-      ".APIResponse\022*\n\007findAll\022\014.ClientGuest\032\021." +
-      "ClientGuestrList\022(\n\ndeleteById\022\014.ClientG" +
-      "uest\032\014.APIResponse\0225\n\010findById\022\033.google." +
-      "protobuf.Int32Value\032\014.ClientGuest\022$\n\006upd" +
-      "ate\022\014.ClientGuest\032\014.APIResponseB\020\n\016com.g" +
-      "rpcserverb\006proto3"
+      "tamp.proto\"\266\001\n\013ClientGuest\0224\n\017client_gue" +
+      "st_id\030\001 \001(\0132\033.google.protobuf.Int32Value" +
+      "\0227\n\021client_guest_name\030\002 \001(\0132\034.google.pro" +
+      "tobuf.StringValue\0228\n\022client_guest_email\030" +
+      "\003 \001(\0132\034.google.protobuf.StringValue\"R\n\020C" +
+      "lientGuestrList\022$\n\016clientguestall\030\001 \003(\0132" +
+      "\014.ClientGuest\022\030\n\020clientguestcount\030\002 \001(\003\"" +
+      "<\n\013APIResponse\022\027\n\017responsemessage\030\001 \001(\t\022",
+      "\024\n\014responseCode\030\002 \001(\005\"x\n\034ClientGuestExce" +
+      "ptionResponse\022-\n\ttimestamp\030\001 \001(\0132\032.googl" +
+      "e.protobuf.Timestamp\022)\n\nerror_code\030\002 \001(\016" +
+      "2\025.ClientGuestErrorCode*{\n\024ClientGuestEr" +
+      "rorCode\022\032\n\026CLIENT_GUEST_NOT_FOUND\020\000\022%\n!C" +
+      "LIENT_GUEST_VALUE_CANNOT_BE_NULL\020\001\022 \n\034CL" +
+      "IENT_GUEST_EMAIL_DUPLICATE\020\0022\355\001\n\022ClientG" +
+      "uestService\022$\n\006insert\022\014.ClientGuest\032\014.AP" +
+      "IResponse\022*\n\007findAll\022\014.ClientGuest\032\021.Cli" +
+      "entGuestrList\022(\n\ndeleteById\022\014.ClientGues",
+      "t\032\014.APIResponse\0225\n\010findById\022\033.google.pro" +
+      "tobuf.Int32Value\032\014.ClientGuest\022$\n\006update" +
+      "\022\014.ClientGuest\032\014.APIResponseB\020\n\016com.grpc" +
+      "serverb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -3898,14 +3156,13 @@ public final class GuestClientServer {
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.WrappersProto.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
-          com.grpcserver.product.ProductServer.getDescriptor(),
         }, assigner);
     internal_static_ClientGuest_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_ClientGuest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ClientGuest_descriptor,
-        new java.lang.String[] { "ClientGuestId", "ClientGuestName", "ClientGuestEmail", "PurchaseItemCart", "CartList", });
+        new java.lang.String[] { "ClientGuestId", "ClientGuestName", "ClientGuestEmail", });
     internal_static_ClientGuestrList_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_ClientGuestrList_fieldAccessorTable = new
@@ -3926,7 +3183,6 @@ public final class GuestClientServer {
         new java.lang.String[] { "Timestamp", "ErrorCode", });
     com.google.protobuf.WrappersProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
-    com.grpcserver.product.ProductServer.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
