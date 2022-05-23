@@ -2,7 +2,7 @@
 
 Hi,
 
-I hope all is will with you,
+I hope all is well with you,
 
 
 
