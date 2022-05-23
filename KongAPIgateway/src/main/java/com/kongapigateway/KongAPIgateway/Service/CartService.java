@@ -6,11 +6,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.kongapigateway.KongAPIgateway.BodyParameter.BodyParameters;
 import com.kongapigateway.KongAPIgateway.Model.Cart;
 import com.kongapigateway.KongAPIgateway.ModelException.ProductExecption;
 import com.kongapigateway.KongAPIgateway.ModelException.ProductIDnotFound;
 import com.kongapigateway.KongAPIgateway.ModelException.ProductValueNotNull;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -32,9 +34,9 @@ public class CartService {
 	private static final String DELETE_CART= "http://cartgatewayservice:8094/cart/{purchase_item}";
 	private static final String GET_CART_BYID = "http://cartgatewayservice:8094/cart/{purchase_item}";
 	
-  
 	
-    
+	@Autowired
+	private BodyParameters bodyParameters;
 	
 	 public List<Cart> getInfo() {
    
@@ -60,14 +62,11 @@ public class CartService {
 	    }
 	 
 	   public Cart saveData(Cart cart) {
-		 
-	//	   try {
+		   bodyParameters.bodyCart(cart);
 			   restTemplate.postForEntity(POST_ADD_CART, cart, Cart.class);
+			   
 			    return   cart;
-//		} catch (Exception e) {
-//			throw new ProductValueNotNull("Kindly fill up all fields");
-//		}
-//		    
+   
      
 	    }
 	   
