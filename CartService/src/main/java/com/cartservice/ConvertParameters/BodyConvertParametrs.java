@@ -14,6 +14,7 @@ import com.cartservice.DTO.ProductDTO;
 import com.cartservice.DateProtoConvert.DateConvert;
 import com.cartservice.Model.Client;
 import com.cartservice.Model.ProductEntity;
+import com.cartservice.Service.ProductServiceImpl;
 import com.cartservice.Validation.InputValidation;
 import com.google.protobuf.DoubleValue;
 import com.google.protobuf.Int32Value;
@@ -33,7 +34,8 @@ public class BodyConvertParametrs {
 	@Autowired
 	private  InputValidation inputValidation;
 	
-
+@Autowired
+private ProductServiceImpl productServiceImpl;
 
 	
 	public Client insertClient(ClientGuest clientGuest) {
@@ -53,29 +55,17 @@ public class BodyConvertParametrs {
 	
 	public Integer convertIntfromListProto(List<Int32Value> list) {
 		
-		Int32Value int32Values = list.iterator().next();
-		
-		Integer integers =(Integer)int32Values.getValue();
-	
-		
-	//	Integer list2 = new Integer() ;
-		
+				Int32Value int32Values = list.iterator().next();
+				Integer integers =(Integer)int32Values.getValue();
 		if ( list.iterator().hasNext()) {
-			
-			Int32Value int32Value = list.iterator().next();
-			
-			Integer integer=(Integer)int32Value.getValue();
-			
-			return integers = integer;
+						Int32Value int32Value = list.iterator().next();
+						Integer integer=(Integer)int32Value.getValue();
+						return integers = integer;
 			
 			
 		}
-		
-	
-		
-		
+				
 		return integers;
-		
 	
 		
 	}
@@ -108,6 +98,25 @@ public class BodyConvertParametrs {
 	public ProductEntity bodyData(Product request) {
 		
       
+        ProductEntity productEntity = new ProductEntity();
+        productEntity.setProductname(convertJavaString(request.getProductname()));
+        productEntity.setProductbrand(convertJavaString(request.getProductbrand()));
+        productEntity.setProductprice(convertJavaDouble(request.getProductprice()));
+        productEntity.setProductdescription(convertJavaString(request.getProductdescription()));
+        productEntity.setProductquantity(convertJavaInteger(request.getProductquantity()));
+        productEntity.setProductexpirationdate(dateConvert.getDateFromDateProto(request.getProductexpirationdate()));
+
+        
+        
+        inputValidation.nullErrors(request);
+  
+		return productEntity;
+	}
+	
+	public ProductEntity bodyDataUpdate(Product request) {
+		
+	//	productServiceImpl
+	      
         ProductEntity productEntity = new ProductEntity(
         		convertJavaInteger(request.getPurchaseItem()),
         		convertJavaString(request.getProductname()),
@@ -116,8 +125,8 @@ public class BodyConvertParametrs {
         		convertJavaString(request.getProductdescription()),
         		convertJavaInteger(request.getProductquantity()),
         		dateConvert.getDateFromDateProto(request.getProductexpirationdate())
-
         		);
+ 
         
         inputValidation.nullErrors(request);
   
@@ -140,8 +149,9 @@ public class BodyConvertParametrs {
 		
 	}
 	
-	public Integer convertJavaInteger(Int32Value int32Value) {	
+	public Integer convertJavaInteger(Int32Value int32Value) {
 	Integer integer=(Integer)int32Value.getValue();
+	inputValidation.isNullOrZeroInterger(integer);
 	return integer;
 	}
 	
@@ -150,12 +160,14 @@ public class BodyConvertParametrs {
 	return string;
 	}
 	
-	public Double convertJavaDouble(DoubleValue doubleValue) {	
+	public Double convertJavaDouble(DoubleValue doubleValue) {
 	Double double1 = (Double) doubleValue.getValue();
+	inputValidation.isNullOrZeroDouble(double1);
 	return double1;
 	}
 	
     public DoubleValue convertDoubleValue(Double double1) {
+    	inputValidation.isNullOrZeroDouble(double1);
     	return DoubleValue.of(double1);
     }
     
@@ -165,6 +177,7 @@ public class BodyConvertParametrs {
     }
    
     public Int32Value convertToint32value(Integer integer) {
+    	inputValidation.isNullOrZeroInterger(integer);
 		return Int32Value.of(integer);
     	
     }

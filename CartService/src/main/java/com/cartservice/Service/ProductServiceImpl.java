@@ -39,11 +39,7 @@ public class ProductServiceImpl {
 }
 	
 	public ProductDTO saveDataFromDTO(ProductEntity  productEntity) {
-		
-		
-		
 		productDAO.insert(productEntity);
-		
 		return convertProductDTOtoProduct(productEntity);
 		
 	}
@@ -54,14 +50,41 @@ public class ProductServiceImpl {
 		
 	}
 	
-public  void deleteDTO(Integer client_guest_id) {
-		
+public  boolean deleteDTO(Integer client_guest_id) {
+	
 	productDAO.deleteById(client_guest_id);
+	return true;
 	}
 public ProductDTO updatebyDTO(ProductEntity  productEntity) {
+	if(productDAO.ifIDExist(productEntity.getPurchase_item()) == false) throw new NullPointerException();
 	productDAO.update(productEntity);
 	return convertProductDTOtoProduct(productEntity);
 	
 }
+public boolean chechIdExist(Integer client_guest_id) {
+
+	if (productDAO.ifIDExist(client_guest_id) == true) {
+		return deleteDTO(client_guest_id);
+	}else {
+		throw new NullPointerException();
+	}
+
+
+}
+
+//public boolean checkIdExistUpdate(Integer client_guest_id) {
+//
+//	ProductEntity  productEntity = new ProductEntity();
+//	client_guest_id = productEntity.getPurchase_item();
+//	
+//	if (productDAO.ifIDExist(client_guest_id) == true) {
+//		return 
+//	}else {
+//		throw new NullPointerException();
+//	}
+//
+//
+//}
+
 
 }

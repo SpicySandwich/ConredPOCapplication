@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
 
-
 import com.cartgatewayservice.Model.ProductEntity;
 import com.cartgatewayservice.Service.ProductService;
 
@@ -29,6 +28,8 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 	
+
+	
 	
 	
 	 @GetMapping
@@ -41,7 +42,7 @@ public class ProductController {
 
     @PostMapping
     public ProductEntity addProduct( @RequestBody ProductEntity productEntity) {
-
+    
     	productService.inserdata(productEntity);
     	return productEntity;
         

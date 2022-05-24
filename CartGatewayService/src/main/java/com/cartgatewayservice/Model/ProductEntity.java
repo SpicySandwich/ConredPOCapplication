@@ -1,6 +1,10 @@
 package com.cartgatewayservice.Model;
 
 import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,6 +19,7 @@ import lombok.ToString;
 @Builder
 public class ProductEntity {
 	
+	@JsonProperty(access = Access.WRITE_ONLY)
     private  Integer purchase_item;
     private String productname;
     private String productbrand;

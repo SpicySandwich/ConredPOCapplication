@@ -65,7 +65,6 @@ public class ProductService   {
 		
 	
 	APIResponse response = productServiceBlockingStub.insert(Product.newBuilder()
-			.setPurchaseItem(convertParameters.convertToint32value(product.getPurchase_item()))
 			.setProductname(convertParameters.convertStringValue(product.getProductname()))
 			.setProductbrand(convertParameters.convertStringValue(product.getProductbrand()))
 			.setProductprice(convertParameters.convertDoubleValue(product.getProductprice()))

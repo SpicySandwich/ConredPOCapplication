@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 import com.kongapigateway.KongAPIgateway.Model.Cart;
+import com.kongapigateway.KongAPIgateway.Model.Product;
 import com.kongapigateway.KongAPIgateway.ModelException.ProductExecption;
 import com.kongapigateway.KongAPIgateway.ModelException.ProductValueNotNull;
 
@@ -16,13 +17,13 @@ public class ApiUserValidation {
 
 	public Cart notNull(Cart cart) {
 		
-		if (
-				cart.getPurchase_item() == 0
-		    || cart.getProductname().trim().isEmpty()
+
+		
+		if (cart.getProductname().trim().isEmpty()
 			|| cart.getProductbrand().trim().isEmpty()
-			|| cart.getProductprice() == 0
+			|| isNullOrZeroDouble(cart.getProductprice() )
 			|| cart.getProductdescription().trim().isEmpty()
-			|| cart.getProductquantity() == 0
+			|| isNullOrZeroInterger( cart.getProductquantity() )
 			
 				) {
 			
@@ -34,7 +35,16 @@ public class ApiUserValidation {
 		
 	}
 	
+	public boolean isNullOrZeroDouble(Double i){
+	     return i == null || i.doubleValue() == 0;
+	}
 	
+	public boolean isNullOrZeroInterger(Integer i){
+	     return i == null || i.intValue() == 0;
+	}
+	
+
+
 	
 public Date dateChecker(Date date) {
 	
@@ -60,7 +70,8 @@ public Date dateChecker(Date date) {
 		
 		    date.getTime();
 		
-		 if(date.before(checkdate)  == true) throw new ProductExecption("Date must not current date or previous date: " + date);
+		    if(date.equals(checkdate)  == true) throw new ProductExecption("Date must not current date or previous date: " + date);
+		    if(date.before(checkdate)  == true) throw new ProductExecption("Date must not current date or previous date: " + date);
 		 
 		 return date;
 	      
@@ -75,6 +86,34 @@ public Date dateChecker(Date date) {
 		
 	}
 	
+
+	
+	   public boolean deletIDexceptionBol(Integer integer) {
+		   Cart cart = new Cart();
+	       boolean valid = false;
+	       if (
+	    		   cart.getPurchase_item()== null ||
+	    		   cart.getPurchase_item().intValue() == 0 )  
+	    	   throw new ProductValueNotNull("ID: " +cart.getPurchase_item() + " not found");
+	       
+		return valid;
+	  
+	   }
+	
+   public Integer deletIDexception(Integer integer) {
+	   Cart cart = new Cart();
+	  integer = cart.getPurchase_item();
+	  findIDError(integer) ;
+       
+	return integer;
+  
+   }
+	public Integer findIDError(Integer i){
+
+	      if(i == null || i.intValue() == 0) throw new ProductValueNotNull("ID: " + i + " not found");
+	      
+	      return i;
+	}
 	
 	
 

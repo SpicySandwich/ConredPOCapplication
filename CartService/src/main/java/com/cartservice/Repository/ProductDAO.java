@@ -28,10 +28,10 @@ public interface ProductDAO {
 	public int insert(ProductEntity  productEntity);
 	
 	@Delete("DELETE FROM tb_product WHERE purchase_item = #{purchase_item}")
-	public int deleteById(Integer client_guest_id);
+	public void deleteById(Integer purchase_item);
 	
-	@Select("SELECT * FROM tb_product  WHERE purchase_item = #{purchase_item}")
-	 public ProductEntity findById(Integer client_guest_id);
+	@Select("SELECT * FROM tb_product  WHERE NOT EXISTS purchase_item = #{purchase_item}")
+	 public ProductEntity findById(Integer purchase_item);
 	
 	 @Update("Update tb_product set "
 	 		+ "productname=#{productname}, " +
@@ -43,4 +43,7 @@ public interface ProductDAO {
 		        + "where purchase_item = #{purchase_item} ")
 		   void update(ProductEntity  productEntity);
 
+	 
+	 @Select("SELECT EXISTS(SELECT 1 FROM tb_product WHERE purchase_item = #{purchase_item})")
+	 boolean ifIDExist(Integer purchase_item);
 }

@@ -11,6 +11,7 @@ import com.kongapigateway.KongAPIgateway.Model.Cart;
 import com.kongapigateway.KongAPIgateway.ModelException.ProductExecption;
 import com.kongapigateway.KongAPIgateway.ModelException.ProductIDnotFound;
 import com.kongapigateway.KongAPIgateway.ModelException.ProductValueNotNull;
+import com.kongapigateway.KongAPIgateway.Validation.ApiUserValidation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
@@ -37,6 +38,9 @@ public class CartService {
 	
 	@Autowired
 	private BodyParameters bodyParameters;
+	
+	@Autowired
+	private ApiUserValidation apiUserValidation;
 	
 	 public List<Cart> getInfo() {
    
@@ -73,41 +77,41 @@ public class CartService {
 
 	   public void deleteData(Integer purchase_item) {
 		   
-		 try {
-			 
+		 
 			  Map<String, Integer> proMap = new HashMap<String, Integer>();
 			   proMap.put("purchase_item", purchase_item);
 			   Cart cart = new Cart();
 			   HttpEntity<Cart> requestEntity = new HttpEntity<Cart>(cart);
+			   
 			   ResponseEntity<Cart> responseEntity = restTemplate.exchange(DELETE_CART, HttpMethod.DELETE, requestEntity, Cart.class, proMap);
-	          responseEntity.getBody();
+			   apiUserValidation.deletIDexception(responseEntity.getBody().getPurchase_item());
+			//   responseEntity.getBody();
+	          
 			
-		} catch (Exception e) {
-			throw new ProductIDnotFound("Product id: " + purchase_item + " not found");
-		}
-		 
+	
 		   
 
 	    }
 	   
 	   public Cart findbyid(Integer purchase_item) {
 		   
-		  try {
+//		  try {
 			  
 			  Map<String, Integer> proMap = new HashMap<String, Integer>();
 			   proMap.put("purchase_item", purchase_item);
 			   Cart cart = new Cart();
 			   HttpEntity<Cart> requestEntity = new HttpEntity<Cart>(cart);
+			   
 			  ResponseEntity<Cart> responseEntity2 = restTemplate.exchange(GET_CART_BYID, HttpMethod.DELETE, requestEntity, Cart.class, proMap);
-		          
+
 			  Cart cart2 = responseEntity2.getBody();
 			  
 			  return cart2;
 			
-		} catch (Exception e) {
-			throw new ProductIDnotFound("Product id: " + purchase_item + " not found");
-			
-		}
+//		} catch (Exception e) {
+//			throw new ProductIDnotFound("Product id: " + purchase_item + " not found");
+//			
+//		}
 		   
 	   }
 	   

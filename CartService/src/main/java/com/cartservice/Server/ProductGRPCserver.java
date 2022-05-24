@@ -52,13 +52,11 @@ public class ProductGRPCserver  extends ProductServiceImplBase{
 
 	@Override
 	public void deleteById(Product request, StreamObserver<APIResponse> responseObserver) {
-	
+
+		productServiceImpl.chechIdExist(bodyConvertParametrs.convertJavaInteger( request.getPurchaseItem()));
+		
 		APIResponse.Builder  responce = APIResponse.newBuilder();
-		
-		productServiceImpl.deleteDTO(bodyConvertParametrs.convertJavaInteger(request.getPurchaseItem()));
-		
 		responce.setResponseCode(0).setResponsemessage("Succesfuly deleted");
-		
 		responseObserver.onNext(responce.build());
 		responseObserver.onCompleted();
 	}
@@ -77,7 +75,7 @@ public class ProductGRPCserver  extends ProductServiceImplBase{
 	@Override
 	public void update(Product request, StreamObserver<APIResponse> responseObserver) {
 	
-		productServiceImpl.updatebyDTO(bodyConvertParametrs.bodyData(request));
+		productServiceImpl.updatebyDTO(bodyConvertParametrs.bodyDataUpdate(request));
 		
 		APIResponse.Builder  responce = APIResponse.newBuilder();
 		

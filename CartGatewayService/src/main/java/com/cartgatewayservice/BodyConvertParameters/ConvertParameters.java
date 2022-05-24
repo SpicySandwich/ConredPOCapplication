@@ -18,6 +18,7 @@ public class ConvertParameters {
 	private DateConvert dateConvert;
 	
 	
+	
 	public ProductEntity forList (Product request){
 	 ProductEntity productEntity2 = (ProductEntity.builder()
 	  			.purchase_item(convertJavaInteger(request.getPurchaseItem()) )
@@ -29,22 +30,37 @@ public class ConvertParameters {
 	  			.productexpirationdate(dateConvert.getDateFromDateProto(request.getProductexpirationdate()) )
 	  			.build()
 	  			);
+	 
+	 
 	return productEntity2;
 	}	
 	
+	public ProductEntity bodyDataReturn(ProductEntity productEntity ) {
+		
+		Product.Builder request = Product.newBuilder();
+		
+		productEntity = new  ProductEntity(
+		convertJavaInteger(request.getPurchaseItem()),
+		convertJavaString(request.getProductname()),
+		convertJavaString(request.getProductbrand()),
+		convertJavaDouble(request.getProductprice()),
+		convertJavaString(request.getProductdescription()),
+		convertJavaInteger(request.getProductquantity()),
+		dateConvert.getDateFromDateProto(request.getProductexpirationdate())
+				);
+		return productEntity;
+	}
+	
 	public ProductEntity bodyData(Product request) {
 		
-		ProductEntity productEntity = new ProductEntity(
-				convertJavaInteger(request.getPurchaseItem()),
-				convertJavaString(request.getProductname()),
-				convertJavaString(request.getProductbrand()),
-				convertJavaDouble(request.getProductprice()),
-				convertJavaString(request.getProductdescription()) ,
-				convertJavaInteger(request.getProductquantity()),
-				dateConvert.getDateFromDateProto(request.getProductexpirationdate())
-			
-				);
-		
+		ProductEntity productEntity = new ProductEntity();
+		productEntity.setPurchase_item(convertJavaInteger(request.getPurchaseItem()));	
+		productEntity.setProductname(convertJavaString(request.getProductname()));
+		productEntity.setProductbrand(convertJavaString(request.getProductbrand()));
+		productEntity.setProductprice(convertJavaDouble(request.getProductprice()));
+		productEntity.setProductdescription(convertJavaString(request.getProductdescription()));
+		productEntity.setProductquantity(convertJavaInteger(request.getProductquantity()));
+		productEntity.setProductexpirationdate(dateConvert.getDateFromDateProto(request.getProductexpirationdate()));
 		return productEntity;
 	}
 	
@@ -63,8 +79,6 @@ public class ConvertParameters {
 	Double double1 = (Double) doubleValue.getValue();
 	return double1;
 	}
-	
-	
 	
     public DoubleValue convertDoubleValue(Double double1) {
 

@@ -19,20 +19,15 @@ public class BodyParameters {
 	public Cart bodyCart(Cart cart) {
 		
 
+				cart.getProductname();
+				cart.getProductbrand();
+				cart.getProductprice();
+				cart.getProductdescription();
+				cart.getProductquantity();
+				dateBody(cart.getProductexpirationdate());
+		validation.notNull(cart);
 		
-		Cart cart2 = new Cart(
-				cart.getPurchase_item(),
-				cart.getProductname(),
-				cart.getProductbrand(),
-				cart.getProductprice(),
-				cart.getProductdescription(),
-				cart.getProductquantity(),
-				dateBody(cart.getProductexpirationdate())
-				);
-		
-		validation.notNull(cart2);
-		
-		return cart2;
+		return cart;
 		
 	}
 	
