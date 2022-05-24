@@ -2,8 +2,8 @@
 
 Hi,
 
-I hope all is will with you,
+I hope all is well with you,
 
-Kindly disregard the other folder and evaluate the ProductMicroservice and LoggerMicroservice for part 1.
+
 
 Thank you.
