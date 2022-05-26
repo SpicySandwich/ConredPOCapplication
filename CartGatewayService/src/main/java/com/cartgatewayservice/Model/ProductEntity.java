@@ -19,7 +19,7 @@ import lombok.ToString;
 @Builder
 public class ProductEntity {
 	
-	@JsonProperty(access = Access.WRITE_ONLY)
+
     private  Integer purchase_item;
     private String productname;
     private String productbrand;

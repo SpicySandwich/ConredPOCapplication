@@ -5,7 +5,6 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 import com.kongapigateway.KongAPIgateway.Model.Cart;
-import com.kongapigateway.KongAPIgateway.Model.Product;
 import com.kongapigateway.KongAPIgateway.ModelException.ProductExecption;
 import com.kongapigateway.KongAPIgateway.ModelException.ProductValueNotNull;
 
@@ -58,20 +57,21 @@ public Date dateChecker(Date date) {
 	public Date checkDateIfEqualOrPrevious(Date date) {
 		
        LocalDate currentdate = LocalDate.now();
-		
-		int currentDay = currentdate.getDayOfMonth();
-		int currentYear = currentdate.getYear();
-		int currentMonth = currentdate.getMonthValue();
-		
+       
+       LocalDate expiredDate =currentdate.plusMonths(2);
+       int expiredday = expiredDate.getDayOfMonth()+1;
+       int expiredyear = expiredDate.getYear();
+       int expiredmonth= expiredDate.getMonthValue();
+
 		ZoneId defaultZoneId = ZoneId.systemDefault();
 		
-		LocalDate localDate = LocalDate.of(currentYear, currentMonth, currentDay);
-		Date checkdate = Date.from(localDate.atStartOfDay(defaultZoneId).toInstant());
-		
+		LocalDate localDate2 =LocalDate.of(expiredyear,expiredmonth,expiredday );
+		Date checkdate = Date.from(localDate2 .atStartOfDay(defaultZoneId).toInstant());
+
 		    date.getTime();
-		
-		    if(date.equals(checkdate)  == true) throw new ProductExecption("Date must not current date or previous date: " + date);
-		    if(date.before(checkdate)  == true) throw new ProductExecption("Date must not current date or previous date: " + date);
+		    
+		    if(date.equals(checkdate)) throw new ProductExecption("Expiration date must ahead or equal to " + localDate2 + ".");
+		    if(date.before(checkdate)) throw new ProductExecption("Expiration date must ahead or equal to " + localDate2+ ".");
 		 
 		 return date;
 	      
@@ -99,6 +99,17 @@ public Date dateChecker(Date date) {
 		return valid;
 	  
 	   }
+	   
+	   public Integer deleteTrue(Integer integer) {
+		   
+		   if (integer != null) {
+			
+			   return integer;
+		}else {
+			return deletIDexception(integer);
+		}
+		   
+	   }
 	
    public Integer deletIDexception(Integer integer) {
 	   Cart cart = new Cart();
@@ -109,11 +120,27 @@ public Date dateChecker(Date date) {
   
    }
 	public Integer findIDError(Integer i){
-
-	      if(i == null || i.intValue() == 0) throw new ProductValueNotNull("ID: " + i + " not found");
+	
+		if (null == (Integer)i) {
+			throw new ProductValueNotNull("ID: " + i + " not found");
+		}
+		//    if(i == null || i.intValue() == 0) throw new ProductValueNotNull("ID: " + i + " not found");
+		
 	      
 	      return i;
 	}
+	
+public  Integer forDeleteError(Integer integer) {
+	
+
+	if(integer== null ||integer.intValue() == 0) throw new ProductValueNotNull("ID: " + integer + " not found");
+	return integer;
+
+
+}
+	
+	
+
 	
 	
 

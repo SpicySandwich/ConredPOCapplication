@@ -4,16 +4,18 @@ package com.cartservice.Model;
 import java.util.Calendar;
 import java.util.Date;
 
+import com.cartservice.DTO.ProductDTO;
 import com.google.protobuf.DoubleValue;
 import com.google.protobuf.Int32Value;
 import com.google.protobuf.StringValue;
 import com.grpcserver.product.ProductServer.Product;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
+@Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

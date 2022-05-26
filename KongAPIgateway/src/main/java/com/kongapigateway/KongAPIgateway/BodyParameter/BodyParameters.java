@@ -31,6 +31,22 @@ public class BodyParameters {
 		
 	}
 	
+	public Cart FindbodyCart(Cart cart) {
+		
+
+		cart.getPurchase_item();
+		cart.getProductname();
+		cart.getProductbrand();
+		cart.getProductprice();
+		cart.getProductdescription();
+		cart.getProductquantity();
+		dateBody(cart.getProductexpirationdate());
+validation.notNull(cart);
+
+return cart;
+
+}
+	
 	public Date dateBody(Date date) {
 		
 		validation.dateChecker(date);

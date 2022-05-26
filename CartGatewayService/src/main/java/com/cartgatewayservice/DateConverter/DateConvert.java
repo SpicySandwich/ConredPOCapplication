@@ -22,13 +22,13 @@ public class DateConvert {
         return datess ;
     }
 	
-	public  com.google.type.Date getDateFromDateProtoEntity(Date date) {
+	public  com.google.type.Date getDateFromDateProtoInsert(Date date) {
 		
 		
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(date);
 		int year = calendar.get(Calendar.YEAR);
-		int month = calendar.get(Calendar.MONTH);
+		int month = calendar.get(Calendar.MONTH) +1;
 		int day = calendar.get(Calendar.DAY_OF_MONTH);
 		
 	

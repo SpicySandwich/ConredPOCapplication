@@ -30,7 +30,7 @@ public interface ProductDAO {
 	@Delete("DELETE FROM tb_product WHERE purchase_item = #{purchase_item}")
 	public void deleteById(Integer purchase_item);
 	
-	@Select("SELECT * FROM tb_product  WHERE NOT EXISTS purchase_item = #{purchase_item}")
+	@Select("SELECT * FROM tb_product  WHERE  purchase_item = #{purchase_item}")
 	 public ProductEntity findById(Integer purchase_item);
 	
 	 @Update("Update tb_product set "

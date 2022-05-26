@@ -36,7 +36,7 @@ public class ProductDTO {
 
     	return Product.newBuilder()
     			.setPurchaseItem(convertToint32value(getPurchase_item() ))
-    			.setProductname(convertStringValue(getProductbrand()))
+    			.setProductname(convertStringValue(getProductname()))
     			.setProductbrand(convertStringValue(getProductbrand()))
     			.setProductprice(convertDoubleValue(getProductprice()))
     			.setProductdescription(convertStringValue(getProductdescription()))

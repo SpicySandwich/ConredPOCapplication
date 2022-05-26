@@ -5,9 +5,12 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
 
 import com.kongapigateway.KongAPIgateway.BodyParameter.BodyParameters;
 import com.kongapigateway.KongAPIgateway.Model.Cart;
+import com.kongapigateway.KongAPIgateway.Model.Product;
 import com.kongapigateway.KongAPIgateway.ModelException.ProductExecption;
 import com.kongapigateway.KongAPIgateway.ModelException.ProductIDnotFound;
 import com.kongapigateway.KongAPIgateway.ModelException.ProductValueNotNull;
@@ -18,9 +21,11 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.ResponseErrorHandler;
 import org.springframework.web.client.RestTemplate;
 
 @Service
@@ -42,15 +47,15 @@ public class CartService {
 	@Autowired
 	private ApiUserValidation apiUserValidation;
 	
+
+	
 	 public List<Cart> getInfo() {
    
 		 try {
 			 
 			    HttpHeaders headers = new HttpHeaders();
 			    headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-			    
 			    HttpEntity<String> httpEntity = new HttpEntity<>("parameters",headers);
-
 			        ResponseEntity<List<Cart>> result = restTemplate.
 			                exchange(GET_ALL_CARTLIST , HttpMethod.GET, httpEntity, new ParameterizedTypeReference<List<Cart>>() {});
 
@@ -75,55 +80,47 @@ public class CartService {
 	    }
 	   
 
-	   public void deleteData(Integer purchase_item) {
-		   
-		 
+	   public Object  deleteData(Integer purchase_item) {
+
 			  Map<String, Integer> proMap = new HashMap<String, Integer>();
-			   proMap.put("purchase_item", purchase_item);
+			  proMap.put("purchase_item", purchase_item);
 			   Cart cart = new Cart();
 			   HttpEntity<Cart> requestEntity = new HttpEntity<Cart>(cart);
 			   
-			   ResponseEntity<Cart> responseEntity = restTemplate.exchange(DELETE_CART, HttpMethod.DELETE, requestEntity, Cart.class, proMap);
-			   apiUserValidation.deletIDexception(responseEntity.getBody().getPurchase_item());
-			//   responseEntity.getBody();
-	          
-			
-	
-		   
-
+			  try {
+				  return restTemplate.exchange(DELETE_CART, HttpMethod.DELETE, requestEntity, Cart.class,proMap);
+			} catch (Exception e) {
+				throw new ProductIDnotFound( "ID: " +purchase_item + " not found");
+			}
+			   
 	    }
 	   
-	   public Cart findbyid(Integer purchase_item) {
-		   
-//		  try {
-			  
+	   public ResponseEntity<Cart> findbyid(Integer purchase_item) {
+		   			  
 			  Map<String, Integer> proMap = new HashMap<String, Integer>();
 			   proMap.put("purchase_item", purchase_item);
 			   Cart cart = new Cart();
 			   HttpEntity<Cart> requestEntity = new HttpEntity<Cart>(cart);
 			   
-			  ResponseEntity<Cart> responseEntity2 = restTemplate.exchange(GET_CART_BYID, HttpMethod.DELETE, requestEntity, Cart.class, proMap);
+			   try { 
+			  return restTemplate.exchange(GET_CART_BYID, HttpMethod.GET, requestEntity, Cart.class, proMap);
+				} catch (Exception e) {
+					throw new ProductIDnotFound( "ID: " +purchase_item + " not found");
+				}
+		
 
-			  Cart cart2 = responseEntity2.getBody();
-			  
-			  return cart2;
-			
-//		} catch (Exception e) {
-//			throw new ProductIDnotFound("Product id: " + purchase_item + " not found");
-//			
-//		}
-		   
 	   }
 	   
 	   public void updateProductr(Cart cart) {
 		   
 		   try {
-			   
 			   restTemplate.put(PUT_UPDATE_CART,cart);
-			
 		} catch (Exception e) {
-			throw new ProductValueNotNull("Must not empty");
+			
 		}
+			  
+			
+		
 		
 		   
 	   }

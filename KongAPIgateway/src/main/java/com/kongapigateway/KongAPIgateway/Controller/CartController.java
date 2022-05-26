@@ -8,6 +8,7 @@ import com.kongapigateway.KongAPIgateway.Service.CartService;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -39,15 +40,18 @@ public class CartController {
 
 	    @DeleteMapping("/delete/{purchase_item}")
 	    public String deleteData(@PathVariable Integer purchase_item, @RequestBody Cart cart){
-	    	cartService.deleteData(purchase_item);
-			return "Succesfully delete id: " + purchase_item;
+	    	 cartService.deleteData(purchase_item);
+	    	 
+	    	 return "Successfully deleted ID: " + purchase_item;
+
 	    }
 
 	    @GetMapping("/find/{purchase_item}")
-	    public Cart findProduct(@PathVariable Integer purchase_item, @RequestBody Cart cart) {
+	    public ResponseEntity<Cart> findProduct(@PathVariable Integer purchase_item) {
 	    	
-	    		cartService.findbyid(purchase_item);
-	    		return cart;
+	    	return	 cartService.findbyid(purchase_item);
+	    	 
+	    		
 	    }
 	    
 	    

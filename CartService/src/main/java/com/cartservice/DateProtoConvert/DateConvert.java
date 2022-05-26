@@ -14,15 +14,15 @@ public class DateConvert {
 	public Date getDateFromDateProto(com.google.type.Date date) {
 		
 LocalDate currentdate = LocalDate.now();
-		
-		int currentDay = currentdate.getDayOfMonth();
-		int currentYear = currentdate.getYear();
-		int currentMonth = currentdate.getMonthValue();
-		
-		Integer year = date.getYear();
-		Integer month = date.getMonth();
+
+LocalDate expiredDate =currentdate.plusMonths(2);
+int expiredday = expiredDate.getDayOfMonth() +2;
+int expiredyear = expiredDate.getYear();
+int expiredmonth= expiredDate.getMonthValue();
+
+        Integer year = date.getYear();
+		Integer month = date.getMonth() -1;
 		Integer days = date.getDay();
-		
 		
 		
 		Calendar calendar = Calendar.getInstance();
@@ -32,22 +32,14 @@ LocalDate currentdate = LocalDate.now();
 		calendar.set(Calendar.DATE, days);
 		
 		ZoneId defaultZoneId = ZoneId.systemDefault();
-		
-		LocalDate localDate = LocalDate.of(currentYear, currentMonth, currentDay);
-		Date checkdate = Date.from(localDate.atStartOfDay(defaultZoneId).toInstant());
+		LocalDate localDate2 =LocalDate.of(expiredyear,expiredmonth,expiredday );
+		Date checkdate2 = Date.from(localDate2 .atStartOfDay(defaultZoneId).toInstant());
 		
 		Date datesswe = calendar.getTime();
-	
-		if(datesswe.before(checkdate)  == true) {
 
-			throw new NumberFormatException();
-		    }
-		
-        if (year == 0|| month == 0|| days == 0) {
-				
-			throw new NullPointerException();
-		}
-
+		if(datesswe.equals(checkdate2)) throw new NumberFormatException();
+		if(datesswe.before(checkdate2)) throw new NumberFormatException();
+        if (year == 0|| month == 0|| days == 0)throw new NullPointerException();
 		
         return datesswe ;
     }

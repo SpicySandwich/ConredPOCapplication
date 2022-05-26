@@ -51,7 +51,43 @@ public class ConvertParameters {
 		return productEntity;
 	}
 	
-	public ProductEntity bodyData(Product request) {
+	public Product updatebodyData(ProductEntity product) {
+		
+		Product product2 =	Product.newBuilder()
+			.setPurchaseItem(convertToint32value(product.getPurchase_item()))
+			.setProductname(convertStringValue(product.getProductname()))
+			.setProductbrand(convertStringValue(product.getProductbrand()))
+			.setProductprice(convertDoubleValue(product.getProductprice()))
+			.setProductdescription(convertStringValue(product.getProductdescription()))
+			.setProductquantity(convertToint32value(product.getProductquantity()))
+		.setProductexpirationdate(  dateConvert.getDateFromDateProtoForUpdate(product.getProductexpirationdate()))
+			.build();
+
+		return product2;
+			
+
+			}
+public Product InsertbodyData(ProductEntity product) {
+	Product product2;
+	
+	
+
+	
+ product2 =	Product.newBuilder()
+	.setProductname(convertStringValue(product.getProductname()))
+	.setProductbrand(convertStringValue(product.getProductbrand()))
+	.setProductprice(convertDoubleValue(product.getProductprice()))
+	.setProductdescription(convertStringValue(product.getProductdescription()))
+	.setProductquantity(convertToint32value(product.getProductquantity()))
+.setProductexpirationdate(  dateConvert.getDateFromDateProtoInsert(product.getProductexpirationdate()))
+	.build();
+ 
+return product2;
+	
+
+	}
+	
+	public ProductEntity FindbodyData(Product request) {
 		
 		ProductEntity productEntity = new ProductEntity();
 		productEntity.setPurchase_item(convertJavaInteger(request.getPurchaseItem()));	

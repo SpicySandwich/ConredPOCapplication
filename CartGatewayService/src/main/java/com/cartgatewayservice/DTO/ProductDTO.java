@@ -3,8 +3,6 @@ package com.cartgatewayservice.DTO;
 
 import java.util.Date;
 
-import com.grpcserver.product.ProductServer.Product;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,8 +16,8 @@ import lombok.ToString;
 @Builder
 public class ProductDTO {
 	
-	
-    private String productname;
+
+	private String productname;
     private String productbrand;
     private Double productprice;
     private String productdescription;

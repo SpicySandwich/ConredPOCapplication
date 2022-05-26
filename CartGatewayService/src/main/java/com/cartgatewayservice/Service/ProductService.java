@@ -46,9 +46,7 @@ public class ProductService   {
     
     @Autowired
 	private ModelMapper modelMapper;
-	
 	private ProductDTO convertProductDTOtoProduct (String  productEntity) {
-
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
 		ProductDTO productdto = new ProductDTO();
 		productdto = modelMapper.map(productEntity, ProductDTO.class);
@@ -62,16 +60,8 @@ public class ProductService   {
 	  
 	
 	public ProductEntity inserdata(ProductEntity product) {
-		
-	
-	APIResponse response = productServiceBlockingStub.insert(Product.newBuilder()
-			.setProductname(convertParameters.convertStringValue(product.getProductname()))
-			.setProductbrand(convertParameters.convertStringValue(product.getProductbrand()))
-			.setProductprice(convertParameters.convertDoubleValue(product.getProductprice()))
-			.setProductdescription(convertParameters.convertStringValue(product.getProductdescription()))
-			.setProductquantity(convertParameters.convertToint32value(product.getProductquantity()))
-		.setProductexpirationdate(  dateConvert.getDateFromDateProtoForUpdate(product.getProductexpirationdate()))
-			.build());
+	APIResponse response = productServiceBlockingStub.insert( convertParameters.InsertbodyData(product));
+	convertParameters.convertStringValue(product.getProductname());	
 	 response.getResponsemessage();
 	
 	 return product;
@@ -81,18 +71,13 @@ public class ProductService   {
 	
 	public ProductEntity findbyid(Integer purchase_item){
 		Product product = productServiceBlockingStub.findById(Int32Value.of(purchase_item));
-		return convertParameters.bodyData(product);
+		return convertParameters.FindbodyData(product);
 		
 	}
 	
 	public void  deletedata(Integer client_guest_id) {
-
-		
 		ProductEntity productEntity = new ProductEntity();
-		
 		productEntity.setPurchase_item(client_guest_id);
-		
-		
 		APIResponse response = productServiceBlockingStub.deleteById(Product.newBuilder()
 				.setPurchaseItem(convertParameters.convertToint32value(productEntity.getPurchase_item()) )
 				.build()
@@ -102,18 +87,7 @@ public class ProductService   {
 }
 	
 	public String updatedata(ProductEntity product) {
-
-	
-		APIResponse response = productServiceBlockingStub.update(Product.newBuilder()
-				.setPurchaseItem(convertParameters.convertToint32value(product.getPurchase_item()))
-				.setProductname(convertParameters.convertStringValue(product.getProductname()))
-				.setProductbrand(convertParameters.convertStringValue(product.getProductbrand()))
-				.setProductprice(convertParameters.convertDoubleValue(product.getProductprice()))
-				.setProductdescription(convertParameters.convertStringValue(product.getProductdescription()))
-				.setProductquantity(convertParameters.convertToint32value(product.getProductquantity()))
-			.setProductexpirationdate(  dateConvert.getDateFromDateProtoForUpdate(product.getProductexpirationdate()))
-				.build());
-	
+		APIResponse response = productServiceBlockingStub.update( convertParameters.updatebodyData(product));
 	return response.getResponsemessage();
 			
 	
