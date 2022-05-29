@@ -2,8 +2,9 @@ package com.cartgatewayservice.Model;
 
 import java.util.Date;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonProperty.Access;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,11 +27,9 @@ public class ProductEntity {
     private Double productprice;
     private String productdescription;
     private Integer productquantity;
-    private Date productexpirationdate;
-
-
-   
     
- 
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date productexpirationdate;
 
 }
