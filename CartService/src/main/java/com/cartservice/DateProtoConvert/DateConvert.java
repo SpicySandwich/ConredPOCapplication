@@ -5,18 +5,24 @@ import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
 
+import com.cartservice.Validation.InputValidation;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class DateConvert {
+	
+	
+	@Autowired
+	private InputValidation inputValidation;
 	
 	public Date getDateFromDateProto(com.google.type.Date date) {
 		
 LocalDate currentdate = LocalDate.now();
 
 LocalDate expiredDate =currentdate.plusMonths(2);
-int expiredday = expiredDate.getDayOfMonth() +2;
+int expiredday = expiredDate.getDayOfMonth();
 int expiredyear = expiredDate.getYear();
 int expiredmonth= expiredDate.getMonthValue();
 
@@ -26,7 +32,7 @@ int expiredmonth= expiredDate.getMonthValue();
 		
 		
 		Calendar calendar = Calendar.getInstance();
-		//calendar.clear();
+		calendar.clear();
 		calendar.set(Calendar.YEAR, year);
 		calendar.set(Calendar.MONTH, month);
 		calendar.set(Calendar.DATE, days);
@@ -34,14 +40,16 @@ int expiredmonth= expiredDate.getMonthValue();
 		ZoneId defaultZoneId = ZoneId.systemDefault();
 		LocalDate localDate2 =LocalDate.of(expiredyear,expiredmonth,expiredday );
 		Date checkdate2 = Date.from(localDate2 .atStartOfDay(defaultZoneId).toInstant());
+
 		
 		Date datesswe = calendar.getTime();
+		
 
 		if(datesswe.equals(checkdate2)) throw new NumberFormatException();
 		if(datesswe.before(checkdate2)) throw new NumberFormatException();
         if (year == 0|| month == 0|| days == 0)throw new NullPointerException();
 		
-        return datesswe ;
+        return checkdate2 ;
     }
 	
 	public static com.google.type.Date getDateFromDateProtoEntity(Date date) {
@@ -56,5 +64,7 @@ int expiredmonth= expiredDate.getMonthValue();
 		
         return datess ;
     }
+	
+	
 
 }

@@ -38,7 +38,7 @@ public class RestAdviceException extends ResponseEntityExceptionHandler {
 	
 	@ExceptionHandler(EXISTING_EMAIL_EXCEPTION.class)
 	public ResponseEntity<Object> handleExisitingEmailException(EXISTING_EMAIL_EXCEPTION ex,  WebRequest request) {
-		return new ResponseEntity<Object>(new ERROR_DETAILS_EXCEPTION(ex.getMessage(), HttpStatus.BAD_REQUEST, LocalDateTime.now()),HttpStatus.NOT_FOUND);
+		return new ResponseEntity<Object>(new ERROR_DETAILS_EXCEPTION(ex.getMessage(), HttpStatus.BAD_REQUEST, LocalDateTime.now()),HttpStatus.BAD_REQUEST);
 		
 	
 	}

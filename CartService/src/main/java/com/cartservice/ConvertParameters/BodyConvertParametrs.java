@@ -1,16 +1,8 @@
 package com.cartservice.ConvertParameters;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Objects;
-import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-import com.cartservice.DTO.ProductDTO;
 import com.cartservice.DateProtoConvert.DateConvert;
 import com.cartservice.Model.Client;
 import com.cartservice.Model.ProductEntity;
@@ -20,7 +12,6 @@ import com.google.protobuf.DoubleValue;
 import com.google.protobuf.Int32Value;
 import com.google.protobuf.StringValue;
 import com.grpcserver.GuestClientServer.ClientGuest;
-import com.grpcserver.GuestClientServer.ClientGuest.Builder;
 import com.grpcserver.product.ProductServer.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

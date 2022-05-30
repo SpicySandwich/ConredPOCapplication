@@ -3,16 +3,15 @@ package com.cartgatewayservice.DateConverter;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.DateTimeException;
 import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
-import java.time.temporal.TemporalAccessor;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.cartgatewayservice.RestModelException.DATE_FORMAT_EXCEPTION;
+import com.cartgatewayservice.RestModelException.EXISTING_EMAIL_EXCEPTION;
 
 import org.springframework.stereotype.Service;
 
@@ -36,22 +35,16 @@ public class DateConvert {
 	
 	public  com.google.type.Date getDateFromDateProtoInsert(Date date) {
 		
-		isValid(date);
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(date);
-		int year = calendar.get(Calendar.YEAR);
-		int month = calendar.get(Calendar.MONTH) +1;
-		int day = calendar.get(Calendar.DAY_OF_MONTH);
-		
-		
-		
 	
-		
-	
-		com.google.type.Date datess = com.google.type.Date.newBuilder().setYear(year).setMonth(month).setDay(day).build();
-		
-  
-		
+
+		com.google.type.Date datess = com.google.type.Date.newBuilder()
+				.setYear(calendar.get(Calendar.YEAR))
+				.setMonth(calendar.get(Calendar.MONTH) +1)
+				.setDay(calendar.get(Calendar.DAY_OF_MONTH))
+				.build();
+
         return datess ;
     }
 	
@@ -59,71 +52,39 @@ public class DateConvert {
 
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(date);
-		int year = calendar.get(Calendar.YEAR);
-		int month = calendar.get(Calendar.MONTH);
-		int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+		com.google.type.Date datess = com.google.type.Date.newBuilder()
+				.setYear(calendar.get(Calendar.YEAR))
+				.setMonth(calendar.get(Calendar.MONTH))
+				.setDay(calendar.get(Calendar.DAY_OF_MONTH))
+				.build();
 		
-		com.google.type.Date datess = com.google.type.Date.newBuilder().setYear(year).setMonth(month).setDay(day).build();
-		
-  
 		
         return datess ;
     }
 	
-	public Date getvalues(Date date) {
-		
-		String pattern = "yyyy-MM-dd";
-		
-		DateFormat df = new SimpleDateFormat(pattern);
+
+
+	
+	public void DateFormatValidation(Date date) {
 		
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(date);
-		calendar.get(Calendar.YEAR);
-		calendar.get(Calendar.MONTH);
-		 calendar.get(Calendar.DAY_OF_MONTH);
-	
-		Date date2 = calendar.getTime();
 		
-		String stringdate = df.format(date2);
+		int year = calendar.get(Calendar.YEAR);
+		int month = calendar.get(Calendar.MONTH) +1;
+		int days = calendar.get(Calendar.DAY_OF_MONTH);
 		
-		DateFormat parser = new SimpleDateFormat("yyyy-MM-dd"); 
 		try {
-			Date date3 = (Date) parser.parse(stringdate);
-			return date3;
-		} catch (ParseException e) {
-			throw new DATE_FORMAT_EXCEPTION("There error in format");
-		}
-
-	}
+			
+		    LocalDate invLocDat = LocalDate.of(year,month,days);
 	
-
-	    public void isValid(Date datet) {
-	    	
-	  
-			//Date datet = new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime();
-	    	SimpleDateFormat formatterr = new SimpleDateFormat("yyyy-MM-dd");
-	    	//String format = formatter.format(datet);
-
-	    		    
-	    		    	
-//	    		    	Date date = new Date();
-//	    		    	
-//	    		 LocalDate datex = LocalDate.ofInstant(date.toInstant(), ZoneId.systemDefault());
-	    		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-	    	//	format = datex.format(formatter);
-	    		
-	    		String formatbb = formatterr.format( datet);
-	    		
-	    		 try{
-	    		     LocalDate.parse(formatbb, formatter);
-
-	    		    
-	    		 }
-	    		 catch(DateTimeParseException e){
-	    			 throw new DATE_FORMAT_EXCEPTION("There error in format");
-	    		 }
-	    		 
-	    	    }
+		    System.out.println("Created LocalDate: " + invLocDat);
+		} catch (DateTimeException dte) {
+			  throw new EXISTING_EMAIL_EXCEPTION("There error in format");
+		}
+		
+	}
 
 	 
 
