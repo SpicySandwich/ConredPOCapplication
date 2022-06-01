@@ -3,13 +3,18 @@ package com.cartservice.DTO;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
-import java.util.TimeZone;
 
+
+import com.cartservice.DateProtoConvert.DateDeserializer;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.OptBoolean;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.google.protobuf.DoubleValue;
 import com.google.protobuf.Int32Value;
 import com.google.protobuf.StringValue;
 import com.grpcserver.product.ProductServer.Product;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,6 +34,10 @@ public class ProductDTO {
     private Double productprice;
     private String productdescription;
     private Integer productquantity;
+    
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING, lenient = OptBoolean.FALSE)
+   @JsonDeserialize(using = DateDeserializer.class)
     private Date  productexpirationdate;
 
     

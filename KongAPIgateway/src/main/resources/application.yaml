@@ -10,3 +10,6 @@ spring:
       matching-strategy: ANT_PATH_MATCHER
   jackson:
     default-property-inclusion: NON_NULL
+    deserialization:
+      wrap-exceptions: false
+    

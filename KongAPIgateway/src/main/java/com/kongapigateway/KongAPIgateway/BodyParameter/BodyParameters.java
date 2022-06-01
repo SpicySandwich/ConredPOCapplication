@@ -49,12 +49,10 @@ return cart;
 	
 	public Date dateBody(Date date) {
 		
-		validation.dateChecker(date);
-		
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(date);
 
-		calendar.set(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DATE));
+		calendar.set(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DATE) -1);
 
 		 Date datesswe = calendar.getTime();
 	       

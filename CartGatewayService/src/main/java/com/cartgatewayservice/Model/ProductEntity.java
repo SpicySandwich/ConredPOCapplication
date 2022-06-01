@@ -2,8 +2,10 @@ package com.cartgatewayservice.Model;
 
 import java.util.Date;
 
+import com.cartgatewayservice.BodyConvertParameters.DateDeserializer;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.OptBoolean;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -31,6 +33,7 @@ public class ProductEntity {
     
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING, lenient = OptBoolean.FALSE)
+   @JsonDeserialize(using = DateDeserializer.class)
     private Date productexpirationdate;
 
 }

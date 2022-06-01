@@ -45,11 +45,12 @@ int expiredmonth= expiredDate.getMonthValue();
 		Date datesswe = calendar.getTime();
 		
 
-		if(datesswe.equals(checkdate2)) throw new NumberFormatException();
-		if(datesswe.before(checkdate2)) throw new NumberFormatException();
-        if (year == 0|| month == 0|| days == 0)throw new NullPointerException();
+		if(    datesswe.equals(checkdate2)  || 
+				datesswe.before(checkdate2)  || 
+				year == 0|| month == 0|| days == 0) throw new NumberFormatException();
+   
 		
-        return checkdate2 ;
+        return datesswe ;
     }
 	
 	public static com.google.type.Date getDateFromDateProtoEntity(Date date) {

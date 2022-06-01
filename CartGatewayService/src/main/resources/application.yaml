@@ -6,6 +6,9 @@ grpc:
     port: ${GRPC-SERVER-PORT:9099} 
     
 spring:
+  jackson:
+    deserialization:
+      wrap-exceptions: false
   main:
     allow-circular-references: true
     
