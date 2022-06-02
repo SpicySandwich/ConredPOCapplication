@@ -7,6 +7,7 @@ import com.kongapigateway.KongAPIgateway.Service.ProductService;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,20 +30,20 @@ public class ProductController {
     }
 
     @PostMapping("/add")
-    public String postData(@RequestBody Product product){
-        return productService.saveData(product);
-        
+    public Product postData(@RequestBody Product product){
+         productService.saveData(product);
+         return product;
     }
 
 
     @DeleteMapping("/delete/{purchase_item}")
     public String deleteData(@PathVariable Integer purchase_item, @RequestBody Product product ){
         productService.deleteData(purchase_item);
-		return "Succesfully delete id: " + purchase_item;
+   	 return "Successfully deleted ID: " + purchase_item;
     }
 
     @GetMapping("/find/{purchase_item}")
-    public Product findProduct(@PathVariable Integer purchase_item) {
+    public ResponseEntity<Product> findProduct(@PathVariable Integer purchase_item) {
     	
     	return	productService.findbyid(purchase_item);
     }

@@ -5,27 +5,21 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
 
 import com.kongapigateway.KongAPIgateway.BodyParameter.BodyParameters;
 import com.kongapigateway.KongAPIgateway.Model.Cart;
-import com.kongapigateway.KongAPIgateway.Model.Product;
 import com.kongapigateway.KongAPIgateway.ModelException.ProductExecption;
 import com.kongapigateway.KongAPIgateway.ModelException.ProductIDnotFound;
-import com.kongapigateway.KongAPIgateway.ModelException.ProductValueNotNull;
-import com.kongapigateway.KongAPIgateway.Validation.ApiUserValidation;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.ResponseErrorHandler;
 import org.springframework.web.client.RestTemplate;
 
 @Service
@@ -43,11 +37,6 @@ public class CartService {
 	
 	@Autowired
 	private BodyParameters bodyParameters;
-	
-	@Autowired
-	private ApiUserValidation apiUserValidation;
-	
-
 	
 	 public List<Cart> getInfo() {
    
@@ -73,7 +62,6 @@ public class CartService {
 	   public Cart saveData(Cart cart) {
 		   bodyParameters.bodyCart(cart);
 			   restTemplate.postForEntity(POST_ADD_CART, cart, Cart.class);
-			   
 			    return   cart;
    
      
@@ -113,15 +101,11 @@ public class CartService {
 	   
 	   public void updateProductr(Cart cart) {
 		   
-		   try {
+		   try { 
 			   restTemplate.put(PUT_UPDATE_CART,cart);
-		} catch (Exception e) {
-			
-		}
-			  
-			
-		
-		
+			} catch (Exception e) {
+				throw new ProductIDnotFound( "ID: " + cart.getPurchase_item()+ " is invalid for update or does not exist");
+			}
 		   
 	   }
 

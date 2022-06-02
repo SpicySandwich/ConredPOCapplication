@@ -1,7 +1,6 @@
 package com.product.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
@@ -13,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.product.DAO.ProductDAO;
 import com.product.DAO.ProductDAOImpl;
 import com.product.DTO.ProductDTO;
-import com.product.Entity.ClientGuest;
 import com.product.Entity.Product;
 import com.product.KafkaProducer.ProductProducer;
 import com.product.ModeException.ProductExecption;
@@ -134,7 +132,8 @@ try {
 			currentProduct.setProductbrand(newProduct.getProductbrand());
 			currentProduct.setProductprice(newProduct.getProductprice());
 			currentProduct.setProductdescription(newProduct.getProductdescription());
-			currentProduct.setProductquantity(newProduct.getProductquantity());  
+			currentProduct.setProductquantity(newProduct.getProductquantity()); 
+			currentProduct.setProductexpirationdate(newProduct.getProductexpirationdate());
 			
 			 productProducer.sendMessageDTO("Updated Product : "+ newProduct);
 			 
@@ -148,26 +147,7 @@ try {
 		  return productDAO.updateProduct(currentProduct);
 	}
 	
-	//test
-	
-	public ClientGuest getById2(Integer number) {
-		
-		Optional<ClientGuest> cOptional =  Optional.ofNullable(productDaoimpl.getPoductInfo2(number));
-		
-		return cOptional.get();
-	}
-	
-	public ClientGuest create (ClientGuest clientGuest2) {
-		
-		ClientGuest clientGuest = new ClientGuest();
-		clientGuest.setClient_guest_name(clientGuest2.getClient_guest_name());
-		clientGuest.setClient_guest_email(clientGuest2.getClient_guest_email());
-		clientGuest.setPurchase_item(clientGuest2.getPurchase_item());
-		
-		return productDaoimpl.saveClient(clientGuest);
-		
-		
-	}
+
 
 
 

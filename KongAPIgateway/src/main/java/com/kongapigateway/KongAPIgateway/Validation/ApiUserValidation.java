@@ -1,6 +1,7 @@
 package com.kongapigateway.KongAPIgateway.Validation;
 
 import com.kongapigateway.KongAPIgateway.Model.Cart;
+import com.kongapigateway.KongAPIgateway.Model.Product;
 import com.kongapigateway.KongAPIgateway.ModelException.ProductValueNotNull;
 
 import org.springframework.stereotype.Service;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class ApiUserValidation {
 
 
-	public Cart notNull(Cart cart) {
+	public Cart CartnotNull(Cart cart) {
 		
 
 		
@@ -26,6 +27,26 @@ public class ApiUserValidation {
 		}
 		
 		return cart;
+		
+	}
+	
+	public Product ProductnotNull(Product product) {
+		
+
+		
+		if ( product.getProductname().trim().isEmpty()
+			|| product.getProductbrand().trim().isEmpty()
+			|| isNullOrZeroDouble( product.getProductprice() )
+			||  product.getProductdescription().trim().isEmpty()
+			|| isNullOrZeroInterger( product.getProductquantity() )
+			
+				) {
+			
+			throw new ProductValueNotNull("Please input all field");
+			
+		}
+		
+		return  product;
 		
 	}
 	

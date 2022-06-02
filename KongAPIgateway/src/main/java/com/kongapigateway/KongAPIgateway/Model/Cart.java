@@ -4,9 +4,7 @@ package com.kongapigateway.KongAPIgateway.Model;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.OptBoolean;
-import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.kongapigateway.KongAPIgateway.DateDeserializer.DateDeserializer;
 

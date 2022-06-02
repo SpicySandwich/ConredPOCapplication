@@ -10,8 +10,6 @@ services:
   productmicroservice:
     image: productmicroservice:latest
     container_name: productmicroservice
-    depends_on:
-      - cart-mysqldb
      
     restart: always
     build:

@@ -4,7 +4,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import com.kongapigateway.KongAPIgateway.Model.Cart;
-
+import com.kongapigateway.KongAPIgateway.Model.Product;
 import com.kongapigateway.KongAPIgateway.Validation.ApiUserValidation;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ public class BodyParameters {
 				cart.getProductdescription();
 				cart.getProductquantity();
 				dateBody(cart.getProductexpirationdate());
-		validation.notNull(cart);
+		validation.CartnotNull(cart);
 		
 		return cart;
 		
@@ -41,11 +41,44 @@ public class BodyParameters {
 		cart.getProductdescription();
 		cart.getProductquantity();
 		dateBody(cart.getProductexpirationdate());
-validation.notNull(cart);
+validation.CartnotNull(cart);
 
 return cart;
 
 }
+	
+	public Product bodyProduct(Product product) {
+		
+		product.getProductname();
+		product.getProductbrand();
+		product.getProductprice();
+		product.getProductdescription();
+		product.getProductquantity();
+		dateBody(product.getProductexpirationdate());
+		validation.ProductnotNull(product);
+	
+		
+		return product;
+		
+		
+	}
+	
+	public Product FindbodyCart(Product product) {
+		
+		
+		product.getProductname();
+		product.getProductbrand();
+		product.getProductprice();
+		product.getProductdescription();
+		product.getProductquantity();
+		dateBody(product.getProductexpirationdate());
+		validation.ProductnotNull(product);
+		return product;
+		
+	
+	}
+	
+	
 	
 	public Date dateBody(Date date) {
 		
