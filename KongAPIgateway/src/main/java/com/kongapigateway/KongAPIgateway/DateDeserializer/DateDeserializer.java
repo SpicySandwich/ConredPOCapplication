@@ -38,11 +38,11 @@ public class DateDeserializer extends  StdDeserializer<Date> {
 		
 		DateTimeFormatter localDateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 	
-        String dateValue = p.getText();
-        
-        DateFormatValidation(dateValue);
 
-         LocalDate localDate = LocalDate.parse(dateValue, localDateFormatter);
+		
+        String dateValue = p.getValueAsString();
+        
+         LocalDate localDate = LocalDate.parse(DateFormatValidation(dateValue), localDateFormatter);
         	  
          return convertToDateViaInstant(localDate);
               
@@ -60,21 +60,22 @@ public class DateDeserializer extends  StdDeserializer<Date> {
 	  
 
 	  public void DateValidationError(String string) {
-		  DateNotNull(string);
-		  checkDateIfEqualOrPrevious(string);
+		 
 	      DateValidationError(string);
 		
 		}
 	  
-	  public void DateNotNull(String date) {
+	  public String DateNotNull(String date) {
 		  
-		    if (date.trim().isEmpty() || date == null || date.isBlank()) throw new ProductValueNotNull("Date cannot be empty");
+		    if (date.trim().isEmpty() || date == null) throw new ProductValueNotNull("Date cannot be empty");
+		    
+		    return date;
 		    
 		}
 
 	  
-	  public void DateFormatValidation(String input) {
-		  
+	  public String DateFormatValidation(String input) {
+		String dString =  DateNotNull(input);
 		  String DateFormatPattern = 
 				  "([20]{2}[0-9]{2})"+
 	    		    		"([-]{1})" +
@@ -83,16 +84,17 @@ public class DateDeserializer extends  StdDeserializer<Date> {
 	    		    		"([1-9]{1}|[0]{1}[1-9]{1}|[1]{1}[0-9]{1}|[2]{1}[0-9]{1}|[3]{1}[0-1]{1})" ;
 		  
 		  Pattern pattern = Pattern.compile(DateFormatPattern);
-		  Matcher matcher = pattern.matcher(input);
+		  Matcher matcher = pattern.matcher(dString);
 		  
 		  if (!matcher.matches())  throw new DATE_FORMAT_ERROR("Date format is invalid. Example format (yyyy-MM-dd) ");
+		return checkDateIfEqualOrPrevious(dString);
 				 
 		  
 	  }
 
 		
 
-		public void  checkDateIfEqualOrPrevious(String stringdate) {
+		public String  checkDateIfEqualOrPrevious(String stringdate) {
 			
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 			
@@ -119,6 +121,7 @@ public class DateDeserializer extends  StdDeserializer<Date> {
 				    
 				    if(date.equals(checkdate)) throw new ProductExecption("Expiration date must ahead or equal to " + localDate3 + ".");
 				    if(date.before(checkdate)) throw new ProductExecption("Expiration date must ahead or equal to " + localDate3 + ".");
+					return stringdate;
 				 
 
 		}
