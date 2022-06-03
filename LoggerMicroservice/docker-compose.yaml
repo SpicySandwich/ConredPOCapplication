@@ -33,8 +33,7 @@ services:
       MONGO_INITDB_DATABASE: LoggerActivity
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root
-    volumes:
-      - ./database-data:/data/db
+
 #----------------------------------------------------------------   
   mongo-express:
     image: mongo-express:latest
@@ -46,6 +45,8 @@ services:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: root
       ME_CONFIG_MONGODB_SERVER: mongodb
-      ME_CONFIG_MONGODB_PORT: 27017
+      ME_CONFIG_MONGODB_URL: mongodb://root:root@mongodb:27017/"
+    depends_on:
+      - mongodb
             
 
