@@ -1,9 +1,3 @@
 # ConredPOCapplication
 
-Hi,
-
-I hope all is well with you,
-
-
-
-Thank you.
+New Branch: POC-version1
