@@ -17,10 +17,6 @@ services:
     depends_on:
       - mongodb
     
-    
-      
-    
-    
    
  #----------------------------------------------------------------     
   mongodb:
@@ -46,7 +42,5 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: root
       ME_CONFIG_MONGODB_SERVER: mongodb
       ME_CONFIG_MONGODB_URL: mongodb://root:root@mongodb:27017/"
-    depends_on:
-      - mongodb
             
 
