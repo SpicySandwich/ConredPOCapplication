@@ -4,7 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.cartservice.DTO.ClientGuestDTO;
+import com.cartservice.DTO.ProductDTO;
 import com.cartservice.Model.ProductEntity;
 
 
@@ -14,8 +14,8 @@ public class ProductConverter {
 	@Autowired
 	private ModelMapper modelMapper;
 
-	public ClientGuestDTO  convertToDto(ProductEntity  userObject) {
-		return modelMapper.map(userObject, ClientGuestDTO .class);
+	public ProductDTO  convertToDto(ProductEntity  userObject) {
+		return modelMapper.map(userObject, ProductDTO .class);
 	}
 	
 	

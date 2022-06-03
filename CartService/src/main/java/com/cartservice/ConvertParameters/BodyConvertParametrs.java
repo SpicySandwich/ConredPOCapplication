@@ -4,14 +4,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import com.cartservice.DateProtoConvert.DateConvert;
-import com.cartservice.Model.Client;
 import com.cartservice.Model.ProductEntity;
-import com.cartservice.Service.ProductServiceImpl;
 import com.cartservice.Validation.InputValidation;
 import com.google.protobuf.DoubleValue;
 import com.google.protobuf.Int32Value;
 import com.google.protobuf.StringValue;
-import com.grpcserver.GuestClientServer.ClientGuest;
 import com.grpcserver.product.ProductServer.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,24 +22,10 @@ public class BodyConvertParametrs {
 	@Autowired
 	private  InputValidation inputValidation;
 	
-@Autowired
-private ProductServiceImpl productServiceImpl;
+
 
 	
-	public Client insertClient(ClientGuest clientGuest) {
-		Product request = Product.newBuilder().build();
-		Client client = new Client();
-		
-	client.setClient_guest_id(convertJavaInteger(clientGuest.getClientGuestId()));
-	client.setClient_guest_name(convertJavaString(clientGuest.getClientGuestName()));
-	client.setClient_guest_email(convertJavaString(clientGuest.getClientGuestEmail()));
 
-	bodyDataList(request);
-	
-	
-		return client;
-		
-	}
 	
 	public Integer convertIntfromListProto(List<Int32Value> list) {
 		

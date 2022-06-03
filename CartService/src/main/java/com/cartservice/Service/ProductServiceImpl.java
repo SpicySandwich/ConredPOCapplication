@@ -72,19 +72,6 @@ public boolean chechIdExist(Integer client_guest_id) {
 
 }
 
-//public boolean checkIdExistUpdate(Integer client_guest_id) {
-//
-//	ProductEntity  productEntity = new ProductEntity();
-//	client_guest_id = productEntity.getPurchase_item();
-//	
-//	if (productDAO.ifIDExist(client_guest_id) == true) {
-//		return 
-//	}else {
-//		throw new NullPointerException();
-//	}
-//
-//
-//}
 
 
 }

@@ -5,7 +5,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 
-import com.cartservice.DateProtoConvert.DateDeserializer;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.OptBoolean;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -34,10 +34,6 @@ public class ProductDTO {
     private Double productprice;
     private String productdescription;
     private Integer productquantity;
-    
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING, lenient = OptBoolean.FALSE)
-   @JsonDeserialize(using = DateDeserializer.class)
     private Date  productexpirationdate;
 
     
