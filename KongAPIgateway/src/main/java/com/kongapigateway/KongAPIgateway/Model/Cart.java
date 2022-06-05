@@ -26,7 +26,7 @@ public class Cart {
 	private Integer purchase_item;
 	private String productname;
     private String productbrand;
-   private Double productprice;
+    private Double productprice;
     private String productdescription;
     private Integer productquantity;
     

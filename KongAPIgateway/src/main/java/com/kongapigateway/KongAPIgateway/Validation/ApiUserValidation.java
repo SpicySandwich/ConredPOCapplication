@@ -1,5 +1,6 @@
 package com.kongapigateway.KongAPIgateway.Validation;
 
+import com.kongapigateway.KongAPIgateway.DTOModel.CartDTO;
 import com.kongapigateway.KongAPIgateway.Model.Cart;
 import com.kongapigateway.KongAPIgateway.Model.Product;
 import com.kongapigateway.KongAPIgateway.ModelException.ProductValueNotNull;
@@ -8,17 +9,16 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ApiUserValidation {
-
-
-	public Cart CartnotNull(Cart cart) {
+	
+	public CartDTO CartDTOnotNull(CartDTO cartdto) {
 		
 
 		
-		if (cart.getProductname().trim().isEmpty()
-			|| cart.getProductbrand().trim().isEmpty()
-			|| isNullOrZeroDouble(cart.getProductprice() )
-			|| cart.getProductdescription().trim().isEmpty()
-			|| isNullOrZeroInterger( cart.getProductquantity() )
+		if (cartdto.getProductname().trim().isEmpty()
+			|| cartdto.getProductbrand().trim().isEmpty()
+			|| isNullOrZeroDouble(cartdto.getProductprice() )
+			|| cartdto.getProductdescription().trim().isEmpty()
+			|| isNullOrZeroInterger( cartdto.getProductquantity() )
 			
 				) {
 			
@@ -26,10 +26,10 @@ public class ApiUserValidation {
 			
 		}
 		
-		return cart;
+		return cartdto;
 		
 	}
-	
+
 	public Product ProductnotNull(Product product) {
 		
 

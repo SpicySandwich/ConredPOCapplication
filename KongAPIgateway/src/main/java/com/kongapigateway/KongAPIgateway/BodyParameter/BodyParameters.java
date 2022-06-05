@@ -2,7 +2,10 @@ package com.kongapigateway.KongAPIgateway.BodyParameter;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
+import com.kongapigateway.KongAPIgateway.DTOConvertTOEntity.CartConvertDTOtoEntity;
+import com.kongapigateway.KongAPIgateway.DTOModel.CartDTO;
 import com.kongapigateway.KongAPIgateway.Model.Cart;
 import com.kongapigateway.KongAPIgateway.Model.Product;
 import com.kongapigateway.KongAPIgateway.Validation.ApiUserValidation;
@@ -14,38 +17,42 @@ import org.springframework.stereotype.Service;
 public class BodyParameters {
 	
 	@Autowired
+	private CartConvertDTOtoEntity cartConvertDTOtoEntity;
+	
+	@Autowired
 	private ApiUserValidation validation;
 	
-	public Cart bodyCart(Cart cart) {
-		
-
-				cart.getProductname();
-				cart.getProductbrand();
-				cart.getProductprice();
-				cart.getProductdescription();
-				cart.getProductquantity();
-				dateBody(cart.getProductexpirationdate());
-		validation.CartnotNull(cart);
-		
-		return cart;
-		
-	}
 	
-	public Cart FindbodyCart(Cart cart) {
+public CartDTO bodyCartDTOinsert(Cart cart) {
 		
-
-		cart.getPurchase_item();
-		cart.getProductname();
-		cart.getProductbrand();
-		cart.getProductprice();
-		cart.getProductdescription();
-		cart.getProductquantity();
-		dateBody(cart.getProductexpirationdate());
-validation.CartnotNull(cart);
-
-return cart;
+return cartConvertDTOtoEntity.insertDTObody(cart);
 
 }
+	
+	public CartDTO bodyCartDTOdelete(Cart cart) {
+		
+return cartConvertDTOtoEntity.deleteDTObody(cart);
+
+}
+	
+	public CartDTO bodyCartDTOfindbyid(Cart cart) {
+		
+return cartConvertDTOtoEntity.findbyidDTObody(cart);
+
+}
+	
+	public CartDTO bodyCartDTOupdate(Cart cart) {
+		
+		return cartConvertDTOtoEntity.updateDTObody(cart);
+
+		}
+	
+public List<CartDTO> bodyCartDTOList(List<Cart> cart) {
+		
+		return cartConvertDTOtoEntity.ListDTObody(cart);
+
+		}
+	
 	
 	public Product bodyProduct(Product product) {
 		
@@ -75,9 +82,7 @@ return cart;
 		validation.ProductnotNull(product);
 		return product;
 		
-	
 	}
-	
 	
 	
 	public Date dateBody(Date date) {

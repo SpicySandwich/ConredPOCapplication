@@ -2,6 +2,7 @@ package com.kongapigateway.KongAPIgateway.Controller;
 
 import java.util.List;
 
+import com.kongapigateway.KongAPIgateway.DTOModel.CartDTO;
 import com.kongapigateway.KongAPIgateway.Model.Cart;
 
 import com.kongapigateway.KongAPIgateway.Service.CartService;
@@ -26,20 +27,20 @@ public class CartController {
 	    private CartService cartService;
 
 	    @GetMapping("/list")
-	    public List<Cart> getData(){
+	    public List<CartDTO> getData(){
 	        return cartService.getInfo();
 	    }
 
 	    @PostMapping("/add")
-	    public Cart postData(@RequestBody Cart cart){
-	         cartService.saveData(cart);
-	         return cart;
+	    public CartDTO postData(@RequestBody Cart cart){
+	    	CartDTO cartDTO =   cartService.saveData(cart);
+	         return cartDTO;
 	        
 	    }
 
 
 	    @DeleteMapping("/delete/{purchase_item}")
-	    public String deleteData(@PathVariable Integer purchase_item, @RequestBody Cart cart){
+	    public String deleteData(@PathVariable Integer purchase_item, @RequestBody CartDTO cart){
 	    	 cartService.deleteData(purchase_item);
 	    	 
 	    	 return "Successfully deleted ID: " + purchase_item;
@@ -47,7 +48,7 @@ public class CartController {
 	    }
 
 	    @GetMapping("/find/{purchase_item}")
-	    public ResponseEntity<Cart> findProduct(@PathVariable Integer purchase_item) {
+	    public ResponseEntity<CartDTO> findProduct(@PathVariable Integer purchase_item) {
 	    	
 	    	return	 cartService.findbyid(purchase_item);
 	    	 
@@ -56,9 +57,9 @@ public class CartController {
 	    
 	    
 	    @PutMapping("/update")
-	    public String  updateProduct(@RequestBody Cart cart){
-	    	cartService.updateProductr(cart);
-			return "Succesfully updated " + cart;
+	    public CartDTO  updateProduct(@RequestBody Cart cart){
+	    	CartDTO cartDTO =  cartService.updateProductr(cart);
+			return  cartDTO;
 	    }
 
 }

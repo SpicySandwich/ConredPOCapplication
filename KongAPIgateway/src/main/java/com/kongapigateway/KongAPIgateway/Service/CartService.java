@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.kongapigateway.KongAPIgateway.BodyParameter.BodyParameters;
+import com.kongapigateway.KongAPIgateway.DTOModel.CartDTO;
 import com.kongapigateway.KongAPIgateway.Model.Cart;
 import com.kongapigateway.KongAPIgateway.ModelException.ProductExecption;
 import com.kongapigateway.KongAPIgateway.ModelException.ProductIDnotFound;
@@ -38,7 +39,7 @@ public class CartService {
 	@Autowired
 	private BodyParameters bodyParameters;
 	
-	 public List<Cart> getInfo() {
+	 public List<CartDTO> getInfo() {
    
 		 try {
 			 
@@ -48,10 +49,7 @@ public class CartService {
 			        ResponseEntity<List<Cart>> result = restTemplate.
 			                exchange(GET_ALL_CARTLIST , HttpMethod.GET, httpEntity, new ParameterizedTypeReference<List<Cart>>() {});
 
-			        List<Cart> cartList = new ArrayList<>();
-			        cartList .addAll(result.getBody());
-
-			        return cartList ;
+			        return  bodyParameters.bodyCartDTOList(result.getBody());
 			
 		} catch (Exception e) {
 			   throw new ProductExecption("Cart list is not available at the moment");
@@ -59,39 +57,41 @@ public class CartService {
 
 	    }
 	 
-	   public Cart saveData(Cart cart) {
-		   bodyParameters.bodyCart(cart);
-			   restTemplate.postForEntity(POST_ADD_CART, cart, Cart.class);
-			    return   cart;
+	   public CartDTO saveData(Cart cart) {
+		   CartDTO cartDTO = bodyParameters.bodyCartDTOinsert(cart);
+			   restTemplate.postForEntity(POST_ADD_CART, cartDTO, Cart.class);
+			    return   cartDTO;
    
      
 	    }
 	   
 
 	   public Object  deleteData(Integer purchase_item) {
+		   
+		   
 
 			  Map<String, Integer> proMap = new HashMap<String, Integer>();
 			  proMap.put("purchase_item", purchase_item);
 			   Cart cart = new Cart();
-			   HttpEntity<Cart> requestEntity = new HttpEntity<Cart>(cart);
+			   HttpEntity<CartDTO> requestEntity = new HttpEntity<CartDTO>(bodyParameters.bodyCartDTOdelete(cart));
 			   
 			  try {
-				  return restTemplate.exchange(DELETE_CART, HttpMethod.DELETE, requestEntity, Cart.class,proMap);
+				  return restTemplate.exchange(DELETE_CART, HttpMethod.DELETE, requestEntity, CartDTO.class,proMap);
 			} catch (Exception e) {
 				throw new ProductIDnotFound( "ID: " +purchase_item + " not found");
 			}
 			   
 	    }
 	   
-	   public ResponseEntity<Cart> findbyid(Integer purchase_item) {
+	   public ResponseEntity<CartDTO> findbyid(Integer purchase_item) {
 		   			  
 			  Map<String, Integer> proMap = new HashMap<String, Integer>();
 			   proMap.put("purchase_item", purchase_item);
 			   Cart cart = new Cart();
-			   HttpEntity<Cart> requestEntity = new HttpEntity<Cart>(cart);
+			   HttpEntity<CartDTO> requestEntity = new HttpEntity<CartDTO>(bodyParameters.bodyCartDTOfindbyid(cart));
 			   
 			   try { 
-			  return restTemplate.exchange(GET_CART_BYID, HttpMethod.GET, requestEntity, Cart.class, proMap);
+			  return restTemplate.exchange(GET_CART_BYID, HttpMethod.GET, requestEntity, CartDTO.class, proMap);
 				} catch (Exception e) {
 					throw new ProductIDnotFound( "ID: " +purchase_item + " not found");
 				}
@@ -99,13 +99,17 @@ public class CartService {
 
 	   }
 	   
-	   public void updateProductr(Cart cart) {
+	   public CartDTO updateProductr(Cart cart) {
+		   
+		   CartDTO cartDTO = bodyParameters.bodyCartDTOupdate(cart);
 		   
 		   try { 
-			   restTemplate.put(PUT_UPDATE_CART,cart);
+			   restTemplate.put(PUT_UPDATE_CART,cartDTO);
+				return cartDTO;
 			} catch (Exception e) {
-				throw new ProductIDnotFound( "ID: " + cart.getPurchase_item()+ " is invalid for update or does not exist");
+				throw new ProductIDnotFound( "ID: " + cartDTO.getPurchase_item()+ " is invalid for update or does not exist");
 			}
+
 		   
 	   }
 
