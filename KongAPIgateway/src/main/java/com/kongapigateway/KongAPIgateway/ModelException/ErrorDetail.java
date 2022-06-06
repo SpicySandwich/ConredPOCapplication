@@ -14,7 +14,7 @@ import lombok.Data;
 public class ErrorDetail {
 	
 	private String message;
-//	private HttpStatus status;
-//	private LocalDateTime time;
+	private HttpStatus status;
+	private LocalDateTime time;
 
 }

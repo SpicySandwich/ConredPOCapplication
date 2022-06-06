@@ -2,6 +2,8 @@ package com.kongapigateway.KongAPIgateway.GlobalException;
 
 
 
+import java.time.LocalDateTime;
+
 import com.kongapigateway.KongAPIgateway.ModelException.DATE_FORMAT_ERROR;
 import com.kongapigateway.KongAPIgateway.ModelException.ErrorDetail;
 import com.kongapigateway.KongAPIgateway.ModelException.ProductExecption;
@@ -21,23 +23,26 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 public class ControllerExceptionViewer extends  ResponseEntityExceptionHandler {
 	
+	
+	
+	
 	@Override
 	protected ResponseEntity<Object> handleNoHandlerFoundException(NoHandlerFoundException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
 	
-		return new ResponseEntity<Object>(new ErrorDetail(ex.getMessage()),HttpStatus.NOT_FOUND);
+		return new ResponseEntity<Object>(new ErrorDetail(ex.getMessage(), HttpStatus.NOT_FOUND, LocalDateTime.now()),HttpStatus.NOT_FOUND);
 	}
 	
 	@Override
 	protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex,HttpHeaders headers, HttpStatus status, WebRequest request) {
 
-		return new ResponseEntity<Object>(new ErrorDetail(ex.getMessage()),HttpStatus.NOT_FOUND);
+		return new ResponseEntity<Object>(new ErrorDetail(ex.getMessage(), HttpStatus.NOT_FOUND, LocalDateTime.now()),HttpStatus.NOT_FOUND);
 	}
 	
 	
 	@ExceptionHandler(ProductExecption.class)
 	public ResponseEntity<Object> handleProductExceptionNotFound(ProductExecption ex, WebRequest request){
 		
-		return new ResponseEntity<Object>(new ErrorDetail(ex.getMessage()),HttpStatus.NOT_FOUND);
+		return new ResponseEntity<Object>(new ErrorDetail(ex.getMessage(), HttpStatus.NOT_FOUND, LocalDateTime.now()),HttpStatus.NOT_FOUND);
 		
 	}
 	
@@ -45,32 +50,23 @@ public class ControllerExceptionViewer extends  ResponseEntityExceptionHandler {
 	@ExceptionHandler(ProductIDnotFound.class)
 	public ResponseEntity<Object> handleProductExceptionNotFound(ProductIDnotFound ex, WebRequest request){
 		
-		return new ResponseEntity<Object>(new ErrorDetail(ex.getMessage()),HttpStatus.NOT_FOUND);
+		return new ResponseEntity<Object>(new ErrorDetail(ex.getMessage(), HttpStatus.NOT_FOUND, LocalDateTime.now()),HttpStatus.NOT_FOUND);
 		
 	}
 	
 	@ExceptionHandler(ProductValueNotNull.class)
 	public ResponseEntity<Object> handleProductExceptionNotFound(ProductValueNotNull ex, WebRequest request){
 		
-		return new ResponseEntity<Object>(new ErrorDetail(ex.getMessage()),HttpStatus.INTERNAL_SERVER_ERROR);
+		return new ResponseEntity<Object>(new ErrorDetail(ex.getMessage(), HttpStatus.NOT_FOUND, LocalDateTime.now()),HttpStatus.INTERNAL_SERVER_ERROR);
 		
 	}
 	
 	@ExceptionHandler(DATE_FORMAT_ERROR.class)
 	public ResponseEntity<Object> handleProductExceptionNotFound(DATE_FORMAT_ERROR ex, WebRequest request){
 		
-		return new ResponseEntity<Object>(new ErrorDetail(ex.getMessage()),HttpStatus.UNPROCESSABLE_ENTITY);
+		return new ResponseEntity<Object>(new ErrorDetail(ex.getMessage(), HttpStatus.NOT_FOUND, LocalDateTime.now()),HttpStatus.UNPROCESSABLE_ENTITY);
 		
 	}
-	
-	
-	
-//	@Override
-	//remove http status and time
-//	protected ResponseEntity<Object> handleNoHandlerFoundException(NoHandlerFoundException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-//	
-//		return new ResponseEntity<Object>(new ErrorDetail(ex.getMessage(), HttpStatus.NOT_FOUND, LocalDateTime.now()),HttpStatus.NOT_FOUND);
-//	}
 	
 
 }
