@@ -5,7 +5,9 @@ import java.util.Date;
 import java.util.List;
 
 import com.kongapigateway.KongAPIgateway.DTOConvertTOEntity.CartConvertDTOtoEntity;
+import com.kongapigateway.KongAPIgateway.DTOConvertTOEntity.ProductConvertDTOtoEntity;
 import com.kongapigateway.KongAPIgateway.DTOModel.CartDTO;
+import com.kongapigateway.KongAPIgateway.DTOModel.ProductDTO;
 import com.kongapigateway.KongAPIgateway.Model.Cart;
 import com.kongapigateway.KongAPIgateway.Model.Product;
 import com.kongapigateway.KongAPIgateway.Validation.ApiUserValidation;
@@ -20,7 +22,9 @@ public class BodyParameters {
 	private CartConvertDTOtoEntity cartConvertDTOtoEntity;
 	
 	@Autowired
-	private ApiUserValidation validation;
+	private ProductConvertDTOtoEntity productConvertDTOtoEntity;
+	
+
 	
 	
 public CartDTO bodyCartDTOinsert(Cart cart) {
@@ -53,51 +57,53 @@ public List<CartDTO> bodyCartDTOList(List<Cart> cart) {
 
 		}
 	
-	
-	public Product bodyProduct(Product product) {
-		
-		product.getProductname();
-		product.getProductbrand();
-		product.getProductprice();
-		product.getProductdescription();
-		product.getProductquantity();
-		dateBody(product.getProductexpirationdate());
-		validation.ProductnotNull(product);
-	
-		
-		return product;
-		
-		
-	}
-	
-	public Product FindbodyCart(Product product) {
-		
-		
-		product.getProductname();
-		product.getProductbrand();
-		product.getProductprice();
-		product.getProductdescription();
-		product.getProductquantity();
-		dateBody(product.getProductexpirationdate());
-		validation.ProductnotNull(product);
-		return product;
-		
-	}
-	
-	
-	public Date dateBody(Date date) {
-		
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(date);
 
-		calendar.set(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DATE) -1);
 
-		 Date datesswe = calendar.getTime();
-	       
-        return datesswe ;
+public ProductDTO bodyProductDTOinsert(Product product) {
+	
+return productConvertDTOtoEntity.insertDTObody(product);
+
+}
+	
+	public ProductDTO bodyProductDTOdelete(Product product) {
 		
+return productConvertDTOtoEntity.deleteDTObody(product);
+
+}
+	
+	public ProductDTO bodyProductDTOfindbyid(Product product) {
 		
-	}
+return productConvertDTOtoEntity.findbyidDTObody(product);
+
+}
+	
+	public ProductDTO bodyProductDTOupdate(Product product) {
+		
+		return productConvertDTOtoEntity.updateDTObody(product);
+
+		}
+	
+public List<ProductDTO> bodyProductDTOList(List<Product> product) {
+		
+		return productConvertDTOtoEntity.ListDTObodyProduct(product);
+
+		}
+
+	
+	
+//	public Date dateBody(Date date) {
+//		
+//		Calendar calendar = Calendar.getInstance();
+//		calendar.setTime(date);
+//
+//		calendar.set(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DATE) -1);
+//
+//		 Date datesswe = calendar.getTime();
+//	       
+//        return datesswe ;
+//		
+//		
+//	}
 	
 	
 

@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.kongapigateway.KongAPIgateway.BodyParameter.BodyParameters;
+import com.kongapigateway.KongAPIgateway.DTOModel.ProductDTO;
 import com.kongapigateway.KongAPIgateway.Model.Product;
 import com.kongapigateway.KongAPIgateway.ModelException.ProductExecption;
 import com.kongapigateway.KongAPIgateway.ModelException.ProductIDnotFound;
@@ -36,7 +37,7 @@ public class ProductService {
 	private BodyParameters bodyParameters;
 	
 	
-	 public List<Product> getInfo() {
+	 public List<ProductDTO> getInfo() {
 	   try {
 	    HttpHeaders headers = new HttpHeaders();
 	    headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
@@ -47,11 +48,8 @@ public class ProductService {
 	        ResponseEntity<List<Product>> result = restTemplate.
 	                exchange(GET_ALL_PRODUCLIST , HttpMethod.GET, httpEntity, new ParameterizedTypeReference<List<Product>>() {});
     
-	  
-	   List<Product> productList = new ArrayList<>();
-       productList.addAll(result.getBody());
 
-       return productList;
+       return bodyParameters.bodyProductDTOList(result.getBody());
 	
        } catch (Exception e) {
 	
@@ -61,11 +59,11 @@ public class ProductService {
 	     
 	    }
 	 
-	   public Product saveData(Product product) {
+	   public ProductDTO saveData(Product product) {
 		   
-		   bodyParameters.bodyProduct(product);
-			    restTemplate.postForEntity(POST_ADD_PRODUCT, product, Product.class);
-			    return   product;		
+		   ProductDTO productDTO =   bodyParameters.bodyProductDTOinsert(product);
+			    restTemplate.postForEntity(POST_ADD_PRODUCT, product, ProductDTO.class);
+			    return   productDTO;		
 
 	    }
 	   
@@ -75,26 +73,26 @@ public class ProductService {
 		   Map<String, Integer> proMap = new HashMap<String, Integer>();
 		   proMap.put("purchase_item", purchase_item);
 		   Product product = new Product();
-		   HttpEntity<Product> requestEntity = new HttpEntity<Product>(product);
+		   HttpEntity<ProductDTO> requestEntity = new HttpEntity<ProductDTO>(bodyParameters.bodyProductDTOdelete(product));
 		   
 		   try {
-		   return restTemplate.exchange(DELETE_PRODUCT, HttpMethod.DELETE, requestEntity, Product.class, proMap);
+		   return restTemplate.exchange(DELETE_PRODUCT, HttpMethod.DELETE, requestEntity, ProductDTO.class, proMap);
 		   } catch (Exception e) {
 				throw new ProductIDnotFound( "ID: " +purchase_item + " not found");
 			}
 
 	    }
 	   
-	   public ResponseEntity<Product> findbyid(Integer purchase_item) {
+	   public ResponseEntity<ProductDTO> findbyid(Integer purchase_item) {
 		   
 	
 		   Map<String, Integer> proMap = new HashMap<String, Integer>();
 		   proMap.put("purchase_item", purchase_item);
 		   Product product = new Product();
-		   HttpEntity<Product> requestEntity = new HttpEntity<Product>(product);
+		   HttpEntity<ProductDTO> requestEntity = new HttpEntity<ProductDTO>(bodyParameters.bodyProductDTOfindbyid(product));
 		   
 		   try { 
-		  return restTemplate.exchange(GET_PRODUCT_BYID, HttpMethod.GET, requestEntity, Product.class, proMap);
+		  return restTemplate.exchange(GET_PRODUCT_BYID, HttpMethod.GET, requestEntity, ProductDTO.class, proMap);
 			} catch (Exception e) {
 				throw new ProductIDnotFound( "ID: " +purchase_item + " not found");
 			}
@@ -102,13 +100,17 @@ public class ProductService {
 		    
 	   }
 	   
-	   public void updateProductr(Product product) {
+	   public ProductDTO updateProductr(Product product) {
+		   
+		   ProductDTO productDTO = bodyParameters.bodyProductDTOupdate(product);
    
 		   try {   
-		   restTemplate.put(PUT_UPDATE_PRODUCT, product);
+		   restTemplate.put(PUT_UPDATE_PRODUCT, productDTO);
+			return productDTO;
 		   } catch (Exception e) {
-				throw new ProductIDnotFound( "ID: " + product.getPurchase_item()+ " is invalid for update or does not exist");
+				throw new ProductIDnotFound( "ID: " +productDTO.getPurchase_item()+ " is invalid for update or does not exist");
 			}
+	
 	
 		 
 		   

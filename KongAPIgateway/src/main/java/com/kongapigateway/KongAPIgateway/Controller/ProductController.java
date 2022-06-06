@@ -2,6 +2,7 @@ package com.kongapigateway.KongAPIgateway.Controller;
 
 import java.util.List;
 
+import com.kongapigateway.KongAPIgateway.DTOModel.ProductDTO;
 import com.kongapigateway.KongAPIgateway.Model.Product;
 import com.kongapigateway.KongAPIgateway.Service.ProductService;
 
@@ -25,34 +26,34 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/list")
-    public List<Product> getData(){
+    public List<ProductDTO> getData(){
         return productService.getInfo();
     }
 
     @PostMapping("/add")
-    public Product postData(@RequestBody Product product){
-         productService.saveData(product);
-         return product;
+    public ProductDTO postData(@RequestBody Product product){
+    	ProductDTO productDTO =  productService.saveData(product);
+         return productDTO;
     }
 
 
     @DeleteMapping("/delete/{purchase_item}")
-    public String deleteData(@PathVariable Integer purchase_item, @RequestBody Product product ){
+    public String deleteData(@PathVariable Integer purchase_item, @RequestBody ProductDTO product ){
         productService.deleteData(purchase_item);
    	 return "Successfully deleted ID: " + purchase_item;
     }
 
     @GetMapping("/find/{purchase_item}")
-    public ResponseEntity<Product> findProduct(@PathVariable Integer purchase_item) {
+    public ResponseEntity<ProductDTO> findProduct(@PathVariable Integer purchase_item) {
     	
     	return	productService.findbyid(purchase_item);
     }
     
     
     @PutMapping("/update")
-    public String  updateProduct(@RequestBody Product product){
-         productService.updateProductr(product);
-		return "Succesfully updated " + product;
+    public ProductDTO  updateProduct(@RequestBody Product product){
+    	ProductDTO productDTO =   productService.updateProductr(product);
+		return productDTO;
     }
 	
 

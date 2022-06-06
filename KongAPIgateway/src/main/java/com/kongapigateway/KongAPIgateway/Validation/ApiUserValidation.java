@@ -1,6 +1,7 @@
 package com.kongapigateway.KongAPIgateway.Validation;
 
 import com.kongapigateway.KongAPIgateway.DTOModel.CartDTO;
+import com.kongapigateway.KongAPIgateway.DTOModel.ProductDTO;
 import com.kongapigateway.KongAPIgateway.Model.Cart;
 import com.kongapigateway.KongAPIgateway.Model.Product;
 import com.kongapigateway.KongAPIgateway.ModelException.ProductValueNotNull;
@@ -30,15 +31,15 @@ public class ApiUserValidation {
 		
 	}
 
-	public Product ProductnotNull(Product product) {
+	public ProductDTO ProductnotNull(ProductDTO productdto) {
 		
 
 		
-		if ( product.getProductname().trim().isEmpty()
-			|| product.getProductbrand().trim().isEmpty()
-			|| isNullOrZeroDouble( product.getProductprice() )
-			||  product.getProductdescription().trim().isEmpty()
-			|| isNullOrZeroInterger( product.getProductquantity() )
+		if ( productdto.getProductname().trim().isEmpty()
+			|| productdto.getProductbrand().trim().isEmpty()
+			|| isNullOrZeroDouble( productdto.getProductprice() )
+			||  productdto.getProductdescription().trim().isEmpty()
+			|| isNullOrZeroInterger(productdto.getProductquantity() )
 			
 				) {
 			
@@ -46,7 +47,7 @@ public class ApiUserValidation {
 			
 		}
 		
-		return  product;
+		return  productdto;
 		
 	}
 	
