@@ -3,6 +3,17 @@ _transform: true
 
 services:
 
+#  ------ Actuator host -------
+
+- host: host.docker.internal
+  port: 8099
+  name: health-service
+  path: /actuator
+  routes:
+  - name: health-service
+    paths:
+    - /health
+    strip_path: true
 
 #  ------ Product host -------
 
