@@ -12,7 +12,7 @@ public interface ProductDAO {
 
 	Product getPoductInfo(Integer purchase_item);
 
-	void save(Product product);
+	Product save(Product product);
 
 	Product delete (Integer purchase_item);
 	

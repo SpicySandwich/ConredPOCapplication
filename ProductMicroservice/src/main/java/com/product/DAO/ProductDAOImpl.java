@@ -1,7 +1,9 @@
 package com.product.DAO;
 
 import java.util.List;
+
 import javax.persistence.EntityManager;
+
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,10 +40,11 @@ public class ProductDAOImpl  implements ProductDAO{
 	}
 
 	@Override
-	public void save(Product product) {
+	public Product save(Product product) {
 		Session session = entityManager.unwrap(Session.class);
 		    session.save(product);
 		    session.close();
+			return product;
 		
 	}
 

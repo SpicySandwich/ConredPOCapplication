@@ -1,7 +1,9 @@
 
 
 spring:
-  
+  jackson:
+    deserialization:
+      wrap-exceptions: false
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/dbpoc

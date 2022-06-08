@@ -1,7 +1,6 @@
 package com.product.DateDeserializer;
 
 import java.io.IOException;
-import java.time.DateTimeException;
 import java.time.LocalDate;
 
 import java.time.ZoneId;
@@ -14,6 +13,8 @@ import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.product.ModeException.DATE_FORMAT_EXCEPTION;
+import com.product.ModeException.ProductValueNotNull;
 
 
 
@@ -65,7 +66,7 @@ public class DateDeserializer extends  StdDeserializer<Date> {
 	  
 	  public String DateNotNull(String date) {
 		  
-		    if (date.trim().isEmpty() || date == null) throw new NullPointerException("Date cannot be empty");
+		    if (date.trim().isEmpty() || date == null) throw new ProductValueNotNull("Date cannot be empty");
 		    
 		    return date;
 		    
@@ -84,7 +85,7 @@ public class DateDeserializer extends  StdDeserializer<Date> {
 		  Pattern pattern = Pattern.compile(DateFormatPattern);
 		  Matcher matcher = pattern.matcher(dString);
 		  
-		  if (!matcher.matches())  throw new NumberFormatException("Date format is invalid. Example format (yyyy-MM-dd) ");
+		  if (!matcher.matches())  throw new DATE_FORMAT_EXCEPTION("Date format is invalid. Example format (yyyy-MM-dd) ");
 		return checkDateIfEqualOrPrevious(dString);
 				 
 		  
@@ -117,8 +118,8 @@ public class DateDeserializer extends  StdDeserializer<Date> {
 
 				    date.getTime();
 				    
-				    if(date.equals(checkdate)) throw new DateTimeException("Expiration date must ahead or equal to " + localDate3 + ".");
-				    if(date.before(checkdate)) throw new DateTimeException("Expiration date must ahead or equal to " + localDate3 + ".");
+				    if(date.equals(checkdate)) throw new DATE_FORMAT_EXCEPTION("Expiration date must ahead or equal to " + localDate3 + ".");
+				    if(date.before(checkdate)) throw new DATE_FORMAT_EXCEPTION("Expiration date must ahead or equal to " + localDate3 + ".");
 					return stringdate;
 				 
 

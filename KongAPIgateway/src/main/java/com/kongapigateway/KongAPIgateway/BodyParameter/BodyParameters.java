@@ -89,22 +89,7 @@ public List<ProductDTO> bodyProductDTOList(List<Product> product) {
 
 		}
 
-	
-	
-//	public Date dateBody(Date date) {
-//		
-//		Calendar calendar = Calendar.getInstance();
-//		calendar.setTime(date);
-//
-//		calendar.set(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DATE) -1);
-//
-//		 Date datesswe = calendar.getTime();
-//	       
-//        return datesswe ;
-//		
-//		
-//	}
-	
+
 	
 
 

@@ -1,7 +1,6 @@
 package com.kongapigateway.KongAPIgateway.DateDeserializer;
 
 import java.io.IOException;
-import java.time.DateTimeException;
 import java.time.LocalDate;
 
 import java.time.ZoneId;
@@ -23,6 +22,10 @@ import com.kongapigateway.KongAPIgateway.ModelException.ProductValueNotNull;
 
 public class DateDeserializer extends  StdDeserializer<Date> {
 	
+
+	private static final long serialVersionUID = 1L;
+
+
 
 	public  DateDeserializer() {
 	    this(null); 
