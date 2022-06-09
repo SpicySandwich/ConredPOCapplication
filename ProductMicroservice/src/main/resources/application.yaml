@@ -11,14 +11,14 @@ spring:
     password: root
   
   
-   
+
     
   jpa:
     hibernate:
       naming:
         implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
         physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
-    hibernate.ddl-auto: update
+      ddl-auto: update
     generate-ddl: false
     show-sql: false
     properties:

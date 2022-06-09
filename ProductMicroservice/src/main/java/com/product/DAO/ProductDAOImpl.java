@@ -1,12 +1,11 @@
 package com.product.DAO;
 
+import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.product.Entity.Product;
 
@@ -14,69 +13,162 @@ import com.product.Entity.Product;
 public class ProductDAOImpl  implements ProductDAO{
 	
 	
-	@Autowired
-	private EntityManager entityManager;
+	
 
 	
 	@Override
 	public List<Product> getProduct() {
 	
-		Session session = entityManager.unwrap(Session.class);
+		Session session = HibernateUtil.getSessionFactory().openSession();
 		Query<Product> query = session.createQuery("FROM Product", Product.class);
 		List<Product>list = query.getResultList();
 		session.close();
 		return list;
 		
 	}
-
+	
 	@Override
-	public Product getPoductInfo(Integer purchase_item) {
-		
-		Session session = entityManager.unwrap(Session.class);
-	    Product productObj =	session.get(Product.class, purchase_item);
-	    session.close();
-	    return productObj;
-		
-	}
+	public  Object updateProduct(Product product)  {
+		Transaction transaction = null;
+		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
+			transaction = session.beginTransaction();
+
+		
+			String hql = "UPDATE Product  set "
+					+ "productname = :productname, "
+					+ "productbrand = :productbrand, " 
+					+ "productprice = :productprice ," 
+					+ "productdescription = :productdescription," 
+					+ "productquantity= :productquantity ," 
+					+ "productexpirationdate = :productexpirationdate " 
+					+ "WHERE purchase_item = :purchase_item";
+			
+			Query query = session.createQuery(hql);
+			query.setParameter("productname", product.getProductname());
+			query.setParameter("productbrand", product.getProductbrand());
+			query.setParameter("productprice",product.getProductprice());
+			query.setParameter("productdescription", product.getProductdescription());
+			query.setParameter("productquantity", product.getProductquantity());
+			query.setParameter("productexpirationdate", product.getProductexpirationdate());
+			query.setParameter("purchase_item",product.getPurchase_item());
+		     query.executeUpdate();
+
+			transaction.commit();
+	
+		} catch (Exception e) {
+			if (transaction != null) {
+				transaction.rollback();
+			}
+			e.printStackTrace();
+		}
+		return product;
+	}
+	
 	@Override
-	public Product save(Product product) {
-		Session session = entityManager.unwrap(Session.class);
-		    session.save(product);
-		    session.close();
-			return product;
-		
-	}
+	public Product getPoductInfo(Integer purchase_item) { 
 
+	        Transaction transaction = null;
+	        Product product = null;
+	        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+	       
+	            transaction = session.beginTransaction();
 
+	            String hql = " FROM Product  S WHERE S.purchase_item = :purchase_item";
+	            Query query = session.createQuery(hql);
+	            query.setParameter("purchase_item", purchase_item);
+	            List results = query.getResultList();
+	            session.close();
+
+	            if (results != null && !results.isEmpty()) {
+	            	product = (Product ) results.get(0);
+	            }
+	      
+	            transaction.commit();
+	        } catch (Exception e) {
+	            if (transaction != null) {
+	                transaction.rollback();
+	            }
+	            e.printStackTrace();
+	        }
+	        return product;
+	    }
+	
 	@Override
 	public Product delete(Integer purchase_item) {
 		
-		Session session = entityManager.unwrap(Session.class);	
-		String hql = "DELETE FROM Product "  + 
-	             "WHERE purchase_item = :purchase_item";
-		Product productObj = session.get(Product.class, purchase_item);
-	Query query = session.createQuery(hql);
-	query.setParameter("purchase_item",purchase_item);
-	query.executeUpdate();
+		Transaction transaction = null;
+		Product product = new Product();
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+      
+            transaction = session.beginTransaction();
 
-	return productObj ;
-		
+            product = session.get(Product.class, purchase_item);
+            if (product != null) {
+                String hql = "DELETE FROM Product " + "WHERE purchase_item = :purchase_item";
+                Query query = session.createQuery(hql);
+                query.setParameter("purchase_item", purchase_item);
+                query.executeUpdate();
+                
+            }
+
+            transaction.commit();
+   
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+		return product;
+	
 	}
+	
 
+	
 	@Override
-	public  Object updateProduct(Product newProduct) {
-		
-		Session session = entityManager.unwrap(Session.class);
-		session.update( newProduct);
-		session.close();
-		return newProduct;
+	public Product save(Product product) {
+		Transaction transaction = null;
+		  
+        Session session = HibernateUtil.getSessionFactory().openSession();
+
+            transaction = session.beginTransaction();
+
+            String hql = "INSERT INTO Product  ( productname, productbrand, productprice, productdescription, productquantity, productexpirationdate) " +
+                "SELECT   productname, productbrand, productprice, productdescription, productquantity, productexpirationdate FROM Product ";
+            Query query = session.createQuery(hql);
+            Integer result =  query.executeUpdate();
+        
+            transaction.commit();
+            
+            
+            if (result == 0 ||result == null  ) {
+                   
+                throw new NullPointerException();
+            }
+            
+
+        return product;
+    }
+	
+	public Product saveStudent(Product product) {
+		Transaction transaction = null;
+		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+			transaction = session.beginTransaction();
+			
+			Object object = session.save(product);
+			
+			session.get(Product.class, (Serializable) object);
+			
+			transaction.commit();
+		} catch (Exception e) {
+			if (transaction != null) {
+				transaction.rollback();
+			}
+			e.printStackTrace();
+		}
+		return product;
 	}
-	
-	
-
-
-
 	
 
 
