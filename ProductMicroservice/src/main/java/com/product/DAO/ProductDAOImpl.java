@@ -78,7 +78,7 @@ public class ProductDAOImpl  implements ProductDAO{
 	            Query query = session.createQuery(hql);
 	            query.setParameter("purchase_item", purchase_item);
 	            List results = query.getResultList();
-	            session.close();
+	          
 
 	            if (results != null && !results.isEmpty()) {
 	            	product = (Product ) results.get(0);
@@ -124,32 +124,28 @@ public class ProductDAOImpl  implements ProductDAO{
 	
 	}
 	
-
 	
 	@Override
 	public Product save(Product product) {
 		Transaction transaction = null;
-		  
-        Session session = HibernateUtil.getSessionFactory().openSession();
-
+        try (Session session = HibernateUtil.getSessionFactory().getCurrentSession()) {
+            // start a transaction
             transaction = session.beginTransaction();
 
-            String hql = "INSERT INTO Product  ( productname, productbrand, productprice, productdescription, productquantity, productexpirationdate) " +
-                "SELECT   productname, productbrand, productprice, productdescription, productquantity, productexpirationdate FROM Product ";
+            String hql = "INSERT INTO Product  (purchase_item, productname, productbrand, productprice, productdescription, productquantity, productexpirationdate) " +
+                "SELECT  purchase_item, productname, productbrand, productprice, productdescription, productquantity, productexpirationdate FROM Product ";
             Query query = session.createQuery(hql);
-            Integer result =  query.executeUpdate();
-        
-            transaction.commit();
-            
-            
-            if (result == 0 ||result == null  ) {
-                   
-                throw new NullPointerException();
-            }
-            
+          query.executeUpdate();
 
-        return product;
+
+            transaction.commit();
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+        return saveStudent(product);
     }
+	
 	
 	public Product saveStudent(Product product) {
 		Transaction transaction = null;

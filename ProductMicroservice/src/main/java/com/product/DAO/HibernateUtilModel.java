@@ -42,6 +42,9 @@ public class HibernateUtilModel {
 	
 	@Value("${spring.jpa.hibernate.ddl-auto}")
 	private  String update;
+	
+//	@Value("${spring.jackson.deserialization.wrap-exceptions}")
+//	private String errorWrapper;
 
 	
 

@@ -26,7 +26,7 @@ public class HibernateUtil {
 	
 	
 	@Autowired
-    public void setSomeThing(HibernateUtilModel hibernateUtilModel){
+    public void autowairedFixStatic(HibernateUtilModel hibernateUtilModel){
 		HibernateUtil.hibernateUtilModel= hibernateUtilModel;
     }
 	

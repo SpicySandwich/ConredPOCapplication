@@ -118,8 +118,7 @@ public class DateDeserializer extends  StdDeserializer<Date> {
 
 				    date.getTime();
 				    
-				    if(date.equals(checkdate)) throw new DATE_FORMAT_EXCEPTION("Expiration date must ahead or equal to " + localDate3 + ".");
-				    if(date.before(checkdate)) throw new DATE_FORMAT_EXCEPTION("Expiration date must ahead or equal to " + localDate3 + ".");
+				    if(date.equals(checkdate) ||date.before(checkdate) ) throw new DATE_FORMAT_EXCEPTION("Expiration date must ahead or equal to " + localDate3 + ".");
 					return stringdate;
 				 
 

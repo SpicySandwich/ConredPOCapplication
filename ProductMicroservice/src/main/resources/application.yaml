@@ -1,9 +1,7 @@
 
 
 spring:
-  jackson:
-    deserialization:
-      wrap-exceptions: false
+
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/dbpoc
@@ -18,7 +16,7 @@ spring:
       naming:
         implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
         physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
-      ddl-auto: update
+      ddl-auto: none
     generate-ddl: false
     show-sql: false
     properties:

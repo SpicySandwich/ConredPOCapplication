@@ -2,12 +2,6 @@ package com.product.DTO;
 
 import java.util.Date;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.OptBoolean;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.product.DateDeserializer.DateDeserializer;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,16 +11,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProductDTO {
-	 private Integer purchase_item;
+	 
+	private Integer purchase_item;
       private String productname;
       private String productbrand;
       private Double productprice;
       private String productdescription;
       private Integer productquantity;
-      
-      @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-      @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING, lenient = OptBoolean.FALSE)
-     @JsonDeserialize(using = DateDeserializer.class)
       private Date productexpirationdate;
       
 
