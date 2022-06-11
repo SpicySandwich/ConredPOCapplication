@@ -3,6 +3,7 @@ package com.cartgatewayservice.BodyConvertParameters;
 
 import com.cartgatewayservice.DateConverter.DateConvert;
 import com.cartgatewayservice.Model.ProductEntity;
+import com.cartgatewayservice.Validation.ApiUserValidation;
 import com.google.protobuf.DoubleValue;
 import com.google.protobuf.Int32Value;
 import com.google.protobuf.StringValue;
@@ -17,6 +18,9 @@ public class ConvertParameters {
 	@Autowired
 	private DateConvert dateConvert;
 	
+	@Autowired
+	private ApiUserValidation apiUserValidation;
+	
 	
 	
 	public ProductEntity forList (Product request){
@@ -30,7 +34,7 @@ public class ConvertParameters {
 	  			.productexpirationdate(dateConvert.getDateFromDateProto(request.getProductexpirationdate()) )
 	  			.build()
 	  			);
-	 
+
 	 
 	return productEntity2;
 	}	
@@ -70,17 +74,19 @@ public class ConvertParameters {
 public Product InsertbodyData(ProductEntity product) {
 	Product product2;
 	
-	
+	ProductEntity product3 = apiUserValidation.ProductnotNull(product);
 
 	
  product2 =	Product.newBuilder()
-	.setProductname(convertStringValue(product.getProductname()))
-	.setProductbrand(convertStringValue(product.getProductbrand()))
-	.setProductprice(convertDoubleValue(product.getProductprice()))
-	.setProductdescription(convertStringValue(product.getProductdescription()))
-	.setProductquantity(convertToint32value(product.getProductquantity()))
-.setProductexpirationdate(  dateConvert.getDateFromDateProtoInsert(product.getProductexpirationdate()))
+	.setProductname(convertStringValue(product3.getProductname()))
+	.setProductbrand(convertStringValue(product3.getProductbrand()))
+	.setProductprice(convertDoubleValue(product3.getProductprice()))
+	.setProductdescription(convertStringValue(product3.getProductdescription()))
+	.setProductquantity(convertToint32value(product3.getProductquantity()))
+.setProductexpirationdate(  dateConvert.getDateFromDateProtoInsert(product3.getProductexpirationdate()))
 	.build();
+ 
+
  
 return product2;
 	

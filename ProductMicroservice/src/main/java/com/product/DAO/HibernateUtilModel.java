@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 
@@ -43,8 +42,6 @@ public class HibernateUtilModel {
 	@Value("${spring.jpa.hibernate.ddl-auto}")
 	private  String update;
 	
-//	@Value("${spring.jackson.deserialization.wrap-exceptions}")
-//	private String errorWrapper;
 
 	
 

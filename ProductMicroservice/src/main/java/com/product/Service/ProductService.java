@@ -13,7 +13,7 @@ import com.product.DAO.ProductDAO;
 import com.product.DAO.ProductDAOImpl;
 import com.product.DTO.ProductDTO;
 import com.product.Entity.Product;
-import com.product.KafkaProducer.ProductProducer;
+import com.product.KafkaProducer.ProductProducerKafkaTopic;
 import com.product.ModeException.ProductExecption;
 import com.product.ModeException.ProductIDnotFound;
 import com.product.ModeException.ProductInternalError;

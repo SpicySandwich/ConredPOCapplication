@@ -1,6 +1,6 @@
 package com.product.Interceptor;
 
-import com.product.KafkaProducer.ProductProducer;
+import com.product.KafkaProducer.ProductProducerKafkaTopic;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -13,13 +13,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class AppConfigController implements WebMvcConfigurer{
 	
 @Autowired
-ProductProducer productProducer;
+ProductProducerKafkaTopic productProducerKafkaTopic;
 	
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 
-		registry.addInterceptor(new WebInterceptor(productProducer)).addPathPatterns("/product/**");
+		registry.addInterceptor(new WebInterceptor(productProducerKafkaTopic)).addPathPatterns("/product/**");
 	}
 	
 	

@@ -2,7 +2,7 @@ package com.product.AOP;
 
 
 
-import com.product.KafkaProducer.ProductProducer;
+import com.product.KafkaProducer.ProductProducerKafkaTopic;
 import com.product.ModeException.DATE_FORMAT_EXCEPTION;
 import com.product.ModeException.ProductExecption;
 import com.product.ModeException.ProductIDnotFound;
@@ -24,7 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class AspectConfig {
 	
 	@Autowired
-	private ProductProducer productProducer;
+	private ProductProducerKafkaTopic productProducerKafkaTopic;
 	
 private Logger log = LoggerFactory.getLogger(AspectConfig.class);
 	
@@ -36,24 +36,24 @@ private Logger log = LoggerFactory.getLogger(AspectConfig.class);
 			result = point.proceed();	
 		} catch (ProductExecption e) {
 			log.info("Error result: {}",e.getMessage());
-			productProducer.sendMessageDTO("ProductExecption Error : " +e.getMessage());
+			productProducerKafkaTopic.sendMessageDTO("ProductExecption Error : " +e.getMessage());
 			throw new ProductExecption(e.getMessage());
 			
 			
 		}catch (ProductIDnotFound e) {
 			log.info("Error result: {}",e.getMessage());
-			productProducer.sendMessageDTO("ProductIDnotFound Error: " +e.getMessage());
+			productProducerKafkaTopic.sendMessageDTO("ProductIDnotFound Error: " +e.getMessage());
 			throw new ProductIDnotFound(e.getMessage());
 		
 			
 		}catch (DATE_FORMAT_EXCEPTION e) {
 			log.info("Error result: {}",e.getMessage());
-			productProducer.sendMessageDTO("DATE_FORMAT_EXCEPTION Error : " +e.getMessage());
+			productProducerKafkaTopic.sendMessageDTO("DATE_FORMAT_EXCEPTION Error : " +e.getMessage());
 			throw new DATE_FORMAT_EXCEPTION(e.getMessage());
 			
 		}catch (Exception e) {
 			log.info("Error result: {}",e.getMessage());
-			productProducer.sendMessageDTO("ProductInternalError Error : " +e.getMessage());
+			productProducerKafkaTopic.sendMessageDTO("ProductInternalError Error : " +e.getMessage());
 			throw new ProductInternalError(e.getMessage());
 
 	}

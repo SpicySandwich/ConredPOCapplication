@@ -1,6 +1,8 @@
 package com.product.Filter;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.text.MessageFormat;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -10,7 +12,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.product.KafkaProducer.ProductProducer;
+import com.product.KafkaProducer.ProductProducerKafkaTopic;
+import com.product.ModeException.ProductInternalError;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +28,7 @@ import org.springframework.web.util.ContentCachingResponseWrapper;
 public class LoggingFilterRequestResponce implements Filter {
 	
 	@Autowired
-	private ProductProducer productProducer;
+	private ProductProducerKafkaTopic productProducerKafkaTopic;
 	
 	private Logger logger = LoggerFactory.getLogger(LoggingFilterRequestResponce.class);
 
@@ -39,42 +42,71 @@ public class LoggingFilterRequestResponce implements Filter {
 		 ContentCachingRequestWrapper wrappedRequest = new ContentCachingRequestWrapper(httpServletRequest);
 		 ContentCachingResponseWrapper responseWrapper = new ContentCachingResponseWrapper(httpServletResponse);
 		 
-		logger.info(
-				"\nRequest&Responce:" +
-		        httpServletRequest.getMethod(),
-		        httpServletRequest.getRequestURI(),
-		        httpServletRequest.getServletPath()
-				);
-		
-		logger.info(
-				"\nLoggingFilterRequestResponce" +
-				"\nLocal Port: {} \nServer Name: {}",request.getLocalPort(),request.getServerName()
-				);
-		
-	          
-		 chain.doFilter(wrappedRequest, responseWrapper);
+ chain.doFilter(wrappedRequest, responseWrapper);
 		 
-		 String responseBody = new String(responseWrapper.getContentAsByteArray());
-		 responseWrapper.copyBodyToResponse();
-		 
-		 
-         logger.info(responseBody);
-         
-         productProducer.sendMessageDTO("Responce a product : " +responseBody);
-	            
-	            byte[] buf = wrappedRequest.getContentAsByteArray();
-	 
-		        if (buf.length > 0 ) {
-		          
-		                String requestBody = new String(buf, 0, buf.length, wrappedRequest.getCharacterEncoding());
-		     
-		                logger.info(requestBody);
-		                productProducer.sendMessageDTO("Request a product : " + requestBody);
-		              
+		 String responseBody = getStringValue(responseWrapper.getContentAsByteArray(),response.getCharacterEncoding());
+		 String requestBody = getStringValue(responseWrapper.getContentAsByteArray(),request.getCharacterEncoding());
 	      
-		            }
-		
+		        logger.info(
+						"\nLoggingFilterRequestResponce" 
+						+"\nLocal Port: {} "
+						+ "\nServer Name: {}"
+						+ "\nMethod: {}"
+						+ "\nRequest URI: {}"
+						+ "\nServlet Path: {}"
+						+ "\nRESPONCE: {}"
+						+ "\nREQUEST : {}",
+						request.getLocalPort(),
+						request.getServerName(),
+						httpServletRequest.getMethod(),
+				        httpServletRequest.getRequestURI(),
+				        httpServletRequest.getServletPath(),
+				        responseBody,
+				        requestBody
+				        
+						);
+		        //to kafka topic
+		        if (logger.isInfoEnabled()) {
+		        	
+		        	 String message = MessageFormat.format(
+		        			 "\nLoggingFilterRequestResponce" 
+								+"\nLocal Port: {0} "
+								+ "\nServer Name: {1}"
+								+ "\nMethod: {2}"
+								+ "\nRequest URI: {3}"
+								+ "\nServlet Path: {4}"
+								+ "\nRESPONCE: {5}"
+								+ "\nREQUEST : {6}",
+								request.getLocalPort(),
+								request.getServerName(),
+								httpServletRequest.getMethod(),
+						        httpServletRequest.getRequestURI(),
+						        httpServletRequest.getServletPath(),
+						        responseBody,
+						        requestBody);
+		             
+		        	 productProducerKafkaTopic.sendMessageDTO(message);
+				}
+		       
+		        responseWrapper.copyBodyToResponse();
+		        
+	
+	
 		
 	}
+
+	private String getStringValue(byte[] contentAsByteArray, String characterEncoding) {
+	try {
+		
+		return new String(contentAsByteArray,0,contentAsByteArray.length,characterEncoding);
+		
+	} catch (UnsupportedEncodingException e) {
+		
+		throw new  ProductInternalError(e.getMessage());
+	}
+		
+	}
+		 
+
 
 }

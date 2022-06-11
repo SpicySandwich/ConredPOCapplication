@@ -3,7 +3,7 @@ package com.product.Interceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.product.KafkaProducer.ProductProducer;
+import com.product.KafkaProducer.ProductProducerKafkaTopic;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,12 +13,12 @@ import org.springframework.web.servlet.ModelAndView;
 public class WebInterceptor implements HandlerInterceptor {
 	
 
-	private ProductProducer productProducer;
+	private ProductProducerKafkaTopic productProducerKafkaTopic;
 	
 	private Logger logger = LoggerFactory.getLogger(WebInterceptor.class);
 	
-	public WebInterceptor(ProductProducer productProducer) {
-        this.productProducer=productProducer;
+	public WebInterceptor(ProductProducerKafkaTopic productProducerKafkaTopic) {
+        this.productProducerKafkaTopic=productProducerKafkaTopic;
     }
 
 	@Override
@@ -26,7 +26,7 @@ public class WebInterceptor implements HandlerInterceptor {
 			throws Exception 	{
 		 
 		logger.info("preHandle..{}:{}",request.getRequestURI(),request.getMethod());
-		productProducer.sendMessageDTO( "PreHandle Method use: "+ request.getMethod());
+		productProducerKafkaTopic.sendMessageDTO( "PreHandle Method use: "+ request.getMethod());
 	
 		return true;
 	}
@@ -36,7 +36,7 @@ public class WebInterceptor implements HandlerInterceptor {
 			ModelAndView modelAndView) throws Exception {
 		
 		logger.info("postHandle..{}:{}",request.getRequestURI(),request.getMethod());
-		productProducer.sendMessageDTO( "PostHandle Method use: "+ request.getMethod());
+		productProducerKafkaTopic.sendMessageDTO( "PostHandle Method use: "+ request.getMethod());
 		HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
 	}
 
@@ -45,7 +45,7 @@ public class WebInterceptor implements HandlerInterceptor {
 			throws Exception {
 	
 		logger.info("afterCompletion..{}:{}",request.getRequestURI(),request.getMethod());
-		productProducer.sendMessageDTO( "AfterCompletion Method use: "+ request.getMethod());
+		productProducerKafkaTopic.sendMessageDTO( "AfterCompletion Method use: "+ request.getMethod());
 		HandlerInterceptor.super.afterCompletion(request, response, handler, ex);
 	}
 	

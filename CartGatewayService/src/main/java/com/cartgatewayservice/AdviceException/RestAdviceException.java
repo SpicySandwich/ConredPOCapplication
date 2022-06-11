@@ -14,8 +14,8 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 
 import com.cartgatewayservice.RestModelException.DATE_FORMAT_EXCEPTION;
 import com.cartgatewayservice.RestModelException.ERROR_DETAILS_EXCEPTION;
-import com.cartgatewayservice.RestModelException.EXISTING_EMAIL_EXCEPTION;
 import com.cartgatewayservice.RestModelException.ID_NOT_FOUND;
+import com.cartgatewayservice.RestModelException.INTERNAL_ERROR;
 import com.cartgatewayservice.RestModelException.NOT_NULL_EXCEPTION;
 
 
@@ -42,12 +42,7 @@ public class RestAdviceException extends ResponseEntityExceptionHandler {
 	
 	}
 	
-	@ExceptionHandler(EXISTING_EMAIL_EXCEPTION.class)
-	public ResponseEntity<Object> handleExisitingEmailException(EXISTING_EMAIL_EXCEPTION ex,  WebRequest request) {
-		return new ResponseEntity<Object>(new ERROR_DETAILS_EXCEPTION(ex.getMessage(), HttpStatus.BAD_REQUEST, LocalDateTime.now()),HttpStatus.BAD_REQUEST);
-		
-	
-	}
+
 	
 	@ExceptionHandler(ID_NOT_FOUND.class)
 	public ResponseEntity<Object> handleNoIDFoundException(ID_NOT_FOUND ex, WebRequest request) {
@@ -59,6 +54,13 @@ public class RestAdviceException extends ResponseEntityExceptionHandler {
 	@ExceptionHandler(DATE_FORMAT_EXCEPTION.class)
 	public ResponseEntity<Object> handleFormatDateEntity(DATE_FORMAT_EXCEPTION ex, WebRequest request) {
 		return new ResponseEntity<Object>(new ERROR_DETAILS_EXCEPTION(ex.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY, LocalDateTime.now()),HttpStatus.UNPROCESSABLE_ENTITY);
+		
+	
+	}
+	
+	@ExceptionHandler(INTERNAL_ERROR.class)
+	public ResponseEntity<Object> handleFormatDateEntity(INTERNAL_ERROR ex, WebRequest request) {
+		return new ResponseEntity<Object>(new ERROR_DETAILS_EXCEPTION(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR, LocalDateTime.now()),HttpStatus.INTERNAL_SERVER_ERROR);
 		
 	
 	}

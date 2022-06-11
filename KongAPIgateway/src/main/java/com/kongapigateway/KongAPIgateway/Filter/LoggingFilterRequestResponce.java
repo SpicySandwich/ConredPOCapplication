@@ -1,6 +1,7 @@
 package com.kongapigateway.KongAPIgateway.Filter;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -9,6 +10,8 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.kongapigateway.KongAPIgateway.ModelException.ProductExecption;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,37 +35,49 @@ public class LoggingFilterRequestResponce implements Filter {
 		
 		 ContentCachingRequestWrapper wrappedRequest = new ContentCachingRequestWrapper(httpServletRequest);
 		 ContentCachingResponseWrapper responseWrapper = new ContentCachingResponseWrapper(httpServletResponse);
-		 
-		logger.info(
-				"\nRequest:" +
-		        httpServletRequest.getMethod(),
-		        httpServletRequest.getRequestURI(),
-		        httpServletRequest.getServletPath()
-				);
+
 		
-		logger.info(
-				"\nLoggingFilterRequest" +
-				"\nLocal Port: {} \nServer Name: {}",request.getLocalPort(),request.getServerName()
-				);
 
 	          
 		 chain.doFilter(wrappedRequest, responseWrapper);
 		 
-		 String responseBody = new String(responseWrapper.getContentAsByteArray());
-		 responseWrapper.copyBodyToResponse();
+
+		
 		 
-         logger.info(responseBody);
-	            
-	            byte[] buf = wrappedRequest.getContentAsByteArray();
-	 
-		        if (buf.length > 0 ) {
-		          
-		                String requestBody = new String(buf, 0, buf.length, wrappedRequest.getCharacterEncoding());
-		     
-		                logger.info(requestBody);
-		              
+		 String responseBody = getStringValue(responseWrapper.getContentAsByteArray(),response.getCharacterEncoding());
+		 String requestBody = getStringValue(responseWrapper.getContentAsByteArray(),request.getCharacterEncoding());
 	      
-		            }
+		        logger.info(
+						"\nLoggingFilterRequestResponce" 
+						+"\nLocal Port: {} "
+						+ "\nServer Name: {}"
+						+ "\nMethod: {}"
+						+ "\nRequest URI: {}"
+						+ "\nServlet Path: {}"
+						+ "\nRESPONCE: {}"
+						+ "\nREQUEST : {}",
+						request.getLocalPort(),
+						request.getServerName(),
+						httpServletRequest.getMethod(),
+				        httpServletRequest.getRequestURI(),
+				        httpServletRequest.getServletPath(),
+				        responseBody,
+				        requestBody
+				        
+						);
+		        responseWrapper.copyBodyToResponse();
+		
+	}
+
+	private String getStringValue(byte[] contentAsByteArray, String characterEncoding) {
+	try {
+		
+		return new String(contentAsByteArray,0,contentAsByteArray.length,characterEncoding);
+		
+	} catch (UnsupportedEncodingException e) {
+		
+		throw new  ProductExecption(e.getMessage());
+	}
 		
 	}
 
