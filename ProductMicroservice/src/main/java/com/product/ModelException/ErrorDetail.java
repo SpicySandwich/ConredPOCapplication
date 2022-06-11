@@ -1,4 +1,4 @@
-package com.product.ModeException;
+package com.product.ModelException;
 
 import java.time.LocalDateTime;
 import java.util.Date;

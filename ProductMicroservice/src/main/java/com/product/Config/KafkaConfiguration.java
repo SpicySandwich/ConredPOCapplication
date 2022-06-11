@@ -17,7 +17,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.product.DTO.ProductDTO;
 import com.product.Entity.Product;
-import com.product.ModeException.ProductInternalError;
+import com.product.ModelException.ProductInternalError;
 
 
 @Configuration

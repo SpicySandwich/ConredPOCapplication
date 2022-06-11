@@ -1,4 +1,4 @@
-package com.product.DAO;
+package com.product.DAO_Hibernate_HQL;
 
 import java.io.Serializable;
 import java.util.List;
@@ -8,11 +8,10 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 import com.product.Entity.Product;
+import com.product.ModelException.ProductInternalError;
 
 @Repository
-public class ProductDAOImpl  implements ProductDAO{
-	
-	
+public class HibernateProductDAOImpl  implements HibernateProductDAO{
 	
 
 	
@@ -60,7 +59,7 @@ public class ProductDAOImpl  implements ProductDAO{
 			if (transaction != null) {
 				transaction.rollback();
 			}
-			e.printStackTrace();
+			throw new ProductInternalError(e.getMessage());
 		}
 		return product;
 	}
@@ -89,7 +88,7 @@ public class ProductDAOImpl  implements ProductDAO{
 	            if (transaction != null) {
 	                transaction.rollback();
 	            }
-	            e.printStackTrace();
+	            throw new ProductInternalError(e.getMessage());
 	        }
 	        return product;
 	    }
@@ -118,13 +117,15 @@ public class ProductDAOImpl  implements ProductDAO{
             if (transaction != null) {
                 transaction.rollback();
             }
-            e.printStackTrace();
+            throw new ProductInternalError(e.getMessage());
         }
 		return product;
 	
 	}
 	
 	
+
+
 	@Override
 	public Product save(Product product) {
 		Transaction transaction = null;
@@ -132,17 +133,18 @@ public class ProductDAOImpl  implements ProductDAO{
             // start a transaction
             transaction = session.beginTransaction();
 
-            String hql = "INSERT INTO Product  (purchase_item, productname, productbrand, productprice, productdescription, productquantity, productexpirationdate) " +
-                "SELECT  purchase_item, productname, productbrand, productprice, productdescription, productquantity, productexpirationdate FROM Product ";
+            String hql ="INSERT INTO Product  (purchase_item, productname, productbrand, productprice, productdescription, productquantity, productexpirationdate) " +
+                    "SELECT  purchase_item, productname, productbrand, productprice, productdescription, productquantity, productexpirationdate FROM Product ";
             Query query = session.createQuery(hql);
           query.executeUpdate();
 
-
+  
             transaction.commit();
         } catch (Exception e) {
-
+      
             e.printStackTrace();
         }
+
         return saveStudent(product);
     }
 	
@@ -165,7 +167,6 @@ public class ProductDAOImpl  implements ProductDAO{
 		}
 		return product;
 	}
-	
 
 
 }

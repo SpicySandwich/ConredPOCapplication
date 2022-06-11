@@ -13,7 +13,7 @@ import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureCallback;
 import com.product.DTO.ProductDTO;
 import com.product.Entity.Product;
-import com.product.ModeException.ProductInternalError;
+import com.product.ModelException.ProductInternalError;
 
 @Service
 public class ProductProducerKafkaTopic implements ProductProducerInt {

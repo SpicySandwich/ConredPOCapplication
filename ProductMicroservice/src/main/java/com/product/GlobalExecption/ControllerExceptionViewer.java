@@ -1,6 +1,14 @@
 package com.product.GlobalExecption;
 
 import java.time.LocalDateTime;
+
+import com.product.ModelException.DATE_FORMAT_EXCEPTION;
+import com.product.ModelException.ErrorDetail;
+import com.product.ModelException.ProductExecption;
+import com.product.ModelException.ProductIDnotFound;
+import com.product.ModelException.ProductInternalError;
+import com.product.ModelException.ProductValueNotNull;
+
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,18 +19,20 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.NoHandlerFoundException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.product.ModeException.DATE_FORMAT_EXCEPTION;
-import com.product.ModeException.ErrorDetail;
-import com.product.ModeException.ProductExecption;
-import com.product.ModeException.ProductIDnotFound;
-import com.product.ModeException.ProductInternalError;
-import com.product.ModeException.ProductValueNotNull;
-
 
 @ControllerAdvice
 public class ControllerExceptionViewer extends  ResponseEntityExceptionHandler {
+	
+	
 
 	
+	@Override
+	protected ResponseEntity<Object> handleExceptionInternal(Exception ex, Object body, HttpHeaders headers,HttpStatus status, WebRequest request) {
+		return new ResponseEntity<Object>(new ErrorDetail(ex.getMessage(), HttpStatus.NOT_FOUND, LocalDateTime.now()),HttpStatus.NOT_FOUND);
+			
+	}
+
+
 	@Override
 	protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex,HttpHeaders headers, HttpStatus status, WebRequest request) {
 

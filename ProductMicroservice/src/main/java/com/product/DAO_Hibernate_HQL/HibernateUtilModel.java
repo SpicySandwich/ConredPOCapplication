@@ -1,4 +1,4 @@
-package com.product.DAO;
+package com.product.DAO_Hibernate_HQL;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

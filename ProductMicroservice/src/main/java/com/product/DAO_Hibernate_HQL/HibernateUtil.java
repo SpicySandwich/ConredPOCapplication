@@ -1,8 +1,9 @@
-package com.product.DAO;
+package com.product.DAO_Hibernate_HQL;
 
 import java.util.Properties;
 
 import com.product.Entity.Product;
+import com.product.ModelException.ProductInternalError;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -49,6 +50,7 @@ public class HibernateUtil {
                 settings.put(Environment.PHYSICAL_NAMING_STRATEGY,hibernateUtilModel.getPHYSICAL());
                 
                 settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
+                
 
                 settings.put(Environment.HBM2DDL_AUTO, hibernateUtilModel.getUpdate());
 
@@ -61,7 +63,7 @@ public class HibernateUtil {
 
                 sessionFactory = configuration.buildSessionFactory(serviceRegistry);
             } catch (Exception e) {
-                e.printStackTrace();
+            	throw new ProductInternalError(e.getMessage());
             }
         }
         return sessionFactory;

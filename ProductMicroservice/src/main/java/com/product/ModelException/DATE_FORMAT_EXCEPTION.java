@@ -1,6 +1,7 @@
-package com.product.ModeException;
+package com.product.ModelException;
 
-public class DATE_FORMAT_EXCEPTION extends RuntimeException  {
+
+public class DATE_FORMAT_EXCEPTION extends RuntimeException{
 
 	private static final long serialVersionUID = 1L;
 	

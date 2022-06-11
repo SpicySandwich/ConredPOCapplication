@@ -1,4 +1,4 @@
-package com.product.ModeException;
+package com.product.ModelException;
 
 public class ProductInternalError extends RuntimeException{
 

@@ -3,7 +3,7 @@ package com.product.Controller;
 
 import java.util.List;
 
-import com.product.DAO.ProductDAOImpl;
+import com.product.DAO_Hibernate_HQL.HibernateProductDAOImpl;
 import com.product.DTO.ProductDTO;
 import com.product.Entity.Product;
 import com.product.KafkaProducer.ProductProducerKafkaTopic;
@@ -31,7 +31,7 @@ public class ProductController {
   	
   	
   	@Autowired
-  	private ProductDAOImpl productDAOImpl;
+  	private HibernateProductDAOImpl hibernateProductDAOImpl;
   	
   	
 

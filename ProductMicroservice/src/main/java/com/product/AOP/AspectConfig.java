@@ -3,10 +3,10 @@ package com.product.AOP;
 
 
 import com.product.KafkaProducer.ProductProducerKafkaTopic;
-import com.product.ModeException.DATE_FORMAT_EXCEPTION;
-import com.product.ModeException.ProductExecption;
-import com.product.ModeException.ProductIDnotFound;
-import com.product.ModeException.ProductInternalError;
+import com.product.ModelException.DATE_FORMAT_EXCEPTION;
+import com.product.ModelException.ProductExecption;
+import com.product.ModelException.ProductIDnotFound;
+import com.product.ModelException.ProductInternalError;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -51,7 +51,13 @@ private Logger log = LoggerFactory.getLogger(AspectConfig.class);
 			productProducerKafkaTopic.sendMessageDTO("DATE_FORMAT_EXCEPTION Error : " +e.getMessage());
 			throw new DATE_FORMAT_EXCEPTION(e.getMessage());
 			
-		}catch (Exception e) {
+		}
+		catch (ProductInternalError e) {
+			log.info("Error result: {}",e.getMessage());
+			productProducerKafkaTopic.sendMessageDTO("ProductInternalError Error : " +e.getMessage());
+			throw new ProductInternalError(e.getMessage());
+
+	}catch (Exception e) {
 			log.info("Error result: {}",e.getMessage());
 			productProducerKafkaTopic.sendMessageDTO("ProductInternalError Error : " +e.getMessage());
 			throw new ProductInternalError(e.getMessage());

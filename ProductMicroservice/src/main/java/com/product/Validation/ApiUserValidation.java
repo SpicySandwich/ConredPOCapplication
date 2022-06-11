@@ -1,10 +1,10 @@
 package com.product.Validation;
 
 
-import com.product.DAO.ProductDAO;
+import com.product.DAO_Hibernate_HQL.HibernateProductDAO;
 import com.product.Entity.Product;
-import com.product.ModeException.ProductIDnotFound;
-import com.product.ModeException.ProductValueNotNull;
+import com.product.ModelException.ProductIDnotFound;
+import com.product.ModelException.ProductValueNotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class ApiUserValidation {
 	
 	@Autowired
-	private ProductDAO productDAO;
+	private HibernateProductDAO hibernateProductDAO;
 	
 	public Product ProductnotNull(Product productdto) {
 		
@@ -62,7 +62,7 @@ public Integer ifIDexist(Integer purchase_item) {
 	
 
 
-	if(productDAO.getPoductInfo(purchase_item) != null) {
+	if(hibernateProductDAO.getPoductInfo(purchase_item) != null) {
 		
 		return purchase_item;
 		

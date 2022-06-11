@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.OptBoolean;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.product.DateDeserializer.DateDeserializer;
+import com.product.JsonDeserializer.DateDeserializer;
 
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -52,3 +52,5 @@ public class Product {
   
 
 }
+
+

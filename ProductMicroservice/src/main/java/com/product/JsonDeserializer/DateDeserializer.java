@@ -1,4 +1,4 @@
-package com.product.DateDeserializer;
+package com.product.JsonDeserializer;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -13,8 +13,8 @@ import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
-import com.product.ModeException.DATE_FORMAT_EXCEPTION;
-import com.product.ModeException.ProductValueNotNull;
+import com.product.ModelException.DATE_FORMAT_EXCEPTION;
+import com.product.ModelException.ProductValueNotNull;
 
 
 

@@ -1,7 +1,7 @@
 package com.product.KafkaProducer;
 
 import com.product.Entity.Product;
-import com.product.ModeException.ProductInternalError;
+import com.product.ModelException.ProductInternalError;
 
 public interface ProductProducerInt {
 	

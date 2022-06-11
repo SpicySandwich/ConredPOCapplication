@@ -1,11 +1,11 @@
-package com.product.DAO;
+package com.product.DAO_Hibernate_HQL;
 
 import java.util.List;
 import com.product.Entity.Product;
 
 
 
-public interface ProductDAO {
+public interface HibernateProductDAO {
 	
 	
 	List <Product> getProduct();
