@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
+
 import com.product.Entity.Product;
 import com.product.ModelException.ProductInternalError;
 
@@ -123,41 +124,15 @@ public class HibernateProductDAOImpl  implements HibernateProductDAO{
 	
 	}
 	
-	
-
-
 	@Override
 	public Product save(Product product) {
-		Transaction transaction = null;
-        try (Session session = HibernateUtil.getSessionFactory().getCurrentSession()) {
-            // start a transaction
-            transaction = session.beginTransaction();
-
-            String hql ="INSERT INTO Product  (purchase_item, productname, productbrand, productprice, productdescription, productquantity, productexpirationdate) " +
-                    "SELECT  purchase_item, productname, productbrand, productprice, productdescription, productquantity, productexpirationdate FROM Product ";
-            Query query = session.createQuery(hql);
-          query.executeUpdate();
-
-  
-            transaction.commit();
-        } catch (Exception e) {
-      
-            e.printStackTrace();
-        }
-
-        return saveStudent(product);
-    }
-	
-	
-	public Product saveStudent(Product product) {
+		
 		Transaction transaction = null;
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			transaction = session.beginTransaction();
 			
-			Object object = session.save(product);
-			
-			session.get(Product.class, (Serializable) object);
-			
+             session.save(product);
+
 			transaction.commit();
 		} catch (Exception e) {
 			if (transaction != null) {

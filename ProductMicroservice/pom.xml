@@ -87,11 +87,10 @@
 </dependency>
 	
 <dependency>
-    <groupId>org.hibernate</groupId>
-    <artifactId>hibernate-core</artifactId>
-    <version>5.4.32.Final</version><!--$NO-MVN-MAN-VER$-->
+  <groupId>org.hibernate</groupId>
+  <artifactId>hibernate-core</artifactId>
+  <version>5.4.9.Final</version><!--$NO-MVN-MAN-VER$-->
 </dependency>
-	
 	<dependency>
 			<groupId>org.apache.kafka</groupId>
 			<artifactId>kafka-streams</artifactId>

@@ -1,27 +1,42 @@
 
 
-spring:
 
+spring:
+  jackson:
+    deserialization:
+      wrap-exceptions: false
+    default-property-inclusion: NON_NULL
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/dbpoc
     username: root
     password: root
   
-  
-
+  kafka:
+    properties:
+      security:
+        protocol: PLAINTEXT
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+        
+        
     
   jpa:
     hibernate:
       naming:
         implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
         physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
-      ddl-auto: none
+      ddl-auto: update
     generate-ddl: false
     show-sql: false
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        connection:
+          autocommit: true
+                 
+       
 
   mvc:
    throw-exception-if-no-handler-found: true

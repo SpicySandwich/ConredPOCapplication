@@ -49,10 +49,11 @@ public class HibernateUtil {
                 settings.put(Environment.IMPLICIT_NAMING_STRATEGY,hibernateUtilModel.getIMPLICIT());
                 settings.put(Environment.PHYSICAL_NAMING_STRATEGY,hibernateUtilModel.getPHYSICAL());
                 
-                settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
+                settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, hibernateUtilModel.getContext());
                 
-
                 settings.put(Environment.HBM2DDL_AUTO, hibernateUtilModel.getUpdate());
+                settings.put(Environment.AUTOCOMMIT,hibernateUtilModel.getCommit());
+                settings.getProperty(hibernateUtilModel.getWrapexceptions());
 
                 configuration.setProperties(settings);
 

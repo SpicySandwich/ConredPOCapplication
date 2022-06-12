@@ -42,6 +42,15 @@ public class HibernateUtilModel {
 	@Value("${spring.jpa.hibernate.ddl-auto}")
 	private  String update;
 	
+	@Value("${spring.jpa.properties.hibernate.current_session_context_class}")
+	private  String context;
+	
+	@Value("${spring.jpa.properties.hibernate.connection.autocommit}")
+	private  String commit;
+	
+	@Value("${spring.jackson.deserialization.wrap-exceptions}")
+	private  String wrapexceptions;
+	
 
 	
 
