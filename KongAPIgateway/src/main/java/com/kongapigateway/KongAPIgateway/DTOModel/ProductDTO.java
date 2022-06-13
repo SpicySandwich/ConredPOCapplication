@@ -5,7 +5,7 @@ import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.OptBoolean;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.kongapigateway.KongAPIgateway.DateDeserializer.DateDeserializer;
+import com.kongapigateway.KongAPIgateway.Deserializer.DateDeserializer;
 
 import org.springframework.format.annotation.DateTimeFormat;
 

@@ -49,7 +49,7 @@ public class HibernateUtilModel {
 	private  String commit;
 	
 	@Value("${spring.jackson.deserialization.wrap-exceptions}")
-	private  String wrapexceptions;
+	private  boolean wrapexceptions;
 	
 
 	

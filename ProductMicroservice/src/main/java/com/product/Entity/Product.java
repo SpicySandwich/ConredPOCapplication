@@ -3,7 +3,7 @@ package com.product.Entity;
 
 import java.util.Date;
 
-import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.OptBoolean;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.product.JsonDeserializer.DateDeserializer;
+
 
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -49,9 +50,7 @@ public class Product {
       private Date productexpirationdate;
       
       
-      
-  
-
+ 
 }
 
 

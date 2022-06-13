@@ -1,14 +1,19 @@
 package com.product.ModelException;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.OptBoolean;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.product.JsonDeserializer.LocalDateTimeDeserializer;
+
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Component;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
@@ -17,6 +22,10 @@ public class ErrorDetail {
 	
 	private String message;
 	private HttpStatus status;
+	
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", shape = JsonFormat.Shape.STRING, lenient = OptBoolean.FALSE)
+	@JsonDeserialize(using = LocalDateTimeDeserializer.class)
 	private LocalDateTime time;
 	
 	

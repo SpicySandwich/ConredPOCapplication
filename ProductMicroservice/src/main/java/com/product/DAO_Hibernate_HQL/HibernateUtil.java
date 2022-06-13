@@ -53,7 +53,6 @@ public class HibernateUtil {
                 
                 settings.put(Environment.HBM2DDL_AUTO, hibernateUtilModel.getUpdate());
                 settings.put(Environment.AUTOCOMMIT,hibernateUtilModel.getCommit());
-                settings.getProperty(hibernateUtilModel.getWrapexceptions());
 
                 configuration.setProperties(settings);
 

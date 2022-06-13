@@ -18,6 +18,8 @@ public interface HibernateProductDAO {
 	
 	Object updateProduct (Product currentProduct);
 	
+	
+	
 
 	
 	
