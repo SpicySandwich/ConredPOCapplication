@@ -2,6 +2,9 @@ package com.product.AOP;
 
 
 
+import java.io.IOException;
+
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.product.KafkaProducer.ProductProducerKafkaTopic;
 import com.product.ModelException.DATE_FORMAT_EXCEPTION;
 import com.product.ModelException.ProductExecption;
@@ -57,7 +60,17 @@ private Logger log = LoggerFactory.getLogger(AspectConfig.class);
 			productProducerKafkaTopic.sendMessageDTO("ProductInternalError Error : " +e.getMessage());
 			throw new ProductInternalError(e.getMessage());
 
-	}catch (Exception e) {
+}catch (JsonMappingException e) {
+	log.info("Error result: {}",e.getMessage());
+	productProducerKafkaTopic.sendMessageDTO("ProductInternalError Error : " +e.getMessage());
+	throw new ProductInternalError(e.getMessage());
+
+}catch (IOException e) {
+		log.info("Error result: {}",e.getMessage());
+		productProducerKafkaTopic.sendMessageDTO("ProductInternalError Error : " +e.getMessage());
+		throw new ProductInternalError(e.getMessage());
+
+}catch (Throwable e) {
 			log.info("Error result: {}",e.getMessage());
 			productProducerKafkaTopic.sendMessageDTO("ProductInternalError Error : " +e.getMessage());
 			throw new ProductInternalError(e.getMessage());

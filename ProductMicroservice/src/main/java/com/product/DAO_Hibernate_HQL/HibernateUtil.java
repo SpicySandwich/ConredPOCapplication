@@ -2,6 +2,7 @@ package com.product.DAO_Hibernate_HQL;
 
 import java.util.Properties;
 
+import com.product.DTO.ProductDTO;
 import com.product.Entity.Product;
 import com.product.ModelException.ProductInternalError;
 
@@ -57,17 +58,24 @@ public class HibernateUtil {
                 configuration.setProperties(settings);
 
                 configuration.addAnnotatedClass(Product.class);
+                configuration.addAnnotatedClass(ProductDTO.class);
 
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                     .applySettings(configuration.getProperties()).build();
+                
+                
 
                 sessionFactory = configuration.buildSessionFactory(serviceRegistry);
             } catch (Exception e) {
             	throw new ProductInternalError(e.getMessage());
             }
         }
+        
+        
         return sessionFactory;
     }
+    
+    
     
 
 

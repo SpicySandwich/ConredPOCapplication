@@ -20,13 +20,11 @@ public class ProductMicroserviceApplication {
 
 	} 
 	
-	@Bean
-	public ModelMapper modelMapper() {
-	    return new ModelMapper();
-	}
 	
-	
-	
+	 @Bean
+	    public ModelMapper modelMapper() {
+	        return new ModelMapper();
+	    }
 	
 	
 

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 
 import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
@@ -46,24 +47,20 @@ public class DateDeserializer extends  StdDeserializer<Date> {
 	public Date deserialize(JsonParser p, DeserializationContext ctxt) throws IOException , JacksonException {
 		
 		DateTimeFormatter localDateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-	
-
+		
+		ZoneId defaultZoneId = ZoneId.systemDefault();
 		
         String dateValue = p.getValueAsString();
         
          LocalDate localDate = LocalDate.parse(apiUserValidation.DateFormatValidation(dateValue), localDateFormatter);
-        	  
-         return convertToDateViaInstant(localDate);
+        
+         Date date = Date.from(localDate.atStartOfDay(defaultZoneId).toInstant());
+         
+         return date;
              
 	
 	}
-	
-	  public Date convertToDateViaInstant(LocalDate dateToConvert) {
-	        return Date.from(dateToConvert.atStartOfDay()
-	                .atZone(ZoneId.systemDefault())
-	                .toInstant());
-	    }
-	  
+
 
 
 	  
