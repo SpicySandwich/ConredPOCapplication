@@ -11,7 +11,6 @@ import java.util.regex.Pattern;
 import com.product.DAO_Hibernate_HQL.HibernateProductDAO;
 import com.product.Entity.Product;
 import com.product.ModelException.DATE_FORMAT_EXCEPTION;
-import com.product.ModelException.JsonException;
 import com.product.ModelException.ProductIDnotFound;
 import com.product.ModelException.ProductValueNotNull;
 
@@ -90,7 +89,7 @@ public void DateValidationError(String string) {
 
 public String DateNotNull(String date) {
 	  
-	    if (date.trim().isEmpty() || date == null) throw new JsonException("Date cannot be empty");
+	    if (date.trim().isEmpty() || date == null) throw new ProductValueNotNull("Date cannot be empty");
 	    
 	    return date;
 	    
@@ -109,7 +108,7 @@ public String DateFormatValidation(String input) {
 	  Pattern pattern = Pattern.compile(DateFormatPattern);
 	  Matcher matcher = pattern.matcher(dString);
 	  
-	  if (!matcher.matches())  throw new JsonException("Date format is invalid. Example format (yyyy-MM-dd) ");
+	  if (!matcher.matches())  throw new DATE_FORMAT_EXCEPTION("Date format is invalid. Example format (yyyy-MM-dd) ");
 	return checkDateIfEqualOrPrevious(dString);
 			 
 	  
@@ -142,7 +141,7 @@ public String DateFormatValidation(String input) {
 
 			    date.getTime();
 			    
-			    if(date.equals(checkdate) ||date.before(checkdate) ) throw new JsonException("Expiration date must ahead or equal to " + localDate3 + ".");
+			    if(date.equals(checkdate) ||date.before(checkdate) ) throw new DATE_FORMAT_EXCEPTION("Expiration date must ahead or equal to " + localDate3 + ".");
 				return stringdate;
 			 
 

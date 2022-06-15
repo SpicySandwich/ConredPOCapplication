@@ -38,28 +38,15 @@ public class Product {
      
 	 @Id
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
-	 @JsonProperty("purchase_item")
 	 private Integer purchase_item;
-	 
-	 @JsonProperty("productname")
       private String productname;
-	 
-	 @JsonProperty("productbrand")
       private String productbrand;
-	 
-	 @JsonProperty("productprice")
       private Double productprice;
-	 
-	 @JsonProperty("productdescription")
       private String productdescription;
-	 
-	 @JsonProperty("productquantity")
       private Integer productquantity;
-    
       @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
       @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING, lenient = OptBoolean.FALSE)
      @JsonDeserialize(using = DateDeserializer.class)
-      @JsonProperty("productexpirationdate")
       private Date productexpirationdate;
       
       

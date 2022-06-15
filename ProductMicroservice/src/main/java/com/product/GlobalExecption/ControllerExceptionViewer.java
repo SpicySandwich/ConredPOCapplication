@@ -5,7 +5,6 @@ import java.time.ZoneOffset;
 
 import com.product.ModelException.DATE_FORMAT_EXCEPTION;
 import com.product.ModelException.ErrorDetail;
-import com.product.ModelException.JsonException;
 import com.product.ModelException.ProductExecption;
 import com.product.ModelException.ProductIDnotFound;
 import com.product.ModelException.ProductInternalError;
@@ -94,12 +93,7 @@ public class ControllerExceptionViewer extends  ResponseEntityExceptionHandler {
 		
 	}
 	
-	@ExceptionHandler(JsonException.class)
-	public ResponseEntity<Object> handleHttpMessageNotReadable(JsonException ex, WebRequest request){
-		return new ResponseEntity<Object>(new ErrorDetail(ex.getMessage(), HttpStatus.EXPECTATION_FAILED, LocalDateTime.now(zoneOffSet)),HttpStatus.EXPECTATION_FAILED);
-		
-	}
-	
+
 
 
 	
