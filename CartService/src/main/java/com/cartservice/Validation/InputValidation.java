@@ -2,6 +2,8 @@ package com.cartservice.Validation;
 
 
 import com.cartservice.ConvertParameters.BodyConvertParametrs;
+import com.cartservice.ModelExceptionGRPC.NOT_NULL_GRPC;
+import com.grpcserver.product.ProductServer.CartErrorCode;
 import com.grpcserver.product.ProductServer.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +21,7 @@ public class InputValidation {
 	    		bofBodyConvertParametrs.convertJavaString(request.getProductname()).trim().isEmpty()
 		    || bofBodyConvertParametrs.convertJavaString(request.getProductbrand()).trim().isEmpty()
 		    || bofBodyConvertParametrs.convertJavaString( request.getProductdescription()).trim().isEmpty()
-		    	) throw new NullPointerException();
+		    	) throw new NOT_NULL_GRPC(CartErrorCode.CART_VALUE_CANNOT_BE_NULL);
 		return request;
 	
 	}

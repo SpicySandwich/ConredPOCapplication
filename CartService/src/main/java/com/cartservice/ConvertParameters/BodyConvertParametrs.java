@@ -22,10 +22,6 @@ public class BodyConvertParametrs {
 	@Autowired
 	private  InputValidation inputValidation;
 	
-
-
-	
-
 	
 	public Integer convertIntfromListProto(List<Int32Value> list) {
 		
@@ -35,7 +31,6 @@ public class BodyConvertParametrs {
 						Int32Value int32Value = list.iterator().next();
 						Integer integer=(Integer)int32Value.getValue();
 						return integers = integer;
-			
 			
 		}
 				

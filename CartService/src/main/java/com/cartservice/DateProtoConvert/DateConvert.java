@@ -5,17 +5,15 @@ import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
 
-import com.cartservice.Validation.InputValidation;
+import com.cartservice.ModelExceptionGRPC.DATE_EXCEPTION_GRPC;
+import com.grpcserver.product.ProductServer.CartErrorCode;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class DateConvert {
 	
-	
-	@Autowired
-	private InputValidation inputValidation;
+
 	
 	public Date getDateFromDateProto(com.google.type.Date date) {
 		
@@ -47,7 +45,7 @@ int expiredmonth= expiredDate.getMonthValue();
 
 		if(    datesswe.equals(checkdate2)  || 
 				datesswe.before(checkdate2)  || 
-				year == 0|| month == 0|| days == 0) throw new NumberFormatException();
+				year == 0|| month == 0|| days == 0) throw new DATE_EXCEPTION_GRPC(CartErrorCode.CART_DATE_ERROR);
    
 		
         return datesswe ;

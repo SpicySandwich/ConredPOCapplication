@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.cartservice.DTO.ProductDTO;
 import com.cartservice.Model.ProductEntity;
+import com.cartservice.ModelExceptionGRPC.ID_NOT_FOUND_GRPC;
 import com.cartservice.Repository.ProductDAO;
+import com.grpcserver.product.ProductServer.CartErrorCode;
 
 @Service
 public class ProductServiceImpl {
@@ -56,7 +58,7 @@ public  boolean deleteDTO(Integer client_guest_id) {
 	return true;
 	}
 public ProductDTO updatebyDTO(ProductEntity  productEntity) {
-	if(productDAO.ifIDExist(productEntity.getPurchase_item()) == false) throw new NullPointerException();
+	if(productDAO.ifIDExist(productEntity.getPurchase_item()) == false) throw new ID_NOT_FOUND_GRPC(CartErrorCode.CART_ID_NOT_FOUND);
 	productDAO.update(productEntity);
 	return convertProductDTOtoProduct(productEntity);
 	
@@ -66,7 +68,7 @@ public boolean chechIdExist(Integer client_guest_id) {
 	if (productDAO.ifIDExist(client_guest_id) == true) {
 		return deleteDTO(client_guest_id);
 	}else {
-		throw new NullPointerException();
+		throw new ID_NOT_FOUND_GRPC( CartErrorCode.CART_ID_NOT_FOUND);
 	}
 
 

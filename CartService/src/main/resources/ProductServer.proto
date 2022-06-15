@@ -57,6 +57,19 @@ message APIResponse{
       int32  responseCode  = 2;
 }
 
+enum CartErrorCode {
+  CART_ID_NOT_FOUND = 0;
+  CART_VALUE_CANNOT_BE_NULL = 1;
+  CART_INTERNAL_ERROR = 2;
+   CART_DATE_ERROR = 3;
+}
+
+message CartExceptionResponse {
+  google.protobuf.Timestamp timestamp = 1;
+  CartErrorCode error_code = 2;
+}
+
+
 
 
 

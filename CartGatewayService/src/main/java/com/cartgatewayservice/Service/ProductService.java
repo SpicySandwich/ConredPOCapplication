@@ -50,15 +50,7 @@ public class ProductService   {
 		return productdto;
 		
 	}	
-	
-    
-	private ProductDTO convertProductDTOtoProduct2 (String  productEntity) {
-		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
-		ProductDTO productdto = new ProductDTO();
-		productdto = modelMapper.map(productEntity, ProductDTO.class);
-		return productdto;
 		
-	}	
     
 	  public ProductService() {
 	        initializeStub();
