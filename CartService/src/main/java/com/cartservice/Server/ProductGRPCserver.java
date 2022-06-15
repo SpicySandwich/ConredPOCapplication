@@ -50,7 +50,7 @@ public class ProductGRPCserver  extends ProductServiceImplBase{
 	@Override
 	public void deleteById(Product request, StreamObserver<APIResponse> responseObserver) {
 
-		productServiceImpl.chechIdExist(bodyConvertParametrs.convertJavaInteger( request.getPurchaseItem()));
+		productServiceImpl.deleteDTO(bodyConvertParametrs.convertJavaInteger( request.getPurchaseItem()));
 		
 		APIResponse.Builder  responce = APIResponse.newBuilder();
 		responce.setResponseCode(0).setResponsemessage("Succesfuly deleted");
@@ -80,7 +80,6 @@ public class ProductGRPCserver  extends ProductServiceImplBase{
 		responseObserver.onCompleted();
 		
 	}
-
 
 
 	@Override

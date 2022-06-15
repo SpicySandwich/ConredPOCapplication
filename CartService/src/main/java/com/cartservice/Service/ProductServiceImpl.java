@@ -54,7 +54,7 @@ public class ProductServiceImpl {
 	}
 	
 public  boolean deleteDTO(Integer client_guest_id) {
-	
+	if(productDAO.ifIDExist(client_guest_id)==false)throw new ID_NOT_FOUND_GRPC( CartErrorCode.CART_ID_NOT_FOUND);
 	productDAO.deleteById(client_guest_id);
 	return true;
 	}
@@ -63,16 +63,6 @@ public ProductDTO updatebyDTO(ProductEntity  productEntity) {
 	productDAO.update(productEntity);
 	return convertProductDTOtoProduct(productEntity);
 	
-}
-public boolean chechIdExist(Integer client_guest_id) {
-
-	if (productDAO.ifIDExist(client_guest_id) == true) {
-		return deleteDTO(client_guest_id);
-	}else {
-		throw new ID_NOT_FOUND_GRPC( CartErrorCode.CART_ID_NOT_FOUND);
-	}
-
-
 }
 
 
