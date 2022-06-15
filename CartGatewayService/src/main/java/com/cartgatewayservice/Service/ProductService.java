@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import com.cartgatewayservice.BodyConvertParameters.ConvertParameters;
 import com.cartgatewayservice.DTO.ProductDTO;
-import com.cartgatewayservice.DateConverter.DateConvert;
 import com.cartgatewayservice.Model.ProductEntity;
 import com.google.protobuf.Int32Value;
 import com.grpcserver.product.ProductServer.APIResponse;
@@ -24,8 +23,6 @@ import io.grpc.ManagedChannelBuilder;
 @Service
 public class ProductService   {
 	
-	@Autowired
-	private DateConvert dateConvert;
 	
 	@Autowired
 	private ConvertParameters convertParameters;
@@ -46,7 +43,16 @@ public class ProductService   {
     
     @Autowired
 	private ModelMapper modelMapper;
-	private ProductDTO convertProductDTOtoProduct (String  productEntity) {
+	private ProductDTO convertProductDTOtoProduct (ProductEntity  productEntity) {
+		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
+		ProductDTO productdto = new ProductDTO();
+		productdto = modelMapper.map(productEntity, ProductDTO.class);
+		return productdto;
+		
+	}	
+	
+    
+	private ProductDTO convertProductDTOtoProduct2 (String  productEntity) {
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
 		ProductDTO productdto = new ProductDTO();
 		productdto = modelMapper.map(productEntity, ProductDTO.class);
@@ -59,53 +65,59 @@ public class ProductService   {
 	    }
 	  
 	
-	public ProductEntity inserdata(ProductEntity product) {
-	APIResponse response = productServiceBlockingStub.insert( convertParameters.InsertbodyData(product));
+	public ProductDTO inserdata(ProductEntity product) {
+		
+		ProductDTO productDTO = convertProductDTOtoProduct(product);
+	APIResponse response = productServiceBlockingStub.insert( convertParameters.InsertbodyData(productDTO));
 	convertParameters.convertStringValue(product.getProductname());	
 	 response.getResponsemessage();
 	
-	 return product;
+	 return productDTO;
 	}
 	
 
 	
-	public ProductEntity findbyid(Integer purchase_item){
+	public ProductDTO findbyid(Integer purchase_item){
 		Product product = productServiceBlockingStub.findById(Int32Value.of(purchase_item));
-		return convertParameters.FindbodyData(product);
+		ProductEntity  productEntity =  convertParameters.FindbodyData(product);
+		ProductDTO productDTO = convertProductDTOtoProduct(productEntity);
+	return productDTO;
 		
 	}
 	
 	public void  deletedata(Integer client_guest_id) {
 		ProductEntity productEntity = new ProductEntity();
-		productEntity.setPurchase_item(client_guest_id);
+		ProductDTO productDTO = convertProductDTOtoProduct(productEntity );
+		productDTO.setPurchase_item(client_guest_id);
 		APIResponse response = productServiceBlockingStub.deleteById(Product.newBuilder()
-				.setPurchaseItem(convertParameters.convertToint32value(productEntity.getPurchase_item()) )
+				.setPurchaseItem(convertParameters.convertToint32value(productDTO .getPurchase_item()) )
 				.build()
 				);
-	convertProductDTOtoProduct(response.getResponsemessage());
+	response.getResponsemessage();
 	
 }
 	
-	public String updatedata(ProductEntity product) {
-		APIResponse response = productServiceBlockingStub.update( convertParameters.updatebodyData(product));
-	return response.getResponsemessage();
-			
+	public ProductDTO updatedata(ProductEntity product) {
+		ProductDTO productDTO = convertProductDTOtoProduct(product);
+		APIResponse response = productServiceBlockingStub.update( convertParameters.updatebodyData(productDTO));
+	 response.getResponsemessage();
+	 return productDTO;
 	
 	}
 
-public List<ProductEntity> list(){
+public List<ProductDTO> list(){
 
 	 Product pBuilder = Product.newBuilder().build();
 	ProductList productList =	productServiceBlockingStub.findAllRepeated(pBuilder);
 	 List<Product> products2 = productList.getProductList();
  
-	 List<ProductEntity> list = new ArrayList<>();
+	 List<ProductDTO> list = new ArrayList<>();
 		for (Iterator iterator = products2.iterator(); iterator.hasNext();) {
 			Product product = (Product) iterator.next();
 			
 			 ProductEntity productEntity2 = convertParameters.forList(product);
-				
-			 list.add(productEntity2);
+			 ProductDTO productDTO = convertProductDTOtoProduct(productEntity2);
+			 list.add(productDTO);
 			 	
 		}
 		

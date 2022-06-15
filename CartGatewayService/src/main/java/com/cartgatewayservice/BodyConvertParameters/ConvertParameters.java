@@ -1,6 +1,7 @@
 package com.cartgatewayservice.BodyConvertParameters;
 
 
+import com.cartgatewayservice.DTO.ProductDTO;
 import com.cartgatewayservice.DateConverter.DateConvert;
 import com.cartgatewayservice.Model.ProductEntity;
 import com.cartgatewayservice.Validation.ApiUserValidation;
@@ -21,8 +22,7 @@ public class ConvertParameters {
 	@Autowired
 	private ApiUserValidation apiUserValidation;
 	
-	
-	
+
 	public ProductEntity forList (Product request){
 	 ProductEntity productEntity2 = (ProductEntity.builder()
 	  			.purchase_item(convertJavaInteger(request.getPurchaseItem()) )
@@ -39,54 +39,38 @@ public class ConvertParameters {
 	return productEntity2;
 	}	
 	
-	public ProductEntity bodyDataReturn(ProductEntity productEntity ) {
-		
-		Product.Builder request = Product.newBuilder();
-		
-		productEntity = new  ProductEntity(
-		convertJavaInteger(request.getPurchaseItem()),
-		convertJavaString(request.getProductname()),
-		convertJavaString(request.getProductbrand()),
-		convertJavaDouble(request.getProductprice()),
-		convertJavaString(request.getProductdescription()),
-		convertJavaInteger(request.getProductquantity()),
-		dateConvert.getDateFromDateProto(request.getProductexpirationdate())
-				);
-		return productEntity;
-	}
-	
-	public Product updatebodyData(ProductEntity product) {
+
+	public Product updatebodyData(ProductDTO productDTO) {
 		
 		Product product2 =	Product.newBuilder()
-			.setPurchaseItem(convertToint32value(product.getPurchase_item()))
-			.setProductname(convertStringValue(product.getProductname()))
-			.setProductbrand(convertStringValue(product.getProductbrand()))
-			.setProductprice(convertDoubleValue(product.getProductprice()))
-			.setProductdescription(convertStringValue(product.getProductdescription()))
-			.setProductquantity(convertToint32value(product.getProductquantity()))
-		.setProductexpirationdate(  dateConvert.getDateFromDateProtoForUpdate(product.getProductexpirationdate()))
+			.setPurchaseItem(convertToint32value(productDTO.getPurchase_item()))
+			.setProductname(convertStringValue(productDTO.getProductname()))
+			.setProductbrand(convertStringValue(productDTO.getProductbrand()))
+			.setProductprice(convertDoubleValue(productDTO.getProductprice()))
+			.setProductdescription(convertStringValue(productDTO.getProductdescription()))
+			.setProductquantity(convertToint32value(productDTO.getProductquantity()))
+		.setProductexpirationdate(  dateConvert.getDateFromDateProtoForUpdate(productDTO.getProductexpirationdate()))
 			.build();
 
 		return product2;
 			
 
 			}
-public Product InsertbodyData(ProductEntity product) {
-	Product product2;
+public Product InsertbodyData(ProductDTO productDTO) {
 	
-	ProductEntity product3 = apiUserValidation.ProductnotNull(product);
-
+	ProductDTO productDTO2 =    apiUserValidation.ProductnotNull(productDTO );
 	
+Product product2;
  product2 =	Product.newBuilder()
-	.setProductname(convertStringValue(product3.getProductname()))
-	.setProductbrand(convertStringValue(product3.getProductbrand()))
-	.setProductprice(convertDoubleValue(product3.getProductprice()))
-	.setProductdescription(convertStringValue(product3.getProductdescription()))
-	.setProductquantity(convertToint32value(product3.getProductquantity()))
-.setProductexpirationdate(  dateConvert.getDateFromDateProtoInsert(product3.getProductexpirationdate()))
+	.setProductname(convertStringValue(productDTO2.getProductname()))
+	.setProductbrand(convertStringValue(productDTO2.getProductbrand()))
+	.setProductprice(convertDoubleValue(productDTO2.getProductprice()))
+	.setProductdescription(convertStringValue(productDTO2.getProductdescription()))
+	.setProductquantity(convertToint32value(productDTO2.getProductquantity()))
+.setProductexpirationdate(  dateConvert.getDateFromDateProtoInsert(productDTO2.getProductexpirationdate()))
 	.build();
  
-
+ 
  
 return product2;
 	

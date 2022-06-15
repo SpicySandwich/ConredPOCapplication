@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cartgatewayservice.DTO.ProductDTO;
 import com.cartgatewayservice.Model.ProductEntity;
 import com.cartgatewayservice.Service.ProductService;
 
@@ -33,7 +34,7 @@ public class ProductController {
 	
 	
 	 @GetMapping
-     public List<ProductEntity> GetProductList( ){
+     public List<ProductDTO> GetProductList( ){
 		 
            return productService.list();
       
@@ -41,15 +42,14 @@ public class ProductController {
   	 }
 
     @PostMapping
-    public ProductEntity addProduct( @RequestBody ProductEntity productEntity) {
-    
-    	productService.inserdata(productEntity);
-    	return productEntity;
+    public ProductDTO addProduct( @RequestBody ProductEntity productEntity) {
+    	ProductDTO productDTO = productService.inserdata(productEntity);
+    	return productDTO;
         
     }
     
     @DeleteMapping("/{purchase_item}")
-    public void DeleteProduct(@PathVariable Integer purchase_item, @RequestBody ProductEntity productEntity) {
+    public void DeleteProduct(@PathVariable Integer purchase_item, @RequestBody ProductDTO productEntity) {
     	productService.deletedata(purchase_item);
 
    
@@ -57,21 +57,20 @@ public class ProductController {
     }
     
     @GetMapping("/{purchase_item}")
-	 public ProductEntity  getGuestClientData(@PathVariable Integer purchase_item) {
-    	
-    	return productService.findbyid(purchase_item);
+	 public ProductDTO  getProductData(@PathVariable Integer purchase_item) {
+    	ProductDTO productDTO = productService.findbyid(purchase_item);
+    	 return productDTO;
        
 	 
 }
     
     @PutMapping
-    public void updateProduct(@RequestBody ProductEntity productEntity){
-    	productService.updatedata(productEntity);
+    public ProductDTO updateProduct(@RequestBody ProductEntity productEntity){
+    	ProductDTO productDTO = productService.updatedata(productEntity);
+    	return productDTO;
 	
       
     }
 	
-
-
 
 }

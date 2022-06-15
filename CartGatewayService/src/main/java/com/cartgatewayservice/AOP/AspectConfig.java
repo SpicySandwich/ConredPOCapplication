@@ -43,7 +43,7 @@ public class AspectConfig {
 			log.error("Error result: {}",e.getMessage());
 			throw new ID_NOT_FOUND(e.getMessage());
 			
-		}catch (Exception e) {
+		}catch (Throwable e) {
 		log.error("Error result: {}",e.getMessage());
 		throw new INTERNAL_ERROR(e.getMessage());
 				

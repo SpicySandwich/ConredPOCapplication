@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.cartgatewayservice.DTO.ProductDTO;
 import com.cartgatewayservice.Model.ProductEntity;
 import com.cartgatewayservice.RestModelException.DATE_FORMAT_EXCEPTION;
 import com.cartgatewayservice.RestModelException.NOT_NULL_EXCEPTION;
@@ -17,7 +18,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class ApiUserValidation {
 	
-	public ProductEntity ProductnotNull(ProductEntity product) {
+	
+	
+	public ProductDTO ProductnotNull(ProductDTO product) {
 		
 
 		

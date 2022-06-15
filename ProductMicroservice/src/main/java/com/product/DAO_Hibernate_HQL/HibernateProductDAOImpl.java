@@ -1,6 +1,7 @@
 package com.product.DAO_Hibernate_HQL;
 
 
+import java.io.Serializable;
 import java.util.List;
 
 
@@ -125,47 +126,33 @@ public class HibernateProductDAOImpl  implements HibernateProductDAO{
 	
 	}
 	
+
 	@Override
 	public Product save(Product product) {
-		
 		Transaction transaction = null;
+		Product product2 = new Product();
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+			// start a transaction
 			transaction = session.beginTransaction();
 			
-             session.save(product);
-
+			// operation 1
+			Object object = session.save(product);
+			
+			// operation 2
+			 product2 = session.get(Product.class, (Serializable) object);
+			// commit transaction
 			transaction.commit();
+	
 		} catch (Exception e) {
 			if (transaction != null) {
 				transaction.rollback();
 			}
-			e.printStackTrace();
+			 throw new ProductInternalError(e.getMessage());
 		}
-		return product;
+		return product2;
 	}
 	
-//	@Override
-//	public Product save(Product product) {
-//		Transaction transaction = null;
-//        try (Session session = HibernateUtil.getSessionFactory().getCurrentSession()) {
-//            // start a transaction
-//            transaction = session.beginTransaction();
-//
-//            String hql ="INSERT INTO Product  (purchase_item, productname, productbrand, productprice, productdescription, productquantity, productexpirationdate) " +
-//                    "SELECT  purchase_item, productname, productbrand, productprice, productdescription, productquantity, productexpirationdate FROM BackupProduct";
-//            Query query = session.createQuery(hql);
-//          query.executeUpdate();
-//
-//
-//            transaction.commit();
-//        } catch (Exception e) {
-//
-//            e.printStackTrace();
-//        }
-//
-//        return product;
-//    }
-	
+
 
 
 }
