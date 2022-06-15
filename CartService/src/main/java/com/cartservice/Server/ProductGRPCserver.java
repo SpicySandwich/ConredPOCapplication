@@ -9,9 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.cartservice.ConvertParameters.BodyConvertParametrs;
 import com.cartservice.DTO.ProductDTO;
-
+import com.cartservice.Interceptor.GrpcInterceptor;
 import com.cartservice.Service.ProductServiceImpl;
-import com.cartservice.Validation.InputValidation;
 import com.google.protobuf.Int32Value;
 import com.google.protobuf.Int64Value;
 import com.grpcserver.product.ProductServer.APIResponse;
@@ -22,7 +21,7 @@ import com.grpcserver.product.ProductServiceGrpc.ProductServiceImplBase;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
 
-@GrpcService
+@GrpcService(interceptors = {GrpcInterceptor.class})
 public class ProductGRPCserver  extends ProductServiceImplBase{
 	
 	@Autowired
@@ -31,8 +30,6 @@ public class ProductGRPCserver  extends ProductServiceImplBase{
 	@Autowired
 	private BodyConvertParametrs  bodyConvertParametrs;
 	
-	@Autowired
-	private InputValidation inputValidation;
 
 	@Override
 	public void insert(Product request, StreamObserver<APIResponse> responseObserver) {

@@ -48,6 +48,7 @@ public class ProductServiceImpl {
 	
 	public ProductDTO getDataByDTO(Integer client_guest_id) {
 		
+	if(	productDAO.ifIDExist(client_guest_id) == false)throw new ID_NOT_FOUND_GRPC( CartErrorCode.CART_ID_NOT_FOUND);
 		return convertProductDTOtoProduct(productDAO.findById(client_guest_id));
 		
 	}
