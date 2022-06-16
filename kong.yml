@@ -3,6 +3,22 @@ _transform: true
 
 services:
 
+
+
+
+#  ------ Swagger host -------
+# - host: host.docker.internal
+#   port: 8099
+#   name: swagger-service
+#   path: /swagger-ui/index.html
+#   routes:
+#   - name: swagger-service
+#     paths: 
+#     - ["/kongswagger"]
+    
+#     strip_path: true
+
+
 #  ------ Actuator host -------
 
 - host: host.docker.internal
@@ -11,6 +27,8 @@ services:
   path: /actuator
   routes:
   - name: health-service
+    methods:
+    - GET
     paths:
     - /health
     strip_path: true
@@ -25,6 +43,8 @@ services:
   path: /product/add
   routes:
   - name: product-add-service
+    methods:
+    - POST
     paths:
     - /product/add
     strip_path: true
@@ -37,6 +57,8 @@ services:
   path: /product/delete
   routes:
   - name: product-delete-service
+    methods:
+    - DELETE
     paths:
     - /product/delete
     strip_path: true
@@ -49,6 +71,8 @@ services:
   path: /product/update
   routes:
   - name: product-update-service
+    methods:
+    - PUT
     paths:
     - /product/update
     strip_path: true
@@ -61,6 +85,8 @@ services:
   path: /product/find
   routes:
   - name: product-find-service
+    methods:
+    - GET
     paths:
     - /product/find
     strip_path: true
@@ -73,6 +99,8 @@ services:
   path: /product/list
   routes:
   - name: product-list-service
+    methods:
+    - GET
     paths:
     - /product/list
     strip_path: true
@@ -87,6 +115,8 @@ services:
   path: /cart/list
   routes:
   - name: cart-product-list-service
+    methods:
+    - GET
     paths:
     - /cart/list
     strip_path: true
@@ -100,6 +130,8 @@ services:
   path: /cart/add
   routes:
   - name: cart-product-add-service
+    methods:
+    - POST
     paths:
     - /cart/add
     strip_path: true
@@ -113,6 +145,8 @@ services:
   path: /cart/delete
   routes:
   - name: cart-product-delete-service
+    methods:
+    - DELETE
     paths:
     - /cart/delete
     strip_path: true
@@ -126,6 +160,8 @@ services:
   path: /cart/find
   routes:
   - name: cart-product-findbyId-service
+    methods:
+    - GET
     paths:
     - /cart/find
     strip_path: true
@@ -139,6 +175,8 @@ services:
   path: /cart/update
   routes:
   - name: cart-product-update-service
+    methods:
+    - PUT
     paths:
     - /cart/update
     strip_path: true
