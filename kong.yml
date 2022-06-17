@@ -9,10 +9,10 @@ services:
 #   name: swagger-service
 #   path: /swagger-ui/index.html
 #   routes:
-#   - name: swagger-service
-#     paths: 
-#     - ["/kongswagger"]
-    
+#     plugins:
+#     - name: swagger-service
+#       config: 
+#         url: /titans/api
 #     strip_path: true
 
 

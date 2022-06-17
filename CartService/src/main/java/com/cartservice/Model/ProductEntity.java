@@ -4,9 +4,11 @@ package com.cartservice.Model;
 import java.util.Calendar;
 import java.util.Date;
 
+import com.cartservice.ModelExceptionGRPC.NOT_NULL_GRPC;
 import com.google.protobuf.DoubleValue;
 import com.google.protobuf.Int32Value;
 import com.google.protobuf.StringValue;
+import com.grpcserver.product.ProductServer.CartErrorCode;
 import com.grpcserver.product.ProductServer.Product;
 
 
@@ -28,12 +30,6 @@ public class ProductEntity {
     private Integer productquantity;
     private Date  productexpirationdate;
 
-    
-    
-    
-    
-    
-   
 
     public Product toProduct(){
 
@@ -45,34 +41,19 @@ public class ProductEntity {
     			.setProductdescription(convertStringValue(getProductdescription()))
     			.setProductquantity(convertToint32value(getProductquantity()))
     			.setProductexpirationdate(getDateFromDateProto(getProductexpirationdate()))
-    	//		.setClientguestPurchaseItemId(convertToint32value(getClientguest_purchase_item_id()))
     			.build();
     }
     
     public DoubleValue convertDoubleValue(Double double1) {
-
-
     	return DoubleValue.of(double1);
     }
     
     public StringValue convertStringValue(String string) {
-    	
-    	
-    	if (string == null) {
-    		
-    		throw new NullPointerException();
-		}
-
     	return StringValue.of(string);
     	
     }
    
     public Int32Value convertToint32value(Integer integer) {
-
-	if ( integer == null) {
-    		
-    		throw new NullPointerException();
-		}
 		return Int32Value.of(integer);
     	
     }

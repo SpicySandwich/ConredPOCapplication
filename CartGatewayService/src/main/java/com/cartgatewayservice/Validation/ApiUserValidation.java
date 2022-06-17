@@ -76,7 +76,7 @@ public class ApiUserValidation {
 		  Pattern pattern = Pattern.compile(DateFormatPattern);
 		  Matcher matcher = pattern.matcher(dString);
 		  
-		  if (!matcher.matches())  throw new DATE_FORMAT_EXCEPTION("Date format is invalid. Example format (yyyy-MM-dd) ");
+		  if (!matcher.matches())  throw new DATE_FORMAT_EXCEPTION("Date format is invalid. Example format (yyyy-MM-dd)");
 		return checkDateIfEqualOrPrevious(dString);
 				 
 		  

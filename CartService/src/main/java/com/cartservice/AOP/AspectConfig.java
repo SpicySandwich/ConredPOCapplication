@@ -28,19 +28,19 @@ public class AspectConfig {
 			result = point.proceed();	
 		} catch (DATE_EXCEPTION_GRPC e) {
 			log.error("Error result: {}",e.getMessage());
-			throw new DATE_EXCEPTION_GRPC(CartErrorCode.CART_DATE_ERROR);
+			throw new DATE_EXCEPTION_GRPC(CartErrorCode.CART_DATE_ERROR, e.getMessage());
 			
 		}catch (ID_NOT_FOUND_GRPC e) {
 			log.error("Error result: {}",e.getMessage());
-			throw new ID_NOT_FOUND_GRPC(CartErrorCode.CART_ID_NOT_FOUND);
+			throw new ID_NOT_FOUND_GRPC(CartErrorCode.CART_ID_NOT_FOUND, e.getMessage());
 			
 		}catch (NOT_NULL_GRPC e) {
 			log.error("Error result: {}",e.getMessage());
-			throw new NOT_NULL_GRPC(CartErrorCode.CART_VALUE_CANNOT_BE_NULL);
+			throw new NOT_NULL_GRPC(CartErrorCode.CART_VALUE_CANNOT_BE_NULL, e.getMessage());
 			
 		}catch (Throwable e) {
 		log.error("Error result: {}",e.getMessage());
-		throw new INTERNAL_ERROR_GRPC(CartErrorCode.CART_INTERNAL_ERROR);
+		throw new INTERNAL_ERROR_GRPC(CartErrorCode.CART_INTERNAL_ERROR, e.getMessage());
 				
 			}
 

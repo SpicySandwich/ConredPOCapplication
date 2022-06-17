@@ -37,7 +37,7 @@ public class ExceptionHandler {
         	
         	Status status  = Status.newBuilder()
         			.setCode(Code.NOT_FOUND.getNumber())
-        			.setMessage("Date must a head for 2 month with ahead of current day")
+        			.setMessage("Date Error: "+ cause.getMessage())
         			.addDetails(Any.pack(cartExceptionResponse))
         			.build();
         
@@ -65,7 +65,7 @@ public class ExceptionHandler {
         	
         	Status status  = Status.newBuilder()
         			.setCode(Code.DATA_LOSS .getNumber())
-        			.setMessage("Cart ID not Found")
+        			.setMessage(" Not Found "+ cause.getMessage())
         			.addDetails(Any.pack(clientGuestExceptionResponse ))
         			.build();
         
@@ -92,7 +92,7 @@ public class ExceptionHandler {
         	
         	Status status  = Status.newBuilder()
         			.setCode(Code.DATA_LOSS.getNumber())
-        			.setMessage("Please Fill up all the Details/Must not contain null value")
+        			.setMessage("Fill up Error: "+cause.getMessage())
         			.addDetails(Any.pack(clientGuestExceptionResponse ))
         			.build();
         
@@ -117,7 +117,7 @@ public class ExceptionHandler {
         	
         	Status status  = Status.newBuilder()
         			.setCode(Code.INTERNAL.getNumber())
-        			.setMessage("Kindly contact IT if error persist")
+        			.setMessage("Internal Error: "+cause.getMessage())
         			.addDetails(Any.pack(clientGuestExceptionResponse ))
         			.build();
         
