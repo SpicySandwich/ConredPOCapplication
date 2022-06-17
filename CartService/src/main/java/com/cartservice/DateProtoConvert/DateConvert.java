@@ -1,6 +1,7 @@
 package com.cartservice.DateProtoConvert;
 
-
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -19,20 +20,23 @@ public class DateConvert {
 	public Date getDateFromDateProto(com.google.type.Date date) {
 
         Integer year = date.getYear();
-		Integer month = date.getMonth() -1;
+		Integer month = date.getMonth();
 		Integer days = date.getDay();
 		
-		Calendar calendar = Calendar.getInstance();
-		calendar.clear();
-		calendar.set(Calendar.YEAR, year);
-		calendar.set(Calendar.MONTH, month);
-		calendar.set(Calendar.DATE, days);
 		
-		Date datesswe = inputValidation.DateFormatValidation(calendar.getTime());
+		LocalDate invLocDat = LocalDate.of(year, month,days);
 		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		String formattedString = invLocDat.format(formatter);
 		
+		Date date3 = inputValidation.DateFormatValidation(formattedString );
+		
+		 Calendar cal = Calendar.getInstance();
+		  cal.setTime(date3);
 	
-        return datesswe ;
+	
+		  Date date4 = cal.getTime();
+        return date4;
     }
 	
 	public static com.google.type.Date getDateFromDateProtoEntity(Date date) {

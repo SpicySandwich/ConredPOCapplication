@@ -46,13 +46,8 @@ public class InputValidation {
 
 	}
 
-	public Date DateFormatValidation(Date date) {
+	public Date DateFormatValidation(String dateString) {
 		
-		DateTimeFormatter localDateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-
-		LocalDate validateFormat = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-		String dateString = validateFormat.format(localDateFormatter);
-
 
 		ZoneId defaultZoneId = ZoneId.systemDefault();
 		  String DateFormatPattern = 
@@ -66,7 +61,8 @@ public class InputValidation {
 		  Matcher matcher = pattern.matcher(dateString);
 		  
 		  if (!matcher.matches())  throw new DATE_EXCEPTION_GRPC(CartErrorCode.CART_DATE_ERROR,"Date format is invalid. Example format (yyyy-MM-dd)");
-		  
+		 
+		  DateTimeFormatter localDateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		  LocalDate local_date = LocalDate.parse(dateString, localDateFormatter);
 		  
 		  Date checkdate = Date.from(local_date .atStartOfDay(defaultZoneId).toInstant());
@@ -90,6 +86,7 @@ public class InputValidation {
 		
 		if(    date.equals(checkdate2)  || 
 				date.before(checkdate2)) throw new DATE_EXCEPTION_GRPC(CartErrorCode.CART_DATE_ERROR,"Date must a head for 2 month with ahead of current day");
+		
 		
 		return date;
    
