@@ -2,11 +2,10 @@ package com.cartservice.Validation;
 
 
 import java.time.LocalDate;
+import java.time.YearMonth;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import com.cartservice.ConvertParameters.BodyConvertParametrs;
 import com.cartservice.ModelExceptionGRPC.DATE_EXCEPTION_GRPC;
@@ -45,26 +44,21 @@ public class InputValidation {
 		return valid;
 
 	}
-	
-	
-	
 
-	public Date DateFormatValidation(String dateString) {
-		
-		  if (!dateString.matches( "(\\d{4})-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])"))  throw new DATE_EXCEPTION_GRPC(CartErrorCode.CART_DATE_ERROR,"Date format is invalid. Example format (yyyy-MM-dd)");
-		 
-		return checkdateFuture(dateString);
-				 
-		  
-	}
 	
-	
-	
-	public Date  checkdateFuture(String dateString) {
+	public Date  checkdateFuture(String dateString){
 		ZoneId defaultZoneId = ZoneId.systemDefault();
 		DateTimeFormatter localDateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+//		---------	
+		 YearMonth yearMonth = YearMonth.parse(dateString, localDateFormatter);
+		 LocalDate dateCheckday = yearMonth.atEndOfMonth(); 
+		 Integer checkDay =  dateCheckday.getDayOfMonth();
+	//		---------	 
 		  LocalDate local_date = LocalDate.parse(dateString, localDateFormatter);
 		  
+		Integer daysinput  =local_date.getDayOfMonth();
+		if ( daysinput > checkDay) {throw new DATE_EXCEPTION_GRPC(CartErrorCode.CART_DATE_ERROR,"Day cant exceed to "+ checkDay);}
+		
 		  Date checkdate = Date.from(local_date .atStartOfDay(defaultZoneId).toInstant());
 		
 		LocalDate currentdate = LocalDate.now();
@@ -80,17 +74,24 @@ public class InputValidation {
 		
 		if(    checkdate .equals(checkdate2)  || 
 				checkdate .before(checkdate2)) throw new DATE_EXCEPTION_GRPC(CartErrorCode.CART_DATE_ERROR,"Date must a head for 2 month with ahead of current day: " + localDate2);
-		
+
 		return checkdate ;
    
 	}
 	
-	public Integer dateNotNull(Integer integer) {
-		if (integer == null || integer == 0)throw new DATE_EXCEPTION_GRPC(CartErrorCode.CART_DATE_ERROR,"Date cannot be empty");
+	public Integer DateNotNull(Integer integer) {
+		if (integer == null || integer <= 0 )throw new DATE_EXCEPTION_GRPC(CartErrorCode.CART_DATE_ERROR,"Date cannot be empty");
 		return integer;
 		
-		
 	}
+	public Integer DateMonthExceed(Integer integer) {
+		
+		if(integer >=13)throw new DATE_EXCEPTION_GRPC(CartErrorCode.CART_DATE_ERROR,"Month cant exceed at 13");
+		return DateNotNull(integer);
+			
+	}
+	
+
 	
 
 }
