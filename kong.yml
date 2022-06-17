@@ -3,9 +3,6 @@ _transform: true
 
 services:
 
-
-
-
 #  ------ Swagger host -------
 # - host: host.docker.internal
 #   port: 8099
@@ -29,6 +26,8 @@ services:
   - name: health-service
     methods:
     - GET
+    plugins:
+    - name: basic-auth
     paths:
     - /health
     strip_path: true
@@ -45,6 +44,8 @@ services:
   - name: product-add-service
     methods:
     - POST
+    plugins:
+    - name: basic-auth
     paths:
     - /product/add
     strip_path: true
@@ -59,6 +60,8 @@ services:
   - name: product-delete-service
     methods:
     - DELETE
+    plugins:
+    - name: basic-auth
     paths:
     - /product/delete
     strip_path: true
@@ -73,6 +76,8 @@ services:
   - name: product-update-service
     methods:
     - PUT
+    plugins:
+    - name: basic-auth
     paths:
     - /product/update
     strip_path: true
@@ -87,6 +92,8 @@ services:
   - name: product-find-service
     methods:
     - GET
+    plugins:
+    - name: basic-auth
     paths:
     - /product/find
     strip_path: true
@@ -101,6 +108,8 @@ services:
   - name: product-list-service
     methods:
     - GET
+    plugins:
+    - name: basic-auth
     paths:
     - /product/list
     strip_path: true
@@ -117,6 +126,8 @@ services:
   - name: cart-product-list-service
     methods:
     - GET
+    plugins:
+    - name: basic-auth
     paths:
     - /cart/list
     strip_path: true
@@ -132,6 +143,8 @@ services:
   - name: cart-product-add-service
     methods:
     - POST
+    plugins:
+    - name: basic-auth
     paths:
     - /cart/add
     strip_path: true
@@ -147,6 +160,8 @@ services:
   - name: cart-product-delete-service
     methods:
     - DELETE
+    plugins:
+    - name: basic-auth
     paths:
     - /cart/delete
     strip_path: true
@@ -162,6 +177,8 @@ services:
   - name: cart-product-findbyId-service
     methods:
     - GET
+    plugins:
+    - name: basic-auth
     paths:
     - /cart/find
     strip_path: true
@@ -177,8 +194,17 @@ services:
   - name: cart-product-update-service
     methods:
     - PUT
+    plugins:
+    - name: basic-auth
     paths:
     - /cart/update
     strip_path: true
+
+
+consumers:
+- username: POCproject
+  basicauth_credentials:
+  - username: conred
+    password: conred1234
 
    
