@@ -23,20 +23,16 @@ public class DateConvert {
 		Integer month = date.getMonth();
 		Integer days = date.getDay();
 		
+		String stringdate =String.valueOf(
+				inputValidation.dateNotNull(year)
+				+"-"+inputValidation.dateNotNull(month)
+				+"-"+inputValidation.dateNotNull(days));
 		
-		LocalDate invLocDat = LocalDate.of(year, month,days);
-		
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-		String formattedString = invLocDat.format(formatter);
-		
-		Date date3 = inputValidation.DateFormatValidation(formattedString );
+		Date date3 = inputValidation.DateFormatValidation(stringdate);
 		
 		 Calendar cal = Calendar.getInstance();
 		  cal.setTime(date3);
-	
-	
-		  Date date4 = cal.getTime();
-        return date4;
+        return cal.getTime();
     }
 	
 	public static com.google.type.Date getDateFromDateProtoEntity(Date date) {

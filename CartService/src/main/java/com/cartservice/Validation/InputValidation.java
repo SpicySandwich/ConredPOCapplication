@@ -45,33 +45,27 @@ public class InputValidation {
 		return valid;
 
 	}
+	
+	
+	
 
 	public Date DateFormatValidation(String dateString) {
 		
-
-		ZoneId defaultZoneId = ZoneId.systemDefault();
-		  String DateFormatPattern = 
-				  "([20]{2}[0-9]{2})"+
-	  		    		"([-]{1})" +
-	  		    		 "([0]{1}[1-9]{1}|[1]{1}[0-2]{1}|[1-9]{1})"+
-	  		    		"([-]{1})" +
-	  		    		"([1-9]{1}|[0]{1}[1-9]{1}|[1]{1}[0-9]{1}|[2]{1}[0-9]{1}|[3]{1}[0-1]{1})" ;
-		  
-		  Pattern pattern = Pattern.compile(DateFormatPattern);
-		  Matcher matcher = pattern.matcher(dateString);
-		  
-		  if (!matcher.matches())  throw new DATE_EXCEPTION_GRPC(CartErrorCode.CART_DATE_ERROR,"Date format is invalid. Example format (yyyy-MM-dd)");
+		  if (!dateString.matches( "(\\d{4})-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])"))  throw new DATE_EXCEPTION_GRPC(CartErrorCode.CART_DATE_ERROR,"Date format is invalid. Example format (yyyy-MM-dd)");
 		 
-		  DateTimeFormatter localDateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-		  LocalDate local_date = LocalDate.parse(dateString, localDateFormatter);
-		  
-		  Date checkdate = Date.from(local_date .atStartOfDay(defaultZoneId).toInstant());
-		return checkdateFuture(checkdate);
+		return checkdateFuture(dateString);
 				 
 		  
 	}
 	
-	public Date  checkdateFuture(Date date) {
+	
+	
+	public Date  checkdateFuture(String dateString) {
+		ZoneId defaultZoneId = ZoneId.systemDefault();
+		DateTimeFormatter localDateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		  LocalDate local_date = LocalDate.parse(dateString, localDateFormatter);
+		  
+		  Date checkdate = Date.from(local_date .atStartOfDay(defaultZoneId).toInstant());
 		
 		LocalDate currentdate = LocalDate.now();
 
@@ -80,20 +74,23 @@ public class InputValidation {
 		int expiredyear = expiredDate.getYear();
 		int expiredmonth= expiredDate.getMonthValue();
 		
-		ZoneId defaultZoneId = ZoneId.systemDefault();
+	
 		LocalDate localDate2 =LocalDate.of(expiredyear,expiredmonth,expiredday );
 		Date checkdate2 = Date.from(localDate2 .atStartOfDay(defaultZoneId).toInstant());
 		
-		if(    date.equals(checkdate2)  || 
-				date.before(checkdate2)) throw new DATE_EXCEPTION_GRPC(CartErrorCode.CART_DATE_ERROR,"Date must a head for 2 month with ahead of current day");
+		if(    checkdate .equals(checkdate2)  || 
+				checkdate .before(checkdate2)) throw new DATE_EXCEPTION_GRPC(CartErrorCode.CART_DATE_ERROR,"Date must a head for 2 month with ahead of current day: " + localDate2);
 		
-		
-		return date;
+		return checkdate ;
    
 	}
 	
-	
-
+	public Integer dateNotNull(Integer integer) {
+		if (integer == null || integer == 0)throw new DATE_EXCEPTION_GRPC(CartErrorCode.CART_DATE_ERROR,"Date cannot be empty");
+		return integer;
+		
+		
+	}
 	
 
 }
