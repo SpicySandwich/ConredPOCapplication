@@ -53,10 +53,11 @@ public class ProductServiceImpl {
 		
 	}
 	
-public  boolean deleteDTO(Integer client_guest_id) {
+public int deleteDTO(Integer client_guest_id) {
 	if(productDAO.ifIDExist(client_guest_id)==false)throw new ID_NOT_FOUND_GRPC( CartErrorCode.CART_ID_NOT_FOUND,"ID: " +client_guest_id +" for delete");
-	productDAO.deleteById(client_guest_id);
-	return true;
+	return productDAO.deleteById(client_guest_id);
+
+
 	}
 public ProductDTO updatebyDTO(ProductEntity  productEntity) {
 	if(productDAO.ifIDExist(productEntity.getPurchase_item()) == false) throw new ID_NOT_FOUND_GRPC(CartErrorCode.CART_ID_NOT_FOUND,"ID: " +productEntity.getPurchase_item() +" to update");

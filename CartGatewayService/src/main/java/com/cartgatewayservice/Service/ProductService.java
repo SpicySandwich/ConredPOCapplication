@@ -60,10 +60,7 @@ public class ProductService   {
 	public ProductDTO inserdata(ProductEntity product) {
 		
 		ProductDTO productDTO = convertProductDTOtoProduct(product);
-	APIResponse response = productServiceBlockingStub.insert( convertParameters.InsertbodyData(productDTO));
-	convertParameters.convertStringValue(product.getProductname());	
-	 response.getResponsemessage();
-	
+	productServiceBlockingStub.insert( convertParameters.InsertbodyData(productDTO));
 	 return productDTO;
 	}
 	
@@ -81,18 +78,15 @@ public class ProductService   {
 		ProductEntity productEntity = new ProductEntity();
 		ProductDTO productDTO = convertProductDTOtoProduct(productEntity );
 		productDTO.setPurchase_item(client_guest_id);
-		APIResponse response = productServiceBlockingStub.deleteById(Product.newBuilder()
+		productServiceBlockingStub.deleteById(Product.newBuilder()
 				.setPurchaseItem(convertParameters.convertToint32value(productDTO .getPurchase_item()) )
 				.build()
 				);
-	response.getResponsemessage();
-	
 }
 	
 	public ProductDTO updatedata(ProductEntity product) {
 		ProductDTO productDTO = convertProductDTOtoProduct(product);
-		APIResponse response = productServiceBlockingStub.update( convertParameters.updatebodyData(productDTO));
-	 response.getResponsemessage();
+	 productServiceBlockingStub.update( convertParameters.updatebodyData(productDTO));
 	 return productDTO;
 	
 	}

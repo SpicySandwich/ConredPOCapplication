@@ -49,9 +49,6 @@ message ProductList {
 
 }
 
-
-
-
 message APIResponse{
       string responsemessage = 1;
       int32  responseCode  = 2;

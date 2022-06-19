@@ -7,39 +7,36 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
-import com.cartservice.ConvertParameters.BodyConvertParametrs;
 import com.cartservice.ModelExceptionGRPC.DATE_EXCEPTION_GRPC;
 import com.cartservice.ModelExceptionGRPC.NOT_NULL_GRPC;
+import com.google.protobuf.DoubleValue;
+import com.google.protobuf.Int32Value;
+import com.google.protobuf.StringValue;
 import com.grpcserver.product.ProductServer.CartErrorCode;
-import com.grpcserver.product.ProductServer.Product;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class InputValidation {
 	
-	
-	@Autowired
-	private BodyConvertParametrs bofBodyConvertParametrs;
-	
-	public  Product nullErrors( Product  request){
-		
-	    if (
-	    		bofBodyConvertParametrs.convertJavaString(request.getProductname()).trim().isEmpty()
-		    || bofBodyConvertParametrs.convertJavaString(request.getProductbrand()).trim().isEmpty()
-		    || bofBodyConvertParametrs.convertJavaString( request.getProductdescription()).trim().isEmpty()
-		    	) throw new NOT_NULL_GRPC(CartErrorCode.CART_VALUE_CANNOT_BE_NULL,"Kindly fill up all field");
-		return request;
-	
-	}
-	public boolean isNullOrZeroDouble(Double i){
-		
-	     return i == null || i.doubleValue() == 0;
-	}
-	
-	public boolean isNullOrZeroInterger(Integer i){
+
+	public boolean isNullString(StringValue stringValue){
 		boolean valid = true;
-	   if (i == null || i.intValue() == 0) throw new NOT_NULL_GRPC(CartErrorCode.CART_VALUE_CANNOT_BE_NULL,"Kindly fill up all field");
+	     if (stringValue.getValue().trim().isEmpty()) throw new NOT_NULL_GRPC(CartErrorCode.CART_VALUE_CANNOT_BE_NULL,"Kindly fill up all field");
+	     
+	 	return valid;
+	}
+	
+	
+	public boolean isNullOrZeroDouble(DoubleValue doubleValue){
+		boolean valid = true;
+	     if (doubleValue== null ||doubleValue.getValue() == 0) throw new NOT_NULL_GRPC(CartErrorCode.CART_VALUE_CANNOT_BE_NULL,"Kindly fill up all field");
+	     
+	 	return valid;
+	}
+	
+	public boolean isNullOrZeroInterger(Int32Value int32Value){
+		boolean valid = true;
+	   if (int32Value == null || int32Value.getValue() == 0) throw new NOT_NULL_GRPC(CartErrorCode.CART_VALUE_CANNOT_BE_NULL,"Kindly fill up all field");
 
 		return valid;
 
@@ -86,7 +83,7 @@ public class InputValidation {
 	}
 	public Integer DateMonthExceed(Integer integer) {
 		
-		if(integer >=13)throw new DATE_EXCEPTION_GRPC(CartErrorCode.CART_DATE_ERROR,"Month cant exceed at 13");
+		if(integer >=13)throw new DATE_EXCEPTION_GRPC(CartErrorCode.CART_DATE_ERROR,"Month cant exceed at 12");
 		return DateNotNull(integer);
 			
 	}

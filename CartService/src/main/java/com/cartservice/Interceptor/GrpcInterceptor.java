@@ -2,6 +2,7 @@ package com.cartservice.Interceptor;
 
 import io.grpc.Metadata;
 import io.grpc.ServerCall;
+import io.grpc.ServerCall.Listener;
 import io.grpc.ServerCallHandler;
 import io.grpc.ServerInterceptor;
 import io.grpc.MethodDescriptor;
@@ -10,45 +11,42 @@ import io.grpc.Status;
 import lombok.extern.slf4j.Slf4j;
 
 import org.lognet.springboot.grpc.GRpcGlobalInterceptor;
-import static io.grpc.Metadata.ASCII_STRING_MARSHALLER;
 
 @Slf4j
 @GRpcGlobalInterceptor
 public class GrpcInterceptor implements ServerInterceptor{
-
-
-	    public static final Metadata.Key<String> TRACE_ID_KEY = Metadata.Key.of("traceId", ASCII_STRING_MARSHALLER);
-
+	
+	
 	    @Override
-	    public <M, R> ServerCall.Listener<M> interceptCall(
-	            ServerCall<M, R> call, Metadata headers, ServerCallHandler<M, R> next) {
-	        String traceId = headers.get(TRACE_ID_KEY);
-	        
-	        log.warn("TraceId from client: {}.", traceId);
+	    public <ReqT, RespT> ServerCall.Listener<ReqT> interceptCall(
+	            ServerCall<ReqT, RespT> call, Metadata headers, ServerCallHandler<ReqT, RespT> next) {
 
-	        GrpcServerCall grpcServerCall = new GrpcServerCall(call);
 
-	        ServerCall.Listener listener = next.startCall(grpcServerCall, headers);
+	        GrpcServerCall<ReqT, RespT> grpcServerCall = new GrpcServerCall<ReqT, RespT>(call);
 
-	        return new GrpcForwardingServerCallListener<M>(call.getMethodDescriptor(), listener) {
+	        Listener<ReqT> listener = next.startCall(grpcServerCall, headers);
+
+	        return new ForwardServerCallListener<ReqT>(call.getMethodDescriptor(), listener) {
+	        	//Request
 	            @Override
-	            public void onMessage(M message) {
+	            public void onMessage(ReqT message) {
 	            	log.info("Method: {}, Message: {}", methodName, message);
 	                super.onMessage(message);
 	            }
 	        };
 	    }
 
-	    private class GrpcServerCall<M, R> extends ServerCall<M, R> {
+	    private class GrpcServerCall<ReqT, RespT> extends ServerCall<ReqT, RespT> {
 
-	        ServerCall<M, R> serverCall;
+	        ServerCall<ReqT, RespT> serverCall;
 
-	        protected GrpcServerCall(ServerCall<M, R> serverCall) {
+	        protected GrpcServerCall(ServerCall<ReqT,RespT> serverCall) {
 	            this.serverCall = serverCall;
 	        }
 
 	        @Override
 	        public void request(int numMessages) {
+	        	log.info("numMessages: {}",numMessages);
 	            serverCall.request(numMessages);
 	        }
 
@@ -56,10 +54,10 @@ public class GrpcInterceptor implements ServerInterceptor{
 	        public void sendHeaders(Metadata headers) {
 	            serverCall.sendHeaders(headers);
 	        }
-
+	      //Responce
 	        @Override
-	        public void sendMessage(R message) {
-	        	log.info("Method: {}, Response: {}", serverCall.getMethodDescriptor().getFullMethodName(), message);
+	        public void sendMessage(RespT message) {
+	        	log.info(" Response: {}", message);
 	            serverCall.sendMessage(message);
 	        }
 
@@ -74,16 +72,16 @@ public class GrpcInterceptor implements ServerInterceptor{
 	        }
 
 	        @Override
-	        public MethodDescriptor<M, R> getMethodDescriptor() {
+	        public MethodDescriptor<ReqT, RespT> getMethodDescriptor() {
 	            return serverCall.getMethodDescriptor();
 	        }
 	    }
 
-	    private class GrpcForwardingServerCallListener<M> extends io.grpc.ForwardingServerCallListener.SimpleForwardingServerCallListener<M> {
+	    private class ForwardServerCallListener<ReqT> extends io.grpc.ForwardingServerCallListener.SimpleForwardingServerCallListener<ReqT> {
 
 	        String methodName;
 
-	        protected GrpcForwardingServerCallListener(MethodDescriptor method, ServerCall.Listener<M> listener) {
+	        protected ForwardServerCallListener(MethodDescriptor<?, ?> method, ServerCall.Listener<ReqT> listener) {
 	            super(listener);
 	            methodName = method.getFullMethodName();
 	        }

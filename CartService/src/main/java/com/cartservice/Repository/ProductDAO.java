@@ -24,7 +24,7 @@ public interface ProductDAO {
 	public int insert(ProductEntity  productEntity);
 	
 	@Delete("DELETE FROM tb_product WHERE purchase_item = #{purchase_item}")
-	public void deleteById(Integer purchase_item);
+	public int deleteById(Integer purchase_item);
 	
 	@Select("SELECT * FROM tb_product  WHERE  purchase_item = #{purchase_item}")
 	 public ProductEntity findById(Integer purchase_item);

@@ -7,12 +7,11 @@ services:
 # - host: host.docker.internal
 #   port: 8099
 #   name: swagger-service
-#   path: /swagger-ui/index.html
+#   path: /swaggerpoc
 #   routes:
-#     plugins:
-#     - name: swagger-service
-#       config: 
-#         url: /titans/api
+#   - name: swagger-service
+#     paths:
+#     - /swagger
 #     strip_path: true
 
 
