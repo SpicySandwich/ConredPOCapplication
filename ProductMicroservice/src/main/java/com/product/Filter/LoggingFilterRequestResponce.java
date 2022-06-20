@@ -44,7 +44,7 @@ public class LoggingFilterRequestResponce implements Filter {
 		 
  chain.doFilter(wrappedRequest, responseWrapper);
 		 
-		 String responseBody = getStringValue(responseWrapper.getContentAsByteArray(),response.getCharacterEncoding());
+		 String responseBody = getStringValue(wrappedRequest.getContentAsByteArray(),response.getCharacterEncoding());
 		 String requestBody = getStringValue(responseWrapper.getContentAsByteArray(),request.getCharacterEncoding());
 	      
 		        logger.info(

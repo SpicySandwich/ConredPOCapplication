@@ -13,18 +13,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.cartgatewayservice.RestModelException.INTERNAL_ERROR;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.util.ContentCachingRequestWrapper;
 import org.springframework.web.util.ContentCachingResponseWrapper;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Component
 @Order(2)
 public class LoggingFilterRequestResponce implements Filter {
 	
-	private Logger logger = LoggerFactory.getLogger(LoggingFilterRequestResponce.class);
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
@@ -38,10 +38,11 @@ public class LoggingFilterRequestResponce implements Filter {
 		 
 		 chain.doFilter(wrappedRequest, responseWrapper);
 		 
-		 String responseBody = getStringValue(responseWrapper.getContentAsByteArray(),response.getCharacterEncoding());
+		 String responseBody = getStringValue(wrappedRequest.getContentAsByteArray(),response.getCharacterEncoding());
+		 
 		 String requestBody = getStringValue(responseWrapper.getContentAsByteArray(),request.getCharacterEncoding());
 	      
-		        logger.info(
+		        log.info(
 						"\nLoggingFilterRequestResponce" 
 						+"\nLocal Port: {} "
 						+ "\nServer Name: {}"

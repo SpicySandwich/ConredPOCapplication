@@ -19,9 +19,6 @@ import com.cartgatewayservice.DTO.ProductDTO;
 import com.cartgatewayservice.Model.ProductEntity;
 import com.cartgatewayservice.Service.ProductService;
 
-
-
-
 @RestController
 @RequestMapping(value = "/cart")
 public class ProductController {
@@ -29,16 +26,9 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 	
-
-	
-	
-	
 	 @GetMapping
      public List<ProductDTO> GetProductList( ){
-		 
-           return productService.list();
-      
-           
+           return productService.list();    
   	 }
 
     @PostMapping
@@ -51,26 +41,20 @@ public class ProductController {
     @DeleteMapping("/{purchase_item}")
     public void DeleteProduct(@PathVariable Integer purchase_item, @RequestBody ProductDTO productEntity) {
     	productService.deletedata(purchase_item);
-
-   
-   	 
     }
     
     @GetMapping("/{purchase_item}")
 	 public ProductDTO  getProductData(@PathVariable Integer purchase_item) {
     	ProductDTO productDTO = productService.findbyid(purchase_item);
     	 return productDTO;
-       
-	 
+
 }
     
     @PutMapping
     public ProductDTO updateProduct(@RequestBody ProductEntity productEntity){
     	ProductDTO productDTO = productService.updatedata(productEntity);
     	return productDTO;
-	
-      
+
     }
-	
 
 }

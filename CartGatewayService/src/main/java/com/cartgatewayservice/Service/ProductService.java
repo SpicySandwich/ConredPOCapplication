@@ -10,12 +10,15 @@ import org.springframework.stereotype.Service;
 
 import com.cartgatewayservice.BodyConvertParameters.ConvertParameters;
 import com.cartgatewayservice.DTO.ProductDTO;
+import com.cartgatewayservice.Interceptor.GrpcClientInterceptor;
 import com.cartgatewayservice.Model.ProductEntity;
 import com.google.protobuf.Int32Value;
-import com.grpcserver.product.ProductServer.APIResponse;
 import com.grpcserver.product.ProductServer.Product;
 import com.grpcserver.product.ProductServer.ProductList;
 import com.grpcserver.product.ProductServiceGrpc;
+
+import io.grpc.Channel;
+import io.grpc.ClientInterceptors;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
@@ -28,6 +31,7 @@ public class ProductService   {
 	private ConvertParameters convertParameters;
 	
 	
+	
 	 private ManagedChannel channel;
 	 private  ProductServiceGrpc.ProductServiceStub productServiceStub;
 	 private ProductServiceGrpc.ProductServiceBlockingStub productServiceBlockingStub;
@@ -35,8 +39,10 @@ public class ProductService   {
 	
     private void initializeStub() {
         channel = ManagedChannelBuilder.forAddress("cartservice", 9090).usePlaintext().build();
-        productServiceBlockingStub = ProductServiceGrpc.newBlockingStub(channel);
-        productServiceStub = ProductServiceGrpc.newStub(channel);
+        
+        Channel ch = ClientInterceptors.intercept(channel,  new GrpcClientInterceptor());
+        productServiceBlockingStub = ProductServiceGrpc.newBlockingStub(ch);
+        productServiceStub = ProductServiceGrpc.newStub(ch);
         
         
     }
