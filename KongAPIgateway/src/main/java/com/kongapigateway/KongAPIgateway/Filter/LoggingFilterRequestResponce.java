@@ -35,17 +35,11 @@ public class LoggingFilterRequestResponce implements Filter {
 		
 		 ContentCachingRequestWrapper wrappedRequest = new ContentCachingRequestWrapper(httpServletRequest);
 		 ContentCachingResponseWrapper responseWrapper = new ContentCachingResponseWrapper(httpServletResponse);
-
-		
-
 	          
 		 chain.doFilter(wrappedRequest, responseWrapper);
-		 
 
-		
-		 
-		 String responseBody = getStringValue(wrappedRequest.getContentAsByteArray(),response.getCharacterEncoding());
-		 String requestBody = getStringValue(responseWrapper.getContentAsByteArray(),request.getCharacterEncoding());
+		 String requestBody = getStringValue(wrappedRequest.getContentAsByteArray(),request.getCharacterEncoding());
+		 String responseBody = getStringValue(responseWrapper.getContentAsByteArray(),response.getCharacterEncoding());
 	      
 		        logger.info(
 						"\nLoggingFilterRequestResponce" 
@@ -54,16 +48,15 @@ public class LoggingFilterRequestResponce implements Filter {
 						+ "\nMethod: {}"
 						+ "\nRequest URI: {}"
 						+ "\nServlet Path: {}"
-						+ "\nRESPONCE: {}"
-						+ "\nREQUEST : {}",
+						+ "\nREQUEST : {}"
+						+ "\nRESPONCE: {}",
 						request.getLocalPort(),
 						request.getServerName(),
 						httpServletRequest.getMethod(),
 				        httpServletRequest.getRequestURI(),
 				        httpServletRequest.getServletPath(),
-				        responseBody,
-				        requestBody
-				        
+				        requestBody,
+				        responseBody 
 						);
 		        responseWrapper.copyBodyToResponse();
 		

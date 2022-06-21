@@ -38,10 +38,10 @@ public class LoggingFilterRequestResponce implements Filter {
 		 
 		 chain.doFilter(wrappedRequest, responseWrapper);
 		 
-		 String responseBody = getStringValue(wrappedRequest.getContentAsByteArray(),response.getCharacterEncoding());
+		 String requestBody = ContentValue(wrappedRequest.getContentAsByteArray(),request.getCharacterEncoding());
 		 
-		 String requestBody = getStringValue(responseWrapper.getContentAsByteArray(),request.getCharacterEncoding());
-	      
+		 String responseBody = ContentValue(responseWrapper.getContentAsByteArray(),response.getCharacterEncoding());
+		 
 		        log.info(
 						"\nLoggingFilterRequestResponce" 
 						+"\nLocal Port: {} "
@@ -49,22 +49,21 @@ public class LoggingFilterRequestResponce implements Filter {
 						+ "\nMethod: {}"
 						+ "\nRequest URI: {}"
 						+ "\nServlet Path: {}"
-						+ "\nRESPONCE: {}"
-						+ "\nREQUEST : {}",
+						+ "\nREQUEST : {}"
+						+ "\nRESPONCE: {}",
 						request.getLocalPort(),
 						request.getServerName(),
 						httpServletRequest.getMethod(),
 				        httpServletRequest.getRequestURI(),
 				        httpServletRequest.getServletPath(),
-				        responseBody,
-				        requestBody
-				        
+				        requestBody,
+				        responseBody
 						);
 		        responseWrapper.copyBodyToResponse();
 		
 	}
 
-	private String getStringValue(byte[] contentAsByteArray, String characterEncoding) {
+	private String ContentValue(byte[] contentAsByteArray, String characterEncoding) {
 	try {
 		
 		return new String(contentAsByteArray,0,contentAsByteArray.length,characterEncoding);

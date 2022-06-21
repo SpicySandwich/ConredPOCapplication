@@ -83,7 +83,7 @@ public class InputValidation {
 	}
 	public Integer DateMonthExceed(Integer integer) {
 		
-		if(integer >=13)throw new DATE_EXCEPTION_GRPC(CartErrorCode.CART_DATE_ERROR,"Month cant exceed at 12");
+		if(integer >=13 ||integer <= 0)throw new DATE_EXCEPTION_GRPC(CartErrorCode.CART_DATE_ERROR,"Month cant exceed at 12");
 		return DateNotNull(integer);
 			
 	}

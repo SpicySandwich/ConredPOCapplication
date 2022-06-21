@@ -104,6 +104,7 @@ public List<ProductDTO> list(){
 	 List<Product> products2 = productList.getProductList();
  
 	 List<ProductDTO> list = new ArrayList<>();
+	 
 		for (Iterator iterator = products2.iterator(); iterator.hasNext();) {
 			Product product = (Product) iterator.next();
 			
