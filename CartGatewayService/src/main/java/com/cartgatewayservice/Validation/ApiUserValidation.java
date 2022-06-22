@@ -1,6 +1,7 @@
 package com.cartgatewayservice.Validation;
 
 import java.time.LocalDate;
+import java.time.YearMonth;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -64,19 +65,26 @@ public class ApiUserValidation {
 		    
 		}
 	
-	public String DateFormatValidation(String input) {
-		String dString =  DateNotNull(input);
-		  String DateFormatPattern = 
-				  "([20]{2}[0-9]{2})"+
-	  		    		"([-]{1})" +
-	  		    		 "([0]{1}[1-9]{1}|[1]{1}[0-2]{1}|[1-9]{1})"+
-	  		    		"([-]{1})" +
-	  		    		"([1-9]{1}|[0]{1}[1-9]{1}|[1]{1}[0-9]{1}|[2]{1}[0-9]{1}|[3]{1}[0-1]{1})" ;
+	public String DateFormatValidation(String dString ) {
+	//	String dString =  DateNotNull(input);
+		
+		DateTimeFormatter localDateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		
+		 YearMonth yearMonth = YearMonth.parse(dString, localDateFormatter);
+		 LocalDate dateCheckday = yearMonth.atEndOfMonth(); 
+		 Integer checkDay =  dateCheckday.getDayOfMonth();
+	 
+		 String replacedate  = dString.replace("-", "");
+		 
+		    String dayIndex =replacedate.substring(6, 8);
+		    Integer actualInputDay = Integer.parseInt(dayIndex);
+		  if ( actualInputDay > checkDay || actualInputDay <= 0)  throw new DATE_FORMAT_EXCEPTION("Day cannot be greater than "+checkDay);
 		  
-		  Pattern pattern = Pattern.compile(DateFormatPattern);
-		  Matcher matcher = pattern.matcher(dString);
+		  String MonthIndex =replacedate.substring(4, 6);
+		    Integer actualInputmonth = Integer.parseInt(MonthIndex );
+		  if (actualInputmonth >= 13 )throw new DATE_FORMAT_EXCEPTION("Month cannot be greater than 12");
 		  
-		  if (!matcher.matches())  throw new DATE_FORMAT_EXCEPTION("Date format is invalid. Example format (yyyy-MM-dd)");
+
 		return checkDateIfEqualOrPrevious(dString);
 				 
 		  
@@ -87,6 +95,7 @@ public class ApiUserValidation {
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 			
 			LocalDate datep = LocalDate.parse(stringdate, formatter);
+			
 			
 			ZoneId defaultZoneId = ZoneId.systemDefault();
 			
@@ -106,6 +115,7 @@ public class ApiUserValidation {
 				LocalDate localDate3 =LocalDate.of(expiredyear,expiredmonth,expiredday + 1 );
 
 				    date.getTime();
+				    
 				    
 				    if(date.equals(checkdate) || date.before(checkdate)) throw new DATE_FORMAT_EXCEPTION("Expiration date must ahead or equal to " + localDate3 + ".");
 					return stringdate;

@@ -11,8 +11,6 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 
 public class LocalDateTimeDeserializer extends StdDeserializer<LocalDateTime>{
 	
-
-	 
 	  public LocalDateTimeDeserializer() {
 	        super(LocalDateTime.class);
 	    }

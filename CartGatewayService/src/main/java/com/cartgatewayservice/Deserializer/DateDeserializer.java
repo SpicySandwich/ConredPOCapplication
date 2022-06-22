@@ -8,6 +8,7 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
+import com.cartgatewayservice.RestModelException.DATE_FORMAT_EXCEPTION;
 import com.cartgatewayservice.Validation.ApiUserValidation;
 import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.JsonParser;
@@ -56,7 +57,7 @@ public class DateDeserializer extends  StdDeserializer<Date> {
           
         } catch (DateTimeException e) {
         	
-        	  throw new DateTimeException("Date format is invalid");
+        	  throw new DATE_FORMAT_EXCEPTION(e.getCause().getMessage().toString());
         }
 	
 	}

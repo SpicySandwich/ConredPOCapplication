@@ -26,7 +26,8 @@ public class DateConvert {
 		Integer month =date.getMonth() ;
 		Integer days = date.getDay();
 		
-		LocalDate invLocDat = LocalDate.of(year, inputValidation.DateMonthExceed( month),days);
+		LocalDate invLocDat = inputValidation.DateMonthExceed(year, month, days);
+		
 		invLocDat.getDayOfMonth();
 		
 		

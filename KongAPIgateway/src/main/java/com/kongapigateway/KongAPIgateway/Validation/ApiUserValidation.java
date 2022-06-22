@@ -1,6 +1,7 @@
 package com.kongapigateway.KongAPIgateway.Validation;
 
 import java.time.LocalDate;
+import java.time.YearMonth;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -132,18 +133,25 @@ public String DateNotNull(String date) {
 
 
 public String DateFormatValidation(String input) {
+
 	String dString =  DateNotNull(input);
-	  String DateFormatPattern = 
-			  "([20]{2}[0-9]{2})"+
-  		    		"([-]{1})" +
-  		    		 "([0]{1}[1-9]{1}|[1]{1}[0-2]{1}|[1-9]{1})"+
-  		    		"([-]{1})" +
-  		    		"([1-9]{1}|[0]{1}[1-9]{1}|[1]{1}[0-9]{1}|[2]{1}[0-9]{1}|[3]{1}[0-1]{1})" ;
+	
+	DateTimeFormatter localDateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+	
+	 YearMonth yearMonth = YearMonth.parse(dString, localDateFormatter);
+	 LocalDate dateCheckday = yearMonth.atEndOfMonth(); 
+	 Integer checkDay =  dateCheckday.getDayOfMonth();
+ 
+	 String replacedate  = dString.replace("-", "");
+	 
+	    String dayIndex =replacedate.substring(6, 8);
+	    Integer actualInputDay = Integer.parseInt(dayIndex);
+	  if ( actualInputDay > checkDay || actualInputDay <= 0)  throw new DATE_FORMAT_ERROR("Day cannot be greater than "+checkDay);
 	  
-	  Pattern pattern = Pattern.compile(DateFormatPattern);
-	  Matcher matcher = pattern.matcher(dString);
+	  String MonthIndex =replacedate.substring(4, 6);
+	    Integer actualInputmonth = Integer.parseInt(MonthIndex );
+	  if (actualInputmonth >= 13 || actualInputmonth <= 0)throw new DATE_FORMAT_ERROR("Month cannot be greater than 12");
 	  
-	  if (!matcher.matches())  throw new DATE_FORMAT_ERROR("Date format is invalid. Example format (yyyy-MM-dd) ");
 	return checkDateIfEqualOrPrevious(dString);
 			 
 	  

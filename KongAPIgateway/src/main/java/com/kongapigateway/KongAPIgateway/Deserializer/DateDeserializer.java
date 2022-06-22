@@ -1,6 +1,7 @@
 package com.kongapigateway.KongAPIgateway.Deserializer;
 
 import java.io.IOException;
+import java.time.DateTimeException;
 import java.time.LocalDate;
 
 import java.time.ZoneId;
@@ -12,6 +13,7 @@ import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.kongapigateway.KongAPIgateway.ModelException.DATE_FORMAT_ERROR;
 import com.kongapigateway.KongAPIgateway.Validation.ApiUserValidation;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,12 +51,13 @@ public class DateDeserializer extends  StdDeserializer<Date> {
 
 		
         String dateValue = p.getValueAsString();
-        
+        try {    
          LocalDate localDate = LocalDate.parse(apiUserValidation.DateFormatValidation(dateValue), localDateFormatter);
-        	  
          return convertToDateViaInstant(localDate);
-              
-
+        } catch (DateTimeException e) {    
+        	
+        	throw new DATE_FORMAT_ERROR(e.getCause().getMessage().toString());
+        }
 	
 	}
 	

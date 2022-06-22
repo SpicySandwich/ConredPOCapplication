@@ -7,6 +7,7 @@ import com.cartgatewayservice.RestModelException.DATE_FORMAT_EXCEPTION;
 import com.cartgatewayservice.RestModelException.ID_NOT_FOUND;
 import com.cartgatewayservice.RestModelException.INTERNAL_ERROR;
 import com.cartgatewayservice.RestModelException.NOT_NULL_EXCEPTION;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

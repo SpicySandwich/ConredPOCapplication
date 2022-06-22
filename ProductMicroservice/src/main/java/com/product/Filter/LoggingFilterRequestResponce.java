@@ -23,6 +23,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.util.ContentCachingRequestWrapper;
 import org.springframework.web.util.ContentCachingResponseWrapper;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Component
 @Order(2)
 public class LoggingFilterRequestResponce implements Filter {
@@ -30,8 +33,6 @@ public class LoggingFilterRequestResponce implements Filter {
 	@Autowired
 	private ProductProducerKafkaTopic productProducerKafkaTopic;
 	
-	private Logger logger = LoggerFactory.getLogger(LoggingFilterRequestResponce.class);
-
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
@@ -43,30 +44,31 @@ public class LoggingFilterRequestResponce implements Filter {
 		 ContentCachingResponseWrapper responseWrapper = new ContentCachingResponseWrapper(httpServletResponse);
 		 
  chain.doFilter(wrappedRequest, responseWrapper);
-		 
-		 String responseBody = getStringValue(wrappedRequest.getContentAsByteArray(),response.getCharacterEncoding());
-		 String requestBody = getStringValue(responseWrapper.getContentAsByteArray(),request.getCharacterEncoding());
+ 
+		 String requestBody = getStringValue(wrappedRequest.getContentAsByteArray(),request.getCharacterEncoding());
+		 String responseBody = getStringValue(responseWrapper.getContentAsByteArray(),response.getCharacterEncoding());
 	      
-		        logger.info(
+		        log.info(
 						"\nLoggingFilterRequestResponce" 
 						+"\nLocal Port: {} "
 						+ "\nServer Name: {}"
 						+ "\nMethod: {}"
 						+ "\nRequest URI: {}"
 						+ "\nServlet Path: {}"
-						+ "\nRESPONCE: {}"
-						+ "\nREQUEST : {}",
+						+ "\nREQUEST : {}"
+						+ "\nRESPONCE: {}",
 						request.getLocalPort(),
 						request.getServerName(),
 						httpServletRequest.getMethod(),
 				        httpServletRequest.getRequestURI(),
 				        httpServletRequest.getServletPath(),
-				        responseBody,
-				        requestBody
+				        requestBody,
+				        responseBody
+				        
 				        
 						);
 		        //to kafka topic
-		        if (logger.isInfoEnabled()) {
+		        if (log.isInfoEnabled()) {
 		        	
 		        	 String message = MessageFormat.format(
 		        			 "\nLoggingFilterRequestResponce" 
@@ -75,15 +77,15 @@ public class LoggingFilterRequestResponce implements Filter {
 								+ "\nMethod: {2}"
 								+ "\nRequest URI: {3}"
 								+ "\nServlet Path: {4}"
-								+ "\nRESPONCE: {5}"
-								+ "\nREQUEST : {6}",
+								+ "\nREQUEST : {5}"
+								+ "\nRESPONCE: {6}",
 								request.getLocalPort(),
 								request.getServerName(),
 								httpServletRequest.getMethod(),
 						        httpServletRequest.getRequestURI(),
 						        httpServletRequest.getServletPath(),
-						        responseBody,
-						        requestBody);
+						        requestBody,
+						        responseBody);
 		             
 		        	 productProducerKafkaTopic.sendMessageDTO(message);
 				}

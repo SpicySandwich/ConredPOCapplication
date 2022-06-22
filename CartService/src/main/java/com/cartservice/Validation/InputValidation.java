@@ -44,19 +44,11 @@ public class InputValidation {
 
 	
 	public Date  checkdateFuture(String dateString){
-		ZoneId defaultZoneId = ZoneId.systemDefault();
-		DateTimeFormatter localDateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-//		---------	
-		 YearMonth yearMonth = YearMonth.parse(dateString, localDateFormatter);
-		 LocalDate dateCheckday = yearMonth.atEndOfMonth(); 
-		 Integer checkDay =  dateCheckday.getDayOfMonth();
-	//		---------	 
-		  LocalDate local_date = LocalDate.parse(dateString, localDateFormatter);
-		  
-		Integer daysinput  =local_date.getDayOfMonth();
-		if ( daysinput > checkDay) {throw new DATE_EXCEPTION_GRPC(CartErrorCode.CART_DATE_ERROR,"Day cant exceed to "+ checkDay);}
 		
-		  Date checkdate = Date.from(local_date .atStartOfDay(defaultZoneId).toInstant());
+		DateTimeFormatter localDateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		  LocalDate local_date = LocalDate.parse(dateString, localDateFormatter);
+		   
+		  Date checkdate = Date.from(local_date .atStartOfDay(ZoneId.systemDefault()).toInstant());
 		
 		LocalDate currentdate = LocalDate.now();
 
@@ -65,9 +57,8 @@ public class InputValidation {
 		int expiredyear = expiredDate.getYear();
 		int expiredmonth= expiredDate.getMonthValue();
 		
-	
 		LocalDate localDate2 =LocalDate.of(expiredyear,expiredmonth,expiredday );
-		Date checkdate2 = Date.from(localDate2 .atStartOfDay(defaultZoneId).toInstant());
+		Date checkdate2 = Date.from(localDate2 .atStartOfDay(ZoneId.systemDefault()).toInstant());
 		
 		if(    checkdate .equals(checkdate2)  || 
 				checkdate .before(checkdate2)) throw new DATE_EXCEPTION_GRPC(CartErrorCode.CART_DATE_ERROR,"Date must a head for 2 month with ahead of current day: " + localDate2);
@@ -76,17 +67,40 @@ public class InputValidation {
    
 	}
 	
-	public Integer DateNotNull(Integer integer) {
-		if (integer == null || integer <= 0 )throw new DATE_EXCEPTION_GRPC(CartErrorCode.CART_DATE_ERROR,"Date cannot be empty");
-		return integer;
-		
-	}
-	public Integer DateMonthExceed(Integer integer) {
-		
-		if(integer >=13 ||integer <= 0)throw new DATE_EXCEPTION_GRPC(CartErrorCode.CART_DATE_ERROR,"Month cant exceed at 12");
-		return DateNotNull(integer);
+	public LocalDate DateMonthExceed(Integer year, Integer month, Integer day) {
+		DateTimeFormatter localDateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+		 String myString =  String.format("%d-%02d-%02d", DateNotNull(year), CheckMonth(DateNotNull(month)), DateNotNull(day));
+
+				 YearMonth yearMonth = YearMonth.parse(myString, localDateFormatter);
+				 LocalDate dateCheckday = yearMonth.atEndOfMonth(); 
+				 Integer checkDay =  dateCheckday.getDayOfMonth();
+				 
+				 String replacedate  = myString.replace("-", "");
+				 
+				    String dayIndex =replacedate.substring(6, 8);
+				    Integer actualInputDay = Integer.parseInt(dayIndex);
+
+				  if ( actualInputDay > checkDay || actualInputDay <= 0) throw new DATE_EXCEPTION_GRPC(CartErrorCode.CART_DATE_ERROR,"Day cannot be greater than "+checkDay);
+				   
+				  return LocalDate.of(year, CheckMonth(month), day);
 			
 	}
+	
+	public Integer CheckMonth(Integer integer) {
+		
+		 if (integer >= 13 || integer <= 0)throw new DATE_EXCEPTION_GRPC(CartErrorCode.CART_DATE_ERROR,"Month cannot be greater than 12");
+		return integer;
+
+	}
+	
+	public Integer DateNotNull(Integer integer) {
+	if (integer == null || integer <= 0 )throw new DATE_EXCEPTION_GRPC(CartErrorCode.CART_DATE_ERROR,"Date cannot be empty");
+	return integer;
+	
+}
+
+	
 	
 
 	
