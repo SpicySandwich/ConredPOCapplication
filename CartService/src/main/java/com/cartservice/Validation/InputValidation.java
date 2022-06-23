@@ -2,7 +2,6 @@ package com.cartservice.Validation;
 
 
 import java.time.LocalDate;
-import java.time.YearMonth;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -68,31 +67,17 @@ public class InputValidation {
 	}
 	
 	public LocalDate DateMonthExceed(Integer year, Integer month, Integer day) {
-		DateTimeFormatter localDateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-
-		 String myString =  String.format("%d-%02d-%02d", DateNotNull(year), CheckMonth(DateNotNull(month)), DateNotNull(day));
-
-				 YearMonth yearMonth = YearMonth.parse(myString, localDateFormatter);
-				 LocalDate dateCheckday = yearMonth.atEndOfMonth(); 
-				 Integer checkDay =  dateCheckday.getDayOfMonth();
-				 
-				 String replacedate  = myString.replace("-", "");
-				 
-				    String dayIndex =replacedate.substring(6, 8);
-				    Integer actualInputDay = Integer.parseInt(dayIndex);
-
-				  if ( actualInputDay > checkDay || actualInputDay <= 0) throw new DATE_EXCEPTION_GRPC(CartErrorCode.CART_DATE_ERROR,"Day cannot be greater than "+checkDay);
-				   
-				  return LocalDate.of(year, CheckMonth(month), day);
+	
+		 String myString =  String.format("%d-%02d-%02d", DateNotNull(year), DateNotNull(month), DateNotNull(day));
+		 
+		 if (!myString.matches(
+				 " ^((?:(?:1[6-9]|2[0-9])\\d{2})(-)(?:(?:(?:0[13578]|1[02])(-)31)|((0[1,3-9]|1[0-2])(-)(29|30))))$|^(?:(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00)))(-)02(-)29)$|^(?:(?:1[6-9]|2[0-9])\\d{2})(-)(?:(?:0[1-9])|(?:1[0-2]))(-)(?:0[1-9]|1\\d|2[0-8])$")) 
+			 throw new DATE_EXCEPTION_GRPC(CartErrorCode.CART_DATE_ERROR,"Invalid Date format");
+	   
+				  return LocalDate.of(year, month, day);
 			
 	}
 	
-	public Integer CheckMonth(Integer integer) {
-		
-		 if (integer >= 13 || integer <= 0)throw new DATE_EXCEPTION_GRPC(CartErrorCode.CART_DATE_ERROR,"Month cannot be greater than 12");
-		return integer;
-
-	}
 	
 	public Integer DateNotNull(Integer integer) {
 	if (integer == null || integer <= 0 )throw new DATE_EXCEPTION_GRPC(CartErrorCode.CART_DATE_ERROR,"Date cannot be empty");

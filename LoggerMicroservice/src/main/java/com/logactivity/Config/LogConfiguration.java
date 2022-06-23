@@ -19,7 +19,6 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.listener.ConcurrentMessageListenerContainer;
 import org.springframework.kafka.support.converter.StringJsonMessageConverter;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
-import org.springframework.web.client.RestTemplate;
 
 
 @Configuration
@@ -82,10 +81,7 @@ public class LogConfiguration {
 	        return factory;
 	        }
 	    
-	    @Bean
-		public RestTemplate restTemplate() {
-		    return new RestTemplate();
-		}
+	
 	    
 	    
 }

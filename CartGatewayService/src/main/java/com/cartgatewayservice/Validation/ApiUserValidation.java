@@ -1,15 +1,10 @@
 package com.cartgatewayservice.Validation;
 
 import java.time.LocalDate;
-import java.time.YearMonth;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import com.cartgatewayservice.DTO.ProductDTO;
-import com.cartgatewayservice.Model.ProductEntity;
 import com.cartgatewayservice.RestModelException.DATE_FORMAT_EXCEPTION;
 import com.cartgatewayservice.RestModelException.NOT_NULL_EXCEPTION;
 
@@ -65,27 +60,15 @@ public class ApiUserValidation {
 		    
 		}
 	
-	public String DateFormatValidation(String dString ) {
-	//	String dString =  DateNotNull(input);
+	public String DateFormatValidation(String input ) {
+		String dString =  DateNotNull(input);
 		
-		DateTimeFormatter localDateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-		
-		 YearMonth yearMonth = YearMonth.parse(dString, localDateFormatter);
-		 LocalDate dateCheckday = yearMonth.atEndOfMonth(); 
-		 Integer checkDay =  dateCheckday.getDayOfMonth();
-	 
-		 String replacedate  = dString.replace("-", "");
-		 
-		    String dayIndex =replacedate.substring(6, 8);
-		    Integer actualInputDay = Integer.parseInt(dayIndex);
-		  if ( actualInputDay > checkDay || actualInputDay <= 0)  throw new DATE_FORMAT_EXCEPTION("Day cannot be greater than "+checkDay);
-		  
-		  String MonthIndex =replacedate.substring(4, 6);
-		    Integer actualInputmonth = Integer.parseInt(MonthIndex );
-		  if (actualInputmonth >= 13 )throw new DATE_FORMAT_EXCEPTION("Month cannot be greater than 12");
-		  
-
+		 if (!dString.matches(
+				 " ^((?:(?:1[6-9]|2[0-9])\\d{2})(-)(?:(?:(?:0[13578]|1[02])(-)31)|((0[1,3-9]|1[0-2])(-)(29|30))))$|^(?:(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00)))(-)02(-)29)$|^(?:(?:1[6-9]|2[0-9])\\d{2})(-)(?:(?:0[1-9])|(?:1[0-2]))(-)(?:0[1-9]|1\\d|2[0-8])$")) 
+			 throw new DATE_FORMAT_EXCEPTION("Invalid Date format. Sample format 2023-02-28 (yyyy-MM-dd)");
+	
 		return checkDateIfEqualOrPrevious(dString);
+
 				 
 		  
 	}
