@@ -98,23 +98,12 @@ public String DateNotNull(String date) {
 
 public String DateFormatValidation(String input) {
 	String dString =  DateNotNull(input);
-	  String DateFormatPattern = 
-			  "([20]{2}[0-9]{2})"+
-  		    		"([-]{1})" +
-  		    		 "([0]{1}[1-9]{1}|[1]{1}[0-2]{1}|[1-9]{1})"+
-  		    		"([-]{1})" +
-  		    		"([1-9]{1}|[0]{1}[1-9]{1}|[1]{1}[0-9]{1}|[2]{1}[0-9]{1}|[3]{1}[0-1]{1})" ;
-	  
-	  Pattern pattern = Pattern.compile(DateFormatPattern);
-	  Matcher matcher = pattern.matcher(dString);
-	  
-	  if (!matcher.matches())  throw new DATE_FORMAT_EXCEPTION("Date format is invalid. Example format (yyyy-MM-dd) ");
-	return checkDateIfEqualOrPrevious(dString);
-			 
+	 if (!dString.matches(
+			 " ^((?:(?:1[6-9]|2[0-9])\\d{2})(-)(?:(?:(?:0[13578]|1[02])(-)31)|((0[1,3-9]|1[0-2])(-)(29|30))))$|^(?:(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00)))(-)02(-)29)$|^(?:(?:1[6-9]|2[0-9])\\d{2})(-)(?:(?:0[1-9])|(?:1[0-2]))(-)(?:0[1-9]|1\\d|2[0-8])$")) 
+  throw new DATE_FORMAT_EXCEPTION("Date format is invalid. Example format (yyyy-MM-dd) ");
+	return checkDateIfEqualOrPrevious(dString);			 
 	  
 }
-
-	
 
 	public String  checkDateIfEqualOrPrevious(String stringdate) {
 		

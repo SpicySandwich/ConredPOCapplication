@@ -1,6 +1,5 @@
 package com.kongapigateway.KongAPIgateway.Service;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -9,7 +8,6 @@ import java.util.Map;
 import com.kongapigateway.KongAPIgateway.BodyParameter.BodyParameters;
 import com.kongapigateway.KongAPIgateway.DTOModel.CartDTO;
 import com.kongapigateway.KongAPIgateway.Model.Cart;
-import com.kongapigateway.KongAPIgateway.ModelException.ProductExecption;
 import com.kongapigateway.KongAPIgateway.ModelException.ProductIDnotFound;
 
 
@@ -41,7 +39,6 @@ public class CartService {
 	
 	 public List<CartDTO> getInfo() {
    
-		 try {
 			 
 			    HttpHeaders headers = new HttpHeaders();
 			    headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
@@ -51,15 +48,12 @@ public class CartService {
 
 			        return  bodyParameters.bodyCartDTOList(result.getBody());
 			
-		} catch (Exception e) {
-			   throw new ProductExecption("Cart list is not available at the moment");
-		}
 
 	    }
 	 
 	   public CartDTO saveData(Cart cart) {
 		   CartDTO cartDTO = bodyParameters.bodyCartDTOinsert(cart);
-			   restTemplate.postForEntity(POST_ADD_CART, cartDTO, Cart.class);
+			   restTemplate.postForEntity(POST_ADD_CART, cartDTO, CartDTO.class);
 			    return   cartDTO;
    
      

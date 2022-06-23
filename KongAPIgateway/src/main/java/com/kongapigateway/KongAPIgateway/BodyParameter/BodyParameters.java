@@ -1,7 +1,5 @@
 package com.kongapigateway.KongAPIgateway.BodyParameter;
 
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import com.kongapigateway.KongAPIgateway.DTOConvertTOEntity.CartConvertDTOtoEntity;
@@ -10,7 +8,7 @@ import com.kongapigateway.KongAPIgateway.DTOModel.CartDTO;
 import com.kongapigateway.KongAPIgateway.DTOModel.ProductDTO;
 import com.kongapigateway.KongAPIgateway.Model.Cart;
 import com.kongapigateway.KongAPIgateway.Model.Product;
-import com.kongapigateway.KongAPIgateway.Validation.ApiUserValidation;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,25 +27,25 @@ public class BodyParameters {
 	
 public CartDTO bodyCartDTOinsert(Cart cart) {
 		
-return cartConvertDTOtoEntity.insertDTObody(cart);
+return cartConvertDTOtoEntity.convertCartToDTOInsert(cart);
 
 }
 	
 	public CartDTO bodyCartDTOdelete(Cart cart) {
 		
-return cartConvertDTOtoEntity.deleteDTObody(cart);
+return cartConvertDTOtoEntity.convertCartToDTODelete(cart);
 
 }
 	
 	public CartDTO bodyCartDTOfindbyid(Cart cart) {
 		
-return cartConvertDTOtoEntity.findbyidDTObody(cart);
+return cartConvertDTOtoEntity.convertCartToDTOFindbyId(cart);
 
 }
 	
 	public CartDTO bodyCartDTOupdate(Cart cart) {
 		
-		return cartConvertDTOtoEntity.updateDTObody(cart);
+		return cartConvertDTOtoEntity.convertCartToDTOupdate(cart);
 
 		}
 	

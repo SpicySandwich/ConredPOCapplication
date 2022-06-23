@@ -13,18 +13,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.kongapigateway.KongAPIgateway.ModelException.ProductExecption;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.util.ContentCachingRequestWrapper;
 import org.springframework.web.util.ContentCachingResponseWrapper;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Component
 @Order(2)
 public class LoggingFilterRequestResponce implements Filter {
 	
-	private Logger logger = LoggerFactory.getLogger(LoggingFilterRequestResponce.class);
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
@@ -41,7 +41,7 @@ public class LoggingFilterRequestResponce implements Filter {
 		 String requestBody = getStringValue(wrappedRequest.getContentAsByteArray(),request.getCharacterEncoding());
 		 String responseBody = getStringValue(responseWrapper.getContentAsByteArray(),response.getCharacterEncoding());
 	      
-		        logger.info(
+		        log.info(
 						"\nLoggingFilterRequestResponce" 
 						+"\nLocal Port: {} "
 						+ "\nServer Name: {}"
