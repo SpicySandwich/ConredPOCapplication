@@ -48,7 +48,7 @@ public class CartController {
 	    }
 
 	    @GetMapping("/find/{purchase_item}")
-	    public ResponseEntity<CartDTO> findProduct(@PathVariable Integer purchase_item) {
+	    public CartDTO findProduct(@PathVariable Integer purchase_item) {
 	    	
 	    	return	 cartService.findbyid(purchase_item);
 	    	 

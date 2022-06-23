@@ -53,16 +53,14 @@ public class CartService {
 	 
 	   public CartDTO saveData(Cart cart) {
 		   CartDTO cartDTO = bodyParameters.bodyCartDTOinsert(cart);
-			   restTemplate.postForEntity(POST_ADD_CART, cartDTO, CartDTO.class);
-			    return   cartDTO;
+		   ResponseEntity<CartDTO>  result =  restTemplate.postForEntity(POST_ADD_CART, cartDTO, CartDTO.class);
+			    return  result.getBody();
    
      
 	    }
 	   
 
-	   public Object  deleteData(Integer purchase_item) {
-		   
-		   
+	   public void  deleteData(Integer purchase_item) {
 
 			  Map<String, Integer> proMap = new HashMap<String, Integer>();
 			  proMap.put("purchase_item", purchase_item);
@@ -70,14 +68,14 @@ public class CartService {
 			   HttpEntity<CartDTO> requestEntity = new HttpEntity<CartDTO>(bodyParameters.bodyCartDTOdelete(cart));
 			   
 			  try {
-				  return restTemplate.exchange(DELETE_CART, HttpMethod.DELETE, requestEntity, CartDTO.class,proMap);
+			 restTemplate.exchange(DELETE_CART, HttpMethod.DELETE, requestEntity, CartDTO.class,proMap);
 			} catch (Exception e) {
 				throw new ProductIDnotFound( "ID: " +purchase_item + " not found");
 			}
 			   
 	    }
 	   
-	   public ResponseEntity<CartDTO> findbyid(Integer purchase_item) {
+	   public CartDTO findbyid(Integer purchase_item) {
 		   			  
 			  Map<String, Integer> proMap = new HashMap<String, Integer>();
 			   proMap.put("purchase_item", purchase_item);
@@ -85,8 +83,9 @@ public class CartService {
 			   HttpEntity<CartDTO> requestEntity = new HttpEntity<CartDTO>(bodyParameters.bodyCartDTOfindbyid(cart));
 			   
 			   try { 
-			  return restTemplate.exchange(GET_CART_BYID, HttpMethod.GET, requestEntity, CartDTO.class, proMap);
-				} catch (Exception e) {
+				   ResponseEntity<CartDTO>  result = restTemplate.exchange(GET_CART_BYID, HttpMethod.GET, requestEntity, CartDTO.class, proMap);
+				  return result.getBody(); 
+			   } catch (Exception e) {
 					throw new ProductIDnotFound( "ID: " +purchase_item + " not found");
 				}
 		
