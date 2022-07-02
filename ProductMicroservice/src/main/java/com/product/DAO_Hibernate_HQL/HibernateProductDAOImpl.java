@@ -132,15 +132,15 @@ public class HibernateProductDAOImpl  implements HibernateProductDAO{
 		Transaction transaction = null;
 		Product product2 = new Product();
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-			// start a transaction
+	
 			transaction = session.beginTransaction();
 			
-			// operation 1
+	
 			Object object = session.save(product);
 			
-			// operation 2
+
 			 product2 = session.get(Product.class, (Serializable) object);
-			// commit transaction
+
 			transaction.commit();
 	
 		} catch (Exception e) {
