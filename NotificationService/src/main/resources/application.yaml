@@ -2,8 +2,8 @@
 cloud:
   aws:
     credentials:
-      access-key: secret5
-      secret-key: secret5
+      access-key: secret6
+      secret-key: secret6
     region:
       static: us-west-1
       use-default-aws-region-chain: true

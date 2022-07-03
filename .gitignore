@@ -1,5 +1,6 @@
+NotificationService/src/main/resources/application.yaml
 /.metadata/
 /.sonarlint/
 /RemoteSystemsTempFiles/
 /ProductFrontEnd/
-NotificationService/src/main/resources
+
