@@ -31,6 +31,7 @@ public class ProductDTO {
      @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING, lenient = OptBoolean.FALSE)
     @JsonDeserialize(using = DateDeserializer.class)
      private Date productexpirationdate;
+     private String productemail;
       
 
 

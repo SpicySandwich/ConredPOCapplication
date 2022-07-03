@@ -9,5 +9,7 @@ CREATE TABLE  IF NOT EXISTS `dbpoc`.`tb_product` (
   `productname` varchar(255) NOT NULL,
   `productprice` double NOT NULL,
   `productquantity` int NOT NULL,
+  `productemail` varchar(255) NOT NULL,
   PRIMARY KEY (`purchase_item`)
 ) ENGINE=InnoDB;
+

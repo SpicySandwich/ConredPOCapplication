@@ -16,8 +16,6 @@ import com.product.ModelException.ProductInternalError;
 @Repository
 public class HibernateProductDAOImpl  implements HibernateProductDAO{
 	
-
-	
 	@Override
 	public List<Product> getProduct() {
 	
@@ -44,6 +42,7 @@ public class HibernateProductDAOImpl  implements HibernateProductDAO{
 					+ "productdescription = :productdescription," 
 					+ "productquantity= :productquantity ," 
 					+ "productexpirationdate = :productexpirationdate " 
+					+ "productemail = :productemail" 
 					+ "WHERE purchase_item = :purchase_item";
 			
 			Query query = session.createQuery(hql);
@@ -53,6 +52,7 @@ public class HibernateProductDAOImpl  implements HibernateProductDAO{
 			query.setParameter("productdescription", product.getProductdescription());
 			query.setParameter("productquantity", product.getProductquantity());
 			query.setParameter("productexpirationdate", product.getProductexpirationdate());
+			query.setParameter("productemail", product.getProductemail());
 			query.setParameter("purchase_item",product.getPurchase_item());
 		     query.executeUpdate();
 

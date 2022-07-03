@@ -18,6 +18,7 @@ import com.product.KafkaProducer.ProductProducerKafkaTopic;
 import com.product.ModelException.ProductExecption;
 import com.product.ModelException.ProductIDnotFound;
 import com.product.ModelException.ProductInternalError;
+import com.product.ServiceEmail.EmailIml;
 import com.product.Validation.ApiUserValidation;
 
 @Service
@@ -31,6 +32,9 @@ public class ProductService implements ProductServiceInt {
 	
 @Autowired
  private ApiUserValidation apiUserValidation;
+
+@Autowired
+private EmailIml emailIml;
 	
 	
 	private ProductDTO convertProductDTOtoProduct(Product product) {
@@ -72,8 +76,10 @@ public class ProductService implements ProductServiceInt {
 	@Override
 	public ProductDTO save( Product product) {
 
-			  return convertProductDTOtoProduct((hibernateProductDAO.save(apiUserValidation.ProductnotNull(product))));		 
-
+		ProductDTO productDTO =  convertProductDTOtoProduct((hibernateProductDAO.save(apiUserValidation.ProductnotNull(product))));		 
+//		emailIml.transerToReceiver(productDTO.getProductemail().toString());
+//		emailIml.transerTobody(productDTO.toString());
+		return productDTO;
 	}
 
 	@Transactional

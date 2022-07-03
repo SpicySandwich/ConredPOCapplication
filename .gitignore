@@ -1,4 +1,5 @@
 NotificationService/src/main/resources/application.yaml
+ProductMicroservice/src/main/resources/application.yaml
 /.metadata/
 /.sonarlint/
 /RemoteSystemsTempFiles/

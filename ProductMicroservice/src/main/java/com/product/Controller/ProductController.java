@@ -8,6 +8,8 @@ import com.product.DTO.ProductDTO;
 import com.product.Entity.Product;
 import com.product.KafkaProducer.ProductProducerKafkaTopic;
 import com.product.Service.ProductService;
+import com.product.ServiceEmail.EmailIml;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -33,6 +35,9 @@ public class ProductController {
   	@Autowired
   	private HibernateProductDAOImpl hibernateProductDAOImpl;
   	
+  	@Autowired
+  	private EmailIml email;
+  	
   	
 
   	 @GetMapping
@@ -42,9 +47,10 @@ public class ProductController {
   	 }
        
      @PostMapping
-     public Product  PostProduct(@RequestBody Product product) {
-    	 productService.save(product);
-		return product;
+     public ProductDTO  PostProduct(@RequestBody Product product) {
+    	 ProductDTO  productdto = productService.save(product);
+    	 email.sendEmail(productdto);
+		return productdto;
 		
      }
   

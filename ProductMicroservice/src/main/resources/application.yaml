@@ -1,5 +1,13 @@
-
-
+cloud:
+  aws:
+    credentials:
+      access-key: AKIAZQBE6DE7BMGKDE7B
+      secret-key: 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
+    region:
+      static: us-west-1
+      use-default-aws-region-chain: true
+    stack:
+      auto: false
 
 spring:
   jackson:
@@ -11,6 +19,12 @@ spring:
     url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/dbpoc
     username: root
     password: root
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+  main:
+    allow-bean-definition-overriding: true
   
   kafka:
     properties:

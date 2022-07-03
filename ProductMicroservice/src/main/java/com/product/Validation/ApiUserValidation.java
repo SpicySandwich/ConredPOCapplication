@@ -31,6 +31,7 @@ public class ApiUserValidation {
 			|| productdto.getProductbrand().trim().isEmpty()
 			|| isNullOrZeroDouble( productdto.getProductprice() )
 			||  productdto.getProductdescription().trim().isEmpty()
+			||  productdto.getProductemail().trim().isEmpty()
 			|| isNullOrZeroInterger(productdto.getProductquantity() )
 				) {
 			
