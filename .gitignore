@@ -2,4 +2,4 @@
 /.sonarlint/
 /RemoteSystemsTempFiles/
 /ProductFrontEnd/
-NotificationService/src/main/resources/application.yaml
+/NotificationService/src/main/resources/application.yaml
