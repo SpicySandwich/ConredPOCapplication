@@ -31,14 +31,14 @@ public class EmailIml {
 						  + "\nProduct Brand: {}"
 						  +"\nProduct Price: {}"
 						  +"\nProduct Description: {}"
-						  +"\nProduct Quantity: {}",
+						  +"\nProduct Quantity: {}"
+						  +"\n\nThank you",
 						  productDTO.getProductname(),
 						  productDTO.getProductbrand(),
 						  productDTO.getProductprice(),
 						  productDTO.getProductdescription(),
-						  productDTO.getProductquantity(),
-						  "\n\nThank you"
-				  
+						  productDTO.getProductquantity()
+
 				  );
 		  String message =null;
 	  if (log.isInfoEnabled()) {
@@ -48,13 +48,13 @@ public class EmailIml {
 						  + "\nProduct Brand: {1}"
 						  +"\nProduct Price: {2}"
 						  +"\nProduct Description: {3}"
-						  +"\nProduct Quantity: {4}",
+						  +"\nProduct Quantity: {4}"
+						  +"\n\nThank you",
 						  productDTO.getProductname(),
 						  productDTO.getProductbrand(),
 						  productDTO.getProductprice(),
 						  productDTO.getProductdescription(),
-						  productDTO.getProductquantity(),
-						  "\n\nThank you" ) ;
+						  productDTO.getProductquantity()) ;
 		  }
 		  
 		  email.setBody(message);
