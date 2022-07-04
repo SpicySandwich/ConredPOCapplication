@@ -26,7 +26,8 @@ private ProductDTO convertProductToDTOFindbyId(Product product) {
 			product.getProductprice(),
 			product.getProductdescription(),
 			product.getProductquantity(),
-			product.getProductexpirationdate()
+			product.getProductexpirationdate(),
+			product.getProductemail()
 				);
 		
 		
@@ -41,7 +42,8 @@ private ProductDTO convertProductToDTOupdate(Product product) {
 			product.getProductprice(),
 			product.getProductdescription(),
 			product.getProductquantity(),
-			product.getProductexpirationdate()
+			product.getProductexpirationdate(),
+			product.getProductemail()
 			);
 	
 	validation.ProductnotNull(productDTO);
@@ -60,6 +62,7 @@ private ProductDTO convertProductToDTOupdate(Product product) {
 		productDTO.setProductdescription(product.getProductdescription());
 		productDTO.setProductquantity(product.getProductquantity());
 		productDTO.setProductexpirationdate(product.getProductexpirationdate());
+		productDTO.setProductemail(product.getProductemail());
 		
 		validation.ProductnotNull(productDTO);
 		
@@ -106,8 +109,8 @@ public List<ProductDTO>  ListDTObodyProduct(List<Product> product) {
 	        		products .getProductprice(),
 	        		products .getProductdescription(),
 	        		products .getProductquantity(),
-	        		products .getProductexpirationdate()
-	        		
+	        		products .getProductexpirationdate(),
+	        		products.getProductemail()
 	        		
 	        		))
 	        .collect(Collectors.toList());

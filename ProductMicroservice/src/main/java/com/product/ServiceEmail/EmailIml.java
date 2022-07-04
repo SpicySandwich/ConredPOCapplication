@@ -1,5 +1,7 @@
 package com.product.ServiceEmail;
 
+import java.text.MessageFormat;
+
 import com.product.DTO.ProductDTO;
 import com.product.Entity.EmailEntity;
 
@@ -8,6 +10,9 @@ import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Service;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class EmailIml {
 	
@@ -19,7 +24,40 @@ public class EmailIml {
 	  public String sendEmail(ProductDTO productDTO) {
 		  productDTO.getProductemail();
 		  EmailEntity email = new EmailEntity();
-		  email.setBody(productDTO.toString());
+		  
+		  log.info(
+				  "\nYou Hava Succesfully added the product."
+						  + "\n\nProduct name: {}"
+						  + "\nProduct Brand: {}"
+						  +"\nProduct Price: {}"
+						  +"\nProduct Description: {}"
+						  +"\nProduct Quantity: {}",
+						  productDTO.getProductname(),
+						  productDTO.getProductbrand(),
+						  productDTO.getProductprice(),
+						  productDTO.getProductdescription(),
+						  productDTO.getProductquantity(),
+						  "\n\nThank you"
+				  
+				  );
+		  String message =null;
+	  if (log.isInfoEnabled()) {
+		  message  = MessageFormat.format(
+				  "\nYou Hava Succesfully added the product."
+						  + "\n\nProduct name: {0}"
+						  + "\nProduct Brand: {1}"
+						  +"\nProduct Price: {2}"
+						  +"\nProduct Description: {3}"
+						  +"\nProduct Quantity: {4}",
+						  productDTO.getProductname(),
+						  productDTO.getProductbrand(),
+						  productDTO.getProductprice(),
+						  productDTO.getProductdescription(),
+						  productDTO.getProductquantity(),
+						  "\n\nThank you" ) ;
+		  }
+		  
+		  email.setBody(message);
 		  email.setReceiver(productDTO.getProductemail());
 		  
 	    return sendMessage(email);
