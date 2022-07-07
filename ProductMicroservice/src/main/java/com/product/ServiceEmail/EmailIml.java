@@ -16,8 +16,6 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class EmailIml {
 	
-
-	
 	@Autowired
 	  private MailSender mailSender;
 	
